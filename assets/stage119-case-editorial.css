@@ -1,0 +1,286 @@
+/* stage119-case-editorial
+   Case studies should read like evidence-backed project stories, not stacked UI cards. */
+
+body[data-ux-family="case"] .s51-hero{
+  padding:clamp(3.6rem,6vw,5.8rem) 0 clamp(4.5rem,7vw,6.5rem)!important;
+  background:transparent!important;
+  border-bottom:1px solid rgba(255,255,255,.055)!important;
+}
+body[data-ux-family="case"] .s51-crumbs{
+  margin-bottom:clamp(2rem,3.5vw,3rem)!important;
+  color:#737b84!important;
+  font-size:.7rem!important;
+}
+body[data-ux-family="case"] .s51-hero-grid{
+  grid-template-columns:minmax(0,1.04fr) minmax(23rem,.76fr)!important;
+  gap:clamp(3rem,7vw,7rem)!important;
+}
+body[data-ux-family="case"] .s51-kicker{
+  font-family:inherit!important;
+  font-size:.66rem!important;
+  font-weight:720!important;
+  letter-spacing:.075em!important;
+  color:#848c95!important;
+}
+body[data-ux-family="case"] .s51-hero h1{
+  max-width:11.8ch!important;
+  font-size:clamp(3.4rem,6.3vw,6.5rem)!important;
+  line-height:.92!important;
+  letter-spacing:-.061em!important;
+  font-weight:650!important;
+}
+body[data-ux-family="case"] .s51-hero h1 em,
+body[data-ux-family="case"] .s51-head h2 em{
+  color:var(--ds-text,#f3f5f7)!important;
+  font-weight:520!important;
+}
+body[data-ux-family="case"] .s51-lead{
+  max-width:43rem!important;
+  color:#9aa2aa!important;
+  line-height:1.72!important;
+}
+body[data-ux-family="case"] .s51-btn{
+  border-radius:.72rem!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] .s51-proof{
+  gap:0!important;
+  margin-top:2rem!important;
+  border-block:1px solid rgba(255,255,255,.075)!important;
+}
+body[data-ux-family="case"] .s51-proof div{
+  min-height:4.5rem!important;
+  padding:.85rem .8rem!important;
+  border-top:0!important;
+  border-right:1px solid rgba(255,255,255,.065)!important;
+}
+body[data-ux-family="case"] .s51-proof div:first-child{padding-left:0!important}
+body[data-ux-family="case"] .s51-proof div:last-child{border-right:0!important}
+body[data-ux-family="case"] .s51-proof strong{font-weight:720!important}
+body[data-ux-family="case"] .s51-proof span{color:#79818a!important}
+
+body[data-ux-family="case"] .s51-visual{
+  padding:2.7rem .72rem .72rem!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:1.05rem!important;
+  background:#0c0f13!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] .s51-visual-label{
+  top:.9rem!important;right:.9rem!important;
+  color:#666f78!important;
+  font-family:inherit!important;
+  font-size:.57rem!important;
+  font-weight:700!important;
+  letter-spacing:.055em!important;
+}
+body[data-ux-family="case"] :is(.s51-window,.s51-catalog-shell,.s51-phone){
+  border-color:rgba(255,255,255,.07)!important;
+  box-shadow:none!important;
+  background:#0e1115!important;
+}
+body[data-ux-family="case"] :is(.s51-kpis div,.s51-event,.s51-products div,.s51-mobile-steps span){
+  border-color:rgba(255,255,255,.06)!important;
+  background:rgba(255,255,255,.012)!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] .s51-flow span{
+  border-color:rgba(255,255,255,.08)!important;
+  background:transparent!important;
+  color:#9ba3ac!important;
+}
+body[data-ux-family="case"] .s51-request{
+  border-color:rgba(201,255,74,.10)!important;
+  background:rgba(201,255,74,.018)!important;
+}
+body[data-ux-family="case"] .s51-map{
+  background:linear-gradient(145deg,#10141a,#0d1014)!important;
+}
+
+body[data-ux-family="case"] .s51-section{
+  padding:clamp(4.6rem,7vw,6.8rem) 0!important;
+}
+body[data-ux-family="case"] .s51-section--surface{
+  border-block-color:rgba(255,255,255,.055)!important;
+  background:rgba(255,255,255,.008)!important;
+}
+body[data-ux-family="case"] .s51-head{
+  grid-template-columns:minmax(6.5rem,.2fr) minmax(0,1fr)!important;
+  gap:clamp(1.5rem,4vw,4rem)!important;
+  margin-bottom:2.35rem!important;
+}
+body[data-ux-family="case"] .s51-head>span{
+  padding-top:.35rem!important;
+  color:#727b84!important;
+  font-family:inherit!important;
+  font-size:.64rem!important;
+  font-weight:720!important;
+  letter-spacing:.065em!important;
+}
+body[data-ux-family="case"] .s51-head h2{
+  max-width:14.5ch!important;
+  font-size:clamp(2.55rem,4.7vw,4.7rem)!important;
+  line-height:.98!important;
+  letter-spacing:-.052em!important;
+  font-weight:640!important;
+}
+body[data-ux-family="case"] .s51-head p{color:#929aa3!important;line-height:1.72!important}
+
+body[data-ux-family="case"] .s51-steps{
+  border-top-color:rgba(255,255,255,.09)!important;
+}
+body[data-ux-family="case"] .s51-steps article{
+  padding-top:1.45rem!important;
+  padding-bottom:1.5rem!important;
+  border-bottom-color:rgba(255,255,255,.08)!important;
+  background:transparent!important;
+}
+body[data-ux-family="case"] .s51-steps article+article{border-left-color:rgba(255,255,255,.065)!important}
+body[data-ux-family="case"] .s51-steps span{
+  color:#707982!important;
+  font-family:inherit!important;
+  font-size:.63rem!important;
+  font-weight:720!important;
+}
+body[data-ux-family="case"] .s51-steps h3{font-weight:680!important;letter-spacing:-.02em!important}
+body[data-ux-family="case"] .s51-steps p{color:#858e97!important}
+
+body[data-ux-family="case"] .s51-implemented{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:0!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+}
+body[data-ux-family="case"] .s51-implemented article{
+  min-height:7.5rem!important;
+  padding:1.25rem 1.5rem 1.35rem 0!important;
+  border:0!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] .s51-implemented article:nth-child(even){
+  padding-left:1.5rem!important;
+  border-left:1px solid rgba(255,255,255,.065)!important;
+}
+body[data-ux-family="case"] .s51-implemented h3{font-weight:680!important;letter-spacing:-.02em!important}
+body[data-ux-family="case"] .s51-implemented p{color:#858e97!important}
+
+body[data-ux-family="case"] .s51-proof-note{
+  max-width:60rem!important;
+  padding:1.15rem 0!important;
+  border-left:0!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+  border-bottom:1px solid rgba(255,255,255,.09)!important;
+  background:transparent!important;
+}
+body[data-ux-family="case"] .s51-proof-note strong{font-weight:700!important}
+body[data-ux-family="case"] .s51-proof-note p{color:#8b949d!important}
+
+body[data-ux-family="case"] .s51-related{
+  grid-template-columns:1fr!important;
+  gap:0!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+}
+body[data-ux-family="case"] .s51-related a{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  min-height:4.2rem!important;
+  padding:.95rem 2.5rem .95rem 0!important;
+  border:0!important;
+  border-bottom:1px solid rgba(255,255,255,.075)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+body[data-ux-family="case"] .s51-related a::after{
+  content:"↗";
+  position:absolute;
+  right:.15rem;
+  top:50%;
+  transform:translateY(-50%);
+  color:#747d86;
+  font-size:.9rem;
+}
+body[data-ux-family="case"] .s51-related a:hover{border-color:rgba(255,255,255,.14)!important}
+body[data-ux-family="case"] .s51-related a:hover::after{color:var(--ds-text,#f3f5f7)!important}
+body[data-ux-family="case"] .s51-related strong{font-weight:680!important}
+body[data-ux-family="case"] .s51-related span{color:#747d86!important}
+
+body[data-ux-family="case"] .s51-contact{padding-bottom:clamp(4.5rem,7vw,6.8rem)!important}
+body[data-ux-family="case"] .s51-contact-card{
+  padding:clamp(2rem,4vw,3rem) 0 0!important;
+  border:0!important;
+  border-top:1px solid rgba(255,255,255,.1)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] .s51-contact-card h2{
+  max-width:13ch!important;
+  font-weight:640!important;
+}
+body[data-ux-family="case"] .s51-contact-card p{color:#929aa3!important}
+
+body[data-ux-family="case"] :is(.hero,.s51-hero):has(.s115-live-proof)::after{
+  right:clamp(1rem,4vw,4.5rem)!important;
+  top:1rem!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#879099!important;
+  font-family:inherit!important;
+  font-size:.62rem!important;
+  font-weight:720!important;
+  letter-spacing:.07em!important;
+}
+
+body[data-ux-family="case"] main>.hero{
+  background-image:none!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="case"] main :is(.card,.panel,.proof-card,.metric,.feature-card){
+  box-shadow:none!important;
+}
+
+html[data-theme="light"] body[data-ux-family="case"] :is(
+  .s51-hero,.s51-proof,.s51-section--surface,.s51-steps,.s51-implemented,.s51-proof-note,.s51-related,.s51-contact-card
+){border-color:rgba(18,20,24,.09)!important}
+html[data-theme="light"] body[data-ux-family="case"] .s51-visual{
+  border-color:rgba(18,20,24,.10)!important;
+  background:#f7f7f5!important;
+}
+html[data-theme="light"] body[data-ux-family="case"] :is(.s51-window,.s51-catalog-shell,.s51-phone){
+  background:#fff!important;
+  border-color:rgba(18,20,24,.09)!important;
+}
+
+@media(max-width:920px){
+  body[data-ux-family="case"] .s51-hero-grid{grid-template-columns:1fr!important;gap:2.8rem!important}
+  body[data-ux-family="case"] .s51-visual{max-width:46rem!important}
+  body[data-ux-family="case"] .s51-head{grid-template-columns:1fr!important;gap:.85rem!important}
+}
+@media(max-width:640px){
+  body[data-ux-family="case"] .s51-hero{padding-top:2.6rem!important;padding-bottom:4rem!important}
+  body[data-ux-family="case"] .s51-hero h1{font-size:clamp(2.9rem,13vw,4rem)!important}
+  body[data-ux-family="case"] .s51-proof{grid-template-columns:1fr!important}
+  body[data-ux-family="case"] .s51-proof div{
+    padding:.8rem 0!important;
+    border-right:0!important;
+    border-bottom:1px solid rgba(255,255,255,.06)!important;
+  }
+  body[data-ux-family="case"] .s51-proof div:last-child{border-bottom:0!important}
+  body[data-ux-family="case"] .s51-steps,
+  body[data-ux-family="case"] .s51-implemented{grid-template-columns:1fr!important}
+  body[data-ux-family="case"] .s51-implemented article,
+  body[data-ux-family="case"] .s51-implemented article:nth-child(even){
+    padding:1.05rem 0 1.15rem!important;
+    border-left:0!important;
+  }
+  body[data-ux-family="case"] .s51-contact-card{grid-template-columns:1fr!important}
+}

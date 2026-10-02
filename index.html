@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="dark" name="color-scheme"/>
+<meta content="#08090b" name="theme-color"/>
+<title>Averliq — Telegram-боты, CRM и автоматизация</title>
+<meta content="Разработка Telegram-ботов, CRM, n8n/Make-автоматизации и API-интеграций. Реальные проекты, прямой контакт с разработчиком, запуск и доработка." name="description"/>
+<meta content="Averliq" name="application-name"/>
+<meta content="Averliq" name="author"/>
+<meta content="Александр" name="creator"/>
+<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
+<link href="https://averliq.tech/" rel="canonical"/><link href="https://averliq.tech/" hreflang="x-default" rel="alternate"/><link href="https://averliq.tech/en/" hreflang="en" rel="alternate"/><link href="https://averliq.tech/" hreflang="ru" rel="alternate"/>
+<meta content="Разработка Telegram-ботов, CRM и автоматизации | Averliq" property="og:title"/>
+<meta content="Разработка Telegram-ботов, CRM, n8n/Make-автоматизации и API-интеграций. Реальные проекты, прямой контакт с разработчиком, запуск и доработка." property="og:description"/>
+<meta content="https://averliq.tech/" property="og:url"/>
+<meta content="Averliq" property="og:site_name"/>
+<meta content="ru_RU" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Разработка Telegram-ботов, CRM и автоматизации | Averliq" name="twitter:title"/>
+<meta content="Разработка Telegram-ботов, CRM, n8n/Make-автоматизации и API-интеграций. Реальные проекты, прямой контакт с разработчиком, запуск и доработка." name="twitter:description"/>
+<meta content="https://averliq.tech/assets/cases/fin-planner/fin-planner-card-01.webp" property="og:image"/><meta content="Averliq portfolio and software development case studies" property="og:image:alt"/><meta content="1122" property="og:image:width"/><meta content="1402" property="og:image:height"/><meta content="https://averliq.tech/assets/cases/fin-planner/fin-planner-card-01.webp" name="twitter:image"/><meta content="Averliq portfolio and software development case studies" name="twitter:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<style>
+    :root {
+      --bg: #08090b;
+      --bg-2: #0b0d10;
+      --surface: #101216;
+      --surface-2: #14171c;
+      --surface-3: #191d23;
+      --text: #f4f5f2;
+      --muted: #9ca2aa;
+      --muted-2: #747b84;
+      --line: rgba(255,255,255,.105);
+      --line-strong: rgba(255,255,255,.18);
+      --lime: #c9ff4a;
+      --lime-soft: rgba(201,255,74,.12);
+      --blue: #8195ff;
+      --blue-soft: rgba(129,149,255,.13);
+      --aqua: #9ff1df;
+      --coral: #ff967d;
+      --page: clamp(1.15rem, 4vw, 4.5rem);
+      --max: 92rem;
+      --radius: 1.75rem;
+      --shadow: 0 30px 80px rgba(0,0,0,.34);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    ::selection { background: var(--lime); color: #090a0c; }
+    [id] { scroll-margin-top: 6rem; }
+
+    .site {
+      position: relative;
+      isolation: isolate;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at var(--mx, 78%) var(--my, 6%), rgba(129,149,255,.12), transparent 24rem),
+        linear-gradient(180deg, #090a0c 0%, #08090b 52%, #090a0c 100%);
+    }
+    .site::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.65) 35%, transparent 82%);
+    }
+    .site::after {
+      content: "";
+      position: absolute;
+      top: 8rem;
+      left: 50%;
+      width: min(86rem, 96vw);
+      height: 34rem;
+      transform: translateX(-50%);
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(129,149,255,.065), transparent 68%);
+      filter: blur(18px);
+    }
+
+    .container { width: min(100%, var(--max)); margin-inline: auto; padding-inline: var(--page); }
+    .skip-link {
+      position: fixed; left: 1rem; top: 1rem; z-index: 300; transform: translateY(-180%);
+      background: var(--lime); color: #08090b; border-radius: 999px; padding: .75rem 1rem; font-weight: 800;
+      transition: transform .18s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .scroll-progress { position: fixed; inset: 0 auto auto 0; z-index: 200; height: 2px; width: var(--scroll,0%); background: var(--lime); }
+
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,9,11,.68);
+      backdrop-filter: blur(20px) saturate(135%);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .header.scrolled { border-color: var(--line); background: rgba(8,9,11,.82); }
+    .header-inner { min-height: 5rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .8rem; text-decoration: none; width: max-content; }
+    .brand-mark {
+      width: 2.4rem; aspect-ratio: 1; border-radius: .78rem; display: grid; place-items: center;
+      border: 1px solid rgba(255,255,255,.13); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+      box-shadow: inset 0 1px rgba(255,255,255,.05);
+    }
+    .brand-mark svg { width: 1.72rem; height: 1.72rem; }
+    .brand-name { display: grid; gap: .15rem; line-height: 1; }
+    .brand-name strong { font-size: .93rem; letter-spacing: -.025em; }
+    .brand-name small { font: 600 .5rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .12em; color: var(--muted-2); }
+    .nav { display: flex; align-items: center; gap: 1.8rem; }
+    .nav a, .footer-links a { color: #b8bdc4; text-decoration: none; font-size: .88rem; transition: color .18s ease; }
+    .nav a:hover, .footer-links a:hover { color: var(--text); }
+    .head-action { justify-self: end; }
+    .link-arrow { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; font-size: .88rem; font-weight: 700; }
+    .link-arrow svg { transition: transform .18s ease; }
+    .link-arrow:hover svg { transform: translate(2px,-2px); }
+    .mobile-menu { display: none; }
+    .mobile-nav { display: none; }
+
+    .button {
+      min-height: 3rem; display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+      padding: .82rem 1.15rem; border-radius: .9rem; border: 1px solid var(--line);
+      background: rgba(255,255,255,.035); color: var(--text); text-decoration: none; font-weight: 760; font-size: .91rem;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); border-color: var(--line-strong); background: rgba(255,255,255,.055); }
+    .button.primary { background: var(--lime); color: #0b0c0e; border-color: var(--lime); box-shadow: 0 12px 28px rgba(201,255,74,.12); }
+    .button.primary:hover { background: #d5ff6c; }
+
+    .hero { padding-top: clamp(3.2rem, 7vw, 7rem); padding-bottom: clamp(4rem, 7vw, 7rem); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(27rem, .82fr); gap: clamp(2.5rem, 5vw, 6rem); align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .65rem; color: #b8bdc4; font: 650 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .075em; text-transform: uppercase; }
+    .eyebrow-dot { width: .48rem; height: .48rem; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 5px rgba(201,255,74,.08); }
+    .hero h1 { margin: 1.55rem 0 0; max-width: 13ch; font-size: clamp(3.65rem, 7vw, 7.45rem); line-height: .91; letter-spacing: -.067em; font-weight: 740; text-wrap: balance; }
+    .hero h1 .soft { color: #8f969f; }
+    .hero-copy { margin: 1.7rem 0 0; max-width: 38rem; color: var(--muted); font-size: clamp(1.03rem, 1.7vw, 1.18rem); line-height: 1.65; }
+    .hero-tags { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .65rem; color: #c1c5ca; font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .045em; }
+    .hero-tags span { display: inline-flex; align-items: center; gap: .6rem; }
+    .hero-tags span:not(:last-child)::after { content:""; width: 3px; height: 3px; border-radius:50%; background:#555b63; }
+    .hero-actions { margin-top: 2rem; display:flex; flex-wrap:wrap; gap:.75rem; }
+    .hero-note { margin-top: 1.25rem; color: #767d86; font-size: .82rem; max-width: 31rem; }
+
+    .product-stage {
+      position: relative; min-height: 35rem; perspective: 1100px;
+      --rx: 0deg; --ry: 0deg;
+    }
+    .stage-glow { position:absolute; inset: 8% 3% 8% 7%; border-radius: 50%; background: radial-gradient(circle, rgba(129,149,255,.18), transparent 66%); filter: blur(26px); }
+    .stage-browser {
+      position: absolute; left: 0; top: 3.8rem; width: 83%; height: 25rem; border:1px solid var(--line-strong); border-radius: 1.3rem;
+      background: linear-gradient(160deg,#13161b,#0f1115); box-shadow: var(--shadow), inset 0 1px rgba(255,255,255,.05);
+      transform: rotateX(var(--rx)) rotateY(var(--ry)); transform-style: preserve-3d;
+      transition: transform .12s linear;
+      overflow:hidden;
+    }
+    .browser-top { height: 3.05rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; border-bottom:1px solid var(--line); padding:0 1rem; }
+    .dots { display:flex; gap:.36rem; }
+    .dots i { width:.45rem; height:.45rem; border-radius:50%; background:#343a43; display:block; }
+    .browser-label { color:#767d86; font:600 .61rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.07em; }
+    .browser-body { display:grid; grid-template-columns: 4.3rem 1fr; height: calc(100% - 3.05rem); }
+    .sidebar { border-right:1px solid var(--line); padding:1rem .75rem; display:grid; align-content:start; gap:.65rem; }
+    .side-pill { height:.48rem; border-radius:999px; background:#292e36; }
+    .side-pill.active { background: rgba(129,149,255,.5); }
+    .dashboard { padding:1.1rem; min-width:0; }
+    .dash-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; }
+    .dash-title strong { display:block; font-size:1rem; letter-spacing:-.03em; }
+    .dash-title span { color:#737a84; font-size:.64rem; }
+    .dash-chip { padding:.38rem .58rem; border:1px solid var(--line); border-radius:.6rem; color:#a9afb6; font-size:.6rem; }
+    .kpis { display:grid; grid-template-columns: repeat(3,1fr); gap:.6rem; margin-top:.95rem; }
+    .kpi { padding:.7rem; border:1px solid var(--line); border-radius:.75rem; background:#12151a; }
+    .kpi span { color:#727983; font-size:.56rem; display:block; }
+    .kpi strong { display:block; margin-top:.2rem; font-size:.9rem; letter-spacing:-.03em; }
+    .kpi strong.blue { color:#aebaff; }
+    .dash-layout { display:grid; grid-template-columns: 1.25fr .75fr; gap:.65rem; margin-top:.65rem; }
+    .panel { border:1px solid var(--line); border-radius:.8rem; background:#111419; padding:.75rem; min-width:0; }
+    .panel-label { display:flex; justify-content:space-between; color:#777f88; font-size:.57rem; }
+    .chart { height:7.4rem; display:flex; align-items:end; gap:.35rem; margin-top:.45rem; }
+    .chart i { flex:1; min-width:0; border-radius:.25rem .25rem .08rem .08rem; background:linear-gradient(180deg,rgba(129,149,255,.75),rgba(129,149,255,.12)); }
+    .chart i:nth-child(1){height:34%}.chart i:nth-child(2){height:52%}.chart i:nth-child(3){height:43%}.chart i:nth-child(4){height:68%}.chart i:nth-child(5){height:58%}.chart i:nth-child(6){height:82%}.chart i:nth-child(7){height:70%}.chart i:nth-child(8){height:92%}
+    .tasks { display:grid; gap:.46rem; margin-top:.55rem; }
+    .task { display:grid; grid-template-columns:.46rem 1fr auto; gap:.5rem; align-items:center; padding:.48rem 0; border-bottom:1px solid rgba(255,255,255,.05); font-size:.55rem; color:#a8aeb5; }
+    .task:last-child{border-bottom:0}.task b{width:.42rem;height:.42rem;border-radius:50%;background:#5d6670}.task b.live{background:var(--aqua)}.task em{font-style:normal;color:#6e7680}
+
+    .stage-phone {
+      position:absolute; right:1%; top:1rem; width:10.7rem; height:21.9rem; border-radius:2rem; border:1px solid rgba(255,255,255,.18);
+      background:#0b0d10; padding:.44rem; box-shadow: 0 34px 68px rgba(0,0,0,.52); transform: translateZ(40px) rotate(3.5deg);
+      overflow:hidden;
+    }
+    .phone-screen { height:100%; border-radius:1.62rem; background:linear-gradient(180deg,#171a20,#0f1115); padding:.8rem; overflow:hidden; }
+    .phone-notch { width:3.7rem; height:.9rem; border-radius:999px; background:#08090b; margin:-.25rem auto .8rem; }
+    .phone-top { display:flex; align-items:center; justify-content:space-between; font-size:.5rem; color:#89909a; }
+    .map-card { height:7.6rem; border-radius:1rem; border:1px solid var(--line); margin-top:.65rem; position:relative; overflow:hidden; background:linear-gradient(145deg,#181c22,#11141a); }
+    .map-card::before { content:""; position:absolute; inset:-30% -15%; background-image:linear-gradient(35deg,transparent 46%,rgba(129,149,255,.24) 47%,rgba(129,149,255,.24) 49%,transparent 50%),linear-gradient(-28deg,transparent 45%,rgba(255,255,255,.07) 46%,rgba(255,255,255,.07) 48%,transparent 49%); background-size:3.5rem 2.7rem; }
+    .route { position:absolute; left:25%; top:22%; width:55%; height:51%; border-left:2px solid var(--blue); border-bottom:2px solid var(--blue); border-radius:0 0 0 1.3rem; transform:rotate(-15deg); }
+    .route::before,.route::after{content:"";position:absolute;width:.45rem;height:.45rem;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(129,149,255,.1)}.route::before{left:-.28rem;top:-.2rem}.route::after{right:-.24rem;bottom:-.28rem}
+    .ride-title { margin-top:.8rem; font-size:.83rem; font-weight:760; letter-spacing:-.025em; }
+    .ride-row { display:grid; grid-template-columns:.45rem 1fr; gap:.55rem; align-items:start; margin-top:.65rem; font-size:.53rem; color:#808791; }
+    .ride-row b{width:.42rem;height:.42rem;border-radius:50%;background:#5d6670;margin-top:.12rem}.ride-row b.end{background:var(--blue)}.ride-row strong{color:#c7cbd0;font-size:.57rem;display:block;margin-bottom:.12rem}
+    .ride-btn { margin-top:.8rem; border-radius:.7rem; background:#e7e9e5; color:#111216; text-align:center; padding:.55rem; font-size:.57rem; font-weight:800; }
+
+    .stage-chat {
+      position:absolute; right:4%; bottom:1.4rem; width:16.3rem; border:1px solid var(--line-strong); border-radius:1.15rem; background:rgba(18,21,26,.94); backdrop-filter:blur(12px);
+      box-shadow:0 24px 58px rgba(0,0,0,.42); padding:.9rem; transform:translateZ(60px) rotate(-2deg);
+    }
+    .chat-head { display:flex; align-items:center; gap:.55rem; padding-bottom:.7rem; border-bottom:1px solid var(--line); }
+    .chat-avatar { width:1.7rem;height:1.7rem;border-radius:.55rem;display:grid;place-items:center;background:var(--blue-soft);color:#b7c1ff;font-size:.62rem;font-weight:850; }
+    .chat-head strong{font-size:.68rem}.chat-head span{display:block;color:#727a84;font-size:.53rem}
+    .messages { display:grid; gap:.45rem; padding-top:.7rem; }
+    .message { max-width:85%; padding:.52rem .6rem; border-radius:.68rem .68rem .68rem .2rem; background:#23272e; color:#bfc4ca; font-size:.55rem; line-height:1.45; }
+    .message.me { justify-self:end; border-radius:.68rem .68rem .2rem .68rem; background:rgba(129,149,255,.16); color:#d4d9ff; }
+    .stage-caption { position:absolute; left:1rem; bottom:.2rem; display:flex; align-items:center; gap:.55rem; color:#626a74; font:650 .57rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.08em; text-transform:uppercase; }
+    .stage-caption i{width:1.5rem;height:1px;background:#4d545d}
+
+    .proof { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .proof-grid { display:grid; grid-template-columns: repeat(4,1fr); }
+    .proof-item { padding:1.35rem 1.5rem; border-right:1px solid var(--line); }
+    .proof-item:first-child { padding-left:0; }
+    .proof-item:last-child { border-right:0; }
+    .proof-item strong { display:block; font-size:.98rem; letter-spacing:-.025em; }
+    .proof-item span { display:block; margin-top:.28rem; color:#717882; font-size:.76rem; }
+
+    .section { padding-top: clamp(6rem, 10vw, 10rem); }
+    .section-head { display:grid; grid-template-columns: .42fr 1.58fr; gap:2rem; align-items:start; margin-bottom:3.2rem; }
+    .section-index { color:#727983; font:650 .66rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.075em; text-transform:uppercase; padding-top:.5rem; }
+    .section-title { margin:0; max-width:15ch; font-size:clamp(2.7rem,5vw,5.3rem); line-height:.98; letter-spacing:-.055em; font-weight:720; text-wrap:balance; }
+    .section-title .soft { color:#8a919a; }
+    .section-lead { margin:1.3rem 0 0; max-width:42rem; color:var(--muted); font-size:1rem; line-height:1.7; }
+
+    .work-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:1rem; }
+    .case { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(155deg,#12151a,#0d0f13); text-decoration:none; min-width:0; transition:border-color .2s ease, transform .2s ease; }
+    .case:hover { border-color:var(--line-strong); transform:translateY(-2px); }
+    .case-primary { grid-row:span 2; min-height:46rem; }
+    .case-secondary { min-height:22.5rem; }
+    .case-content { position:relative; z-index:3; padding:clamp(1.3rem,2vw,2rem); display:flex; flex-direction:column; min-height:inherit; }
+    .case-meta { display:flex; align-items:center; justify-content:space-between; gap:1rem; color:#767e88; font:650 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.07em; text-transform:uppercase; }
+    .case-number { color:#b1b6bc; }
+    .case-copy { margin-top:auto; max-width:32rem; }
+    .case h3 { margin:0; font-size:clamp(1.9rem,3vw,3.25rem); line-height:1; letter-spacing:-.048em; font-weight:720; }
+    .case-secondary h3 { font-size:clamp(1.55rem,2.2vw,2.25rem); }
+    .case p { margin:.85rem 0 0; max-width:33rem; color:#969da6; line-height:1.65; font-size:.92rem; }
+    .case-footer { margin-top:1.35rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .chip { padding:.38rem .55rem; border:1px solid var(--line); border-radius:999px; color:#848c95; font-size:.59rem; }
+    .case-link { display:inline-flex; align-items:center; gap:.4rem; color:#c7ccd2; font-size:.72rem; font-weight:700; }
+    .case-visual { position:absolute; inset:0; z-index:1; pointer-events:none; }
+    .case-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 25%,rgba(13,15,19,.12) 50%,rgba(13,15,19,.94) 88%); }
+    .crm-window { position:absolute; width:78%; height:55%; right:-7%; top:10%; border:1px solid var(--line-strong); border-radius:1.1rem; background:#15181d; box-shadow:0 35px 80px rgba(0,0,0,.4); transform:rotate(-3deg); overflow:hidden; }
+    .crm-window .browser-body{height:100%;grid-template-columns:3.5rem 1fr}.crm-window .dashboard{padding:.85rem}.crm-window .browser-top{height:2.5rem}.crm-window .browser-body{height:calc(100% - 2.5rem)}
+    .crm-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:.45rem; margin-top:.6rem; }
+    .crm-card { border:1px solid var(--line); border-radius:.55rem; background:#101317; padding:.55rem; }
+    .crm-card span{display:block;color:#717984;font-size:.45rem}.crm-card strong{font-size:.68rem}.crm-list{margin-top:.5rem;border:1px solid var(--line);border-radius:.55rem;overflow:hidden}.crm-list div{display:grid;grid-template-columns:1.3fr .8fr .55fr;gap:.4rem;padding:.52rem;border-bottom:1px solid rgba(255,255,255,.055);font-size:.45rem;color:#8e959d}.crm-list div:last-child{border-bottom:0}.crm-list b{font-weight:650;color:#c1c5ca}
+    .crm-floating { position:absolute; top:25%; left:4%; width:10rem; border:1px solid var(--line-strong); border-radius:.85rem; background:rgba(20,23,28,.93); padding:.8rem; box-shadow:0 24px 48px rgba(0,0,0,.42); }
+    .crm-floating small{color:#737b84;font-size:.5rem}.crm-floating strong{display:block;margin-top:.25rem;font-size:.85rem}.crm-floating .line{height:.35rem;border-radius:999px;background:#303640;margin-top:.55rem}.crm-floating .line.short{width:58%;background:rgba(159,241,223,.45)}
+
+    .taxi-phone { position:absolute; right:6%; top:12%; width:9rem; height:18rem; border-radius:1.7rem; background:#0b0d10; border:1px solid var(--line-strong); padding:.38rem; transform:rotate(6deg); box-shadow:0 26px 55px rgba(0,0,0,.46); }
+    .taxi-phone .phone-screen { padding:.65rem; border-radius:1.38rem; }
+    .taxi-route { position:absolute; left:9%; top:25%; width:62%; height:33%; border:1px solid var(--line); border-radius:1rem; background:#12161b; overflow:hidden; }
+    .taxi-route::before{content:"";position:absolute;inset:-30%;background-image:linear-gradient(38deg,transparent 46%,rgba(129,149,255,.16) 47%,rgba(129,149,255,.16) 49%,transparent 50%);background-size:2.8rem 2rem}.taxi-route::after{content:"";position:absolute;left:24%;top:22%;width:50%;height:45%;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);border-radius:0 0 0 1rem;transform:rotate(-11deg)}
+
+    .factory-canvas { position:absolute; left:8%; right:5%; top:12%; height:56%; border:1px solid var(--line-strong); border-radius:1rem; background:#12151a; overflow:hidden; box-shadow:0 28px 60px rgba(0,0,0,.36); transform:rotate(-1deg); }
+    .factory-top { height:2.6rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 .85rem;color:#787f88;font-size:.48rem}.factory-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;padding:.7rem}.product-mini{border:1px solid var(--line);border-radius:.65rem;padding:.55rem;background:#0f1216}.product-illu{height:3.1rem;border-radius:.45rem;background:linear-gradient(145deg,#1b2026,#111418);position:relative;overflow:hidden}.product-illu::before{content:"";position:absolute;width:1.8rem;height:1.8rem;border:1px solid #39414c;border-radius:.35rem;left:50%;top:50%;transform:translate(-50%,-50%) rotate(28deg)}.product-mini b{font-size:.48rem;display:block;margin-top:.35rem}.product-mini span{font-size:.42rem;color:#777f89}
+
+    .case-calendar { grid-column:1 / -1; min-height:32rem; background:radial-gradient(circle at 82% 20%,rgba(201,255,74,.08),transparent 28rem),linear-gradient(145deg,#11131a,#0c0e12); }
+    .case-calendar .case-content { padding-right:52%; }
+    .case-calendar .case-copy { max-width:34rem; }
+    .case-calendar .case-visual::after { background:linear-gradient(90deg,rgba(12,14,18,.98) 0%,rgba(12,14,18,.92) 34%,rgba(12,14,18,.35) 58%,rgba(12,14,18,.08) 100%); }
+    .calendar-showcase { position:absolute; right:2.5%; top:3%; bottom:3%; width:49%; height:94%; object-fit:contain; object-position:center; border-radius:1.45rem; filter:drop-shadow(0 28px 55px rgba(0,0,0,.44)); transform:rotate(1deg); }
+    .calendar-badge { position:absolute; right:43%; top:12%; z-index:2; border:1px solid rgba(201,255,74,.22); background:rgba(17,20,25,.9); color:#d8ff82; border-radius:999px; padding:.5rem .7rem; font:700 .6rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.06em; box-shadow:0 16px 32px rgba(0,0,0,.3); }
+    .case-finplanner { background:radial-gradient(circle at 78% 18%,rgba(61,210,255,.11),transparent 27rem),radial-gradient(circle at 88% 76%,rgba(201,255,74,.055),transparent 24rem),linear-gradient(145deg,#10151b,#0b0e12); }
+    .case-finplanner .calendar-badge { border-color:rgba(79,214,255,.28); color:#9aeaff; }
+    .case-finplanner .calendar-showcase { filter:drop-shadow(0 30px 62px rgba(0,0,0,.48)); }
+
+    .services { border-top:1px solid var(--line); }
+    .service-row { display:grid; grid-template-columns:4.2rem 1fr auto; gap:1.3rem; align-items:center; padding:1.55rem 0; border-bottom:1px solid var(--line); text-decoration:none; }
+    .service-num { color:#6f7680; font:650 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    .service-main { min-width:0; }
+    .service-main strong { display:block; font-size:clamp(1.2rem,2vw,1.75rem); letter-spacing:-.035em; }
+    .service-main span { display:block; margin-top:.25rem; color:#848b94; font-size:.82rem; max-width:44rem; }
+    .service-arrow { width:2.5rem; height:2.5rem; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; color:#8b929a; transition:transform .18s ease,border-color .18s ease,color .18s ease; }
+    .service-row:hover .service-arrow { transform:rotate(45deg); border-color:var(--line-strong); color:var(--text); }
+
+    .process-wrap { display:grid; grid-template-columns:.58fr 1.42fr; gap:clamp(2rem,5vw,6rem); align-items:start; }
+    .process-intro { position:sticky; top:8rem; }
+    .process-intro h2 { margin:0; font-size:clamp(2.6rem,4.5vw,4.7rem); line-height:.99; letter-spacing:-.055em; font-weight:720; }
+    .process-intro p { margin:1.2rem 0 0; color:var(--muted); max-width:30rem; line-height:1.7; }
+    .steps { border-left:1px solid var(--line); }
+    .step { position:relative; padding:0 0 3.4rem 3rem; }
+    .step:last-child { padding-bottom:0; }
+    .step-dot { position:absolute; left:-.35rem; top:.2rem; width:.68rem; height:.68rem; border-radius:50%; background:#59616b; box-shadow:0 0 0 7px var(--bg); }
+    .step:first-child .step-dot { background:var(--blue); }
+    .step small { color:#69717b; font:650 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.05em; }
+    .step h3 { margin:.65rem 0 0; font-size:1.55rem; letter-spacing:-.035em; }
+    .step p { margin:.7rem 0 0; color:#9097a0; max-width:38rem; line-height:1.68; }
+
+    .about-panel { display:grid; grid-template-columns:1.1fr .9fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+    .about-main, .about-side { background:#0f1115; padding:clamp(1.5rem,3.3vw,3.5rem); }
+    .about-kicker { color:#777f88; font:650 .64rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.075em; text-transform:uppercase; }
+    .about-main h2 { margin:1.1rem 0 0; max-width:15ch; font-size:clamp(2.5rem,4.5vw,4.8rem); line-height:.98; letter-spacing:-.055em; font-weight:720; }
+    .about-main p { margin:1.4rem 0 0; max-width:38rem; color:#969da6; line-height:1.7; }
+    .facts { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:1rem; overflow:hidden; }
+    .fact { background:#12151a; padding:1.1rem; }
+    .fact span { color:#707781; font-size:.64rem; display:block; }
+    .fact strong { display:block; margin-top:.25rem; font-size:.93rem; }
+    .stack { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:.45rem; }
+    .stack span { padding:.5rem .62rem; border:1px solid var(--line); border-radius:.6rem; color:#858c94; font:600 .62rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+
+    .faq { border-top:1px solid var(--line); }
+    details { border-bottom:1px solid var(--line); }
+    summary { list-style:none; cursor:pointer; display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center; padding:1.5rem 0; font-size:1.02rem; font-weight:700; }
+    summary::-webkit-details-marker{display:none}.faq-plus{width:2rem;height:2rem;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:#7e8690;transition:transform .18s ease}details[open] .faq-plus{transform:rotate(45deg)}details p{margin:-.4rem 0 1.55rem;color:#9097a0;max-width:48rem;line-height:1.7}
+
+    .contact { padding:clamp(6rem,10vw,10rem) 0 clamp(3rem,5vw,5rem); }
+    .contact-card { position:relative; overflow:hidden; border:1px solid var(--line); border-radius:2rem; padding:clamp(1.6rem,4vw,4rem); background:linear-gradient(145deg,#111419,#0c0e11); }
+    .contact-card::before { content:""; position:absolute; width:30rem; height:30rem; right:-9rem; top:-13rem; border-radius:50%; background:radial-gradient(circle,rgba(129,149,255,.16),transparent 68%); }
+    .contact-grid { position:relative; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:end; }
+    .contact-card h2 { margin:.9rem 0 0; max-width:15ch; font-size:clamp(2.75rem,5.5vw,5.9rem); line-height:.94; letter-spacing:-.06em; font-weight:720; }
+    .contact-card p { margin:1.25rem 0 0; color:#959ca5; max-width:39rem; line-height:1.68; }
+    .contact-actions { display:grid; gap:.7rem; min-width:13rem; }
+    .contact-links { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:1.2rem; }
+    .contact-links a { color:#8e959e; text-decoration:none; font-size:.8rem; }
+    .contact-links a:hover { color:var(--text); }
+
+    .footer { border-top:1px solid var(--line); }
+    .footer-inner { min-height:6rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; color:#666e78; font-size:.72rem; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:1.2rem; }
+    .footer-links a { font-size:.72rem; color:#666e78; }
+
+    .cookie-consent { position:fixed; left:1rem; bottom:1rem; z-index:250; width:min(34rem,calc(100% - 2rem)); border:1px solid var(--line-strong); border-radius:1rem; background:rgba(15,17,21,.96); backdrop-filter:blur(18px); padding:1rem; box-shadow:0 24px 70px rgba(0,0,0,.45); }
+    .cookie-consent strong{font-size:.86rem}.cookie-consent p{margin:.35rem 0 0;color:#8d949d;font-size:.73rem;line-height:1.55}.cookie-consent a{color:#b9bec4}.cookie-actions{display:flex;gap:.55rem;margin-top:.85rem}.cookie-actions button{min-height:2.55rem;border-radius:.7rem;border:1px solid var(--line);padding:.55rem .8rem;background:#171a1f;color:var(--text);font-weight:700;cursor:pointer}.cookie-actions .allow{background:var(--lime);border-color:var(--lime);color:#08090b}.cookie-settings{position:fixed;right:1rem;bottom:1rem;z-index:220;border:1px solid var(--line);border-radius:999px;background:rgba(16,18,22,.9);color:#7f8790;padding:.55rem .75rem;font-size:.64rem;cursor:pointer;backdrop-filter:blur(12px)}
+
+    @media (max-width: 1050px) {
+      .hero-grid { grid-template-columns:1fr; }
+      .hero h1 { max-width:11ch; }
+      .product-stage { min-height:34rem; max-width:44rem; width:100%; }
+      .work-grid { grid-template-columns:1fr; }
+      .case-primary { min-height:38rem; grid-row:auto; }
+      .case-secondary { min-height:29rem; }
+      .case-calendar { min-height:35rem; }
+      .case-calendar .case-content { padding-right:48%; }
+      .calendar-showcase { width:48%; }
+      .about-panel { grid-template-columns:1fr; }
+      .process-wrap { grid-template-columns:1fr; }
+      .process-intro { position:static; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --radius:1.35rem; }
+      .header-inner { grid-template-columns:1fr auto; min-height:4.4rem; }
+      .nav, .head-action { display:none; }
+      .mobile-menu { display:grid; width:2.8rem; height:2.8rem; place-items:center; border:1px solid var(--line); border-radius:.8rem; background:#111318; color:var(--text); cursor:pointer; }
+      .mobile-nav { display:none; padding:.2rem var(--page) 1rem; border-top:1px solid var(--line); }
+      .mobile-nav.open { display:grid; }
+      .mobile-nav a { padding:.85rem 0; border-bottom:1px solid var(--line); color:#bbc0c6; text-decoration:none; font-weight:650; }
+      .brand-name small { display:none; }
+      .hero { padding-top:3rem; }
+      .hero h1 { font-size:clamp(3.1rem,16vw,5rem); max-width:9.5ch; }
+      .hero-copy { font-size:1rem; }
+      .product-stage { min-height:27rem; margin-top:.2rem; }
+      .stage-browser { width:88%; height:19rem; top:3rem; }
+      .browser-body { grid-template-columns:3.4rem 1fr; }
+      .kpis { grid-template-columns:1fr 1fr; }.kpis .kpi:last-child{display:none}
+      .dash-layout { grid-template-columns:1fr; }.dash-layout .panel:last-child{display:none}
+      .stage-phone { width:8.2rem; height:16.8rem; top:.2rem; right:-.3rem; }
+      .phone-screen{padding:.6rem}.map-card{height:5.4rem}.ride-row{margin-top:.45rem}.ride-btn{margin-top:.55rem}
+      .stage-chat { width:13rem; right:.1rem; bottom:.7rem; }
+      .proof-grid { grid-template-columns:1fr 1fr; }
+      .proof-item { border-bottom:1px solid var(--line); padding:1.1rem; }
+      .proof-item:nth-child(2){border-right:0}.proof-item:nth-child(3),.proof-item:nth-child(4){border-bottom:0}.proof-item:nth-child(3){padding-left:0}.proof-item:first-child{padding-left:0}
+      .section-head { grid-template-columns:1fr; gap:.8rem; }
+      .section-title { font-size:clamp(2.7rem,13vw,4rem); }
+      .case-primary { min-height:34rem; }
+      .case-secondary { min-height:26rem; }
+      .case-calendar { min-height:43rem; }
+      .case-calendar .case-content { padding-right:1.3rem; }
+      .case-calendar .case-meta { position:relative; z-index:3; }
+      .calendar-showcase { left:5%; right:5%; top:4.5rem; width:auto; height:55%; bottom:auto; transform:none; background-position:top center; }
+      .calendar-badge { right:1.3rem; top:4.7rem; }
+      .case-calendar .case-copy { padding-top:19rem; }
+      .crm-window{width:90%;right:-20%;height:47%}.crm-floating{left:5%;top:20%;width:8.5rem}.taxi-phone{width:7.3rem;height:14.7rem}.taxi-route{left:6%;width:58%}.factory-canvas{left:5%;right:-8%}
+      .service-row { grid-template-columns:2.3rem 1fr auto; gap:.8rem; }
+      .service-main span { display:none; }
+      .step { padding-left:2rem; }
+      .contact-grid { grid-template-columns:1fr; }
+      .contact-actions { min-width:0; }
+      .footer-inner { padding-block:1.5rem; align-items:flex-start; flex-direction:column; }
+    }
+
+    @media (max-width: 430px) {
+      .hero h1 { font-size:3.2rem; }
+      .hero-actions .button { width:100%; }
+      .product-stage { min-height:25rem; }
+      .stage-browser { height:17rem; width:92%; }
+      .stage-phone { width:7.1rem; height:14.8rem; right:-.6rem; }
+      .stage-chat { width:11.2rem; bottom:.4rem; }
+      .stage-caption { display:none; }
+      .proof-grid { grid-template-columns:1fr; }
+      .proof-item { border-right:0; border-bottom:1px solid var(--line)!important; padding-left:0; }
+      .proof-item:last-child { border-bottom:0!important; }
+      .case-primary{min-height:32rem}.case-secondary{min-height:24rem}.case-calendar{min-height:40rem}.case-calendar .case-copy{padding-top:16rem}
+      .case-footer { align-items:flex-start; flex-direction:column; }
+      .factory-grid{grid-template-columns:1fr 1fr}.factory-grid .product-mini:last-child{display:none}
+      .facts { grid-template-columns:1fr; }
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .brand:hover .brand-mark { border-color:rgba(201,255,74,.28); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { transition-duration:.01ms!important; animation-duration:.01ms!important; animation-iteration-count:1!important; }
+      .stage-browser { transform:none!important; }
+    }
+  
+    .guide-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}.guide-teaser{display:block;text-decoration:none;border:1px solid var(--line);border-radius:1.15rem;padding:1.25rem;background:linear-gradient(145deg,#11151b,#0d1015);transition:transform .2s ease,border-color .2s ease}.guide-teaser:hover{transform:translateY(-3px);border-color:var(--line2)}.guide-teaser small{font:700 .62rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#747e88}.guide-teaser h3{margin:.8rem 0 .55rem;font-size:1.28rem;letter-spacing:-.035em}.guide-teaser p{margin:0;color:#929aa4;font-size:.82rem;line-height:1.65}.guide-teaser span{display:inline-block;margin-top:1rem;font-size:.74rem;color:#d6dbe0}@media(max-width:850px){.guide-strip{grid-template-columns:1fr}}
+
+/* stage6 brand and snippet fixes */
+.brand{gap:14px;}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 30px rgba(0,0,0,.28);flex:0 0 42px;}
+.brand-mark svg{width:24px;height:24px;display:block;}
+.brand-name small{letter-spacing:.24em;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px 12px;}
+.hero-tags span{display:inline-flex;align-items:center;white-space:nowrap;}
+@media (max-width: 720px){.brand-mark{width:38px;height:38px;border-radius:12px;}.brand-mark svg{width:22px;height:22px;}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Избранные кейсы разработки","itemListElement":[{"@type":"ListItem","position":1,"url":"https://averliq.tech/cases/auto-crm/","name":"CRM для автосалона"},{"@type":"ListItem","position":2,"url":"https://averliq.tech/cases/taxi-app/","name":"Приложение такси"},{"@type":"ListItem","position":3,"url":"https://averliq.tech/cases/factory-catalog/","name":"Цифровой каталог завода"},{"@type":"ListItem","position":4,"url":"https://averliq.tech/cases/fin-planner/","name":"Фин Планер — Telegram-бот для личных финансов"},{"@type":"ListItem","position":5,"url":"https://averliq.tech/cases/swift-calendar/","name":"iOS-календарь на Swift"}]}</script>
+<link href="/favicon.ico" rel="icon" sizes="any"/><link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/favicon-96.png" rel="icon" sizes="96x96" type="image/png"/>
+<link href="/favicon-96.png" rel="shortcut icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="/assets/universal-media.css" rel="stylesheet"/>
+<link href="/assets/site-enhancements.css" rel="stylesheet"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="/feed.xml" rel="alternate" title="Averliq — кейсы и разборы" type="application/atom+xml"/>
+<link href="https://averliq.tech/about/" rel="author"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-page="home">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","@id":"https://averliq.tech/#website","url":"https://averliq.tech/","name":"Averliq — разработка цифровых продуктов","inLanguage":"ru-RU"},{"@context":"https://schema.org","@type":"Person","@id":"https://averliq.tech/#person","name":"Александр","url":"https://averliq.tech/about/","jobTitle":"Разработчик Telegram-ботов, автоматизации и веб-сервисов","description":"Разрабатывает Telegram-ботов, AI-автоматизацию, веб-сервисы, API-интеграции и iOS-приложения на Swift.","email":"alexgtup@gmail.com","sameAs":["https://github.com/Alexgtup","https://freelance.ru/gglalex","https://t.me/Alexuys"],"knowsAbout":["Разработка Telegram-ботов","AI-автоматизация","веб-сервисы","API-интеграции","Swift","iOS-разработка","доработка IT-проектов","n8n","Make","разработка CRM"],"alternateName":["Averliq","Alexander"]},{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://averliq.tech/about/#profile","url":"https://averliq.tech/about/","name":"Профиль разработчика Александра","inLanguage":"ru-RU","isPartOf":{"@id":"https://averliq.tech/#website"},"mainEntity":{"@id":"https://averliq.tech/#person"}},{"@context":"https://schema.org","@type":"ItemList","name":"Услуги разработки","itemListElement":[{"@type":"ListItem","position":1,"url":"https://averliq.tech/telegram-bots/","name":"Разработка Telegram-ботов"},{"@type":"ListItem","position":2,"url":"https://averliq.tech/ai-automation/","name":"AI-автоматизация"},{"@type":"ListItem","position":3,"url":"https://averliq.tech/web-development/","name":"Разработка веб-сервисов"},{"@type":"ListItem","position":4,"url":"https://averliq.tech/api-integrations/","name":"API-интеграции"},{"@type":"ListItem","position":5,"url":"https://averliq.tech/project-repair/","name":"Доработка IT-проектов"},{"@type":"ListItem","position":6,"url":"https://averliq.tech/ios-development/","name":"Разработка iOS-приложений на Swift"},{"@type":"ListItem","position":7,"url":"https://averliq.tech/n8n-automation/","name":"Автоматизация n8n и Make"},{"@type":"ListItem","position":8,"url":"https://averliq.tech/crm-development/","name":"Разработка CRM на заказ"},{"@type":"ListItem","position":9,"url":"https://averliq.tech/development/","name":"Разработка цифровых продуктов на заказ"},{"@type":"ListItem","position":10,"url":"https://averliq.tech/app-development/","name":"Разработка приложений на заказ"},{"@type":"ListItem","position":11,"url":"https://averliq.tech/telegram-mini-apps/","name":"Разработка Telegram Mini Apps"},{"@type":"ListItem","position":12,"url":"https://averliq.tech/python-development/","name":"Python-разработка на заказ"},{"@type":"ListItem","position":13,"url":"https://averliq.tech/backend-development/","name":"Backend-разработка на заказ"},{"@type":"ListItem","position":14,"url":"https://averliq.tech/mvp-development/","name":"Разработка MVP на заказ"}]}]</script>
+<div class="site" id="top">
+<div aria-hidden="true" class="scroll-progress"></div>
+<a class="skip-link" href="#content">Перейти к содержанию</a>
+<header class="header" data-nosnippet="" id="header">
+<div class="container header-inner">
+<a aria-label="Averliq — на главную" class="brand" data-nosnippet="" href="#top">
+<span aria-hidden="true" class="brand-mark">
+<svg fill="none" viewbox="0 0 36 36">
+<path d="M8 10h4.5c5.3 0 5.3 8 10.3 8H28" stroke="#f3f4f1" stroke-linecap="round" stroke-width="2"></path>
+<path d="M8 26h4.5c5.3 0 5.3-8 10.3-8H28" stroke="#8195ff" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="8" cy="10" fill="#f3f4f1" r="2.2"></circle><circle cx="8" cy="26" fill="#8195ff" r="2.2"></circle><circle cx="28" cy="18" fill="#c9ff4a" r="2.75"></circle>
+</svg>
+</span>
+<span class="brand-name"><strong>averliq</strong><small>AI · WEB · AUTOMATION</small></span>
+</a>
+<nav aria-label="Основная навигация" class="nav" data-nosnippet="">
+<a href="#work">Кейсы</a><a href="#services">Услуги</a><a href="/guides/">Разборы</a><a href="#process">Процесс</a><a href="#about">Обо мне</a>
+<a class="language-switch" href="/en/" hreflang="en" lang="en">EN</a></nav>
+<div class="head-action">
+<a class="link-arrow" href="https://t.me/Alexuys" rel="noreferrer noopener" target="_blank">Обсудить проект
+          <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+</a>
+</div>
+<button aria-expanded="false" aria-label="Открыть меню" class="mobile-menu" id="menuButton" type="button">
+<svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M4 8h16M4 16h16"></path></svg>
+</button>
+</div>
+<nav aria-label="Мобильная навигация" class="mobile-nav" data-nosnippet="" id="mobileNav">
+<a href="#work">Кейсы</a><a href="#services">Услуги</a><a href="/guides/">Разборы</a><a href="#process">Процесс</a><a href="#about">Обо мне</a><a class="language-switch" href="/en/" hreflang="en" lang="en">English version — EN</a><a href="https://t.me/Alexuys" rel="noreferrer noopener" target="_blank">Telegram ↗</a>
+</nav>
+</header>
+<main id="main-content">
+<section aria-labelledby="hero-title" class="hero container">
+<div class="hero-grid">
+<div>
+<div class="eyebrow" data-nosnippet=""><span class="eyebrow-dot"></span>Открыт к новым проектам · удалённо</div>
+<h1 id="hero-title">Telegram-боты, автоматизация <span class="soft">и веб-сервисы под задачу.</span></h1>
+<p class="hero-copy">Собираю Telegram-боты, автоматизацию, CRM, интеграции и веб-продукты под конкретный процесс — от первой логики до запуска и дальнейшей доработки.</p>
+<div aria-label="Направления работы" class="hero-tags" data-nosnippet=""><span>TELEGRAM</span><span>AI AUTOMATION</span><span>WEB</span><span>INTEGRATIONS</span></div>
+<div class="hero-actions">
+<a class="button primary" href="https://t.me/Alexuys" rel="noreferrer noopener" target="_blank">Описать задачу в Telegram
+              <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+</a>
+<a class="button" href="#work">Смотреть кейсы ↓</a>
+</div>
+<p class="hero-note">Пришлите ТЗ, ссылку на текущий проект или просто опишите задачу своими словами — длинное техническое задание не требуется.</p>
+</div>
+<div aria-label="Визуализация цифровых продуктов: CRM, мобильное приложение и Telegram-бот" class="product-stage" data-nosnippet="" id="productStage">
+<div class="stage-glow"></div>
+<div class="stage-browser">
+<div class="browser-top"><div class="dots"><i></i><i></i><i></i></div><span class="browser-label">CRM / OPERATIONS</span><span class="browser-label">LIVE</span></div>
+<div class="browser-body">
+<div class="sidebar"><div class="side-pill active" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div></div>
+<div class="dashboard">
+<div class="dash-head"><div class="dash-title"><strong>Рабочий контур</strong><span>Продажи · заявки · статусы</span></div><span class="dash-chip">Сегодня</span></div>
+<div class="kpis"><div class="kpi"><span>Заявки</span><strong>128</strong></div><div class="kpi"><span>В работе</span><strong class="blue">34</strong></div><div class="kpi"><span>Готово</span><strong>82%</strong></div></div>
+<div class="dash-layout">
+<div class="panel"><div class="panel-label"><span>Динамика</span><span>7 дней</span></div><div class="chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="panel"><div class="panel-label"><span>Поток</span><span>LIVE</span></div><div class="tasks"><div class="task"><b class="live"></b><span>Новая заявка</span><em>1м</em></div><div class="task"><b></b><span>Тест-драйв</span><em>14:30</em></div><div class="task"><b></b><span>Документы</span><em>готово</em></div><div class="task"><b></b><span>Сделка</span><em>CRM</em></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="stage-phone">
+<div class="phone-screen"><div class="phone-notch"></div><div class="phone-top"><span>10:24</span><span>online</span></div><div class="map-card"><div class="route"></div></div><div class="ride-title">Новая поездка</div><div class="ride-row"><b></b><div><strong>Точка подачи</strong>ул. Центральная, 18</div></div><div class="ride-row"><b class="end"></b><div><strong>Адрес назначения</strong>Деловой квартал</div></div><div class="ride-btn">Начать поездку</div></div>
+</div>
+<div class="stage-chat">
+<div class="chat-head"><div class="chat-avatar">TG</div><div><strong>Project Bot</strong><span>automation online</span></div></div>
+<div class="messages"><div class="message">Новая заявка получена. Данные отправлены в CRM.</div><div class="message me">Назначить менеджера</div><div class="message">Готово. Уведомление отправлено.</div></div>
+</div>
+<div class="stage-caption"><span>DESIGN</span><i></i><span>LOGIC</span><i></i><span>AUTOMATION</span><i></i><span>RELEASE</span></div>
+</div>
+</div>
+</section>
+<div aria-label="Ключевые преимущества работы" class="proof-strip container">
+<div class="proof-item"><strong>4+ года</strong><span>практической разработки</span></div>
+<div class="proof-item"><strong>Прямой контакт</strong><span>без менеджеров и посредников</span></div>
+<div class="proof-item"><strong>Реальные кейсы</strong><span>боты, CRM, mobile и web</span></div>
+<div class="proof-item"><strong>До запуска</strong><span>и дальнейшей доработки</span></div>
+</div>
+<section aria-labelledby="start-title" class="section container route-section" id="start">
+<div class="section-head">
+<div class="section-index" data-nosnippet="">00 / С чего начать</div>
+<div><h2 class="section-title" id="start-title">Сначала задача. <span class="soft">Потом технология.</span></h2><p class="section-lead">Не обязательно выбирать стек заранее. Найдите ситуацию, которая ближе к вашей — дальше уже понятнее, какой формат решения нужен.</p></div>
+</div>
+<div class="route-grid">
+<a class="route-card route-card--accent" href="/telegram-bots/"><span class="route-no">01</span><strong>Нужен Telegram-бот</strong><p>Заявки, личный кабинет, оплаты, уведомления, CRM или Mini App.</p><span class="route-link">Разработка ботов ↗</span></a>
+<a class="route-card" href="/n8n-automation/"><span class="route-no">02</span><strong>Много ручных действий</strong><p>CRM, формы, таблицы и сервисы нужно связать в один автоматический workflow.</p><span class="route-link">n8n / Make ↗</span></a>
+<a class="route-card" href="/api-integrations/"><span class="route-no">03</span><strong>Системы не обмениваются данными</strong><p>Нужна синхронизация сайта, CRM, Telegram, 1С или внешнего API.</p><span class="route-link">API-интеграции ↗</span></a>
+<a class="route-card" href="/crm-development/"><span class="route-no">04</span><strong>Нужна своя рабочая система</strong><p>Заявки, статусы, роли, аналитика и интерфейс под реальный процесс команды.</p><span class="route-link">CRM-разработка ↗</span></a>
+<a class="route-card" href="/project-repair/"><span class="route-no">05</span><strong>Проект уже есть, но застрял</strong><p>Чужой код, ошибки, незавершённый релиз или интеграция, которая работает нестабильно.</p><span class="route-link">Доработка проекта ↗</span></a>
+</div>
+</section>
+<section aria-labelledby="work-title" class="section container" id="work">
+<div class="section-head">
+<div class="section-index" data-nosnippet="">01 / Выбранные проекты</div>
+<div><h2 class="section-title" id="work-title">Не просто экраны. <span class="soft">Рабочие системы.</span></h2><p class="section-lead">В каждом кейсе — конкретная задача, продуктовая логика и техническая реализация. Без декоративных концептов ради картинки.</p></div>
+</div>
+<div class="work-grid">
+<a aria-label="Подробнее о CRM для автосалона" class="case case-primary" href="/cases/auto-crm/">
+<div class="case-visual" data-nosnippet="">
+<div class="crm-window">
+<div class="browser-top"><div class="dots"><i></i><i></i><i></i></div><span class="browser-label">AUTO CRM</span><span class="browser-label">WORKSPACE</span></div>
+<div class="browser-body"><div class="sidebar"><div class="side-pill active" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div><div class="side-pill" data-nosnippet=""></div></div><div class="dashboard"><div class="dash-head"><div class="dash-title"><strong>Заявки и сделки</strong><span>Единый рабочий процесс</span></div><span class="dash-chip">Фильтр</span></div><div class="crm-cards"><div class="crm-card"><span>Новые</span><strong>28</strong></div><div class="crm-card"><span>В работе</span><strong>17</strong></div><div class="crm-card"><span>Сегодня</span><strong>9</strong></div></div><div class="crm-list"><div><b>Кроссовер</b><span>Новая</span><span>12:18</span></div><div><b>Седан</b><span>Тест-драйв</span><span>14:30</span></div><div><b>SUV</b><span>Сделка</span><span>CRM</span></div><div><b>Хэтчбек</b><span>Документы</span><span>готово</span></div></div></div></div>
+</div>
+<div class="crm-floating"><small>Результат</small><strong>Единый рабочий контур</strong><div class="line"></div><div class="line short"></div></div>
+</div>
+<div class="case-content"><div class="case-meta" data-nosnippet=""><span>NDA · AUTO / CRM</span><span class="case-number" data-nosnippet="">01</span></div><div class="case-copy"><h3>CRM для автосалона</h3><p>Заявки, статусы и работа менеджеров собраны в один прозрачный процесс вместо разрозненных действий.</p><div class="case-footer"><div class="chips" data-nosnippet=""><span class="chip">CRM</span><span class="chip">Webhooks</span><span class="chip">Automation</span></div><span class="case-link">Подробнее ↗</span></div></div></div>
+</a>
+<a aria-label="Подробнее о приложении такси" class="case case-secondary" href="/cases/taxi-app/">
+<div class="case-visual" data-nosnippet=""><div class="taxi-route"></div><div class="taxi-phone"><div class="phone-screen"><div class="phone-notch"></div><div class="phone-top"><span>10:24</span><span>online</span></div><div class="map-card" style="height:5.5rem"><div class="route"></div></div><div class="ride-title" style="font-size:.7rem">Поездка подтверждена</div><div class="ride-row"><b></b><div><strong>Подача</strong>Центральная, 18</div></div><div class="ride-btn">В путь</div></div></div></div>
+<div class="case-content"><div class="case-meta" data-nosnippet=""><span>MOBILE · RUSTORE</span><span class="case-number" data-nosnippet="">02</span></div><div class="case-copy"><h3>Приложение такси</h3><p>Клиентская логика поездок, авторизация, уведомления и подготовка стабильной сборки к релизу.</p><div class="case-footer"><div class="chips" data-nosnippet=""><span class="chip">React Native</span><span class="chip">API</span><span class="chip">Release</span></div><span class="case-link">Подробнее ↗</span></div></div></div>
+</a>
+<a aria-label="Подробнее о цифровом каталоге завода" class="case case-secondary" href="/cases/factory-catalog/">
+<div class="case-visual" data-nosnippet=""><div class="factory-canvas"><div class="factory-top"><strong>Каталог оборудования</strong><span>Синхронизация · 1С</span></div><div class="factory-grid"><div class="product-mini"><div class="product-illu"></div><b>Модуль А-12</b><span>В наличии</span></div><div class="product-mini"><div class="product-illu"></div><b>Система М-8</b><span>Под заказ</span></div><div class="product-mini"><div class="product-illu"></div><b>Узел К-24</b><span>В наличии</span></div></div></div></div>
+<div class="case-content"><div class="case-meta" data-nosnippet=""><span>B2B · ПРОИЗВОДСТВО</span><span class="case-number" data-nosnippet="">03</span></div><div class="case-copy"><h3>Цифровой каталог завода</h3><p>Продукция и заявки связаны с внутренним учётом, а путь клиента до расчёта стал понятнее.</p><div class="case-footer"><div class="chips" data-nosnippet=""><span class="chip">Web</span><span class="chip">1С</span><span class="chip">Каталог</span></div><span class="case-link">Подробнее ↗</span></div></div></div>
+</a>
+<a aria-label="Подробнее о Telegram-боте Фин Планер" class="case case-calendar case-finplanner" href="/cases/fin-planner/">
+<div class="case-visual" data-nosnippet=""><img alt="Фин Планер — карточка кейса Telegram-бота для бюджета и финансового анализа" class="calendar-showcase" data-caption="Фин Планер — Telegram-бот для личного бюджета и финансового анализа" decoding="async" fetchpriority="low" height="1402" loading="lazy" sizes="(max-width: 760px) 94vw, (max-width: 1100px) 52vw, 560px" src="/assets/cases/fin-planner/fin-planner-card-01.webp" srcset="/assets/cases/fin-planner/fin-planner-card-01-720w.webp 720w, /assets/cases/fin-planner/fin-planner-card-01.webp 1122w" width="1122"/><span class="calendar-badge">REAL BOT · TELEGRAM</span></div>
+<div class="case-content"><div class="case-meta" data-nosnippet=""><span>TELEGRAM · FINANCE · AUTOMATION</span><span class="case-number" data-nosnippet="">04</span></div><div class="case-copy"><h3>Фин Планер</h3><p>Telegram-бот для личных финансов: доходы и расходы, регулярные платежи, баланс, отчёты, цели, прогноз и финансовый анализ — в одном сценарии.</p><div aria-label="Ключевые возможности Фин Планера" class="case-highlights"><span><b>Учёт</b><small>Доходы, расходы и регулярные платежи</small></span><span><b>Аналитика</b><small>Баланс, отчёты и прогноз</small></span><span><b>Формат</b><small>Полный финансовый сценарий внутри Telegram</small></span></div><div class="case-footer"><div class="chips" data-nosnippet=""><span class="chip">Telegram</span><span class="chip">Finance</span><span class="chip">Reports</span></div><span class="case-link">Смотреть кейс ↗</span></div></div></div>
+</a>
+<a aria-label="Подробнее об iOS-календаре на Swift" class="case case-calendar" href="/cases/swift-calendar/">
+<div class="case-visual" data-nosnippet=""><img alt="Карточка кейса iOS-календаря на Swift" class="calendar-showcase" decoding="async" fetchpriority="low" height="1402" loading="lazy" sizes="(max-width: 760px) 94vw, (max-width: 1100px) 52vw, 560px" src="/assets/cases/swift-calendar/calendar-card-01.webp" srcset="/assets/cases/swift-calendar/calendar-card-01-720w.webp 720w, /assets/cases/swift-calendar/calendar-card-01.webp 1122w" width="1122"/><span class="calendar-badge">REAL UI · SWIFT</span></div>
+<div class="case-content"><div class="case-meta" data-nosnippet=""><span>iOS · SWIFT · PRODUCT UI</span><span class="case-number" data-nosnippet="">05</span></div><div class="case-copy"><h3>iOS-календарь на Swift</h3><p>Календарь для задач и событий с пользовательским аккаунтом и подписочной моделью. В кейсе — реальные экраны приложения и визуальная упаковка интерфейса.</p><div aria-label="Ключевые возможности iOS-календаря" class="case-highlights"><span><b>Планирование</b><small>Задачи и события</small></span><span><b>Аккаунт</b><small>Профиль и подписка</small></span><span><b>Интерфейс</b><small>Нативная разработка на Swift</small></span></div><div class="case-footer"><div class="chips" data-nosnippet=""><span class="chip">Swift</span><span class="chip">iOS</span><span class="chip">Calendar UI</span></div><span class="case-link">Смотреть кейс ↗</span></div></div></div>
+</a>
+</div>
+<div style="display:flex;justify-content:flex-end;margin-top:1rem"><a href="/cases/" style="display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.72rem .95rem;color:#aeb5bd;font-size:.78rem">Все кейсы и проекты ↗</a></div>
+</section>
+<section aria-labelledby="services-title" class="section container" id="services">
+<div class="section-head">
+<div class="section-index" data-nosnippet="">02 / Чем помогаю</div>
+<div><h2 class="section-title" id="services-title">Технологии — средство. <span class="soft">Результат — главное.</span></h2><p class="section-lead">Можно прийти с конкретным стеком или просто с процессом, который нужно улучшить. <a class="inline-more" href="/services/">Все направления разработки ↗</a> · <a class="inline-more" href="/development/">Разработка на заказ ↗</a></p></div>
+</div>
+<div class="services">
+<a class="service-row" href="/ai-automation/"><span class="service-num">01</span><span class="service-main"><strong>AI и автоматизация</strong><span>Агенты, базы знаний, обработка данных и сценарии, которые снимают повторяющуюся работу.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/telegram-bots/"><span class="service-num">02</span><span class="service-main"><strong>Telegram-боты</strong><span>Боты, Mini Apps, платежи, CRM и API как единая рабочая система.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/web-development/"><span class="service-num">03</span><span class="service-main"><strong>Веб-продукты</strong><span>Сервисы, личные кабинеты, внутренние панели и MVP с ясной логикой интерфейса.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/api-integrations/"><span class="service-num">04</span><span class="service-main"><strong>API и интеграции</strong><span>Связь сайтов, CRM, Telegram, таблиц и учётных систем с контролем обмена.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/project-repair/"><span class="service-num">05</span><span class="service-main"><strong>Доработка проектов</strong><span>Аудит текущего состояния, поиск критичных мест и путь до стабильного релиза.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/ios-development/"><span class="service-num">06</span><span class="service-main"><strong>iOS-приложения на Swift</strong><span>Нативные интерфейсы, пользовательские сценарии и развитие мобильного продукта под iPhone и iPad.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/n8n-automation/"><span class="service-num">07</span><span class="service-main"><strong>Автоматизация n8n / Make</strong><span>Рабочие сценарии между CRM, Telegram, формами, таблицами и API с обработкой ошибок.</span></span><span class="service-arrow">↗</span></a>
+<a class="service-row" href="/crm-development/"><span class="service-num">08</span><span class="service-main"><strong>CRM под процессы</strong><span>Заявки, статусы, роли, аналитика и интеграции — под реальный рабочий процесс команды.</span></span><span class="service-arrow">↗</span></a>
+</div>
+</section>
+<section aria-labelledby="process-title" class="section container" id="process">
+<div class="process-wrap">
+<div class="process-intro"><div class="section-index" data-nosnippet="" style="margin-bottom:1rem">03 / Процесс</div><h2 id="process-title">Без чёрного ящика.</h2><p>На каждом этапе понятно, что уже готово, что проверяем сейчас и какое решение принимаем дальше.</p></div>
+<div class="steps">
+<article class="step"><span class="step-dot"></span><small>01 / DISCOVERY</small><h3>Разбираю задачу</h3><p>Фиксирую цель, ограничения и реальный пользовательский сценарий. Лишнее отсекается до начала разработки.</p></article>
+<article class="step"><span class="step-dot"></span><small>02 / STRUCTURE</small><h3>Проектирую основу</h3><p>Собираю архитектуру, прототип и ключевой путь пользователя. Самая рискованная часть проверяется первой.</p></article>
+<article class="step"><span class="step-dot"></span><small>03 / BUILD</small><h3>Запускаю итерациями</h3><p>Показываю работающие части по мере готовности. Решения уточняются на продукте, а не в бесконечных обсуждениях.</p></article>
+<article class="step"><span class="step-dot"></span><small>04 / RELEASE</small><h3>Передаю управляемый продукт</h3><p>Тестирую, разворачиваю и оставляю понятную структуру, которую можно поддерживать и развивать дальше.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="about-title" class="section container" id="about">
+<div class="about-panel authority-panel">
+<div class="about-main">
+<div class="about-kicker">04 / Профиль</div>
+<h2 id="about-title">Разработка, которую можно <span style="color:#8b929b">проверить по кейсам.</span></h2>
+<p>Работаю напрямую: от разбора задачи и архитектуры до запуска, исправления проблем и дальнейшей доработки. Не добавляю в портфолио вымышленные цифры и отзывы — вместо этого показываю реальные продукты и конкретные сценарии.</p>
+<div class="authority-actions"><a class="button primary" href="/about/">Подробнее обо мне ↗</a><a class="button" href="/cases/">Все кейсы</a></div>
+<div aria-label="Технологический стек" class="stack"><span>Python</span><span>TypeScript</span><span>Next.js</span><span>React</span><span>Node.js</span><span>Telegram API</span><span>n8n / Make</span><span>Supabase</span><span>PostgreSQL</span><span>Docker</span><span>Nginx</span><span>WordPress</span><span>Swift</span><span>1С</span></div>
+</div>
+<div aria-label="Подтверждённый опыт по проектам" class="authority-grid">
+<a class="authority-card" href="/cases/auto-crm/"><small>CRM · AUTOMATION</small><strong>CRM для автосалона</strong><span>Заявки, статусы, менеджеры и единый рабочий процесс.</span></a>
+<a class="authority-card" href="/cases/taxi-app/"><small>MOBILE · RELEASE</small><strong>Приложение такси</strong><span>Авторизация, API, поездки, уведомления и подготовка релиза.</span></a>
+<a class="authority-card" href="/cases/factory-catalog/"><small>WEB · 1С</small><strong>B2B-каталог завода</strong><span>Каталог продукции, заявки и связь сайта с внутренним учётом.</span></a>
+<a class="authority-card" href="/cases/fin-planner/"><small>TELEGRAM · PRODUCT</small><strong>Фин Планер</strong><span>Бюджет, регулярные расходы, отчёты, цели и финансовый анализ.</span></a>
+<a class="authority-card" href="/cases/swift-calendar/"><small>SWIFT · iOS</small><strong>iOS-календарь</strong><span>События, задачи, аккаунт пользователя и подписочная модель.</span></a>
+<div class="authority-card authority-card--fact"><small>ФОРМАТ РАБОТЫ</small><strong>4+ года · удалённо</strong><span>Один контакт на всём пути проекта, без передачи задачи между менеджерами.</span></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="faq-title" class="section container" id="faq">
+<div class="section-head"><div class="section-index" data-nosnippet="">05 / Перед стартом</div><div><h2 class="section-title" id="faq-title">Коротко <span class="soft">о главном.</span></h2></div></div>
+<div class="faq">
+<details><summary>Можно начать с небольшого прототипа?<span class="faq-plus">+</span></summary><p>Да. Если идея ещё не проверена, сначала собираем ключевой сценарий, показываем его реальным пользователям и только потом расширяем продукт.</p></details>
+<details><summary>Берёте существующие и незавершённые проекты?<span class="faq-plus">+</span></summary><p>Да. Начинаю с короткого аудита: проверяю текущее состояние, зависимости и риски, после чего предлагаю понятный путь до рабочего релиза.</p></details>
+<details><summary>Что нужно прислать для оценки?<span class="faq-plus">+</span></summary><p>Достаточно описать задачу своими словами, показать похожий пример и обозначить, что должно измениться для пользователя или бизнеса.</p></details>
+<details><summary>Как оформляется работа?<span class="faq-plus">+</span></summary><p>Фиксируем объём, сроки и этапы. Работа проходит по предоплате либо через безопасную сделку, а крупные задачи разбиваются на понятные части.</p></details>
+</div>
+</section>
+<section aria-labelledby="brief-title" class="section container brief-section" id="brief">
+<div class="section-head">
+<div class="section-index" data-nosnippet="">06 / Быстрый старт</div>
+<div><h2 class="section-title" id="brief-title">Заявка без <span class="soft">длинного ТЗ.</span></h2><p class="section-lead">Для первой оценки достаточно четырёх коротких пунктов. Их можно скопировать, заполнить в нескольких строках и отправить в Telegram.</p></div>
+</div>
+<div class="brief-shell">
+<div aria-label="Короткий шаблон задачи" class="brief-lines">
+<div class="brief-line"><span>01</span><div><b>Что нужно</b><p>Например: бот принимает заявки и передаёт их менеджеру.</p></div></div>
+<div class="brief-line"><span>02</span><div><b>Что уже есть</b><p>Сайт, таблица, CRM, старый код, макет или только идея.</p></div></div>
+<div class="brief-line"><span>03</span><div><b>Что должно связаться</b><p>Telegram, API, CRM, 1С, платежи, почта или другой сервис.</p></div></div>
+<div class="brief-line"><span>04</span><div><b>Как выглядит готовый результат</b><p>Что пользователь или сотрудник должен уметь делать после запуска.</p></div></div>
+</div>
+<div class="brief-action">
+<span class="eyebrow" data-nosnippet="">Можно начать за 2 минуты</span>
+<h3>Скопируйте шаблон и заполните своими словами.</h3>
+<p>Не нужно придумывать архитектуру или технические термины — это уже часть моей работы.</p>
+<div class="brief-buttons"><button class="button" data-copy-brief="" type="button">Скопировать шаблон</button><a class="button primary" href="https://t.me/Alexuys" rel="noreferrer noopener" target="_blank">Открыть Telegram ↗</a></div>
+<div aria-live="polite" class="brief-status"></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="contact-title" class="contact container" id="contact">
+<div class="contact-card"><div class="contact-grid"><div><div class="eyebrow" data-nosnippet="">Начнём с задачи</div><h2 id="contact-title">Есть задача? Пришлите её как есть.</h2><p>Можно прислать готовое ТЗ, ссылку на текущий проект или несколько сообщений своими словами. Отвечу по существу: что реализовывать, где риски и с чего разумно начать.</p><div class="contact-links"><a href="mailto:alexgtup@gmail.com">alexgtup@gmail.com</a><a href="https://freelance.ru/gglalex" rel="noreferrer noopener" target="_blank">Freelance.ru ↗</a></div></div><div class="contact-actions"><a class="button primary" href="https://t.me/Alexuys" rel="noreferrer noopener" target="_blank">Отправить задачу в Telegram ↗</a><a class="button" href="mailto:alexgtup@gmail.com">Написать на почту</a></div></div></div>
+</section>
+</main>
+<footer class="footer" data-nosnippet=""><div class="container footer-inner"><span>© 2026 Александр</span><div class="footer-links"><a href="/services/">Услуги</a><a href="/cases/">Кейсы</a><a href="/guides/">Разборы</a><a href="/about/">Обо мне</a><a href="mailto:alexgtup@gmail.com">Email</a><a href="https://freelance.ru/gglalex" rel="noreferrer noopener" target="_blank">Freelance.ru</a><a href="/privacy/">Конфиденциальность</a><a href="#top">Наверх ↑</a></div></div></footer>
+</div>
+<div aria-labelledby="cookieTitle" class="cookie-consent" hidden="" id="cookieConsent" role="dialog">
+<strong id="cookieTitle">Аналитические cookie</strong>
+<p>Яндекс Метрика помогает понять, какие страницы полезны и откуда приходят посетители. Счётчик включится только после вашего согласия. Вебвизор отключён. <a href="/privacy/">Подробнее о данных</a></p>
+<div class="cookie-actions"><button id="cookieDecline" type="button">Отклонить</button><button class="allow" id="cookieAllow" type="button">Разрешить</button></div>
+</div>
+<button class="cookie-settings" data-nosnippet="" hidden="" id="cookieSettings" type="button">Настройки cookie</button>
+<script>
+(() => {
+  const root = document.documentElement;
+  const header = document.getElementById('header');
+  const progress = document.querySelector('.scroll-progress');
+  const menuButton = document.getElementById('menuButton');
+  const mobileNav = document.getElementById('mobileNav');
+  const stage = document.getElementById('productStage');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function onScroll() {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const value = Math.min(100, Math.max(0, scrollY / max * 100));
+    root.style.setProperty('--scroll', value + '%');
+    header.classList.toggle('scrolled', scrollY > 16);
+  }
+  let scrollQueued = false;
+  const scheduleScroll = () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => { scrollQueued = false; onScroll(); });
+  };
+  addEventListener('scroll', scheduleScroll, {passive:true});
+  addEventListener('resize', scheduleScroll, {passive:true});
+  onScroll();
+
+  const finePointer = window.matchMedia('(pointer: fine) and (min-width: 900px)').matches;
+  if (!reduceMotion && finePointer) {
+    addEventListener('pointermove', (e) => {
+      root.style.setProperty('--mx', (e.clientX / innerWidth * 100).toFixed(1) + '%');
+      root.style.setProperty('--my', (e.clientY / innerHeight * 100).toFixed(1) + '%');
+    }, {passive:true});
+    if (stage) {
+      stage.addEventListener('pointermove', (e) => {
+        const r = stage.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        stage.style.setProperty('--ry', (x * 3.2).toFixed(2) + 'deg');
+        stage.style.setProperty('--rx', (-y * 2.4).toFixed(2) + 'deg');
+      }, {passive:true});
+      stage.addEventListener('pointerleave', () => { stage.style.setProperty('--ry','0deg'); stage.style.setProperty('--rx','0deg'); });
+    }
+  }
+
+  menuButton?.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  });
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded','false');
+  }));
+
+  const consentKey = 'averliq-analytics-consent-v1';
+  const consent = document.getElementById('cookieConsent');
+  const settings = document.getElementById('cookieSettings');
+  const allow = document.getElementById('cookieAllow');
+  const decline = document.getElementById('cookieDecline');
+  const metrikaId = 112290993;
+  let metrikaStarted = false;
+
+  function startMetrika() {
+    if (metrikaStarted) return;
+    metrikaStarted = true;
+    window.ym = window.ym || function(){ (window.ym.a = window.ym.a || []).push(arguments); };
+    window.ym.l = Date.now();
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://mc.yandex.ru/metrika/tag.js?id=' + metrikaId;
+    s.dataset.yandexMetrica = String(metrikaId);
+    document.head.appendChild(s);
+    window.ym(metrikaId, 'init', {ssr:true, webvisor:false, clickmap:true, accurateTrackBounce:true, trackLinks:false});
+  }
+
+  function showConsent() { consent.hidden = false; settings.hidden = true; }
+  function hideConsent() { consent.hidden = true; settings.hidden = false; }
+  function setConsent(value) {
+    try { localStorage.setItem(consentKey, value); } catch (_) {}
+    if (value === 'accepted') startMetrika();
+    hideConsent();
+  }
+
+  let saved = null;
+  try { saved = localStorage.getItem(consentKey); } catch (_) {}
+  if (saved === 'accepted') { startMetrika(); hideConsent(); }
+  else if (saved === 'declined') hideConsent();
+  else showConsent();
+
+  allow.addEventListener('click', () => setConsent('accepted'));
+  decline.addEventListener('click', () => setConsent('declined'));
+  settings.addEventListener('click', showConsent);
+
+  document.addEventListener('click', (event) => {
+    if (!metrikaStarted || !window.ym) return;
+    const a = event.target instanceof Element ? event.target.closest('a') : null;
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    let goal = null;
+    if (href.startsWith('mailto:')) goal = 'email_click';
+    else {
+      try {
+        const url = new URL(a.href);
+        if (url.hostname === 't.me') goal = 'telegram_click';
+        if (url.hostname === 'freelance.ru' || url.hostname.endsWith('.freelance.ru')) goal = 'freelance_click';
+      } catch (_) {}
+    }
+    if (goal) window.ym(metrikaId, 'reachGoal', goal);
+  });
+})();
+</script>
+<script defer="" src="/assets/site-enhancements.js"></script>
+</body>
+</html>

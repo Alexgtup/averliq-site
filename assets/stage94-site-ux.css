@@ -1,0 +1,154 @@
+/* Stage 94 - sitewide UX baseline. Consistent orientation, touch targets and mobile chrome. */
+.stage94-skip-link{position:fixed;z-index:10000;left:1rem;top:.75rem;transform:translateY(-160%);padding:.65rem .85rem;border:1px solid rgba(201,255,74,.4);border-radius:.7rem;background:#0b0e12;color:#f5f7f2;font:800 .8rem/1.2 Inter,system-ui,sans-serif;text-decoration:none;transition:transform .16s ease}
+.stage94-skip-link:focus{transform:none}
+
+:where(a,button,input,textarea,select,summary):focus-visible{outline:2px solid #c9ff4a;outline-offset:3px}
+:where(a,button,summary){touch-action:manipulation}
+main [id]{scroll-margin-top:7rem}
+
+/* Active primary navigation gives visitors a persistent sense of place. */
+nav a.is-current,[aria-current="page"]{color:#f4f6f2!important}
+.nav a.is-current:not(.cta),.intl-nav a.is-current,.dt-navlinks a.is-current{background:rgba(201,255,74,.075);border-color:rgba(201,255,74,.2)!important}
+
+/* Lightweight parent context: useful on detail pages without adding another navigation bar. */
+.stage94-context-link{display:inline-flex;align-items:center;gap:.42rem;margin:0 0 .9rem;color:#8e979f!important;text-decoration:none;font-size:.72rem;font-weight:780;letter-spacing:.015em}
+.stage94-context-link::before{content:'←';color:#c9ff4a;font-size:.86rem}
+.stage94-context-link:hover{color:#e9ece8!important}
+
+.stage94-hero-actions{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin-top:1.15rem}
+.stage94-hero-actions a{min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;padding:.7rem .9rem;border:1px solid rgba(255,255,255,.11);border-radius:.78rem;text-decoration:none;font-size:.8rem;font-weight:820;letter-spacing:-.01em}
+.stage94-action-primary{background:#c9ff4a;color:#090b0d!important;border-color:#c9ff4a!important}
+.stage94-action-secondary{background:rgba(255,255,255,.025);color:#c8ced4!important}
+.stage94-action-secondary:hover{border-color:rgba(201,255,74,.24);color:#ecffbd!important}
+
+/* A Telegram-specific cross-link should not look like another full service section on generic repair/Python pages. */
+body[data-page="project-repair"] [data-stage60-repair-entry],
+body[data-page="python-development"] [data-stage60-repair-entry]{padding-block:1.7rem!important;border-block:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.012)!important}
+body[data-page="project-repair"] [data-stage60-repair-entry] .container,
+body[data-page="python-development"] [data-stage60-repair-entry] .container{display:grid;grid-template-columns:minmax(0,1fr) minmax(15rem,.45fr);gap:1rem;align-items:center}
+body[data-page="project-repair"] [data-stage60-repair-entry] .s48-head,
+body[data-page="python-development"] [data-stage60-repair-entry] .s48-head{display:block!important;margin:0!important}
+body[data-page="project-repair"] [data-stage60-repair-entry] .s48-index,
+body[data-page="python-development"] [data-stage60-repair-entry] .s48-index{display:block;margin-bottom:.45rem;color:#7d868e;font-size:.62rem}
+body[data-page="project-repair"] [data-stage60-repair-entry] h2,
+body[data-page="python-development"] [data-stage60-repair-entry] h2{margin:0 0 .42rem!important;font-size:clamp(1.15rem,2vw,1.55rem)!important;line-height:1.08!important}
+body[data-page="project-repair"] [data-stage60-repair-entry] p,
+body[data-page="python-development"] [data-stage60-repair-entry] p{margin:0!important;max-width:60ch;color:#8f979f!important;font-size:.84rem!important;line-height:1.55!important}
+body[data-page="project-repair"] [data-stage60-repair-entry] .s48-related,
+body[data-page="python-development"] [data-stage60-repair-entry] .s48-related{margin:0!important}
+body[data-page="project-repair"] [data-stage60-repair-entry] .s48-related a,
+body[data-page="python-development"] [data-stage60-repair-entry] .s48-related a{min-height:3.4rem!important;padding:.8rem .9rem!important;border-radius:.85rem!important}
+
+/* Horizontal controls scroll inside their own rail instead of widening the page. */
+.ux-quicknav__inner,.ux-content-nav__inner,.ux-filterbar,.project-radar__filters,.case-filter__list,.fos-nav nav{max-width:100%;min-width:0;contain:inline-size}
+
+@media(max-width:900px){
+  /* Floating sales bars repeatedly competed with real page controls. Every page now uses header + inline actions instead. */
+  .mobile-project-cta{display:none!important}
+}
+
+@media(max-width:680px){
+  /* One sticky header is enough on a phone. Local route navigation remains useful but stays in document flow. */
+  .ux-quicknav,.ux-content-nav{position:static!important;top:auto!important;backdrop-filter:none!important}
+  main [id]{scroll-margin-top:5.25rem}
+
+  .ux-quicknav a,.ux-content-nav a,.ux-filterbar button,.project-radar__filters button,.case-filter__list button,.portfolio-carousel__controls button,.dt-btn,.stage94-hero-actions a{min-height:44px!important}
+
+  /* Prevent iOS focus zoom and improve touch editing across forms and browser tools. */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),textarea,select{font-size:16px!important}
+
+  .stage94-hero-actions{display:grid;grid-template-columns:1fr;margin-top:1rem}
+  .stage94-hero-actions a{width:100%}
+  .stage94-context-link{min-height:40px;margin-bottom:.55rem}
+
+  body[data-page="project-repair"] [data-stage60-repair-entry] .container,
+  body[data-page="python-development"] [data-stage60-repair-entry] .container{grid-template-columns:1fr}
+  body[data-page="project-repair"] [data-stage60-repair-entry],
+  body[data-page="python-development"] [data-stage60-repair-entry]{padding-block:1.35rem!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* Stage 98 interaction polish - shared behavior cues without adding visual clutter. */
+html{scroll-padding-top:6rem}
+:where(a,button,summary,[role="link"]){-webkit-tap-highlight-color:rgba(201,255,74,.12)}
+:where(a,button,summary,[role="link"]):focus-visible{outline:2px solid #c9ff4a!important;outline-offset:3px!important}
+:where(button,[role="button"]):disabled{cursor:not-allowed!important;opacity:.38!important}
+
+.stage98-mobile-menu>summary,
+.project-radar__filters button,
+.case-filter__list button,
+.portfolio-carousel__controls button,
+.s44-service-map__item,
+.s44-route,
+.portfolio-card,
+.case-library-card{
+  transition:border-color .16s ease,background-color .16s ease,color .16s ease,transform .16s ease,opacity .16s ease!important;
+}
+
+.s44-service-map__item:focus-visible,
+.s44-route:focus-visible,
+.portfolio-card:focus-visible,
+.case-library-card:focus-visible{
+  border-color:rgba(201,255,74,.34)!important;
+  box-shadow:0 0 0 3px rgba(201,255,74,.06)!important;
+}
+
+@media(hover:hover) and (pointer:fine){
+  .s44-service-map__item:hover,
+  .s44-route:hover,
+  .portfolio-card:hover,
+  .case-library-card:hover{transform:translateY(-3px)!important;border-color:rgba(255,255,255,.18)!important}
+  .portfolio-card:hover .portfolio-card__footer span:last-child,
+  .case-library-card:hover .case-library-card__action i,
+  .s44-service-map__item:hover>div i{transform:translateX(3px)}
+}
+
+.portfolio-card__footer span:last-child,
+.case-library-card__action i,
+.s44-service-map__item>div i{transition:transform .16s ease}
+
+.portfolio-carousel__viewport{touch-action:pan-y;outline:none;border-radius:1rem}
+.portfolio-carousel__viewport:focus-visible{box-shadow:0 0 0 3px rgba(201,255,74,.08),0 0 0 1px rgba(201,255,74,.45)}
+.portfolio-carousel__controls button:not(:disabled):active,
+.project-radar__filters button:active,
+.case-filter__list button:active{transform:translateY(1px)}
+
+/* The selected filter should be obvious before the visitor scans card contents. */
+.project-radar__filters button[aria-pressed="true"],
+.case-filter__list button[aria-pressed="true"],
+.ux-filterbar button[aria-pressed="true"]{
+  border-color:rgba(201,255,74,.32)!important;
+  background:rgba(201,255,74,.075)!important;
+  color:#efffc8!important;
+}
+
+/* The home brief behaves like a lightweight composer and can grow with the message. */
+#s44-brief-form textarea[name="task"]{min-height:8.25rem;max-height:22.5rem;overflow:auto;resize:vertical}
+#s44-brief-form [data-brief-status]:not(:empty){margin-top:.2rem;padding:.65rem .8rem;border-left:2px solid rgba(201,255,74,.55);background:rgba(201,255,74,.035);color:#aeb8a8!important}
+
+@media(max-width:900px){
+  body.stage98-menu-open{overflow:hidden}
+  body.stage98-menu-open::before{
+    content:'';
+    position:fixed;
+    inset:4rem 0 0;
+    z-index:115;
+    background:rgba(4,6,8,.58);
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+  }
+  body[data-ux-family] .stage98-header{z-index:120!important}
+  body[data-ux-family] .stage98-mobile-menu>nav{z-index:125;max-height:min(34rem,calc(100dvh - 5.5rem));overflow:auto}
+  body[data-ux-family] .stage98-mobile-menu[open]>summary{border-color:rgba(201,255,74,.3);background:#151b20}
+}
+
+@media(max-width:640px){
+  html{scroll-padding-top:4.75rem}
+  .portfolio-carousel__viewport{border-radius:.9rem}
+  .project-radar__filters,.case-filter__list{scroll-padding-inline:1rem}
+  .project-radar__filters button,.case-filter__list button{scroll-snap-align:start}
+}

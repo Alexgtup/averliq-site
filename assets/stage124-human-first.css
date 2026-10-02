@@ -1,0 +1,245 @@
+/* stage124-human-first
+   Human-first homepage pass: reduce technical chrome and repetition without
+   removing technical depth from service and case pages. */
+
+body[data-page="home"] .s44-kicker,
+body[data-page="home"] .s44-index,
+body[data-page="home"] .portfolio-showcase__kicker,
+body[data-page="home"] .s113-kicker {
+  font-family:inherit!important;
+  letter-spacing:.035em!important;
+}
+
+/* The homepage already carries the brand in the header. Start with the promise,
+   not another technical label or numbered presentation slide. */
+body[data-page="home"] .s44-hero .s44-kicker,
+body[data-page="home"] .s44-section-head > .s44-index,
+body[data-page="home"] .portfolio-showcase__kicker,
+body[data-page="home"] .s113-kicker { display:none!important; }
+
+body[data-page="home"] .s44-section-head {
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:.45rem!important;
+}
+body[data-page="home"] .s44-section-head > div { max-width:58rem!important; }
+
+/* The homepage is a curated selection, not a project database. Filters remain on /cases/. */
+body[data-page="home"] .project-radar { display:none!important; }
+body[data-page="home"] .portfolio-showcase__layout {
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+body[data-page="home"] .portfolio-showcase__head { max-width:58rem!important; }
+body[data-page="home"] .portfolio-card__meta span {
+  font-family:inherit!important;
+  letter-spacing:.02em!important;
+  text-transform:none!important;
+  font-size:.72rem!important;
+}
+
+/* One trust signal in the hero + real quotes below is enough. */
+body[data-page="home"] .s44-proofline {
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+body[data-page="home"] .s44-proofline > :nth-child(3) { display:none!important; }
+body[data-page="home"] .s44-proofline > :nth-child(2) { border-right:1px solid rgba(255,255,255,.07)!important; }
+
+/* Reviews already prove reputation. Do not repeat the same Freelance.ru proof
+   again in the next section. Reduce the process to three useful steps. */
+body[data-page="home"] #about .s44-trust-card { display:none!important; }
+body[data-page="home"] #about .s44-value-grid {
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:.8rem!important;
+}
+body[data-page="home"] #about .s44-value-grid > article:nth-child(2) { display:none!important; }
+body[data-page="home"] #about .s44-value-grid article > span {
+  font-family:inherit!important;
+  letter-spacing:.02em!important;
+  color:var(--ds-muted-2)!important;
+}
+
+/* Budget is useful to normal clients; internal category labels are not. */
+body[data-page="home"] #budget .s44-price-grid article > span { display:none!important; }
+body[data-page="home"] #budget .s44-price-grid strong {
+  display:block!important;
+  margin-bottom:.55rem!important;
+}
+body[data-page="home"] #budget .s44-price-grid h3 { margin-top:0!important; }
+
+/* Remove the second mini funnel before the actual contact form. */
+body[data-page="home"] .s102-fastlane { display:none!important; }
+body[data-page="home"] .s44-brief-section .s44-brief { max-width:58rem!important; }
+body[data-page="home"] .s44-brief__footer { margin-top:.3rem!important; }
+body[data-page="home"] .s44-brief__footer > p {
+  max-width:34rem!important;
+  color:var(--ds-muted)!important;
+}
+
+/* Crawl/discovery links stay available but no longer look like a raw SEO link dump. */
+body[data-page="home"] details.s120-priority {
+  width:min(calc(100% - 2rem),58rem)!important;
+  margin:0 auto 2.6rem!important;
+  padding:0!important;
+  display:block!important;
+  border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:.9rem!important;
+  background:rgba(255,255,255,.012)!important;
+  overflow:hidden!important;
+}
+body[data-page="home"] details.s120-priority > summary {
+  min-height:3rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  padding:.75rem .9rem!important;
+  cursor:pointer!important;
+  list-style:none!important;
+  color:var(--ds-muted)!important;
+  font-size:.78rem!important;
+  font-weight:720!important;
+}
+body[data-page="home"] details.s120-priority > summary::-webkit-details-marker { display:none!important; }
+body[data-page="home"] details.s120-priority > summary::after {
+  content:'+';
+  font-size:1rem;
+  color:var(--ds-muted-2)!important;
+}
+body[data-page="home"] details.s120-priority[open] > summary::after { content:'−'; }
+body[data-page="home"] details.s120-priority > nav.s101-more {
+  margin:0!important;
+  padding:.15rem .9rem .8rem!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:.12rem .8rem!important;
+  border-top:1px solid rgba(255,255,255,.055)!important;
+}
+body[data-page="home"] details.s120-priority > nav.s101-more a {
+  min-height:2.35rem!important;
+  display:flex!important;
+  align-items:center!important;
+  padding:.38rem 0!important;
+  color:var(--ds-muted)!important;
+  font-size:.73rem!important;
+  line-height:1.35!important;
+  text-decoration:none!important;
+}
+body[data-page="home"] details.s120-priority > nav.s101-more a:hover { color:var(--ds-text)!important; }
+
+html[data-theme="light"] body[data-page="home"] details.s120-priority {
+  border-color:rgba(18,20,24,.10)!important;
+  background:rgba(18,20,24,.018)!important;
+}
+html[data-theme="light"] body[data-page="home"] details.s120-priority > nav.s101-more {
+  border-top-color:rgba(18,20,24,.07)!important;
+}
+
+/* ===== COMMERCIAL PAGES: progressive disclosure ===== */
+body[data-ux-family="service"] .s48-kicker {
+  font-family:inherit!important;
+  letter-spacing:.035em!important;
+  text-transform:none!important;
+  font-size:.72rem!important;
+}
+body[data-ux-family="service"] .s48-lead {
+  max-width:40rem!important;
+  font-size:clamp(1rem,1.25vw,1.08rem)!important;
+  line-height:1.68!important;
+}
+
+/* Two independent trust signals are enough above the fold. The third one is
+   already repeated later in the page and on About. */
+body[data-ux-family="service"] .s114-proofbar {
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+body[data-ux-family="service"] .s114-proofbar > :nth-child(3) { display:none!important; }
+body[data-ux-family="service"] .s114-proofbar strong,
+body[data-ux-family="service"] .s48-facts strong {
+  font-family:inherit!important;
+  letter-spacing:-.015em!important;
+}
+body[data-ux-family="service"] .s114-proofbar span,
+body[data-ux-family="service"] .s48-facts span {
+  font-family:inherit!important;
+  letter-spacing:0!important;
+}
+
+/* Keep the service diagram as a light explanation on desktop rather than a
+   developer dashboard. Detailed implementation stays further down the page. */
+body[data-ux-family="service"] .s48-system__top { display:none!important; }
+body[data-ux-family="service"] .s48-system {
+  background:transparent!important;
+  box-shadow:none!important;
+}
+body[data-ux-family="service"] .s48-flow { gap:.45rem!important; }
+body[data-ux-family="service"] .s48-node {
+  min-height:4.2rem!important;
+  background:transparent!important;
+  border-color:rgba(255,255,255,.075)!important;
+}
+body[data-ux-family="service"] .s48-node > span { display:none!important; }
+body[data-ux-family="service"] .s48-node strong {
+  font-family:inherit!important;
+  font-size:.84rem!important;
+  letter-spacing:-.01em!important;
+  text-transform:none!important;
+}
+
+/* The services hub already lists all six routes. The SEO helper is optional. */
+body[data-page="services"] .s44-service-map__item > span { display:none!important; }
+body[data-page="services"] .s44-service-map__item h2 { margin-top:.45rem!important; }
+body[data-page="services"] .s124-service-help {
+  width:min(calc(100% - 2rem),58rem)!important;
+  margin:0 auto 3rem!important;
+  border:1px solid var(--ds-line)!important;
+  border-radius:.95rem!important;
+  background:var(--ds-surface)!important;
+  overflow:hidden!important;
+}
+body[data-page="services"] .s124-service-help > summary {
+  min-height:3.15rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  padding:.8rem 1rem!important;
+  list-style:none!important;
+  cursor:pointer!important;
+  font-weight:760!important;
+  color:var(--ds-text)!important;
+}
+body[data-page="services"] .s124-service-help > summary::-webkit-details-marker { display:none!important; }
+body[data-page="services"] .s124-service-help > summary::after { content:'+';color:var(--ds-muted)!important; }
+body[data-page="services"] .s124-service-help[open] > summary::after { content:'−'; }
+body[data-page="services"] .s124-service-help > div {
+  padding:.9rem 1rem 1rem!important;
+  border-top:1px solid var(--ds-line)!important;
+}
+body[data-page="services"] .s124-service-help p {
+  max-width:48rem!important;
+  margin:0 0 .8rem!important;
+  color:var(--ds-muted)!important;
+  line-height:1.6!important;
+}
+
+/* Case cards should advertise the outcome first. Technology remains inside. */
+body[data-page="cases"] .case-library-card__tags { display:none!important; }
+body[data-page="cases"] .case-library-card__meta {
+  font-family:inherit!important;
+  text-transform:none!important;
+  letter-spacing:.01em!important;
+}
+
+@media(max-width:900px){
+  body[data-page="home"] #about .s44-value-grid { grid-template-columns:minmax(0,1fr)!important; }
+  body[data-ux-family="service"] .s114-proofbar { grid-template-columns:minmax(0,1fr)!important; }
+}
+
+@media(max-width:820px){
+  body[data-page="home"] .s44-proofline { grid-template-columns:minmax(0,1fr)!important; }
+  body[data-page="home"] .s44-proofline > * { border-right:0!important; }
+  body[data-page="home"] details.s120-priority > nav.s101-more { grid-template-columns:minmax(0,1fr)!important; }
+
+  /* On phones the visual flow is secondary and pushes the real decision content
+     below the fold. The same logic is explained in plain text above it. */
+  body[data-ux-family="service"] .s48-system { display:none!important; }
+  body[data-ux-family="service"] .s48-hero__grid { gap:0!important; }
+}

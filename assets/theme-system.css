@@ -1,0 +1,290 @@
+/* Stage 99 - persistent light/dark theme. Dark remains the default. */
+html[data-theme="light"]{
+  color-scheme:light;
+  --ds-bg:#f5f6f8;
+  --ds-surface:#ffffff;
+  --ds-surface-2:#eef1f4;
+  --ds-line:rgba(16,24,32,.10);
+  --ds-line-strong:rgba(16,24,32,.18);
+  --ds-text:#12171d;
+  --ds-muted:#5f6873;
+  --ds-muted-2:#78828d;
+  --ds-accent:#b7e63d;
+  --ds-shadow:0 18px 50px rgba(26,35,45,.08);
+
+  /* Legacy page families still use these names in inline page CSS. */
+  --bg:#f5f6f8;
+  --bg-2:#eef1f4;
+  --bg2:#eef1f4;
+  --surface:#ffffff;
+  --surface-2:#eef1f4;
+  --surface2:#eef1f4;
+  --surface-3:#e7ebef;
+  --panel:#ffffff;
+  --card:#ffffff;
+  --text:#12171d;
+  --muted:#5f6873;
+  --muted-2:#78828d;
+  --muted2:#78828d;
+  --line:rgba(16,24,32,.10);
+  --line2:rgba(16,24,32,.18);
+  --line-strong:rgba(16,24,32,.18);
+  --soft:#68727d;
+  --lime:#b7e63d;
+  --lime-soft:rgba(157,202,34,.12);
+  --blue:#5d6fda;
+  --blue-soft:rgba(93,111,218,.10);
+  --aqua:#287f70;
+  --coral:#c85f4b;
+}
+
+html[data-theme="light"],
+html[data-theme="light"] body,
+html[data-theme="light"] body[data-ux-family],
+html[data-theme="light"] body[data-ux-family] main{
+  background:var(--ds-bg)!important;
+  color:var(--ds-text)!important;
+}
+
+html[data-theme="light"] body[data-ux-family] main :is(h1,h2,h3,h4,h5,h6,strong,b,summary){
+  color:var(--ds-text);
+}
+html[data-theme="light"] body[data-ux-family] main :is(p,li){color:var(--ds-muted)!important}
+html[data-theme="light"] body[data-ux-family] :is(.eyebrow,.kicker,.s44-kicker,.s44-index,.s48-index,.s50-index,.s51-index,.portfolio-showcase__kicker,.case-library__kicker){color:var(--ds-muted-2)!important}
+
+/* Homepage atmospheric layer becomes light rather than grey-black. */
+html[data-theme="light"] .site{
+  background:
+    radial-gradient(circle at var(--mx,78%) var(--my,6%),rgba(93,111,218,.08),transparent 24rem),
+    linear-gradient(180deg,#f8f9fb 0%,#f5f6f8 52%,#f7f8fa 100%)!important;
+}
+html[data-theme="light"] .site::before{
+  background-image:
+    linear-gradient(rgba(16,24,32,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(16,24,32,.035) 1px,transparent 1px)!important;
+  opacity:.65;
+}
+html[data-theme="light"] .site::after{background:radial-gradient(ellipse at center,rgba(93,111,218,.07),transparent 68%)!important}
+
+/* Shared header and navigation. */
+html[data-theme="light"] body[data-ux-family] :is(.header,.site-header,.intl-header){
+  background:rgba(248,249,251,.88)!important;
+  border-bottom-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-brand{color:var(--ds-text)!important}
+html[data-theme="light"] body[data-ux-family] .stage98-brand-mark{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+  box-shadow:0 5px 18px rgba(25,33,43,.06);
+}
+html[data-theme="light"] body[data-ux-family] .stage98-brand-mark svg path:first-of-type{stroke:#151b22!important}
+html[data-theme="light"] body[data-ux-family] .stage98-brand-copy small{color:#77818c!important}
+html[data-theme="light"] body[data-ux-family] .stage98-nav>a{color:#626c77!important}
+html[data-theme="light"] body[data-ux-family] .stage98-nav>a:hover,
+html[data-theme="light"] body[data-ux-family] .stage98-nav>a[aria-current="page"]{
+  color:var(--ds-text)!important;
+  background:rgba(16,24,32,.055)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-nav .stage98-lang{border-color:var(--ds-line)!important}
+html[data-theme="light"] body[data-ux-family] .stage98-nav .stage98-cta{
+  color:#171d23!important;
+  border-color:var(--ds-line-strong)!important;
+  background:#fff!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-nav .stage98-cta:hover{
+  color:#263800!important;
+  border-color:rgba(128,169,25,.35)!important;
+  background:rgba(183,230,61,.16)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu>summary{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-menu-icon i{background:#20262d!important}
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu>nav{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+  box-shadow:0 24px 70px rgba(24,34,44,.16)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu>nav>a{color:#59636e!important}
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu>nav>a[aria-current="page"]{background:#eef1f4!important;color:var(--ds-text)!important}
+
+/* Theme switch itself. */
+.theme-toggle{
+  min-width:2.75rem;
+  height:2.55rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.65rem;
+  padding:.35rem .45rem;
+  margin-left:.2rem;
+  border:1px solid var(--ds-line);
+  border-radius:.72rem;
+  background:transparent;
+  color:var(--ds-text);
+  cursor:pointer;
+  font:800 .78rem/1 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+.theme-toggle:hover{border-color:var(--ds-line-strong);background:rgba(255,255,255,.035)}
+.theme-toggle:focus-visible{outline:2px solid var(--ds-accent);outline-offset:2px}
+.theme-toggle__track{
+  position:relative;
+  width:2.35rem;
+  height:1.28rem;
+  display:block;
+  flex:0 0 auto;
+  border:1px solid var(--ds-line-strong);
+  border-radius:999px;
+  background:#161b21;
+}
+.theme-toggle__sun,.theme-toggle__moon{
+  position:absolute;
+  top:50%;
+  transform:translateY(-52%);
+  z-index:1;
+  font-size:.68rem;
+  line-height:1;
+  opacity:.5;
+}
+.theme-toggle__sun{left:.23rem;color:#d9ff72}
+.theme-toggle__moon{right:.25rem;color:#bcc5d0}
+.theme-toggle__thumb{
+  position:absolute;
+  top:.15rem;
+  left:.16rem;
+  width:.88rem;
+  height:.88rem;
+  border-radius:50%;
+  background:#f1f4f0;
+  box-shadow:0 1px 4px rgba(0,0,0,.28);
+  transition:transform .18s ease,background .18s ease;
+}
+html[data-theme="light"] .theme-toggle{background:#fff;color:#1a2027}
+html[data-theme="light"] .theme-toggle:hover{background:#f0f2f5}
+html[data-theme="light"] .theme-toggle__track{background:#e8edf1}
+html[data-theme="light"] .theme-toggle__sun{color:#69731f;opacity:.55}
+html[data-theme="light"] .theme-toggle__moon{color:#3e4955;opacity:.72}
+html[data-theme="light"] .theme-toggle__thumb{transform:translateX(1rem);background:#27313b}
+.theme-toggle__label:empty{display:none}
+.theme-toggle--mobile{
+  width:100%;
+  min-height:2.85rem;
+  height:auto;
+  justify-content:flex-start;
+  margin:.18rem 0 .1rem;
+  padding:.68rem .78rem;
+  border-radius:.72rem;
+}
+.theme-toggle--mobile .theme-toggle__label{display:block}
+
+/* Core surfaces. */
+html[data-theme="light"] body[data-ux-family] :is(
+  .s44-route,.s44-value-grid article,.s44-price-grid article,.s44-trust-card,.s44-service-decision,
+  .s44-case,.s44-case-stack a,.s44-service-map__item,.s44-special-grid a,.s44-brief,
+  .s48-fit-grid article,.s48-budget article,.s48-process article,.s48-proof div,
+  .s50-case-list a,.s50-guide-grid a,.s50-card,.s51-card,.case-library-card,.portfolio-card,
+  .dt-tool-card,.growth-card,.s72-offer,.s77-card,.cta-box,.contact-card,.answer
+){
+  background:var(--ds-surface)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(
+  .s44-route,.s44-case,.s44-case-stack a,.s44-service-map__item,.s44-special-grid a,
+  .s50-case-list a,.s50-guide-grid a,.case-library-card,.portfolio-card,.dt-tool-card
+):hover{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line-strong)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(.s44-route,.s44-case,.s44-case-stack a,.s44-service-map__item,.portfolio-card,.case-library-card) :is(h2,h3,strong,b){color:var(--ds-text)!important}
+html[data-theme="light"] body[data-ux-family] :is(.s44-route,.s44-case,.s44-case-stack a,.s44-service-map__item,.portfolio-card,.case-library-card) p{color:var(--ds-muted)!important}
+html[data-theme="light"] body[data-ux-family] .portfolio-card__meta,
+html[data-theme="light"] body[data-ux-family] .case-library-card__meta{color:var(--ds-muted-2)!important}
+html[data-theme="light"] body[data-ux-family] .portfolio-poster{border-color:var(--ds-line)!important;background:#f2f4f6!important}
+
+/* Filters and controls. */
+html[data-theme="light"] body[data-ux-family] .project-radar{
+  border-color:var(--ds-line)!important;
+  background:transparent!important;
+}
+html[data-theme="light"] body[data-ux-family] .project-radar__filters button,
+html[data-theme="light"] body[data-ux-family] :is(.case-filter button,.ux-filterbar button){
+  color:#5c6670!important;
+  border-color:var(--ds-line)!important;
+  background:#fff!important;
+}
+html[data-theme="light"] body[data-ux-family] .project-radar__filters button[aria-pressed="true"],
+html[data-theme="light"] body[data-ux-family] :is(.case-filter button,.ux-filterbar button)[aria-pressed="true"]{
+  background:var(--ds-accent)!important;
+  color:#172000!important;
+  border-color:var(--ds-accent)!important;
+}
+html[data-theme="light"] body[data-ux-family] .case-filter{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+}
+
+/* Forms and secondary buttons. */
+html[data-theme="light"] body[data-ux-family] :is(input,textarea,select){
+  background:#fff!important;
+  color:var(--ds-text)!important;
+  border-color:var(--ds-line-strong)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(input,textarea,select)::placeholder{color:#8a949f!important}
+html[data-theme="light"] body[data-ux-family] label{color:#626c77!important}
+html[data-theme="light"] body[data-ux-family] :is(a.button,button.button,.s48-btn,.s50-btn,.s51-btn,.s64-conversion__actions a,.growth-link){
+  color:#1b2229!important;
+  border-color:var(--ds-line-strong)!important;
+  background:#fff!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(a.button.primary,button.button.primary,.s48-btn--primary,.s50-btn--primary,.s51-btn--primary,.s64-conversion__actions a.primary,.growth-link.primary){
+  color:#111800!important;
+  background:var(--ds-accent)!important;
+  border-color:var(--ds-accent)!important;
+}
+
+/* Editorial separators and disclosure panels. */
+html[data-theme="light"] body[data-ux-family] :is(.s44-section,.s48-section,.s50-section,.s51-section,.portfolio-showcase,.case-library,.article,.guide-article){border-color:var(--ds-line)!important}
+html[data-theme="light"] body[data-ux-family] :is(details,.faq details,.s47-related a){border-color:var(--ds-line)!important;background:#fff!important}
+html[data-theme="light"] body[data-ux-family] details summary{color:var(--ds-text)!important}
+html[data-theme="light"] body[data-ux-family] .s44-process{border-color:var(--ds-line)!important}
+html[data-theme="light"] body[data-ux-family] .s44-process li{border-color:var(--ds-line)!important}
+
+/* Keep real screenshots and dark image overlays intact, but lighten empty media wells. */
+html[data-theme="light"] body[data-ux-family] :is(.portfolio-card__media,.case-library-card__media,.media-frame,.screen,.screenshot){
+  border-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(.portfolio-card__media,.case-library-card__media){background:#edf0f3!important}
+html[data-theme="light"] .s44-shot>span{background:rgba(8,11,15,.82)!important;color:#f3f5f2!important}
+html[data-theme="light"] .s44-shot>span :is(b,small){color:inherit!important}
+
+/* Footer and consent UI. */
+html[data-theme="light"] body[data-ux-family] :is(.footer,.foot,.site-footer){
+  background:#eceff2!important;
+  color:#66717c!important;
+  border-top-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(.footer,.foot,.site-footer) a{color:#59636e!important}
+html[data-theme="light"] body[data-ux-family] :is(.footer,.foot,.site-footer) a:hover{color:var(--ds-text)!important}
+html[data-theme="light"] .cookie-consent,
+html[data-theme="light"] [data-analytics-consent]{
+  background:#fff!important;
+  color:var(--ds-text)!important;
+  border-color:var(--ds-line-strong)!important;
+  box-shadow:0 18px 60px rgba(22,31,41,.14)!important;
+}
+
+/* Avoid a bright flash while changing modes, without adding motion for people who disable it. */
+@media (prefers-reduced-motion:no-preference){
+  body[data-ux-family],
+  body[data-ux-family] :is(.header,.site-header,.intl-header,.stage98-mobile-menu>nav,.s44-route,.portfolio-card,.case-library-card,.s44-brief,input,textarea,select){
+    transition:background-color .18s ease,border-color .18s ease,color .18s ease;
+  }
+}
+
+@media(max-width:900px){
+  .theme-toggle{margin-left:0}
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08090b">
+  <meta name="robots" content="noindex,follow">
+  <title>Страница не найдена | Averliq</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/universal-media.css">
+  <link rel="stylesheet" href="/assets/site-enhancements.css">
+  <meta name="format-detection" content="telephone=no">
+  <style>
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;background:radial-gradient(circle at 50% 20%,rgba(129,149,255,.12),transparent 28rem),#08090b;color:#eef0f2;font-family:Inter,system-ui,sans-serif}.box{width:min(720px,calc(100% - 2rem));padding:clamp(1.5rem,5vw,3rem);border:1px solid rgba(255,255,255,.09);border-radius:1.5rem;background:linear-gradient(145deg,#11151a,#0c0f13);box-shadow:0 30px 90px rgba(0,0,0,.28)}.mark{width:46px;height:46px;border-radius:14px;background:#0d1117 url('/favicon.svg') center/28px no-repeat;border:1px solid rgba(255,255,255,.1)}.code{margin-top:2rem;color:#c9ff4a;font:700 .7rem/1 ui-monospace,monospace;letter-spacing:.1em}h1{font-size:clamp(2.5rem,8vw,5.5rem);line-height:.95;letter-spacing:-.06em;margin:.9rem 0}p{color:#929ba5;line-height:1.7;max-width:42rem}.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}.actions a{padding:.78rem 1rem;border:1px solid rgba(255,255,255,.1);border-radius:.8rem;color:#e7e9eb;text-decoration:none;font-weight:750;font-size:.8rem}.actions a:first-child{background:#c9ff4a;color:#08090b;border-color:#c9ff4a}[data-locale]{display:none}[data-locale].is-active{display:block}
+  </style>
+</head>
+<body data-page="404">
+  <main class="box" id="main-content">
+    <div class="mark" aria-hidden="true"></div>
+    <div class="code">404 · NOT FOUND</div>
+    <section data-locale="ru" class="is-active">
+      <h1>Этой страницы нет.</h1>
+      <p>Возможно, ссылка устарела. Перейдите на главную, откройте кейсы или сразу пришлите задачу в Telegram.</p>
+      <div class="actions"><a href="/">На главную</a><a href="/cases/">Кейсы</a><a href="https://t.me/Alexuys" target="_blank" rel="noopener noreferrer">Telegram ↗</a></div>
+    </section>
+    <section data-locale="en">
+      <h1>Page not found.</h1>
+      <p>The link may be outdated. Open the English portfolio, browse case studies, or send the project directly in Telegram.</p>
+      <div class="actions"><a href="/en/">English home</a><a href="/en/cases/">Case studies</a><a href="https://t.me/Alexuys" target="_blank" rel="noopener noreferrer">Telegram ↗</a></div>
+    </section>
+  </main>
+  <script>
+    (()=>{const en=location.pathname==='/en'||location.pathname.startsWith('/en/');document.documentElement.lang=en?'en':'ru';document.title=en?'Page not found | Averliq':'Страница не найдена | Averliq';document.querySelectorAll('[data-locale]').forEach(x=>x.classList.toggle('is-active',x.dataset.locale===(en?'en':'ru')));})();
+  </script>
+</body>
+</html>

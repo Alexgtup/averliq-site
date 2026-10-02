@@ -1,0 +1,1524 @@
+/* Stage247 — quiet luxury visual system.
+   Goal: one restrained, premium material language across the entire portfolio.
+   Real product screenshots remain product screenshots; UI chrome and editorial surfaces become calmer,
+   more spacious and more expensive-looking. */
+
+:root{
+  --lux-ink:#121a20;
+  --lux-ink-2:#24323b;
+  --lux-muted:#586872;
+  --lux-muted-2:#74818a;
+  --lux-line:rgba(31,45,55,.11);
+  --lux-line-soft:rgba(31,45,55,.075);
+  --lux-paper:rgba(255,255,255,.78);
+  --lux-paper-strong:rgba(255,255,255,.90);
+  --lux-paper-soft:rgba(249,251,252,.68);
+  --lux-shadow:0 30px 90px rgba(35,49,60,.095);
+  --lux-shadow-soft:0 18px 52px rgba(35,49,60,.065);
+  --lux-shadow-hover:0 30px 76px rgba(35,49,60,.12);
+  --lux-radius-xl:32px;
+  --lux-radius-lg:24px;
+  --lux-radius-md:18px;
+  --lux-accent:#bde93b;
+  --lux-accent-deep:#88ad13;
+}
+
+/* ------------------------------------------------------------------ */
+/* GLOBAL TYPOGRAPHY + RHYTHM */
+
+html body[data-ux-family]{
+  color:var(--lux-ink)!important;
+  background-color:#eef3f7!important;
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:optimizeLegibility!important;
+}
+
+html body[data-ux-family] main{
+  color:var(--lux-ink)!important;
+}
+
+html body[data-ux-family] main :is(h1,h2,h3,h4,strong){
+  color:var(--lux-ink)!important;
+  -webkit-text-fill-color:var(--lux-ink)!important;
+  letter-spacing:-.035em;
+}
+
+html body[data-ux-family] main :is(p,li){
+  color:var(--lux-muted);
+}
+
+html body[data-ux-family] main :is(.eyebrow,.kicker,[class*="eyebrow"],[class*="kicker"]){
+  color:#657680!important;
+  -webkit-text-fill-color:#657680!important;
+  font-weight:700!important;
+  letter-spacing:.16em!important;
+}
+
+/* Keep the editorial serif as a signature, but make it feel intentional. */
+html body[data-ux-family] main :is(h1,h2) em,
+html body[data-ux-family] main :is(h1,h2)>span:not([class]){
+  color:#4b606d!important;
+  -webkit-text-fill-color:#4b606d!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-weight:400!important;
+  font-style:italic!important;
+  letter-spacing:-.045em!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* HEADER — same structure everywhere, quieter premium material */
+
+html body header.stage98-header{
+  background:rgba(250,251,250,.91)!important;
+  border-bottom-color:rgba(30,43,52,.075)!important;
+  box-shadow:0 10px 34px rgba(35,49,60,.045)!important;
+  backdrop-filter:blur(28px) saturate(115%)!important;
+  -webkit-backdrop-filter:blur(28px) saturate(115%)!important;
+}
+
+html body header.stage98-header .stage98-brand-copy strong{
+  color:#121a20!important;
+  -webkit-text-fill-color:#121a20!important;
+  letter-spacing:-.055em!important;
+}
+
+html body header.stage98-header .stage98-nav>a:not(.stage98-cta){
+  color:#485761!important;
+  -webkit-text-fill-color:#485761!important;
+  transition:color .18s ease,opacity .18s ease!important;
+}
+
+html body header.stage98-header .stage98-nav>a:not(.stage98-cta):hover{
+  color:#11191f!important;
+  -webkit-text-fill-color:#11191f!important;
+}
+
+html body header.stage98-header .stage98-cta{
+  border-color:#c7f24c!important;
+  background:linear-gradient(180deg,#cdf65a,#bde93b)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.65),
+    0 8px 22px rgba(151,188,34,.16)!important;
+}
+
+html body header.stage98-header .stage98-cta:hover{
+  background:linear-gradient(180deg,#d5fb68,#c2ee42)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.7),
+    0 12px 28px rgba(151,188,34,.20)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* UNIVERSAL PREMIUM MATERIALS */
+
+html body[data-ux-family] main :is(
+  .p128-hero__copy,
+  .p128-proofbar,
+  .p130-hero-grid>:first-child,
+  .p130-hero-side:not(.p219-profile):not(.p221-system):not(.p223-index):not(.p221-lab-console),
+  .p130-footer-cta>.p130-shell,
+  .p129-svc-copy,
+  .p129-svc-board,
+  .p129-contact-card,
+  .p130-editorial-grid,
+  .ux-guide-main>.layout>.article,
+  .ux-guide-main>.layout>.toc,
+  .ux-guide-main>.layout>aside,
+  .dt-hero .dt-container,
+  .dt-workspace .dt-panel
+){
+  border:1px solid rgba(255,255,255,.86)!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(249,251,252,.69))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    var(--lux-shadow)!important;
+  backdrop-filter:blur(26px) saturate(112%)!important;
+  -webkit-backdrop-filter:blur(26px) saturate(112%)!important;
+}
+
+/* Hairline inner edge on high-value large surfaces. */
+html body[data-ux-family] main :is(
+  .p128-hero__copy,
+  .p130-hero-grid>:first-child,
+  .p129-svc-copy,
+  .p129-contact-card,
+  .ux-guide-main>.layout>.article
+){
+  border-radius:var(--lux-radius-xl)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* BUTTONS + CHIPS */
+
+html body[data-ux-family] main :is(.btn,.button,a[class*="cta"],button):not(.growth-cookie-settings){
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background-color .18s ease!important;
+}
+
+html body[data-ux-family] main :is(.btn.primary,.p128-actions a:first-child,.p129-svc-actions a:first-child,.p129-contact-card a[class*="btn"]){
+  border-color:#121a20!important;
+  background:linear-gradient(180deg,#182128,#10171c)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 14px 30px rgba(20,30,37,.14)!important;
+}
+
+html body[data-ux-family] main :is(.btn.primary,.p128-actions a:first-child,.p129-svc-actions a:first-child,.p129-contact-card a[class*="btn"]):hover{
+  transform:translateY(-2px)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    0 20px 42px rgba(20,30,37,.18)!important;
+}
+
+html body[data-ux-family] main :is(
+  .p131-bridge__inner>a,
+  .stage173-group nav a,
+  .stage172-task-map__group nav a,
+  .search-demand__links a,
+  .secondary-demand__grid a,
+  .p128-proofbar>a
+){
+  border-color:var(--lux-line)!important;
+  background:rgba(255,255,255,.67)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 8px 24px rgba(35,49,60,.035)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* HOME — premium editorial showcase */
+
+html body[data-page="home"] main.p128-home .p128-hero{
+  padding-top:clamp(64px,7vw,110px)!important;
+  padding-bottom:clamp(62px,7vw,100px)!important;
+}
+
+html body[data-page="home"] main.p128-home .p128-hero__copy{
+  padding:clamp(34px,4vw,58px)!important;
+  border-radius:34px!important;
+}
+
+html body[data-page="home"] main.p128-home .p128-hero h1{
+  max-width:10.5ch!important;
+  font-size:clamp(68px,6.4vw,98px)!important;
+  line-height:.91!important;
+  letter-spacing:-.067em!important;
+}
+
+html body[data-page="home"] main.p128-home .p128-hero p{
+  max-width:57ch!important;
+  font-size:clamp(16px,1.2vw,19px)!important;
+  line-height:1.7!important;
+}
+
+html body[data-page="home"] main.p128-home :is(.p233-work,.p233-build,.stage174-popular,.stage173-map,.p128-proof,.p128-start){
+  padding-top:clamp(82px,8vw,132px)!important;
+  padding-bottom:clamp(82px,8vw,132px)!important;
+}
+
+/* Featured project cards: less dashboard, more editorial object. */
+html body[data-page="home"] .p233-case{
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.78)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.92),
+    0 24px 72px rgba(35,49,60,.085)!important;
+  transition:transform .22s ease,box-shadow .22s ease!important;
+}
+
+html body[data-page="home"] .p233-case:hover{
+  transform:translateY(-4px)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 34px 88px rgba(35,49,60,.13)!important;
+}
+
+html body[data-page="home"] .p233-case-body{
+  padding:24px 26px 26px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(247,249,250,.92))!important;
+}
+
+html body[data-page="home"] .p233-case-body strong{
+  font-size:clamp(24px,2vw,32px)!important;
+  line-height:1!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* HUB PAGES — services / cases / guides / about */
+
+html body[data-ux-family="hub"] main.p130-hub .p130-hero{
+  padding-top:clamp(78px,7vw,118px)!important;
+  padding-bottom:clamp(72px,7vw,112px)!important;
+}
+
+html body[data-ux-family="hub"] main.p130-hub .p130-hero-grid{
+  gap:clamp(42px,5vw,76px)!important;
+  align-items:center!important;
+}
+
+html body[data-ux-family="hub"] main.p130-hub .p130-hero-grid>:first-child{
+  padding:clamp(34px,4vw,58px)!important;
+  border-radius:34px!important;
+}
+
+html body[data-ux-family="hub"] main.p130-hub .p130-hero h1{
+  font-size:clamp(62px,5.45vw,84px)!important;
+  line-height:.92!important;
+  letter-spacing:-.062em!important;
+}
+
+html body[data-ux-family="hub"] main.p130-hub .p130-hero .p130-lead{
+  margin-top:24px!important;
+  color:#536570!important;
+  line-height:1.7!important;
+}
+
+/* Section cadence */
+html body[data-ux-family="hub"] main.p130-hub>section:not(.p130-hero):not(.p131-bridge):not(.stage178-route-note){
+  padding-top:clamp(72px,7vw,112px);
+  padding-bottom:clamp(72px,7vw,112px);
+}
+
+/* General hub cards */
+html body[data-ux-family="hub"] main.p130-hub :is(
+  .p130-row,
+  .p130-tile:not([data-stage214-featured]),
+  .x146-depth__card,
+  .secondary-demand__grid>a,
+  .stage174-popular__links>a,
+  .stage173-group,
+  .p223-guide,
+  .stage173-guide-grid>a,
+  .p130-proof-stack>*,
+  .p130-editorial-statement
+){
+  border:1px solid rgba(33,47,57,.095)!important;
+  border-radius:var(--lux-radius-lg)!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.88),rgba(247,249,250,.70))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    var(--lux-shadow-soft)!important;
+}
+
+/* Interactive hub cards */
+html body[data-ux-family="hub"] main.p130-hub :is(
+  a.p130-row,
+  a.p130-tile,
+  .stage174-popular__links>a,
+  .secondary-demand__grid>a,
+  .stage173-guide-grid>a,
+  .p223-guide
+){
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease!important;
+}
+
+html body[data-ux-family="hub"] main.p130-hub :is(
+  a.p130-row,
+  a.p130-tile,
+  .stage174-popular__links>a,
+  .secondary-demand__grid>a,
+  .stage173-guide-grid>a,
+  .p223-guide
+):hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(33,47,57,.15)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    var(--lux-shadow-hover)!important;
+}
+
+/* Services list: make it look like a premium service directory. */
+html body[data-page="services"] .p130-list{
+  gap:14px!important;
+}
+
+html body[data-page="services"] .p130-row{
+  min-height:118px!important;
+  padding:24px 26px!important;
+}
+
+html body[data-page="services"] .p130-row strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+
+html body[data-page="services"] .p130-row em{
+  color:#5b6d78!important;
+  -webkit-text-fill-color:#5b6d78!important;
+}
+
+/* Cases: retain full-bleed project imagery, make metadata cleaner. */
+html body[data-page="cases"] .p130-tile[data-stage214-featured]{
+  border-radius:28px!important;
+  box-shadow:0 28px 80px rgba(22,31,38,.17)!important;
+}
+
+html body[data-page="cases"] .p130-tile:not([data-stage214-featured]){
+  overflow:hidden!important;
+}
+
+html body[data-page="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body{
+  padding:24px 24px 26px!important;
+}
+
+/* Guide library: editorial library, not a spreadsheet. */
+html body[data-page="guides"] .p223-decision-group{
+  border-top:1px solid rgba(31,45,55,.09)!important;
+  padding-top:26px!important;
+  padding-bottom:26px!important;
+}
+
+html body[data-page="guides"] .p223-decision-cards{
+  gap:12px!important;
+}
+
+html body[data-page="guides"] .p223-guide{
+  min-height:210px!important;
+  padding:24px!important;
+}
+
+html body[data-page="guides"] .p223-guide strong{
+  font-size:clamp(22px,2vw,30px)!important;
+  line-height:1.03!important;
+}
+
+/* About: editorial rather than dashboard-heavy. */
+html body[data-page="about"] .p130-editorial{
+  padding-top:clamp(84px,8vw,130px)!important;
+  padding-bottom:clamp(84px,8vw,130px)!important;
+}
+
+html body[data-page="about"] .p130-editorial-statement{
+  padding:clamp(30px,4vw,52px)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* DARK SYSTEM OBJECTS — luxury technical objects, not neon dashboards */
+
+html body[data-page="services"] aside.p221-system,
+html body[data-page="about"] aside.p219-profile,
+html body[data-page="guides"] aside.p223-index,
+html body[data-ux-family="hub"] aside.p221-lab-console{
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.11)!important;
+  border-radius:28px!important;
+  background:
+    radial-gradient(circle at 72% 14%,rgba(179,226,72,.075),transparent 26%),
+    linear-gradient(145deg,#11171c,#0a0f13 72%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.065),
+    0 34px 90px rgba(17,25,31,.20)!important;
+}
+
+html body[data-page="services"] aside.p221-system :is(.p221-system__node,.p221-system__core),
+html body[data-page="about"] aside.p219-profile :is(.p219-profile__node,.p219-profile__core,.p219-profile__proof),
+html body[data-page="guides"] aside.p223-index .p223-index__groups a{
+  border-color:rgba(255,255,255,.085)!important;
+  background:rgba(255,255,255,.028)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* SERVICE DETAIL PAGES */
+
+html body[data-ux-family="service"] main.p129-service .p129-svc-hero{
+  padding-top:clamp(78px,7vw,118px)!important;
+  padding-bottom:clamp(78px,7vw,118px)!important;
+}
+
+html body[data-ux-family="service"] main.p129-service .p129-svc-copy{
+  padding:clamp(34px,4vw,58px)!important;
+}
+
+html body[data-ux-family="service"] main.p129-service .p129-svc-copy h1{
+  font-size:clamp(58px,5vw,78px)!important;
+  line-height:.93!important;
+  letter-spacing:-.06em!important;
+}
+
+html body[data-ux-family="service"] main.p129-service :is(
+  .p129-outcome,
+  .p129-related-grid>a,
+  .x146-depth__card,
+  .search-demand__card,
+  .stage172-task-map__group,
+  .stage174-faq__grid>*,
+  .s177-grid>*
+){
+  border:1px solid rgba(33,47,57,.095)!important;
+  border-radius:var(--lux-radius-lg)!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.88),rgba(247,249,250,.70))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.94),
+    var(--lux-shadow-soft)!important;
+}
+
+html body[data-ux-family="service"] main.p129-service .p129-outcome{
+  padding:26px!important;
+}
+
+html body[data-ux-family="service"] main.p129-service .p129-case{
+  border-radius:30px!important;
+  overflow:hidden!important;
+  box-shadow:var(--lux-shadow)!important;
+}
+
+html body[data-ux-family="service"] main.p129-service .p129-contact{
+  padding-top:clamp(80px,8vw,128px)!important;
+  padding-bottom:clamp(80px,8vw,128px)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* CASE DETAIL PAGES */
+
+html body[data-ux-family="case"] main :is(.section,.p132-panel,.p217-section,.p217-result){
+  scroll-margin-top:90px!important;
+}
+
+html body[data-ux-family="case"] main :is(
+  .section>.container,
+  .p132-panel>.container,
+  .p132-panel>.s51-container,
+  .s64-conversion__inner
+){
+  border-radius:30px!important;
+}
+
+/* Light case story surfaces */
+html body[data-ux-family="case"] main :is(
+  .section>.container,
+  .p132-panel>.container,
+  .p132-panel>.s51-container
+){
+  border-color:rgba(255,255,255,.82)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 24px 72px rgba(35,49,60,.075)!important;
+}
+
+/* Mini feature / step / metric cards */
+html body[data-ux-family="case"] main :is(
+  .story>article,
+  .s51-steps article,
+  .workflow article,
+  .metric,
+  .fact
+){
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:20px!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 12px 34px rgba(35,49,60,.05)!important;
+}
+
+/* Flagship WP: retain project visual personality while cleaning its information surfaces. */
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main :is(
+  .p217-manifest,
+  .p220-story-map-wrap,
+  .section>.container
+){
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.93),
+    0 24px 72px rgba(35,49,60,.075)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* GUIDE DETAIL PAGES */
+
+html body[data-ux-family="guide"] main.ux-guide-main>.hero{
+  padding-top:clamp(76px,7vw,116px)!important;
+  padding-bottom:clamp(58px,6vw,92px)!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.hero h1{
+  font-size:clamp(58px,5vw,80px)!important;
+  line-height:.94!important;
+  letter-spacing:-.058em!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.layout{
+  gap:clamp(28px,3vw,44px)!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article{
+  padding:clamp(34px,4vw,58px)!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article :is(h2,h3){
+  margin-top:1.6em!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article p{
+  color:#52636e!important;
+  line-height:1.78!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.toc,
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>aside{
+  border-radius:22px!important;
+  box-shadow:var(--lux-shadow-soft)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* TOOLS / DEMOS / UTILITY PAGES */
+
+html body.dt-body main :is(.dt-tool-card,.dt-panel,.dt-contact__card),
+html body[data-ux-family="hub"] main :is(.dt-tool-card,.dt-panel,.dt-contact__card){
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:22px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.90),rgba(247,249,250,.74))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    var(--lux-shadow-soft)!important;
+}
+
+html body.dt-body main .dt-tool-card:hover,
+html body[data-ux-family="hub"] main .dt-tool-card:hover{
+  transform:translateY(-3px)!important;
+  box-shadow:var(--lux-shadow-hover)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* FOOTERS / FINAL CTAs */
+
+html body[data-ux-family] main :is(.p130-footer-cta,.stage173-endcap,.stage178-route-note,.p131-bridge){
+  position:relative!important;
+}
+
+html body[data-ux-family] .stage178-route-note,
+html body[data-ux-family] .stage173-endcap__inner{
+  border-color:rgba(33,47,57,.095)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 18px 54px rgba(35,49,60,.055)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+
+/* Cookie settings: quiet and intentionally tiny. */
+html body .growth-cookie-settings.stage95-footer-cookie:not([hidden]){
+  border-color:rgba(31,45,55,.10)!important;
+  background:rgba(255,255,255,.82)!important;
+  color:#6b7881!important;
+  -webkit-text-fill-color:#6b7881!important;
+  box-shadow:0 10px 28px rgba(35,49,60,.08)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* RESPONSIVE */
+
+@media(max-width:980px){
+  html body[data-page="home"] main.p128-home .p128-hero h1,
+  html body[data-ux-family="hub"] main.p130-hub .p130-hero h1,
+  html body[data-ux-family="service"] main.p129-service .p129-svc-copy h1,
+  html body[data-ux-family="guide"] main.ux-guide-main>.hero h1{
+    font-size:clamp(54px,8vw,76px)!important;
+  }
+
+  html body[data-page="home"] .p233-case,
+  html body[data-ux-family="hub"] main.p130-hub :is(.p130-row,.p130-tile:not([data-stage214-featured]),.x146-depth__card),
+  html body[data-ux-family="service"] main.p129-service :is(.p129-outcome,.p129-related-grid>a,.x146-depth__card),
+  html body[data-ux-family="case"] main :is(.story>article,.s51-steps article,.workflow article,.metric,.fact){
+    border-radius:20px!important;
+  }
+}
+
+@media(max-width:700px){
+  html body[data-page="home"] main.p128-home .p128-hero,
+  html body[data-ux-family="hub"] main.p130-hub .p130-hero,
+  html body[data-ux-family="service"] main.p129-service .p129-svc-hero{
+    padding-top:44px!important;
+    padding-bottom:54px!important;
+  }
+
+  html body[data-page="home"] main.p128-home .p128-hero__copy,
+  html body[data-ux-family="hub"] main.p130-hub .p130-hero-grid>:first-child,
+  html body[data-ux-family="service"] main.p129-service .p129-svc-copy,
+  html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article{
+    padding:26px 22px!important;
+    border-radius:24px!important;
+  }
+
+  html body[data-page="home"] main.p128-home .p128-hero h1,
+  html body[data-ux-family="hub"] main.p130-hub .p130-hero h1,
+  html body[data-ux-family="service"] main.p129-service .p129-svc-copy h1,
+  html body[data-ux-family="guide"] main.ux-guide-main>.hero h1{
+    font-size:clamp(44px,12vw,58px)!important;
+    line-height:.96!important;
+  }
+
+  html body[data-page="home"] main.p128-home :is(.p233-work,.p233-build,.stage174-popular,.stage173-map,.p128-proof,.p128-start),
+  html body[data-ux-family="hub"] main.p130-hub>section:not(.p130-hero):not(.p131-bridge):not(.stage178-route-note){
+    padding-top:60px!important;
+    padding-bottom:60px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html body[data-ux-family] main *,
+  html body header.stage98-header *{
+    transition:none!important;
+  }
+}
+
+
+/* ================================================================== */
+/* Stage247 v2 — remove remaining legacy full-width slabs. */
+
+/* Guides library: let the page background breathe; cards carry the material. */
+html body[data-page="guides"] main.p130-hub .p223-library{
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body[data-page="guides"] main.p130-hub .p223-library>.p130-shell{
+  padding-top:clamp(26px,3vw,44px)!important;
+  padding-bottom:clamp(26px,3vw,44px)!important;
+}
+
+/* Service proof/review band: beige slab -> a centered ivory glass object. */
+html body[data-ux-family="service"] main.p129-service .s177-conversion{
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:clamp(38px,5vw,72px) 0!important;
+}
+html body[data-ux-family="service"] main.p129-service .s177-conversion .s177-shell{
+  border:1px solid rgba(255,255,255,.86)!important;
+  border-radius:30px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(248,250,251,.73))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 26px 76px rgba(35,49,60,.075)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+  padding:clamp(28px,3vw,46px)!important;
+}
+
+/* Secondary-demand stays a dramatic dark beat, but as one contained obsidian object,
+   not a black strip spanning the viewport. */
+html body[data-ux-family="service"] main.p129-service .secondary-demand{
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:clamp(58px,6vw,96px) 0!important;
+}
+html body[data-ux-family="service"] main.p129-service .secondary-demand>.secondary-demand__shell{
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:32px!important;
+  background:
+    radial-gradient(circle at 84% 12%,rgba(189,233,59,.065),transparent 28%),
+    linear-gradient(145deg,#11171c,#090d11 74%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 34px 92px rgba(14,22,28,.19)!important;
+  padding:clamp(34px,4vw,58px)!important;
+  overflow:hidden!important;
+}
+html body[data-ux-family="service"] main.p129-service .secondary-demand>.secondary-demand__shell :is(h2,h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-ux-family="service"] main.p129-service .secondary-demand>.secondary-demand__shell :is(p,li,span){
+  color:#abb7be!important;
+  -webkit-text-fill-color:#abb7be!important;
+}
+html body[data-ux-family="service"] main.p129-service .secondary-demand__grid>*{
+  border-color:rgba(255,255,255,.09)!important;
+  background:rgba(255,255,255,.035)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html body[data-ux-family="service"] main.p129-service .secondary-demand__grid>* :is(h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+
+/* Services featured split: remove the old lavender flat panel. */
+html body[data-page="services"] main.p130-hub .p130-featured{
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.82)!important;
+  border-radius:30px!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 28px 82px rgba(35,49,60,.09)!important;
+}
+html body[data-page="services"] main.p130-hub .p130-featured-copy{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.94),rgba(245,248,250,.78))!important;
+  color:#172027!important;
+  padding:clamp(32px,4vw,54px)!important;
+}
+html body[data-page="services"] main.p130-hub .p130-featured-copy :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="services"] main.p130-hub .p130-featured-copy p{
+  color:#586974!important;
+  -webkit-text-fill-color:#586974!important;
+}
+
+/* About system object: internal regions should look deliberately engineered,
+   not like rectangular table cells. */
+html body[data-page="about"] .p219-profile__core,
+html body[data-page="about"] .p219-profile__proof{
+  border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:18px!important;
+  overflow:hidden!important;
+}
+
+/* Guide callouts: premium inset note rather than raw rectangular highlight. */
+html body[data-ux-family="guide"] main.ux-guide-main .article .callout{
+  position:relative!important;
+  border:1px solid rgba(49,95,134,.12)!important;
+  border-radius:18px!important;
+  background:
+    linear-gradient(145deg,rgba(239,245,249,.88),rgba(248,250,251,.82))!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.92)!important;
+  padding:20px 22px!important;
+  overflow:hidden!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .callout::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:18px!important;
+  bottom:18px!important;
+  width:2px!important;
+  border-radius:999px!important;
+  background:linear-gradient(180deg,#bde93b,#78a0bd)!important;
+}
+
+/* Case recommendation section: contained obsidian card + correct light typography. */
+html body[data-ux-family="case"] main .stage173-case-links{
+  width:min(1240px,calc(100% - 64px))!important;
+  margin:clamp(34px,4vw,58px) auto!important;
+  padding:clamp(34px,4vw,56px)!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:30px!important;
+  background:
+    radial-gradient(circle at 84% 12%,rgba(189,233,59,.055),transparent 28%),
+    linear-gradient(145deg,#11171c,#090d11 74%)!important;
+  color:#f2f5f3!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 30px 84px rgba(14,22,28,.18)!important;
+  overflow:hidden!important;
+}
+html body[data-ux-family="case"] main .stage173-case-links :is(h2,h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-ux-family="case"] main .stage173-case-links :is(p,span,li){
+  color:#aeb9c0!important;
+  -webkit-text-fill-color:#aeb9c0!important;
+}
+html body[data-ux-family="case"] main .stage173-case-links .stage173-eyebrow{
+  color:#9fb0ba!important;
+  -webkit-text-fill-color:#9fb0ba!important;
+}
+html body[data-ux-family="case"] main .stage173-case-links a{
+  border-color:rgba(255,255,255,.09)!important;
+  border-radius:20px!important;
+  background:rgba(255,255,255,.035)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html body[data-ux-family="case"] main .stage173-case-links a :is(strong,h3){
+  color:#f4f6f4!important;
+  -webkit-text-fill-color:#f4f6f4!important;
+}
+
+/* Fin Planner was the last legacy case with alternating viewport-wide beige / black bands.
+   Keep the cinematic dark/light alternation, but contain every chapter as a luxury object. */
+html body[data-page="cases--fin-planner"] main.p132-case>section.p132-panel{
+  width:min(1240px,calc(100% - 64px))!important;
+  margin:clamp(30px,4vw,56px) auto!important;
+  padding:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+html body[data-page="cases--fin-planner"] main.p132-case>section.p132-panel>.container,
+html body[data-page="cases--fin-planner"] main.p132-case>section.p132-panel>.s51-container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:clamp(34px,4vw,58px)!important;
+  border-radius:30px!important;
+  overflow:hidden!important;
+}
+
+/* Light Fin Planner chapters */
+html body[data-page="cases--fin-planner"] main.p132-case>section#case-overview>.container,
+html body[data-page="cases--fin-planner"] main.p132-case>section#case-build>.container,
+html body[data-page="cases--fin-planner"] main.p132-case>section#case-contact{
+  border:1px solid rgba(255,255,255,.84)!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(247,249,250,.73))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 28px 82px rgba(35,49,60,.08)!important;
+}
+
+/* Dark Fin Planner chapters */
+html body[data-page="cases--fin-planner"] main.p132-case>section#gallery>.container,
+html body[data-page="cases--fin-planner"] main.p132-case>section#case-result>.container{
+  border:1px solid rgba(255,255,255,.10)!important;
+  background:
+    radial-gradient(circle at 82% 12%,rgba(189,233,59,.05),transparent 28%),
+    linear-gradient(145deg,#10161b,#080c10 74%)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 32px 88px rgba(14,22,28,.19)!important;
+}
+html body[data-page="cases--fin-planner"] main.p132-case :is(#gallery,#case-result) :is(h2,h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-page="cases--fin-planner"] main.p132-case :is(#gallery,#case-result) :is(p,li,span){
+  color:#aeb9c0!important;
+  -webkit-text-fill-color:#aeb9c0!important;
+}
+
+/* The image/text body inside rounded case cards should not look like a separate square block. */
+html body[data-page="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body{
+  border-radius:0 0 27px 27px!important;
+}
+html body[data-page="home"] .p233-case-body{
+  border-radius:0 0 27px 27px!important;
+}
+
+@media(max-width:700px){
+  html body[data-ux-family="case"] main .stage173-case-links,
+  html body[data-page="cases--fin-planner"] main.p132-case>section.p132-panel{
+    width:calc(100% - 24px)!important;
+  }
+  html body[data-ux-family="service"] main.p129-service .secondary-demand>.secondary-demand__shell,
+  html body[data-ux-family="service"] main.p129-service .s177-conversion .s177-shell{
+    border-radius:24px!important;
+    padding:26px 20px!important;
+  }
+}
+
+
+/* ================================================================== */
+/* Stage247 v3 — specificity locks for legacy art-direction rules. */
+
+html body[data-page="services"][data-stage224-services="true"] main.p130-hub[data-stage130-hub="services"] .p130-featured-copy{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.95),rgba(245,248,250,.80))!important;
+  color:#172027!important;
+}
+html body[data-page="services"][data-stage224-services="true"] main.p130-hub[data-stage130-hub="services"] .p130-featured-copy :is(.p130-kicker,h2,h3,strong,.p129-textlink){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="services"][data-stage224-services="true"] main.p130-hub[data-stage130-hub="services"] .p130-featured-copy p{
+  color:#586974!important;
+  -webkit-text-fill-color:#586974!important;
+}
+
+/* Every dark demand card gets its own soft object boundary. */
+html body[data-ux-family="service"] main.p129-service .secondary-demand .secondary-demand__grid>.secondary-demand__card,
+html body[data-ux-family="service"] main.p129-service .secondary-demand .secondary-demand__grid>*{
+  padding:22px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:20px!important;
+  background:rgba(255,255,255,.035)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+
+/* Old flagship CSS used nth-of-type + 100vmax shadows. Neutralize it explicitly. */
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case>.p132-panel:not(.p132-end):nth-of-type(odd),
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case>.p132-panel:not(.p132-end):nth-of-type(even){
+  width:min(1240px,calc(100% - 64px))!important;
+  margin:clamp(30px,4vw,56px) auto!important;
+  padding:0!important;
+  background:transparent!important;
+  color:#172027!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  overflow:visible!important;
+}
+
+/* Restore light/dark chapter typography at the inner luxury object level. */
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case :is(#case-overview,#case-build)>.container :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case :is(#case-overview,#case-build)>.container :is(p,li,span){
+  color:#566772!important;
+  -webkit-text-fill-color:#566772!important;
+}
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case :is(#gallery,#case-result)>.container :is(h2,h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case :is(#gallery,#case-result)>.container :is(p,li,span){
+  color:#aeb9c0!important;
+  -webkit-text-fill-color:#aeb9c0!important;
+}
+
+/* Legacy flagship cards inside the chapters get radius/depth instead of flat table cells. */
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case>.p132-panel :is(article,.card,.proof-card,.implemented-card,.s51-card){
+  border-radius:20px!important;
+  box-shadow:0 12px 34px rgba(20,30,37,.07)!important;
+  overflow:hidden!important;
+}
+
+/* Mobile story map is a deliberate horizontal rail; make the affordance cleaner. */
+@media(max-width:700px){
+  html body[data-page="cases--fin-planner"] .p220-story-map-wrap{
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  html body[data-page="cases--fin-planner"] .p220-story-map-wrap::-webkit-scrollbar{
+    display:none!important;
+  }
+}
+
+
+/* Stage247 v4 — final mobile luxury polish. */
+html body[data-page="services"] main.p130-hub .p130-featured-copy{
+  border-radius:0 29px 29px 0!important;
+}
+
+@media(max-width:700px){
+  html body[data-page="services"] main.p130-hub .p130-featured-copy{
+    border-radius:0 0 23px 23px!important;
+  }
+
+  /* Fin Planner chapter navigation: all destinations visible at once,
+     no hidden horizontal rail on a premium mobile layout. */
+  html body[data-page="cases--fin-planner"] main.p132-case .p220-story-map-wrap{
+    width:calc(100% - 24px)!important;
+    margin:12px auto 28px!important;
+    padding:8px!important;
+    overflow:visible!important;
+  }
+  html body[data-page="cases--fin-planner"] main.p132-case .p220-story-map{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:6px!important;
+  }
+  html body[data-page="cases--fin-planner"] main.p132-case .p220-story-map a{
+    width:auto!important;
+    min-width:0!important;
+    padding:11px 10px!important;
+    border:1px solid rgba(31,45,55,.09)!important;
+    border-radius:12px!important;
+    background:rgba(255,255,255,.58)!important;
+  }
+  html body[data-page="cases--fin-planner"] main.p132-case .p220-story-map a span{
+    min-width:0!important;
+    overflow:visible!important;
+    white-space:normal!important;
+  }
+}
+
+
+/* ================================================================== */
+/* Stage247 v5 — component defect pass across every live portfolio route.
+   Fixes repeated zero-inline-padding cards, accidental thin strips and
+   dark-on-dark legacy cards discovered by crawling all internal links. */
+
+/* SEO depth cards: older route-specific CSS had enough specificity to
+   re-introduce zero horizontal padding. Lock a real card inset everywhere. */
+html body[data-ux-family="hub"] main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__grid,
+html body[data-ux-family="service"] main.p129-service .x146-depth .x146-depth__grid,
+html body[data-ux-family="guide"] main .x146-depth .x146-depth__grid{
+  gap:18px!important;
+}
+html body[data-ux-family="hub"] main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card,
+html body[data-ux-family="service"] main.p129-service .x146-depth .x146-depth__card,
+html body[data-ux-family="guide"] main .x146-depth .x146-depth__card{
+  min-height:220px!important;
+  padding:30px 32px!important;
+  border:1px solid rgba(33,47,57,.095)!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(247,249,250,.74))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 18px 52px rgba(35,49,60,.065)!important;
+}
+html body[data-ux-family] main .x146-depth__card h3{
+  margin-top:0!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family] main .x146-depth__card p{
+  color:#586974!important;
+  -webkit-text-fill-color:#586974!important;
+}
+
+/* Final hub CTA: it had a 57px-tall interior because an old rule removed
+   horizontal/vertical inset. Make it a real end-card rather than a strip. */
+html body[data-ux-family="hub"] main.p130-hub .stage173-endcap{
+  padding:clamp(56px,6vw,88px) 0!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .stage173-endcap__inner,
+html body[data-ux-family] main .stage173-endcap__inner{
+  min-height:132px!important;
+  padding:28px 32px!important;
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.90),rgba(247,249,250,.74))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 22px 62px rgba(35,49,60,.075)!important;
+  align-items:center!important;
+  gap:28px!important;
+}
+html body[data-ux-family] main .stage173-endcap__inner strong{
+  display:block!important;
+  margin-bottom:6px!important;
+  font-size:clamp(23px,2vw,30px)!important;
+  line-height:1.05!important;
+}
+html body[data-ux-family] main .stage173-endcap__inner p{
+  margin:0!important;
+  color:#586974!important;
+}
+
+/* Practical-guide nudge: old 24px 0 padding made it read like a random separator. */
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge{
+  width:min(1320px,calc(100% - 64px))!important;
+  min-height:124px!important;
+  margin:clamp(42px,5vw,72px) auto!important;
+  padding:26px 30px!important;
+  grid-template-columns:minmax(150px,.28fr) minmax(0,1fr)!important;
+  gap:28px!important;
+  align-items:center!important;
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(247,249,250,.75))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 20px 56px rgba(35,49,60,.065)!important;
+}
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge>a{
+  min-height:54px!important;
+  padding:0 0 0 24px!important;
+  border-left:1px solid rgba(33,47,57,.10)!important;
+}
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge strong{
+  font-size:clamp(18px,1.6vw,24px)!important;
+  line-height:1.15!important;
+}
+
+/* Review / first-step cards had opposite sides flush to the edge. */
+html body[data-ux-family="service"] main.p129-service .s177-conversion .s177-card,
+html body[data-ux-family="service"] main.p129-service .s177-conversion .s177-card.s177-cta{
+  padding:30px!important;
+  border-radius:22px!important;
+}
+
+/* Guide hero cards: 12 routes had rounded hero surfaces but zero horizontal inset. */
+html body[data-ux-family="guide"] main.ux-guide-main > section.container.hero,
+html body[data-ux-family="guide"] main.ux-guide-main > .container.hero{
+  width:min(1320px,calc(100% - 64px))!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  padding:clamp(54px,7vw,96px) clamp(34px,4vw,58px)!important;
+  border:1px solid rgba(255,255,255,.84)!important;
+  border-radius:30px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.90),rgba(247,249,250,.73))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 26px 76px rgba(35,49,60,.075)!important;
+}
+
+/* Legacy compare cards inside guide pages were still carrying a dark-gradient
+   skin under the new dark typography. Use the same ivory material as the site. */
+html body[data-ux-family="guide"] main.ux-guide-main .section .cards > article.card,
+html body[data-ux-family="guide"] main.ux-guide-main .section .cards > .card{
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:20px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(247,249,250,.74))!important;
+  color:#172027!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 14px 40px rgba(35,49,60,.055)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .section .cards > .card :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .section .cards > .card :is(p,li,span){
+  color:#52636e!important;
+  -webkit-text-fill-color:#52636e!important;
+}
+
+/* Legacy case workflow cards (Marketplace Monitor, Portfolio, Ozon Scanner...)
+   keep the deliberate obsidian contrast, but text must actually be readable. */
+html body[data-ux-family="case"] main.ux-case-main .workflow article{
+  padding:22px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:20px!important;
+  background:
+    radial-gradient(circle at 100% 0,rgba(189,233,59,.045),transparent 55%),
+    linear-gradient(145deg,#11171d,#0b0f14)!important;
+  color:#f2f5f3!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 16px 42px rgba(14,22,28,.12)!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .workflow article :is(h2,h3,strong,b){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .workflow article :is(p,span,em){
+  color:#9eabb4!important;
+  -webkit-text-fill-color:#9eabb4!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .workflow article::before{
+  color:#bde93b!important;
+  -webkit-text-fill-color:#bde93b!important;
+}
+
+/* Older case "implemented" grids and Fin Planner story cards still had one side
+   intentionally at zero padding from the old editorial theme. In the new material
+   language this looks broken, so normalize both sides. */
+html body[data-ux-family="case"] main .s51-implemented{
+  gap:12px!important;
+  border-top:0!important;
+}
+html body[data-ux-family="case"] main .s51-implemented article,
+html body[data-ux-family="case"] main .s51-implemented article:nth-child(even){
+  min-height:122px!important;
+  padding:22px 24px!important;
+  border:1px solid rgba(33,47,57,.10)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.055)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+html body[data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"] main.p132-case .story>article{
+  padding:28px!important;
+}
+
+/* Privacy inherited a dark legacy content panel under the new light text system. */
+html body[data-page="privacy"][data-ux-family="legal"] main article.content{
+  border:1px solid rgba(255,255,255,.84)!important;
+  border-radius:26px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.91),rgba(247,249,250,.75))!important;
+  color:#172027!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 24px 70px rgba(35,49,60,.07)!important;
+}
+html body[data-page="privacy"][data-ux-family="legal"] main article.content :is(h1,h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="privacy"][data-ux-family="legal"] main article.content :is(p,li,span){
+  color:#586974!important;
+  -webkit-text-fill-color:#586974!important;
+}
+html body[data-page="privacy"][data-ux-family="legal"] main article.content a{
+  color:#315a73!important;
+  -webkit-text-fill-color:#315a73!important;
+}
+
+/* Some legacy non-family pages remain deliberately dark (e.g. WordPress service).
+   Keep them dark and restore readable muted copy rather than forcing the light skin. */
+html body:not([data-ux-family]) main .cards > article.card{
+  color:#f2f5f3!important;
+}
+html body:not([data-ux-family]) main .cards > article.card :is(h2,h3,strong){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body:not([data-ux-family]) main .cards > article.card :is(p,li,span){
+  color:#a3aeb6!important;
+  -webkit-text-fill-color:#a3aeb6!important;
+}
+
+/* Keep the small end-of-page route notes compact, but stop them becoming text strips. */
+html body[data-ux-family] main .stage178-route-note{
+  min-height:88px!important;
+  padding:18px 22px!important;
+  border-radius:18px!important;
+}
+
+/* Mobile normalization for every component fixed above. */
+@media(max-width:700px){
+  html body[data-ux-family="hub"] main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card,
+  html body[data-ux-family="service"] main.p129-service .x146-depth .x146-depth__card,
+  html body[data-ux-family="guide"] main .x146-depth .x146-depth__card{
+    min-height:0!important;
+    padding:24px 21px!important;
+  }
+
+  html body[data-ux-family="hub"] main.p130-hub .stage173-endcap__inner,
+  html body[data-ux-family] main .stage173-endcap__inner{
+    min-height:0!important;
+    padding:24px 21px!important;
+    border-radius:20px!important;
+  }
+
+  html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge{
+    width:calc(100% - 24px)!important;
+    min-height:0!important;
+    margin:36px auto!important;
+    padding:22px 20px!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+    border-radius:20px!important;
+  }
+  html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge>a{
+    min-height:0!important;
+    padding:16px 0 0!important;
+    border-left:0!important;
+    border-top:1px solid rgba(33,47,57,.10)!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main > section.container.hero,
+  html body[data-ux-family="guide"] main.ux-guide-main > .container.hero{
+    width:calc(100% - 24px)!important;
+    padding:34px 22px!important;
+    border-radius:24px!important;
+  }
+
+  html body[data-ux-family="case"] main.ux-case-main .workflow article{
+    padding:20px!important;
+  }
+
+  html body[data-ux-family="case"] main .s51-implemented article,
+  html body[data-ux-family="case"] main .s51-implemented article:nth-child(even){
+    padding:20px!important;
+  }
+}
+
+
+/* ================================================================== */
+/* Stage247 v6 — second crawl pass: legacy CTA/brief surfaces and remaining inset. */
+
+/* Home secondary action was a dark translucent pill with dark text after the light migration. */
+html body[data-page="home"] main.p128-home .p128-link{
+  border:1px solid rgba(33,47,57,.11)!important;
+  background:rgba(255,255,255,.72)!important;
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.94),
+    0 10px 28px rgba(35,49,60,.055)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+html body[data-page="home"] main.p128-home .p128-link span{
+  color:#3e505b!important;
+  -webkit-text-fill-color:#3e505b!important;
+}
+
+/* Repeated 17-route project brief: replace the flat lime strip with a premium inset card. */
+html body main .s175-brief{
+  min-height:126px!important;
+  padding:26px 30px!important;
+  border:1px solid rgba(137,174,37,.18)!important;
+  border-radius:24px!important;
+  background:
+    radial-gradient(circle at 92% 10%,rgba(189,233,59,.16),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.92),rgba(247,249,245,.78))!important;
+  color:#172027!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.96),
+    0 20px 58px rgba(35,49,60,.065)!important;
+  align-items:center!important;
+  gap:28px!important;
+}
+html body main .s175-brief p{
+  color:#566772!important;
+  -webkit-text-fill-color:#566772!important;
+  line-height:1.65!important;
+}
+html body main .s175-brief strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body main .s175-brief a{
+  flex:0 0 auto!important;
+  min-height:46px!important;
+  padding:12px 16px!important;
+  border:1px solid #121a20!important;
+  border-radius:13px!important;
+  background:linear-gradient(180deg,#182128,#10171c)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  box-shadow:0 10px 24px rgba(20,30,37,.13)!important;
+}
+
+/* Guide end routing blocks intentionally stay dark, but restore inverse typography. */
+html body[data-ux-family="guide"] main.ux-guide-main .section > .container:has(> .related){
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:26px!important;
+  background:
+    radial-gradient(circle at 88% 10%,rgba(189,233,59,.055),transparent 32%),
+    linear-gradient(145deg,#131820,#0f1318)!important;
+  color:#f2f5f3!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 28px 78px rgba(14,22,28,.16)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .section > .container:has(> .related) .section-head :is(h2,h3,strong,em){
+  color:#f2f5f3!important;
+  -webkit-text-fill-color:#f2f5f3!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .section > .container:has(> .related) .section-head p{
+  color:#aeb9c0!important;
+  -webkit-text-fill-color:#aeb9c0!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .section > .container:has(> .related) .section-head > span{
+  color:#8f9ea8!important;
+  -webkit-text-fill-color:#8f9ea8!important;
+}
+
+/* A hub editorial proof card on /freelance-developer/ still had a material surface with zero inset. */
+html body[data-ux-family="hub"] main.p130-hub .p130-editorial-statement{
+  padding:clamp(28px,3.5vw,48px)!important;
+  border-radius:24px!important;
+}
+
+/* Make the legacy story-map rail read as navigation, not as a dark-surface contrast false-positive. */
+html body[data-ux-family="case"] main .p220-story-map-wrap{
+  border:1px solid rgba(33,47,57,.09)!important;
+  background:rgba(255,255,255,.70)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.94),
+    0 14px 38px rgba(35,49,60,.055)!important;
+}
+html body[data-ux-family="case"] main .p220-story-map a{
+  color:#4c5c66!important;
+  -webkit-text-fill-color:#4c5c66!important;
+}
+html body[data-ux-family="case"] main .p220-story-map a[aria-current="step"]{
+  background:linear-gradient(145deg,rgba(189,233,59,.13),rgba(255,255,255,.18))!important;
+}
+html body[data-ux-family="case"] main .p220-story-map a b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+@media(max-width:700px){
+  html body main .s175-brief{
+    min-height:0!important;
+    padding:22px 20px!important;
+    border-radius:20px!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:16px!important;
+  }
+}
+
+
+/* Stage247 v7 — final all-route mobile overflow fix. */
+@media(max-width:700px){
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main > .hero h1{
+    width:100%!important;
+    max-width:100%!important;
+    font-size:clamp(43px,12vw,50px)!important;
+    line-height:.92!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main > .hero h1 em{
+    max-width:100%!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+}
+
+
+/* Stage247 v8 — high-specificity lock for the final WP mobile headline.
+   Stage217 had an older !important selector with higher specificity. */
+@media(max-width:700px){
+  html body[data-stage217-flagship="wordpress-commercial"][data-ux-family="case"] main#main-content.ux-case-main > section.hero.p217-hero-shell h1{
+    width:100%!important;
+    max-width:100%!important;
+    font-size:44px!important;
+    line-height:.94!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"][data-ux-family="case"] main#main-content.ux-case-main > section.hero.p217-hero-shell h1 em{
+    font-size:inherit!important;
+    line-height:inherit!important;
+    max-width:100%!important;
+  }
+}
+
+
+/* Stage247 v9 — Tools hover state.
+   Stage98 still flipped .dt-tool-card to the old dark surface on :hover,
+   while the luxury typography remained dark. Keep the card in the same
+   light material family and only increase depth/contrast on interaction. */
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible{
+  transform:translateY(-4px)!important;
+  border-color:rgba(49,95,134,.18)!important;
+  background:
+    radial-gradient(circle at 86% 10%,rgba(189,233,59,.08),transparent 31%),
+    linear-gradient(145deg,rgba(255,255,255,.98),rgba(244,248,250,.92))!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 30px 78px rgba(35,49,60,.12)!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover :is(h2,h3,strong),
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover p,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible p{
+  color:#53636e!important;
+  -webkit-text-fill-color:#53636e!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover small,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible small,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover .p221-tool-flow span,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible .p221-tool-flow span{
+  color:#71808a!important;
+  -webkit-text-fill-color:#71808a!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover .p221-tool-flow b,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible .p221-tool-flow b{
+  color:#789615!important;
+  -webkit-text-fill-color:#789615!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card::after{
+  color:rgba(23,32,39,.055)!important;
+  -webkit-text-fill-color:rgba(23,32,39,.055)!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover::after,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible::after{
+  color:rgba(23,32,39,.075)!important;
+  -webkit-text-fill-color:rgba(23,32,39,.075)!important;
+}
+
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:hover .p221-tool-flow i,
+html body.dt-body[data-ux-family="hub"][data-stage221-hub="tools"] main.ux-hub-main .dt-tool-card:focus-visible .p221-tool-flow i{
+  background:rgba(49,95,134,.15)!important;
+}

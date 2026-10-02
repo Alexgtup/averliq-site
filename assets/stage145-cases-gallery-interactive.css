@@ -1,0 +1,160 @@
+/* stage145-cases-gallery-interactive */
+/* Liquid editorial canvas for the cases index: soft material motion, a responsive
+   glass lens and restrained card depth. The visual stays quiet enough for the work. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-list-section{
+  --x145-px:50%;
+  --x145-py:36%;
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(ellipse 74% 48% at 12% 7%,rgba(208,224,104,.24),transparent 68%),
+    radial-gradient(ellipse 60% 42% at 92% 26%,rgba(214,124,102,.20),transparent 70%),
+    linear-gradient(145deg,#f0ece3 0%,#e9e6de 46%,#ece8df 100%)!important;
+}
+
+/* Fine paper grain + barely-visible editorial rings. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-list-section::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(circle at 82% 16%,transparent 0 10%,rgba(41,43,38,.085) 10.12% 10.25%,transparent 10.4% 18.8%,rgba(255,255,255,.50) 18.95% 19.08%,transparent 19.24%),
+    radial-gradient(circle at 13% 80%,transparent 0 13.2%,rgba(52,55,49,.055) 13.35% 13.48%,transparent 13.65%),
+    radial-gradient(rgba(29,31,27,.075) .45px,transparent .58px),
+    linear-gradient(180deg,rgba(255,255,255,.24),transparent 20%,rgba(58,54,46,.025));
+  background-size:auto,auto,6px 6px,auto;
+  opacity:.68!important;
+}
+
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-list-section>.p130-shell{
+  position:relative!important;
+  z-index:4!important;
+}
+
+/* WebGL paint layer. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .x145-cases-webgl{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  opacity:.92!important;
+  mix-blend-mode:multiply!important;
+  filter:saturate(1.04) contrast(1.015)!important;
+}
+
+/* A real material lens follows the pointer behind the cards. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .x145-liquid-lens{
+  position:absolute;
+  left:0;
+  top:0;
+  width:clamp(190px,18vw,300px);
+  aspect-ratio:1;
+  z-index:2;
+  pointer-events:none;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.54);
+  background:
+    radial-gradient(circle at 38% 30%,rgba(255,255,255,.40),rgba(255,255,255,.06) 34%,rgba(196,215,108,.08) 62%,rgba(194,111,94,.08) 100%);
+  box-shadow:
+    0 30px 80px rgba(73,64,50,.11),
+    inset 0 0 0 1px rgba(47,49,43,.045),
+    inset 18px 16px 42px rgba(255,255,255,.20);
+  backdrop-filter:blur(10px) saturate(1.12);
+  -webkit-backdrop-filter:blur(10px) saturate(1.12);
+  transform:translate3d(-50%,-50%,0);
+  opacity:.72;
+  transition:opacity .25s ease;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-list-section:not(.is-x145-active) .x145-liquid-lens{opacity:.22}
+
+/* Oversized index mark instead of a constellation/network. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .x145-index-mark{
+  position:absolute;
+  right:-.015em;
+  bottom:-.14em;
+  z-index:2;
+  pointer-events:none;
+  user-select:none;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(39,42,36,.10);
+  font:900 clamp(150px,24vw,430px)/.76 Arial,sans-serif;
+  letter-spacing:-.105em;
+  white-space:nowrap;
+  opacity:.9;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .x145-index-caption{
+  position:absolute;
+  left:18px;
+  bottom:20px;
+  z-index:3;
+  pointer-events:none;
+  color:rgba(35,37,33,.42);
+  font:750 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+
+/* Cards get a soft photographic highlight, not a neon/game border. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile{
+  --x145-rx:0deg;
+  --x145-ry:0deg;
+  position:relative!important;
+  isolation:isolate!important;
+  transform-style:preserve-3d!important;
+  transition:transform .38s cubic-bezier(.18,.78,.2,1),box-shadow .38s ease,filter .38s ease!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  z-index:5;
+  pointer-events:none;
+  border-radius:inherit;
+  padding:1px;
+  opacity:0;
+  background:linear-gradient(132deg,rgba(255,255,255,.62),rgba(195,211,116,.20) 34%,rgba(210,126,103,.20) 68%,rgba(255,255,255,.40));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  transition:opacity .24s ease;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+  opacity:0;
+  background:
+    radial-gradient(360px circle at var(--x145-card-x,50%) var(--x145-card-y,50%),rgba(255,255,255,.19),transparent 58%),
+    linear-gradient(125deg,transparent 38%,rgba(255,255,255,.045) 50%,transparent 62%);
+  mix-blend-mode:screen;
+  transition:opacity .24s ease;
+}
+
+@media (hover:hover) and (pointer:fine){
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile:hover{
+    transform:perspective(1200px) translateY(-7px) rotateX(var(--x145-rx)) rotateY(var(--x145-ry))!important;
+    box-shadow:0 36px 94px rgba(31,28,24,.18),0 0 0 1px rgba(255,255,255,.12) inset!important;
+    filter:saturate(1.035) contrast(1.008)!important;
+  }
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile:hover::before,
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile:hover::after{opacity:1}
+}
+
+@media (max-width:900px),(prefers-reduced-motion:reduce){
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] :is(.x145-cases-webgl,.x145-liquid-lens,.x145-index-mark,.x145-index-caption){display:none!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-list-section{
+    background:
+      radial-gradient(ellipse 86% 28% at 12% 7%,rgba(208,224,104,.18),transparent 72%),
+      radial-gradient(ellipse 84% 30% at 102% 40%,rgba(214,124,102,.15),transparent 74%),
+      linear-gradient(145deg,#f0ece3 0%,#e9e6de 52%,#ece8df 100%)!important;
+  }
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile{transform:none!important}
+}

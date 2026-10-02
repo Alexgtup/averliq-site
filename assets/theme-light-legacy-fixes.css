@@ -1,0 +1,182 @@
+/* Stage 100 - light theme completeness for legacy content surfaces.
+   This layer intentionally leaves screenshots/product mockups untouched. */
+
+/* UX wrappers still define dark-only local variables in ux-content.css. */
+html[data-theme="light"] :is(.ux-hub-main,.ux-case-main,.ux-utility-main,.ux-product-main){
+  --ux-line:rgba(16,24,32,.10);
+  --ux-line-strong:rgba(16,24,32,.18);
+  --ux-surface:#ffffff;
+  --ux-muted:#5f6873;
+  --ux-lime:#b7e63d;
+}
+
+html[data-theme="light"] .ux-content-nav{
+  background:rgba(248,249,251,.92)!important;
+  border-color:var(--ds-line)!important;
+}
+html[data-theme="light"] .ux-content-nav a{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+  color:#5f6873!important;
+}
+html[data-theme="light"] .ux-content-nav a:hover{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line-strong)!important;
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] .ux-content-nav a.ux-content-nav__primary{
+  background:var(--ds-accent)!important;
+  border-color:var(--ds-accent)!important;
+  color:#172000!important;
+}
+
+/* Reusable content cards that predate the shared design tokens. */
+html[data-theme="light"] body[data-ux-family] :is(
+  .route-card,
+  .brief-action,
+  .stage21-proof-card,
+  .market-proof__item,
+  .market-package,
+  .s44-orientation__grid article,
+  .s50-principles article,
+  .handoff-grid article,
+  .s51-products div,
+  .s51-proof div,
+  .verified-trust__stats > *,
+  .s64-conversion__inner,
+  .s50-cta > div,
+  .dt-contact__card,
+  .s51-contact > div,
+  .growth-shell,
+  .ux-seo-more,
+  .ux-product-contact,
+  .semantic-links-grid a,
+  .case-cta
+){
+  background:var(--ds-surface)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(
+  .route-card,
+  .stage21-proof-card,
+  .market-package,
+  .semantic-links-grid a,
+  .case-cta
+):hover{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line-strong)!important;
+}
+
+/* Commercial proof bands should not leave a dark stripe in the light theme. */
+html[data-theme="light"] body[data-ux-family] :is(.market-proof,.verified-trust,.s64-conversion){
+  background:transparent!important;
+  border-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(
+  .market-proof__item,
+  .market-package,
+  .verified-trust__stats > *,
+  .stage21-proof-card,
+  .s44-orientation__grid article,
+  .handoff-grid article,
+  .s51-products div,
+  .s51-proof div
+) :is(h2,h3,h4,strong,b){
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(
+  .market-proof__item,
+  .market-package,
+  .verified-trust__stats > *,
+  .stage21-proof-card,
+  .s44-orientation__grid article,
+  .handoff-grid article,
+  .s51-products div,
+  .s51-proof div
+) :is(p,span,small){
+  color:var(--ds-muted)!important;
+}
+
+/* About page: these legacy panels are exactly the black blocks visible in light mode. */
+html[data-theme="light"] body[data-page="about"] :is(.hero-side,.stat,.project,.step,.cta-box){
+  background:var(--ds-surface)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] body[data-page="about"] .project:hover{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line-strong)!important;
+}
+html[data-theme="light"] body[data-page="about"] .stack span{
+  background:#fff!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-muted)!important;
+}
+html[data-theme="light"] body[data-page="about"] :is(.hero-side,.stat,.project,.step,.cta-box) :is(h2,h3,strong,b){
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] body[data-page="about"] :is(.stat,.project,.step,.cta-box) :is(p,span,small){
+  color:var(--ds-muted)!important;
+}
+
+/* Older hub templates use generic .card names; scope them to hubs/cases only. */
+html[data-theme="light"] body[data-ux-family="hub"] :is(.card,.project,.step){
+  background:var(--ds-surface)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+  box-shadow:none!important;
+}
+html[data-theme="light"] body[data-ux-family="hub"] :is(.card,.project):hover{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line-strong)!important;
+}
+
+/* Editorial/table surfaces otherwise keep dark header rows and mobile cards. */
+html[data-theme="light"] body[data-ux-family] :is(.answer,.callout,.ux-seo-more,.ux-product-contact){
+  background:var(--ds-surface)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] body[data-ux-family] table{
+  border-color:var(--ds-line)!important;
+}
+html[data-theme="light"] body[data-ux-family] th{
+  background:var(--ds-surface-2)!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] body[data-ux-family] td{
+  background:transparent!important;
+  border-color:var(--ds-line)!important;
+  color:var(--ds-muted)!important;
+}
+
+/* Secondary buttons from older templates. */
+html[data-theme="light"] body[data-ux-family] :is(.btn,a.btn,button.btn):not(.primary){
+  background:#fff!important;
+  border-color:var(--ds-line-strong)!important;
+  color:var(--ds-text)!important;
+}
+html[data-theme="light"] body[data-ux-family] :is(.btn.primary,a.btn.primary,button.btn.primary){
+  background:var(--ds-accent)!important;
+  border-color:var(--ds-accent)!important;
+  color:#111800!important;
+}
+
+/* Mobile table stacking used to hard-code #0d1116 for every row. */
+@media(max-width:760px){
+  html[data-theme="light"] .table-wrap[data-stack-mobile] tr{
+    background:#fff!important;
+    border-color:var(--ds-line)!important;
+  }
+  html[data-theme="light"] .table-wrap[data-stack-mobile] td{
+    border-color:var(--ds-line)!important;
+    color:var(--ds-muted)!important;
+  }
+  html[data-theme="light"] .table-wrap[data-stack-mobile] td::before{
+    color:var(--ds-muted-2)!important;
+  }
+}

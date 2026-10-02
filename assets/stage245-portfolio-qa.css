@@ -1,0 +1,376 @@
+/* Stage245 — portfolio-wide screenshot QA.
+   Loaded last. Prevents mid-word display breaks and cleans the remaining
+   guide / flagship-case layouts that still carried old dark-editorial geometry. */
+
+/* Display copy must wrap between words, never through a word. */
+html body[data-ux-family] main :is(h1,h2,h3,h4,strong){
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* GUIDES HUB */
+
+/* Decision-library index: the old generic hero typography was making
+   one-word labels wrap into two lines inside a perfectly usable card. */
+html body[data-page="guides"] .p223-index__groups{
+  gap:0!important;
+}
+html body[data-page="guides"] .p223-index__groups a{
+  grid-template-columns:24px minmax(0,1fr) auto!important;
+  gap:7px!important;
+  min-width:0!important;
+  padding:12px 9px!important;
+}
+html body[data-page="guides"] .p223-index__groups a strong{
+  min-width:0!important;
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+  font-size:13px!important;
+  line-height:1.12!important;
+  letter-spacing:-.02em!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-page="guides"] .p223-index__groups a b,
+html body[data-page="guides"] .p223-index__groups a span{
+  color:#64747e!important;
+  -webkit-text-fill-color:#64747e!important;
+}
+
+/* The left route label now has enough real width for "Стоимость" /
+   "Архитектура" instead of relying on break-word. */
+html body[data-page="guides"] .p223-decision-group{
+  grid-template-columns:230px minmax(0,1fr)!important;
+  gap:28px!important;
+}
+html body[data-page="guides"] .p223-decision-group__label{
+  padding:3px 18px 0 28px!important;
+}
+html body[data-page="guides"] .p223-decision-group__label strong{
+  max-width:none!important;
+  font-size:24px!important;
+  line-height:1!important;
+  letter-spacing:-.04em!important;
+  white-space:normal!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-page="guides"] .p223-decision-group__label span{
+  max-width:18ch!important;
+}
+
+/* New-guide cards were edge-to-edge remnants of the old table system.
+   Give every item an actual card boundary and internal padding. */
+html body[data-page="guides"] .stage173-guide-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+html body[data-page="guides"] .stage173-guide-grid>a{
+  min-width:0!important;
+  padding:22px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 16px 44px rgba(45,59,70,.05)!important;
+}
+html body[data-page="guides"] .stage173-guide-grid>a strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  font-size:18px!important;
+  line-height:1.12!important;
+}
+html body[data-page="guides"] .stage173-guide-grid>a span{
+  color:#586873!important;
+  -webkit-text-fill-color:#586873!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+html body[data-page="guides"] .stage173-guide-grid>a small{
+  color:#526775!important;
+  -webkit-text-fill-color:#526775!important;
+}
+
+/* Bottom route note: card-sized, centered, not a full-viewport empty strip. */
+html body[data-page="guides"] .stage178-route-note{
+  width:min(1180px,calc(100% - 48px))!important;
+  min-height:0!important;
+  margin:clamp(28px,4vw,54px) auto clamp(34px,5vw,68px)!important;
+  padding:20px 22px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:20px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 18px 52px rgba(45,59,70,.065)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+html body[data-page="guides"] .stage178-route-note strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="guides"] .stage178-route-note a{
+  min-height:40px!important;
+  padding:0 15px!important;
+  border-radius:999px!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* SERVICES HUB: two residual long labels caught by the full sitemap scan. */
+html body[data-page="services"] .p130-row strong{
+  max-width:none!important;
+  font-size:clamp(19px,1.7vw,27px)!important;
+  line-height:1.08!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-page="services"] .p130-featured-copy h2{
+  max-width:17ch!important;
+  font-size:clamp(34px,3.4vw,50px)!important;
+  line-height:.96!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* LEGACY CASE DISPLAY HEADLINES: don't split long Russian words. */
+html body[data-ux-family="case"] main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2{
+  max-width:14ch!important;
+  font-size:clamp(46px,4.5vw,68px)!important;
+  line-height:.95!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* WORDPRESS COMMERCIAL FLAGSHIP */
+
+/* The hero copy column was too narrow for its 94px title. Give it real width
+   and scale type to the column, so "WordPress" never breaks mid-word. */
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell .hero-grid{
+  grid-template-columns:minmax(520px,.95fr) minmax(0,1.28fr)!important;
+  gap:clamp(34px,4vw,64px)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell .hero-grid>div:first-child{
+  padding:38px!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell h1{
+  max-width:10.8ch!important;
+  font-size:clamp(60px,5.1vw,78px)!important;
+  line-height:.92!important;
+  letter-spacing:-.058em!important;
+  text-wrap:balance!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+
+/* Manifest + story map become intentional compact glass controls rather
+   than long anonymous white bars floating between scenes. */
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest{
+  width:min(1240px,calc(100% - 48px))!important;
+  margin:22px auto 0!important;
+  grid-template-columns:1.25fr repeat(3,minmax(0,1fr))!important;
+  overflow:hidden!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 18px 52px rgba(45,59,70,.065)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest>div{
+  padding:16px 17px!important;
+  border-color:rgba(41,57,69,.10)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest>div:first-child{
+  padding-left:17px!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest small{
+  color:#60717c!important;
+  -webkit-text-fill-color:#60717c!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest strong{
+  color:#1d2a32!important;
+  -webkit-text-fill-color:#1d2a32!important;
+}
+
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p220-story-map-wrap{
+  position:relative!important;
+  top:auto!important;
+  width:min(1240px,calc(100% - 48px))!important;
+  margin:12px auto clamp(30px,4vw,52px)!important;
+  padding:0 10px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.78)!important;
+  box-shadow:0 16px 46px rgba(45,59,70,.055)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p220-story-map a{
+  min-width:0!important;
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+  border-color:rgba(41,57,69,.09)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p220-story-map a b{
+  color:#667986!important;
+  -webkit-text-fill-color:#667986!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p220-story-map a[aria-current="step"]{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  background:rgba(49,95,134,.055)!important;
+}
+
+/* Solution workflow was a dark card with dark text after the light-theme pass.
+   Keep the page premium/light and make all four steps readable. */
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main #case-build .workflow{
+  gap:12px!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main #case-build .workflow article{
+  min-width:0!important;
+  min-height:210px!important;
+  padding:20px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.80)!important;
+  color:#172027!important;
+  box-shadow:0 14px 38px rgba(45,59,70,.05)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main #case-build .workflow article::before{
+  color:#587080!important;
+  -webkit-text-fill-color:#587080!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main #case-build .workflow h3{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  font-size:17px!important;
+  line-height:1.15!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main #case-build .workflow p{
+  color:#586873!important;
+  -webkit-text-fill-color:#586873!important;
+}
+
+/* Result metrics: keep the big-number feel without splitting ordinary words. */
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .metrics{
+  gap:12px!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .metric{
+  min-width:0!important;
+  min-height:190px!important;
+  padding:20px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.80)!important;
+  box-shadow:0 14px 38px rgba(45,59,70,.05)!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .metric strong{
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+  font-size:clamp(34px,3.2vw,48px)!important;
+  line-height:.98!important;
+  letter-spacing:-.05em!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .metric span{
+  color:#5a6973!important;
+  -webkit-text-fill-color:#5a6973!important;
+}
+
+/* ------------------------------------------------------------------ */
+@media(max-width:980px){
+  html body[data-page="guides"] .p223-decision-group{
+    grid-template-columns:1fr!important;
+  }
+  html body[data-page="guides"] .p223-decision-group__label{
+    padding:0!important;
+  }
+  html body[data-page="guides"] .p223-decision-group__label strong{
+    font-size:22px!important;
+  }
+  html body[data-page="guides"] .stage173-guide-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell .hero-grid{
+    grid-template-columns:1fr!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell h1{
+    max-width:12ch!important;
+    font-size:clamp(56px,9vw,76px)!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:620px){
+  html body[data-page="guides"] .p223-index__groups{
+    grid-template-columns:1fr!important;
+  }
+  html body[data-page="guides"] .p223-index__groups a strong{
+    font-size:13px!important;
+  }
+  html body[data-page="guides"] .stage173-guide-grid{
+    grid-template-columns:1fr!important;
+  }
+  html body[data-page="guides"] .stage178-route-note{
+    width:calc(100% - 24px)!important;
+    align-items:flex-start!important;
+    flex-direction:column!important;
+    gap:12px!important;
+  }
+  html body[data-page="guides"] .stage178-route-note a{
+    width:100%!important;
+    justify-content:center!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell .hero-grid>div:first-child{
+    padding:26px 22px!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-hero-shell h1{
+    max-width:100%!important;
+    font-size:clamp(46px,13vw,60px)!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p217-manifest{
+    grid-template-columns:1fr!important;
+    width:calc(100% - 24px)!important;
+  }
+  html body[data-stage217-flagship="wordpress-commercial"] main.ux-case-main .p220-story-map-wrap{
+    width:calc(100% - 24px)!important;
+    overflow-x:auto!important;
+  }
+  html body[data-ux-family="case"] main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2{
+    max-width:100%!important;
+    font-size:clamp(38px,10.8vw,52px)!important;
+  }
+}
+
+
+/* Final audit locks: no italic display word fragmentation and one mobile form label. */
+html body[data-ux-family] main :is(h1,h2,h3,h4,strong,em){
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+html body[data-ux-family="case"] main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2{
+  font-size:clamp(44px,4vw,60px)!important;
+}
+html body[data-page="home"] details.ux-brief-more summary>span{
+  flex:0 0 auto!important;
+  min-width:max-content!important;
+  white-space:nowrap!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  font-size:11.5px!important;
+}
+
+
+/* Swift Calendar has an unusually long italic word in its overview title.
+   Scale only that mobile display instead of breaking the word. */
+@media(max-width:620px){
+  html body[data-page="cases--swift-calendar"][data-ux-family="case"] main.p132-case #case-overview h2,
+  html body[data-page="cases--swift-calendar"][data-ux-family="case"] main.p132-case #gallery h2{
+    font-size:clamp(34px,9vw,42px)!important;
+    line-height:.98!important;
+  }
+}

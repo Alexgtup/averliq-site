@@ -1,0 +1,259 @@
+/* stage139-hub-art-direction */
+/* Route-specific art direction for the main hubs. This layer is visual only:
+   no layout-driving JS, no scroll mutation, no hidden content states. */
+
+body[data-x135-family="cinematic"] .p130-hero{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+body[data-x135-family="cinematic"] .p130-hero .p130-shell{position:relative;z-index:3}
+body[data-x135-family="cinematic"] .p130-hero::before,
+body[data-x135-family="cinematic"] .p130-hero::after{
+  pointer-events:none;
+  user-select:none;
+}
+
+/* SERVICES — procedural system map in the previously empty half. */
+body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-hero::before{
+  content:"";
+  position:absolute;
+  left:5vw;
+  top:12%;
+  width:min(43vw,680px);
+  height:72%;
+  border-radius:42px;
+  opacity:.95;
+  background:
+    radial-gradient(circle at 22% 28%,rgba(201,255,74,.95) 0 5px,transparent 6px),
+    radial-gradient(circle at 67% 22%,rgba(96,231,255,.9) 0 4px,transparent 5px),
+    radial-gradient(circle at 78% 67%,rgba(201,255,74,.8) 0 6px,transparent 7px),
+    radial-gradient(circle at 32% 72%,rgba(125,99,255,.9) 0 5px,transparent 6px),
+    linear-gradient(24deg,transparent 0 38%,rgba(201,255,74,.16) 38.2% 38.6%,transparent 38.8% 100%),
+    linear-gradient(142deg,transparent 0 43%,rgba(96,231,255,.12) 43.2% 43.6%,transparent 43.8% 100%),
+    repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 44px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 44px),
+    radial-gradient(70% 80% at 48% 52%,rgba(201,255,74,.07),rgba(0,0,0,0) 68%),
+    #0b100d;
+  border:1px solid rgba(201,255,74,.11);
+  box-shadow:0 48px 120px rgba(0,0,0,.34),inset 0 0 90px rgba(201,255,74,.025);
+  transform:perspective(1100px) rotateY(9deg) rotateX(2deg);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-hero::after{
+  content:"BUILD / SYSTEM / DIRECT";
+  position:absolute;
+  left:7vw;
+  bottom:12%;
+  width:36vw;
+  max-width:560px;
+  color:rgba(230,238,229,.28);
+  font:800 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.28em;
+  text-align:center;
+}
+
+/* CASES — turn the blank left half into a real exhibition wall. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-hero::before{
+  content:"";
+  position:absolute;
+  left:4vw;
+  top:14%;
+  width:min(40vw,620px);
+  height:66%;
+  border-radius:30px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.02)),
+    url('/assets/cases/fin-planner/fin-planner-original-800w.webp') center/cover no-repeat;
+  box-shadow:0 42px 90px rgba(28,24,20,.18);
+  transform:rotate(-3.5deg);
+  outline:1px solid rgba(27,20,15,.09);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-hero::after{
+  content:"";
+  position:absolute;
+  left:31vw;
+  top:24%;
+  width:min(17vw,260px);
+  aspect-ratio:1.15;
+  border-radius:22px;
+  background:url('/assets/cases/swift-calendar/calendar-original-800w.webp') center/cover no-repeat;
+  box-shadow:0 32px 80px rgba(30,24,23,.2);
+  transform:rotate(7deg);
+  outline:1px solid rgba(27,20,15,.09);
+}
+
+/* GUIDES — editorial instrument, not an empty half-screen. */
+body[data-x135-family="cinematic"] [data-stage130-hub="guides"] .p130-hero::before{
+  content:"01\A02\A03";
+  white-space:pre;
+  position:absolute;
+  left:7vw;
+  top:15%;
+  color:rgba(255,128,91,.9);
+  font:900 clamp(82px,11vw,176px)/.68 Arial,sans-serif;
+  letter-spacing:-.085em;
+  text-shadow:72px 48px 0 rgba(138,107,255,.12),144px 96px 0 rgba(255,255,255,.035);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="guides"] .p130-hero::after{
+  content:"DECIDE / BEFORE / BUILD";
+  position:absolute;
+  left:8vw;
+  bottom:11%;
+  color:rgba(255,255,255,.3);
+  font:750 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.3em;
+  padding-top:18px;
+  border-top:1px solid rgba(255,128,91,.32);
+}
+
+/* ABOUT — remove the flat yellow poster feeling. */
+body[data-x135-family="cinematic"] [data-stage130-hub="about"]{
+  background:#eee7d7!important;
+  color:#15120f!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-hero{
+  background:
+    radial-gradient(900px 600px at 18% 40%,rgba(255,190,84,.22),transparent 60%),
+    linear-gradient(135deg,#f5d878 0%,#efc45f 46%,#eebc57 100%)!important;
+  color:#15120f!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-hero::before{
+  content:"A";
+  position:absolute;
+  left:5vw;
+  top:4%;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(38,27,15,.16);
+  font:900 clamp(310px,39vw,640px)/.82 Arial,sans-serif;
+  letter-spacing:-.12em;
+  transform:rotate(-4deg);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-hero::after{
+  content:"DIRECT BUILD / 01";
+  position:absolute;
+  left:8vw;
+  bottom:12%;
+  color:rgba(40,28,15,.42);
+  font:800 10px/1 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.32em;
+  padding:12px 16px;
+  border:1px solid rgba(40,28,15,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] :is(.p130-lead,.p130-hero-side,.p130-hero-side p,.p130-hero-side span){color:#51442f!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-hero-side strong{color:#18120b!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-editorial{
+  background:#f3eee4!important;
+  color:#171511!important;
+  border-top:1px solid rgba(37,29,20,.1)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-editorial :is(h2,strong){color:#171511!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-editorial :is(p,span){color:#615b51!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-proof-stack>*{
+  background:rgba(255,255,255,.54)!important;
+  border-color:rgba(37,29,20,.1)!important;
+  box-shadow:0 18px 60px rgba(54,42,25,.055)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-footer-cta{
+  background:linear-gradient(125deg,#ffbe5c 0%,#ff916d 58%,#8c78ff 125%)!important;
+  color:#17120d!important;
+}
+
+/* Turn the case index into an exhibition grid, not a stack of huge slabs. */
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-mosaic{
+  display:grid!important;
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile{
+  grid-column:span 4!important;
+  min-height:420px!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+  background:#121316!important;
+  box-shadow:0 24px 70px rgba(17,15,13,.09)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile--wide{grid-column:span 8!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile__media{
+  min-height:300px!important;
+  overflow:hidden!important;
+  background:#0b0d0d!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile__media img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  transform:scale(1.02);
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile__body{padding:22px 24px 26px!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile__body strong{font-size:clamp(24px,2vw,34px)!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-text-tile{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  padding:28px!important;
+  background:linear-gradient(145deg,#17191d,#0d0f12)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-text-tile strong{font-size:clamp(28px,2.5vw,42px)!important;line-height:.95!important}
+
+/* SheetPilot WEBP currently reads almost like a black placeholder in large surfaces.
+   Use the detailed SVG artwork for display while keeping markup/SEO untouched. */
+body[data-page="home"] .p128-feature__media[href="/cases/sheetpilot-ai/"],
+body[data-x135-family="cinematic"] .p130-featured-media,
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] a[href="/cases/sheetpilot-ai/"] .p130-tile__media{
+  background:#07100b url('/assets/cases/sheetpilot-ai/sheetpilot-01.svg') center/cover no-repeat!important;
+}
+body[data-page="home"] .p128-feature__media[href="/cases/sheetpilot-ai/"]>img,
+body[data-x135-family="cinematic"] .p130-featured-media>img,
+body[data-x135-family="cinematic"] [data-stage130-hub="cases"] a[href="/cases/sheetpilot-ai/"] .p130-tile__media>img{
+  opacity:0!important;
+}
+
+/* Services featured work must read as a hero case, not an empty split card. */
+body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-featured-card{
+  min-height:520px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr)!important;
+  overflow:hidden!important;
+  border-radius:30px!important;
+  background:#0c0f12!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  box-shadow:0 34px 110px rgba(0,0,0,.28)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-featured-media{min-height:520px!important}
+body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-featured-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:clamp(34px,4vw,64px)!important;
+  background:linear-gradient(160deg,#11161a,#0b0d0f)!important;
+}
+
+@media (prefers-reduced-motion:no-preference) and (min-width:901px){
+  body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-hero::before{
+    animation:x139-breathe 7s ease-in-out infinite alternate;
+  }
+  @keyframes x139-breathe{to{filter:saturate(1.08) brightness(1.04);box-shadow:0 54px 130px rgba(0,0,0,.38),inset 0 0 110px rgba(201,255,74,.045)}}
+}
+
+@media (max-width:1000px){
+  body[data-x135-family="cinematic"] .p130-hero::before,
+  body[data-x135-family="cinematic"] .p130-hero::after{opacity:.34}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-mosaic{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile,
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile--wide{grid-column:span 1!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-featured-card{grid-template-columns:1fr!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="services"] .p130-featured-media{min-height:360px!important}
+}
+
+@media (max-width:760px){
+  body[data-x135-family="cinematic"] .p130-hero::before,
+  body[data-x135-family="cinematic"] .p130-hero::after{display:none!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-mosaic{grid-template-columns:1fr!important;gap:12px!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile{min-height:0!important;border-radius:22px!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="cases"] .p130-tile__media{min-height:230px!important}
+  body[data-x135-family="cinematic"] [data-stage130-hub="about"] .p130-hero{background:#edc969!important}
+}

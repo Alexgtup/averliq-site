@@ -1,0 +1,257 @@
+/* Stage252 — final light polish.
+   Replaces the last legacy dark UI surfaces discovered by a rendered 77-route audit.
+   Real project screenshots stay untouched. Small action buttons may remain dark. */
+
+:root{
+  --s252-ink:#172027;
+  --s252-muted:#60717b;
+  --s252-paper:rgba(255,255,255,.94);
+  --s252-paper-soft:rgba(245,249,251,.88);
+  --s252-line:rgba(34,51,62,.10);
+  --s252-shadow:0 20px 58px rgba(45,67,83,.075);
+  --s252-shadow-hover:0 28px 76px rgba(45,67,83,.11);
+}
+
+/* ------------------------------------------------------------------ */
+/* CASE HUB: stop old white-on-dark inheritance leaking into light cards */
+
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub [data-stage130-hub="cases"] .p130-tile__body{
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(246,249,250,.94))!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub [data-stage130-hub="cases"] .p130-tile__body .p214-case-meta{
+  color:#788892!important;
+  -webkit-text-fill-color:#788892!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub [data-stage130-hub="cases"] .p130-tile__body strong{
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub [data-stage130-hub="cases"] .p130-tile__body>span:not(.p214-case-meta){
+  color:var(--s252-muted)!important;
+  -webkit-text-fill-color:var(--s252-muted)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* REAL SCREENSHOT FRAMES: light chrome + readable captions */
+
+html body[data-stage252-light="true"][data-ux-family="case"] main#main-content figure.shot,
+html body[data-stage252-light="true"][data-ux-family="case"] main#main-content figure.shot.shot--wide{
+  border:1px solid rgba(34,51,62,.10)!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#566a75!important;
+  -webkit-text-fill-color:#566a75!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 18px 52px rgba(45,67,83,.07)!important;
+}
+html body[data-stage252-light="true"][data-ux-family="case"] main#main-content figure.shot figcaption,
+html body[data-stage252-light="true"][data-ux-family="case"] main#main-content figure.shot.shot--wide figcaption{
+  color:#566a75!important;
+  -webkit-text-fill-color:#566a75!important;
+}
+
+/* Case notes were still obsidian on SEO Control Center / SiteAudit / FreelanceOS. */
+html body[data-stage252-light="true"][data-ux-family="case"] main#main-content .note{
+  border:1px solid rgba(92,144,173,.13)!important;
+  border-radius:18px!important;
+  background:
+    radial-gradient(circle at 92% 6%,rgba(123,187,220,.13),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.96),rgba(241,247,250,.89))!important;
+  color:#5d707b!important;
+  -webkit-text-fill-color:#5d707b!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.99),
+    0 14px 40px rgba(45,67,83,.055)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* FIN PLANNER: the final dark result cards + result container */
+
+html body[data-stage252-light="true"][data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"]
+main#main-content.p132-case section#case-result.p132-panel>.container{
+  border:1px solid rgba(255,255,255,.90)!important;
+  background:
+    radial-gradient(circle at 84% 10%,rgba(189,233,59,.10),transparent 28%),
+    radial-gradient(circle at 10% 92%,rgba(113,190,230,.10),transparent 30%),
+    linear-gradient(145deg,rgba(255,255,255,.96),rgba(241,247,250,.89))!important;
+  color:var(--s252-ink)!important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 28px 78px rgba(45,67,83,.09)!important;
+}
+html body[data-stage252-light="true"][data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"]
+main#main-content.p132-case section#case-result .deliver>article{
+  border:1px solid var(--s252-line)!important;
+  background:rgba(255,255,255,.82)!important;
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.99),
+    0 12px 34px rgba(45,67,83,.045)!important;
+}
+html body[data-stage252-light="true"][data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"]
+main#main-content.p132-case section#case-result .deliver>article :is(h2,h3,strong){
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+}
+html body[data-stage252-light="true"][data-page="cases--fin-planner"][data-stage217-flagship="fin-planner"]
+main#main-content.p132-case section#case-result .deliver>article :is(p,span){
+  color:var(--s252-muted)!important;
+  -webkit-text-fill-color:var(--s252-muted)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* DEVTOOLS: JWT has a different DOM than the two-column workspaces. */
+
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"][data-ux-family="tool"][data-x135-family="tool"]
+main#main-content.ux-utility-main.ux-tool-main section#tool-workspace>.dt-container>.dt-panel,
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"][data-ux-family="tool"][data-x135-family="tool"]
+main#main-content.ux-utility-main.ux-tool-main section#tool-workspace>.dt-container>.dt-jwt-grid>.dt-panel{
+  border:1px solid rgba(255,255,255,.90)!important;
+  background:
+    radial-gradient(circle at 90% 0,rgba(189,233,59,.09),transparent 34%),
+    linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,246,250,.91))!important;
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 22px 64px rgba(45,67,83,.085)!important;
+}
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+main#main-content section#tool-workspace :is(label,.dt-label){
+  color:#344953!important;
+  -webkit-text-fill-color:#344953!important;
+}
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+main#main-content section#tool-workspace #jwt-in,
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+main#main-content section#tool-workspace .dt-json-box{
+  border-color:rgba(34,51,62,.10)!important;
+  background:rgba(255,255,255,.87)!important;
+  color:#263942!important;
+  -webkit-text-fill-color:#263942!important;
+  box-shadow:inset 0 1px 0 #fff!important;
+}
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+main#main-content section#tool-workspace #jwt-in::placeholder{
+  color:#8a98a1!important;
+  -webkit-text-fill-color:#8a98a1!important;
+}
+html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+main#main-content section#tool-workspace .dt-btn:not(.primary){
+  border-color:rgba(34,51,62,.10)!important;
+  background:rgba(255,255,255,.78)!important;
+  color:#40545f!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* WORDPRESS: three old dark search-intent cards + unreadable CTA */
+
+html body[data-stage252-light="true"][data-stage251-route="wordpress-development"]
+main#main-content section.search-demand .search-demand__grid>.search-demand__card{
+  border:1px solid rgba(34,51,62,.10)!important;
+  background:
+    radial-gradient(circle at 92% 8%,rgba(117,192,230,.10),transparent 36%),
+    linear-gradient(145deg,rgba(255,255,255,.96),rgba(241,247,250,.89))!important;
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 16px 46px rgba(45,67,83,.06)!important;
+}
+html body[data-stage252-light="true"][data-stage251-route="wordpress-development"]
+main#main-content section.search-demand .search-demand__card h3{
+  color:var(--s252-ink)!important;
+  -webkit-text-fill-color:var(--s252-ink)!important;
+}
+html body[data-stage252-light="true"][data-stage251-route="wordpress-development"]
+main#main-content section.search-demand .search-demand__card p{
+  color:var(--s252-muted)!important;
+  -webkit-text-fill-color:var(--s252-muted)!important;
+}
+html body[data-stage252-light="true"][data-stage251-route="wordpress-development"]
+main#main-content .s177-conversion .s177-card.s177-cta b{
+  background:linear-gradient(180deg,#1d2930,#151d22)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  border:1px solid rgba(23,32,39,.94)!important;
+  box-shadow:0 10px 26px rgba(23,32,39,.14)!important;
+}
+
+/* ------------------------------------------------------------------ */
+/* QUIET LUXURY HOVER: move with light and border, not black fill. */
+
+@media(hover:hover) and (pointer:fine){
+  html body[data-stage252-light="true"] main :is(
+    .search-demand__card,
+    .note,
+    .p130-tile,
+    .dt-panel
+  ):hover{
+    border-color:rgba(111,165,191,.20)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.99),
+      var(--s252-shadow-hover)!important;
+  }
+}
+
+@media(max-width:700px){
+  html body[data-stage252-light="true"][data-page="cases--fin-planner"]
+  main#main-content.p132-case section#case-result .deliver>article{
+    border-radius:16px!important;
+  }
+  html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+  main#main-content section#tool-workspace>.dt-container>.dt-panel,
+  html body.dt-body[data-stage252-light="true"][data-tool="jwt"]
+  main#main-content section#tool-workspace>.dt-container>.dt-jwt-grid>.dt-panel{
+    border-radius:18px!important;
+  }
+}
+
+
+/* Stage252 v2 — rendered audit corrections. */
+html:has(body[data-stage252-light="true"]){
+  color-scheme:light!important;
+  background:#eef3f7!important;
+}
+
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile__body{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile__body .p214-case-meta{
+  color:#788892!important;
+  -webkit-text-fill-color:#788892!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile__body strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-stage252-light="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile__body>span:not(.p214-case-meta){
+  color:#60717b!important;
+  -webkit-text-fill-color:#60717b!important;
+}
+
+/* Native controls should follow the now-light site instead of the old dark color-scheme. */
+html body[data-stage252-light="true"] main select,
+html body[data-stage252-light="true"] main input:not([type="checkbox"]):not([type="radio"]),
+html body[data-stage252-light="true"] main textarea{
+  color-scheme:light!important;
+}
+html body[data-stage252-light="true"][data-stage251-route="freelance-os"] main select{
+  border:1px solid rgba(34,51,62,.11)!important;
+  background:#fff!important;
+  color:#263942!important;
+  -webkit-text-fill-color:#263942!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98)!important;
+}

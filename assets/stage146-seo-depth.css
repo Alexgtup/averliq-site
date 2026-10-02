@@ -1,0 +1,306 @@
+/* stage146-seo-depth */
+body[data-x135-family="cinematic"] .x146-depth{
+  position:relative;
+  padding:clamp(4.5rem,8vw,8rem) 0;
+  border-top:1px solid rgba(255,255,255,.09);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+body[data-x135-family="cinematic"] .x146-depth__inner{
+  width:min(100%,86rem);
+  margin:0 auto;
+  padding-inline:clamp(1.1rem,4vw,4.4rem);
+}
+body[data-x135-family="cinematic"] .x146-depth__head{
+  display:grid;
+  grid-template-columns:minmax(10rem,.42fr) minmax(0,1.58fr);
+  gap:clamp(1.4rem,4vw,4rem);
+  align-items:start;
+  margin-bottom:clamp(2rem,4vw,3.6rem);
+}
+body[data-x135-family="cinematic"] .x146-depth__eyebrow{
+  margin:0;
+  color:rgba(228,232,236,.48);
+  font:750 .64rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+body[data-x135-family="cinematic"] .x146-depth h2{
+  margin:0;
+  max-width:18ch;
+  font-size:clamp(2.25rem,4.7vw,4.8rem);
+  line-height:.98;
+  letter-spacing:-.052em;
+}
+body[data-x135-family="cinematic"] .x146-depth__intro{
+  max-width:54rem;
+  margin:1.15rem 0 0;
+  color:rgba(226,230,235,.68);
+  font-size:clamp(.98rem,1.3vw,1.08rem);
+  line-height:1.78;
+}
+body[data-x135-family="cinematic"] .x146-depth__grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.8rem;
+}
+body[data-x135-family="cinematic"] .x146-depth__card{
+  min-width:0;
+  padding:clamp(1.2rem,2vw,1.55rem);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:1.2rem;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+}
+body[data-x135-family="cinematic"] .x146-depth__card h3{
+  margin:0;
+  font-size:1.02rem;
+  line-height:1.28;
+  letter-spacing:-.018em;
+}
+body[data-x135-family="cinematic"] .x146-depth__card p{
+  margin:.72rem 0 0;
+  color:rgba(225,229,234,.62);
+  font-size:.86rem;
+  line-height:1.72;
+}
+body[data-x135-family="cinematic"] .x146-depth__links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1.2rem;
+}
+body[data-x135-family="cinematic"] .x146-depth__links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:2.35rem;
+  padding:.58rem .78rem;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:999px;
+  color:rgba(241,243,245,.78);
+  text-decoration:none;
+  font-size:.74rem;
+  transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  body[data-x135-family="cinematic"] .x146-depth__links a:hover{
+    border-color:rgba(201,255,74,.38);
+    background:rgba(201,255,74,.065);
+    color:#f7f8f4;
+  }
+}
+
+/* Stage148 reuses this content module on the light Stage130 hub pages.
+   Those pages must not inherit the dark cinematic palette above. */
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth{
+  color:#171914!important;
+  border-top:1px solid rgba(31,34,27,.10)!important;
+  border-bottom:1px solid rgba(31,34,27,.10)!important;
+  background:
+    radial-gradient(ellipse 52% 42% at 4% 0%,rgba(199,222,75,.10),transparent 72%),
+    radial-gradient(ellipse 46% 38% at 96% 100%,rgba(198,112,91,.07),transparent 74%),
+    linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.03))!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth h2,
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__card h3{
+  color:#171914!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__eyebrow{
+  color:rgba(34,38,30,.56)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__intro{
+  color:rgba(31,35,28,.76)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__card{
+  border-color:rgba(31,34,27,.10)!important;
+  background:rgba(255,255,255,.34)!important;
+  box-shadow:0 12px 34px rgba(53,49,41,.035)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__card p{
+  color:rgba(34,38,31,.72)!important;
+}
+body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__links a{
+  border-color:rgba(31,34,27,.14)!important;
+  background:rgba(255,255,255,.38)!important;
+  color:rgba(24,27,22,.82)!important;
+}
+@media (hover:hover) and (pointer:fine){
+  body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth__links a:hover{
+    border-color:rgba(119,143,29,.42)!important;
+    background:rgba(201,255,74,.24)!important;
+    color:#11140d!important;
+    transform:translateY(-1px);
+  }
+}
+
+/* Hard guard for Stage130 hubs. Do not depend on body theme markers: the hub
+   itself is the source of truth. This also beats stale/late cinematic colors. */
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"]{
+  color:#171914!important;
+  border-color:rgba(31,34,27,.11)!important;
+  background:
+    radial-gradient(ellipse 52% 42% at 4% 0%,rgba(199,222,75,.10),transparent 72%),
+    radial-gradient(ellipse 46% 38% at 96% 100%,rgba(198,112,91,.07),transparent 74%),
+    linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.08))!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] :is(h2,h3){
+  color:#151712!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__eyebrow{
+  color:#62685b!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__intro{
+  color:#464b42!important;
+  opacity:1!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card{
+  border-color:rgba(31,34,27,.12)!important;
+  background:rgba(255,255,255,.56)!important;
+  box-shadow:0 14px 38px rgba(53,49,41,.045)!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card p{
+  color:#555b50!important;
+  opacity:1!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__links a{
+  border-color:rgba(31,34,27,.18)!important;
+  background:rgba(255,255,255,.62)!important;
+  color:#242820!important;
+  opacity:1!important;
+}
+@media (hover:hover) and (pointer:fine){
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__links a:hover{
+    border-color:rgba(119,143,29,.46)!important;
+    background:rgba(201,255,74,.30)!important;
+    color:#11140d!important;
+  }
+}
+
+@media(max-width:900px){
+  body[data-x135-family="cinematic"] .x146-depth__head{grid-template-columns:1fr;gap:.8rem}
+  body[data-x135-family="cinematic"] .x146-depth__grid{grid-template-columns:1fr}
+  body[data-x135-family="cinematic"] .x146-depth__card{border-radius:1rem}
+  body[data-x135-family="cinematic"] [data-stage130-hub] .x146-depth{
+    padding:clamp(3.2rem,11vw,5rem) 0;
+  }
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"]{
+    padding:clamp(3.2rem,11vw,5rem) 0;
+  }
+}
+
+/* Stage149 visual pass: these four-card SEO discovery blocks are part of the
+   page, not a pasted audit widget. Use balanced editorial layouts and route-
+   specific paper surfaces so the text remains readable without fighting the
+   cinematic backgrounds around it. */
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"]{
+  padding:clamp(4.6rem,7vw,7rem) 0!important;
+  overflow:hidden;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__inner{
+  width:min(100%,78rem)!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__head{
+  grid-template-columns:minmax(9rem,.34fr) minmax(0,1.66fr)!important;
+  gap:clamp(1.4rem,4vw,4.6rem)!important;
+  margin-bottom:clamp(2.2rem,4vw,3.4rem)!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__head h2{
+  max-width:20ch!important;
+  font-size:clamp(2.35rem,4.3vw,4.6rem)!important;
+  line-height:.96!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__intro{
+  max-width:48rem!important;
+  margin-top:1rem!important;
+  font-size:clamp(.95rem,1.15vw,1.04rem)!important;
+  line-height:1.72!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card{
+  position:relative!important;
+  overflow:hidden!important;
+  min-height:220px!important;
+  padding:clamp(1.45rem,2.1vw,1.85rem)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.72)!important;
+  border-color:rgba(33,36,30,.10)!important;
+  box-shadow:0 18px 50px rgba(46,43,36,.06)!important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:var(--x146-route-accent,#b7d43e);
+  opacity:.82;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card h3{
+  font-size:clamp(1.08rem,1.35vw,1.24rem)!important;
+  letter-spacing:-.025em!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card p{
+  margin-top:.8rem!important;
+  font-size:.9rem!important;
+  line-height:1.68!important;
+  color:#4f554b!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__links{
+  gap:.6rem!important;
+  margin-top:1.4rem!important;
+}
+main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__links a{
+  min-height:2.5rem!important;
+  padding:.62rem .86rem!important;
+  background:rgba(255,255,255,.76)!important;
+  border-color:rgba(35,38,31,.12)!important;
+  box-shadow:0 7px 18px rgba(45,41,34,.035)!important;
+  font-weight:650!important;
+}
+main.p130-hub[data-stage130-hub="services"] > .x146-depth[data-stage148-discovery="true"]{
+  --x146-route-accent:#a9cc34;
+  background:
+    radial-gradient(ellipse 56% 68% at 0% 0%,rgba(181,214,74,.28),transparent 68%),
+    radial-gradient(ellipse 40% 55% at 100% 100%,rgba(107,188,159,.11),transparent 72%),
+    linear-gradient(135deg,#f2f3ea 0%,#e8ece1 100%)!important;
+}
+main.p130-hub[data-stage130-hub="guides"] > .x146-depth[data-stage148-discovery="true"]{
+  --x146-route-accent:#8c73d9;
+  background:
+    radial-gradient(ellipse 52% 64% at 100% 0%,rgba(142,111,211,.19),transparent 70%),
+    radial-gradient(ellipse 48% 55% at 0% 100%,rgba(222,137,111,.12),transparent 72%),
+    linear-gradient(135deg,#f4f0f5 0%,#ece6ef 100%)!important;
+}
+main.p130-hub[data-stage130-hub="cases"] > .x146-depth[data-stage148-discovery="true"]{
+  --x146-route-accent:#d08a67;
+  background:
+    radial-gradient(ellipse 52% 62% at 0% 0%,rgba(205,224,97,.20),transparent 70%),
+    radial-gradient(ellipse 42% 58% at 100% 100%,rgba(211,126,100,.16),transparent 72%),
+    linear-gradient(135deg,#f3efe7 0%,#ece8df 100%)!important;
+}
+@media (hover:hover) and (pointer:fine){
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card{
+    transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease!important;
+  }
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card:hover{
+    transform:translateY(-4px);
+    border-color:color-mix(in srgb,var(--x146-route-accent,#b7d43e) 38%,transparent)!important;
+    box-shadow:0 24px 64px rgba(46,43,36,.09)!important;
+  }
+}
+@media(max-width:900px){
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__head{
+    grid-template-columns:1fr!important;
+    gap:.7rem!important;
+  }
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__grid{
+    grid-template-columns:1fr!important;
+  }
+  main.p130-hub[data-stage130-hub] > .x146-depth[data-stage148-discovery="true"] .x146-depth__card{
+    min-height:0!important;
+  }
+}

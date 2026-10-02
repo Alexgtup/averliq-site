@@ -1,0 +1,63 @@
+/* Shared additions preserve the portfolio's dark/lime theme. */
+.growth-section{padding:clamp(2.5rem,5vw,5rem) 0;border-top:1px solid rgba(255,255,255,.1)}
+.growth-shell{width:min(100% - 2rem,80rem);margin-inline:auto}
+.growth-label{color:#c9ff4a;font:600 .875rem/1.5 ui-monospace,monospace}
+.growth-section h2,.growth-hero h1{max-width:24ch;margin:.7rem 0 1rem;font-size:clamp(2rem,4vw,3.5rem);line-height:1.12;letter-spacing:-.035em}
+.growth-section p,.growth-hero p{max-width:68ch;color:#b0b8c2;font-size:1rem;line-height:1.7}
+.growth-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin-top:1.8rem}
+.growth-card{min-width:0;padding:clamp(1rem,3vw,1.7rem);background:#10151b;border:1px solid #293039;border-radius:1.1rem}
+.growth-card h3{font-size:1.4rem;line-height:1.25;margin:.7rem 0}
+.growth-card img{display:block;width:100%;height:auto;border-radius:.7rem;margin-bottom:1.2rem}
+.growth-actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-top:1.3rem}
+.growth-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.75rem 1rem;border:1px solid #424b58;border-radius:.65rem;color:#f3f5f7;text-decoration:none;font-size:1rem;line-height:1.4;white-space:normal}
+.growth-link.primary{background:#c9ff4a;color:#11160a;border-color:#c9ff4a;font-weight:700}
+.growth-link:hover{border-color:#c9ff4a}.growth-link:focus-visible{outline:3px solid #c9ff4a;outline-offset:4px}
+.growth-nav{display:flex;flex-wrap:wrap;gap:1rem;padding-block:1.5rem;align-items:center}
+.growth-nav a{color:#d3dae2;font-size:1rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.growth-nav a:first-child{font-weight:800;color:#c9ff4a;margin-right:auto}
+.growth-hero{padding:3rem 0}.growth-hero h1{font-size:clamp(2.5rem,6vw,5rem)}
+.growth-faq details{border-top:1px solid #293039;padding:1.2rem 0}.growth-faq summary{cursor:pointer;font-size:1.05rem;font-weight:600;line-height:1.5}.growth-faq summary:focus-visible{outline:2px solid #c9ff4a;outline-offset:5px}
+.growth-cookie[hidden],.growth-cookie-settings[hidden]{display:none!important}
+.growth-cookie{position:fixed;z-index:10000;inset:auto auto 1rem 1rem;width:min(30rem,calc(100% - 2rem));max-height:calc(100dvh - 2rem);overflow:auto;background:#11171f;color:#f4f6fa;border:1px solid #46505c;border-radius:1rem;padding:1rem;box-shadow:0 15px 50px #0008;font:400 1rem/1.5 system-ui,sans-serif}
+.growth-cookie p{font-size:.875rem;color:#b7c0cb;margin:.6rem 0}.growth-cookie a{color:#d9e5f3}.growth-cookie .growth-actions{margin-top:.6rem}
+.growth-cookie button,.growth-cookie-settings{cursor:pointer;font-family:inherit}
+.growth-cookie-settings{position:fixed;left:1rem;bottom:1rem;z-index:9998;background:#18202a;color:#c5cfdb;border:1px solid #46505c;border-radius:.6rem;padding:.5rem .8rem;min-height:44px;font-size:.875rem}
+
+/* Stage 86 - a case-page section that contains only navigation links is a
+   related-links rail, not another full content chapter. Keep the useful paths
+   to demos/profile while making the ending quieter before the real contact CTA. */
+body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child){
+  padding:1.15rem 0 !important;
+  border-top-color:rgba(255,255,255,.065);
+  background:rgba(255,255,255,.008);
+}
+body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-shell{
+  width:min(100% - 2rem,80rem);
+}
+body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-actions{
+  margin:0;
+  gap:.5rem;
+}
+body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-link{
+  min-height:2.45rem;
+  padding:.55rem .72rem;
+  border-color:rgba(255,255,255,.1);
+  background:rgba(255,255,255,.018);
+  color:#aab2bc;
+  font-size:.78rem;
+}
+body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-link:hover{
+  color:#f3f5f7;
+  border-color:rgba(201,255,74,.45);
+  background:rgba(201,255,74,.035);
+}
+
+@media(max-width:700px){
+  .growth-grid{grid-template-columns:1fr}.growth-section h2,.growth-hero h1{max-width:100%}.growth-cookie{bottom:5rem;max-height:calc(100dvh - 6rem)}.growth-cookie-settings{bottom:5rem}.growth-nav{gap:.8rem}.growth-actions .growth-link{flex-grow:1}
+  body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child){padding:.9rem 0 !important}
+  body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem}
+  body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-link{width:100%;min-width:0;padding:.55rem .6rem;font-size:.72rem;text-align:center}
+}
+@media(max-width:390px){
+  body[data-page^="cases--"] .growth-section:has(> .growth-shell > .growth-actions:only-child) .growth-actions{grid-template-columns:1fr}
+}

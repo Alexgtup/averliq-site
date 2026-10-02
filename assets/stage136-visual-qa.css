@@ -1,0 +1,59 @@
+/* stage136-visual-qa */
+/* Universal shell must win over family-specific legacy CSS. */
+body[data-x135="true"] .skip-link{position:fixed!important;left:12px!important;top:10px!important;z-index:2147483647!important;transform:translateY(-180%)!important;opacity:0!important;pointer-events:none!important}
+body[data-x135="true"] .skip-link:focus{transform:none!important;opacity:1!important;pointer-events:auto!important;background:#fff!important;color:#080a0b!important;padding:10px 14px!important;border-radius:8px!important}
+body[data-x135="true"] .stage98-header{position:sticky!important;top:0!important;z-index:214748000!important;width:100%!important;height:65px!important;min-height:65px!important;overflow:visible!important;margin:0!important;padding:0!important}
+body[data-x135="true"] .stage98-head{width:min(100% - 28px,1380px)!important;height:65px!important;min-height:65px!important;margin:0 auto!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;position:relative!important;overflow:visible!important}
+body[data-x135="true"] .stage98-brand{display:flex!important;align-items:center!important;gap:10px!important;width:auto!important;height:44px!important;min-width:0!important;padding:0!important;margin:0!important;text-decoration:none!important;position:relative!important;flex:0 0 auto!important}
+body[data-x135="true"] .stage98-brand-mark{display:grid!important;place-items:center!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;max-height:36px!important;flex:0 0 36px!important;overflow:hidden!important}
+body[data-x135="true"] .stage98-brand-mark svg{display:block!important;width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;max-width:36px!important;max-height:36px!important;position:static!important;transform:none!important;margin:0!important}
+body[data-x135="true"] .stage98-brand-copy{display:flex!important;flex-direction:column!important;justify-content:center!important;width:auto!important;height:auto!important;line-height:1!important;position:static!important}
+body[data-x135="true"] .stage98-brand-copy strong{font:750 14px/1.05 Arial,sans-serif!important;color:#f4f5f2!important;letter-spacing:-.02em!important}
+body[data-x135="true"] .stage98-brand-copy small{font:650 7px/1.1 Arial,sans-serif!important;letter-spacing:.15em!important;color:#777e7b!important;margin-top:4px!important;white-space:nowrap!important}
+body[data-x135="true"] .stage98-nav{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:clamp(12px,1.4vw,24px)!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;position:static!important;flex:0 1 auto!important}
+body[data-x135="true"] .stage98-nav>a{display:inline-flex!important;align-items:center!important;min-height:38px!important;width:auto!important;padding:0!important;margin:0!important;font-size:12px!important;line-height:1!important;white-space:nowrap!important;text-decoration:none!important}
+body[data-x135="true"] .stage98-nav>.stage98-cta{padding:0 16px!important;border-radius:999px!important;background:#c9ff4a!important;color:#080a0b!important;font-weight:800!important}
+body[data-x135="true"] .stage98-mobile-menu{display:none!important;width:44px!important;height:44px!important;margin:0!important;padding:0!important;position:relative!important;flex:0 0 44px!important}
+body[data-x135="true"] .stage98-mobile-menu summary{box-sizing:border-box!important;width:44px!important;height:44px!important;display:grid!important;place-items:center!important;list-style:none!important;padding:0!important;margin:0!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:12px!important;background:#0d1011!important;cursor:pointer!important}
+body[data-x135="true"] .stage98-mobile-menu summary::-webkit-details-marker{display:none!important}
+body[data-x135="true"] .stage98-menu-icon{display:grid!important;gap:5px!important;width:16px!important;height:auto!important}
+body[data-x135="true"] .stage98-menu-icon i{display:block!important;width:16px!important;height:1px!important;background:#eef0ed!important;border-radius:2px!important;margin:0!important}
+body[data-x135="true"] .stage98-menu-open::before{display:none!important;content:none!important;backdrop-filter:none!important}
+
+/* English typography must wrap by phrase, never split inside words. */
+body[data-x135-family="international"] .intl-hero h1{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
+
+/* Product and tool old styles should never resize global shell graphics. */
+body[data-x135-family="tool"] .stage98-header svg,body[data-x135-family="product"] .stage98-header svg{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important}
+
+@media(max-width:900px){
+ /* Smart mobile header: hide while scrolling down, reveal while scrolling up. */
+ body[data-x135="true"] .stage98-header{position:sticky!important;top:0!important;height:65px!important;min-height:65px!important;display:block!important;visibility:visible!important;opacity:1!important;overflow:visible!important;transform:translateY(0)!important;transition:transform .2s ease!important;will-change:transform!important}
+ body[data-x135="true"] .stage98-head{height:65px!important;min-height:65px!important;width:calc(100% - 24px)!important;gap:12px!important;display:flex!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+ body[data-x135="true"] .stage98-nav{display:none!important}
+ body[data-x135="true"] .stage98-mobile-menu{display:block!important;position:relative!important;visibility:visible!important;opacity:1!important}
+ body[data-x135="true"] .stage98-mobile-menu:not([open])>nav{display:none!important}
+
+ body.stage98-mobile-header-hidden:not(.stage98-menu-open)[data-x135="true"] .stage98-header{transform:translateY(calc(-100% - 2px))!important;pointer-events:none!important}
+
+ /* Menu-open always wins over scroll hiding. Keep the original viewport as the
+    vertical scroll container; otherwise sticky header jumps to document top. */
+ body.stage98-menu-open{overflow-x:clip!important;overflow-y:visible!important}
+ body.stage98-menu-open::before{display:none!important;content:none!important;background:transparent!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ body.stage98-menu-open[data-x135="true"] .stage98-header{position:sticky!important;top:0!important;display:block!important;visibility:visible!important;opacity:1!important;overflow:visible!important;transform:translateY(0)!important;pointer-events:auto!important;filter:none!important;perspective:none!important;contain:none!important;will-change:transform!important}
+ body.stage98-menu-open[data-x135="true"] .stage98-head{display:flex!important;visibility:visible!important;opacity:1!important;overflow:visible!important}
+ body.stage98-menu-open[data-x135="true"] .stage98-mobile-menu{display:block!important;visibility:visible!important;opacity:1!important}
+
+ /* Dropdown belongs to the currently visible header, not to the viewport bottom. */
+ body[data-x135="true"] .stage98-mobile-menu[open]>nav{display:flex!important;flex-direction:column!important;gap:3px!important;position:absolute!important;right:0!important;left:auto!important;top:51px!important;bottom:auto!important;width:min(320px,calc(100vw - 24px))!important;min-width:0!important;max-width:none!important;max-height:calc(100dvh - 5.5rem)!important;overflow-y:auto!important;overflow-x:hidden!important;padding:10px!important;margin:0!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:16px!important;background:#090c0e!important;box-shadow:0 32px 90px rgba(0,0,0,.55)!important;z-index:214748100!important;visibility:visible!important;opacity:1!important;transform:none!important;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ body[data-x135="true"] .stage98-mobile-menu[open]>nav>a{display:flex!important;align-items:center!important;min-height:46px!important;padding:0 13px!important;border-radius:10px!important;color:#d8dcda!important;text-decoration:none!important;font-size:14px!important;line-height:1.2!important;background:transparent!important}
+ body[data-x135="true"] .stage98-mobile-menu[open]>nav>a:hover{background:rgba(255,255,255,.05)!important;color:#fff!important}
+ body[data-x135="true"] .stage98-mobile-menu[open]>nav>.stage98-mobile-cta{margin-top:5px!important;background:#c9ff4a!important;color:#080a0b!important;font-weight:850!important;justify-content:center!important}
+ body[data-x135="true"] .stage98-brand-copy small{display:none!important}
+ body[data-x135-family="international"] .intl-hero h1{max-width:none!important;width:100%!important;font-size:clamp(43px,12.3vw,61px)!important;line-height:.88!important;letter-spacing:-.06em!important;overflow-wrap:normal!important;word-break:keep-all!important}
+ body[data-x135-family="international"] .intl-hero>div:first-child{width:100%!important;max-width:none!important}
+ body[data-x135-family="tool"] .ux-tool-main>.dt-hero h1{max-width:10ch!important;font-size:clamp(43px,12vw,62px)!important;overflow-wrap:normal!important;word-break:normal!important}
+ body[data-x135-family="product"] .fos-hero h1{max-width:10ch!important;font-size:clamp(45px,12.5vw,66px)!important;overflow-wrap:normal!important;word-break:normal!important}
+ body[data-x135-family="demo"] .growth-hero h1{max-width:8.5ch!important;font-size:clamp(48px,13vw,68px)!important;overflow-wrap:normal!important;word-break:normal!important}
+ body[data-x135="true"] :is(a,button,summary,input,select,textarea){scroll-margin-top:82px}
+}

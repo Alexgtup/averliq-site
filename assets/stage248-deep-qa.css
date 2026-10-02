@@ -1,0 +1,493 @@
+/* Stage248 — final deep QA corrections.
+   Only fixes defects found by live multi-viewport audit; no redesign churn. */
+
+/* ------------------------------------------------------------------ */
+/* GUIDE TABLES
+   Several guide tables still inherited the old dark theme while the global
+   light typography applied a dark -webkit-text-fill-color. Keep guide tables
+   in the same ivory material family as the article. */
+
+html body[data-ux-family="guide"] main.ux-guide-main .table-wrap{
+  margin:28px 0 34px!important;
+  border:1px solid rgba(33,47,57,.105)!important;
+  border-radius:20px!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.94),rgba(246,249,250,.82))!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 16px 46px rgba(35,49,60,.055)!important;
+  overflow:hidden!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main .table-wrap table{
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  border-collapse:collapse!important;
+  border-spacing:0!important;
+  background:transparent!important;
+  color:#26363f!important;
+  -webkit-text-fill-color:#26363f!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main .table-wrap :is(th,td){
+  padding:16px 18px!important;
+  border:0!important;
+  border-bottom:1px solid rgba(33,47,57,.085)!important;
+  vertical-align:top!important;
+  background:transparent!important;
+  color:#53646e!important;
+  -webkit-text-fill-color:#53646e!important;
+  line-height:1.55!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main .table-wrap th{
+  background:rgba(23,32,39,.035)!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  font-weight:750!important;
+  letter-spacing:-.01em!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main .table-wrap tbody tr:last-child td{
+  border-bottom:0!important;
+}
+
+@media(hover:hover) and (pointer:fine){
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap tbody tr{
+    transition:background-color .18s ease!important;
+  }
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap tbody tr:hover{
+    background:rgba(49,95,134,.035)!important;
+  }
+}
+
+/* Mobile stacked table cards must override the old hard-coded #0d1116 rows. */
+@media(max-width:700px){
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile]{
+    margin:22px 0 28px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] table,
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] tbody{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    background:transparent!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] tbody{
+    display:grid!important;
+    gap:10px!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] tr{
+    display:grid!important;
+    width:100%!important;
+    min-width:0!important;
+    border:1px solid rgba(33,47,57,.10)!important;
+    border-radius:17px!important;
+    background:
+      linear-gradient(145deg,rgba(255,255,255,.95),rgba(247,249,250,.82))!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.98),
+      0 10px 30px rgba(35,49,60,.045)!important;
+    overflow:hidden!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] td{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:4px!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:13px 15px!important;
+    border-bottom:1px solid rgba(33,47,57,.075)!important;
+    background:transparent!important;
+    color:#4f606a!important;
+    -webkit-text-fill-color:#4f606a!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] td:last-child{
+    border-bottom:0!important;
+  }
+
+  html body[data-ux-family="guide"] main.ux-guide-main .table-wrap[data-stack-mobile] td::before{
+    color:#788690!important;
+    -webkit-text-fill-color:#788690!important;
+    font-weight:700!important;
+    letter-spacing:.06em!important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* CASE STORY MAPS
+   Two case pages still used a 520px horizontal rail on 390px screens.
+   Show all four chapters at once instead of clipping labels / hiding links. */
+
+@media(max-width:700px){
+  html body[data-ux-family="case"] main#main-content.ux-case-main .p220-story-map-wrap{
+    width:calc(100% - 24px)!important;
+    max-width:none!important;
+    margin:14px auto 28px!important;
+    padding:8px!important;
+    border:1px solid rgba(33,47,57,.09)!important;
+    border-radius:16px!important;
+    background:rgba(255,255,255,.72)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.96),
+      0 10px 30px rgba(35,49,60,.05)!important;
+    overflow:visible!important;
+  }
+
+  html body[data-ux-family="case"] main#main-content.ux-case-main .p220-story-map{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+
+  html body[data-ux-family="case"] main#main-content.ux-case-main .p220-story-map a{
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:7px!important;
+    width:auto!important;
+    min-width:0!important;
+    padding:11px 10px!important;
+    border:1px solid rgba(33,47,57,.075)!important;
+    border-radius:11px!important;
+    background:rgba(255,255,255,.56)!important;
+    overflow:visible!important;
+  }
+
+  html body[data-ux-family="case"] main#main-content.ux-case-main .p220-story-map a :is(span,b){
+    min-width:0!important;
+    max-width:100%!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    overflow-wrap:break-word!important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* END-OF-PAGE RHYTHM
+   Route notes remain valid on pages without the stronger endcap. */
+
+html body[data-ux-family] main .stage173-endcap__inner{
+  width:min(1180px,calc(100% - 64px))!important;
+}
+
+@media(max-width:700px){
+  html body[data-ux-family] main .stage173-endcap__inner{
+    width:calc(100% - 24px)!important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* SMALL CLIPPING / LEGACY DETAILS */
+
+@media(max-width:700px){
+  html body[data-ux-family="case"] main.ux-case-main .p220-story-map span{
+    text-indent:0!important;
+  }
+}
+
+/* Ensure genuine inverse UI keeps its intended text fill even when older
+   sitewide typography uses -webkit-text-fill-color. */
+html body[data-ux-family] main :is(
+  .p129-btn,
+  .stage173-endcap a,
+  .stage178-route-note a,
+  .s51-btn,
+  .btn.primary,
+  .dt-contact__card>a
+){
+  -webkit-text-fill-color:currentColor!important;
+}
+
+/* Stage248 v2 — second production audit: inverse components that kept
+   light-theme text-fill values inside intentionally dark technical objects. */
+
+/* Featured case cards are deliberate dark editorial cards. */
+html body[data-page="cases"] main.p130-hub .p130-tile[data-stage214-featured] .p130-tile__body strong{
+  color:#f5f7f4!important;
+  -webkit-text-fill-color:#f5f7f4!important;
+}
+html body[data-page="cases"] main.p130-hub .p130-tile[data-stage214-featured] .p130-tile__body>span:not(.p214-case-meta){
+  color:rgba(244,245,242,.72)!important;
+  -webkit-text-fill-color:rgba(244,245,242,.72)!important;
+}
+
+/* Floating proof note on flagship cases. */
+html body[data-ux-family="case"] main.ux-case-main .p217-flagship-note strong{
+  color:#f1f5f2!important;
+  -webkit-text-fill-color:#f1f5f2!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-flagship-note span{
+  color:#b9c4cc!important;
+  -webkit-text-fill-color:#b9c4cc!important;
+}
+
+/* Dark badge on flagship case heroes. */
+html body[data-ux-family="case"] main.ux-case-main .p217-real-badge{
+  color:#dde6e2!important;
+  -webkit-text-fill-color:#dde6e2!important;
+  border-color:rgba(255,255,255,.11)!important;
+  background:#172027!important;
+}
+
+/* SEO/product bridge: make the contact row a deliberate inverse footer
+   instead of white copy floating on a light surface. */
+html body[data-ux-family="case"] main.ux-case-main .s165-bridge__contact{
+  padding:13px 14px!important;
+  border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:14px!important;
+  background:linear-gradient(145deg,#182128,#11181e)!important;
+  color:#edf3ef!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .s165-bridge__contact span{
+  color:#e8eeea!important;
+  -webkit-text-fill-color:#e8eeea!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .s165-bridge__contact a{
+  border:1px solid #bde93b!important;
+  background:#bde93b!important;
+  color:#152009!important;
+  -webkit-text-fill-color:#152009!important;
+  box-shadow:0 8px 22px rgba(151,188,34,.16)!important;
+}
+
+/* External proof console is now a light luxury object. Normalize the
+   remaining old inverse text from its former dark design. */
+html body[data-page="freelance-developer"] .p222-proof-console__checks>div{
+  border-top:1px solid rgba(33,47,57,.075)!important;
+  color:#64747e!important;
+  -webkit-text-fill-color:#64747e!important;
+}
+html body[data-page="freelance-developer"] .p222-proof-console__checks>div b{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="freelance-developer"] .p222-proof-console__foot a{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:34px!important;
+  padding:8px 11px!important;
+  border-radius:10px!important;
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Tool detail pages: the actual editor/workspace is the dark product surface.
+   Surrounding editorial content remains light. */
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel{
+  border:1px solid rgba(255,255,255,.105)!important;
+  background:
+    radial-gradient(circle at 90% 0,rgba(189,233,59,.035),transparent 34%),
+    linear-gradient(180deg,#111820,#0a0f15)!important;
+  color:#edf3f6!important;
+  -webkit-text-fill-color:#edf3f6!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 22px 62px rgba(20,30,37,.12)!important;
+}
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel :is(label,.dt-label){
+  color:#d7dfe4!important;
+  -webkit-text-fill-color:#d7dfe4!important;
+}
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel .dt-status{
+  color:#9eabb4!important;
+  -webkit-text-fill-color:#9eabb4!important;
+}
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel .dt-status.ok{
+  color:#96dcb4!important;
+  -webkit-text-fill-color:#96dcb4!important;
+}
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel .dt-status.error{
+  color:#f0a1aa!important;
+  -webkit-text-fill-color:#f0a1aa!important;
+}
+html body.dt-body[data-ux-family="tool"] main .dt-workspace .dt-panel :is(.dt-output,.dt-input,.dt-textarea,.dt-select){
+  border-color:rgba(255,255,255,.11)!important;
+  background:#090d13!important;
+  color:#e7edf1!important;
+  -webkit-text-fill-color:#e7edf1!important;
+}
+
+/* Do not wrap the light tool contact card in an obsolete full-width black band. */
+html body.dt-body[data-ux-family="tool"] main .dt-contact{
+  border-top:0!important;
+  background:transparent!important;
+}
+
+/* Small desktop polish for the inner contact cards. */
+html body.dt-body[data-ux-family="tool"] main .dt-contact__card{
+  border-color:rgba(33,47,57,.10)!important;
+}
+
+/* Stage248 v3 — component-level specificity locks.
+   Some legacy case/tool pages do not use the newer main wrapper classes,
+   so lock the repaired component itself instead of assuming the wrapper. */
+
+html body[data-ux-family="case"] .p217-flagship-note strong{
+  color:#f1f5f2!important;
+  -webkit-text-fill-color:#f1f5f2!important;
+}
+html body[data-ux-family="case"] .p217-flagship-note span{
+  color:#b9c4cc!important;
+  -webkit-text-fill-color:#b9c4cc!important;
+}
+
+html body[data-ux-family="case"] .p217-real-badge{
+  color:#e4ece8!important;
+  -webkit-text-fill-color:#e4ece8!important;
+  border-color:rgba(255,255,255,.12)!important;
+  background:#172027!important;
+}
+
+html body[data-ux-family="case"] .s165-bridge__contact{
+  padding:13px 14px!important;
+  border:1px solid rgba(255,255,255,.075)!important;
+  border-radius:14px!important;
+  background:linear-gradient(145deg,#182128,#11181e)!important;
+  color:#edf3ef!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055)!important;
+}
+html body[data-ux-family="case"] .s165-bridge__contact span{
+  color:#e8eeea!important;
+  -webkit-text-fill-color:#e8eeea!important;
+}
+html body[data-ux-family="case"] .s165-bridge__contact a{
+  border:1px solid #bde93b!important;
+  background:#bde93b!important;
+  color:#152009!important;
+  -webkit-text-fill-color:#152009!important;
+}
+
+/* External proof console is light in the current luxury system. */
+html body[data-ux-family="hub"] .p222-proof-console__checks>div{
+  border-top:1px solid rgba(33,47,57,.075)!important;
+  color:#64747e!important;
+  -webkit-text-fill-color:#64747e!important;
+}
+html body[data-ux-family="hub"] .p222-proof-console__checks>div b{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] .p222-proof-console__foot a{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:34px!important;
+  padding:8px 11px!important;
+  border-radius:10px!important;
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Tool detail workspace specificity lock. */
+html body[data-ux-family="tool"] .dt-workspace .dt-panel{
+  border:1px solid rgba(255,255,255,.105)!important;
+  background:
+    radial-gradient(circle at 90% 0,rgba(189,233,59,.035),transparent 34%),
+    linear-gradient(180deg,#111820,#0a0f15)!important;
+  color:#edf3f6!important;
+  -webkit-text-fill-color:#edf3f6!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 22px 62px rgba(20,30,37,.12)!important;
+}
+html body[data-ux-family="tool"] .dt-workspace .dt-panel :is(label,.dt-label){
+  color:#d7dfe4!important;
+  -webkit-text-fill-color:#d7dfe4!important;
+}
+html body[data-ux-family="tool"] .dt-workspace .dt-panel .dt-status{
+  color:#9eabb4!important;
+  -webkit-text-fill-color:#9eabb4!important;
+}
+html body[data-ux-family="tool"] .dt-workspace .dt-panel .dt-status.ok{
+  color:#96dcb4!important;
+  -webkit-text-fill-color:#96dcb4!important;
+}
+html body[data-ux-family="tool"] .dt-workspace .dt-panel .dt-status.error{
+  color:#f0a1aa!important;
+  -webkit-text-fill-color:#f0a1aa!important;
+}
+html body[data-ux-family="tool"] .dt-workspace .dt-panel :is(.dt-output,.dt-input,.dt-textarea,.dt-select){
+  border-color:rgba(255,255,255,.11)!important;
+  background:#090d13!important;
+  color:#e7edf1!important;
+  -webkit-text-fill-color:#e7edf1!important;
+}
+html body[data-ux-family="tool"] .dt-contact{
+  border-top:0!important;
+  background:transparent!important;
+}
+
+/* Related-task groups are dark. Raise muted navigation copy above the old low-contrast value. */
+html body .stage172-task-map__group nav a span{
+  color:#b6c1c8!important;
+  -webkit-text-fill-color:#b6c1c8!important;
+}
+
+/* Stage248 v4 — final specificity locks for two legacy !important stacks. */
+
+/* Flagship case badge: Stage242 has a deeply nested !important selector.
+   Use the exact live hero path plus main id so the final QA layer wins deterministically. */
+html body[data-ux-family="case"][data-stage217-flagship="wordpress-commercial"] main#main-content.ux-case-main .p217-hero-shell .hero-grid>div:first-child .p217-real-badge,
+html body[data-ux-family="case"][data-stage217-flagship] main#main-content.ux-case-main .p217-hero-shell .hero-grid>div:first-child .p217-real-badge{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#f3f6f4!important;
+  -webkit-text-fill-color:#f3f6f4!important;
+}
+
+/* Tool workspaces: Stage247's :is() selector inherits the maximum specificity
+   of its longest branch. Pin the actual utility main + body state so the editor
+   stays an intentional dark product surface inside the light luxury site. */
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel{
+  border:1px solid rgba(255,255,255,.105)!important;
+  background:
+    radial-gradient(circle at 90% 0,rgba(189,233,59,.035),transparent 34%),
+    linear-gradient(180deg,#111820,#0a0f15)!important;
+  color:#edf3f6!important;
+  -webkit-text-fill-color:#edf3f6!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.045),
+    0 22px 62px rgba(20,30,37,.12)!important;
+}
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel :is(label,.dt-label){
+  color:#d7dfe4!important;
+  -webkit-text-fill-color:#d7dfe4!important;
+}
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel .dt-status{
+  color:#9eabb4!important;
+  -webkit-text-fill-color:#9eabb4!important;
+}
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel .dt-status.ok{
+  color:#96dcb4!important;
+  -webkit-text-fill-color:#96dcb4!important;
+}
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel .dt-status.error{
+  color:#f0a1aa!important;
+  -webkit-text-fill-color:#f0a1aa!important;
+}
+html body.dt-body[data-ux-family="tool"][data-x135-family="tool"] main#main-content.ux-utility-main.ux-tool-main .dt-workspace.dt-container .dt-panel :is(.dt-output,.dt-input,.dt-textarea,.dt-select){
+  border-color:rgba(255,255,255,.11)!important;
+  background:#090d13!important;
+  color:#e7edf1!important;
+  -webkit-text-fill-color:#e7edf1!important;
+}

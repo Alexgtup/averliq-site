@@ -1,0 +1,11 @@
+.ux-filterbar{display:flex;align-items:center;gap:.45rem;overflow-x:auto;scrollbar-width:none;margin:0 0 1.15rem;padding:.15rem 0 .35rem;overscroll-behavior-inline:contain}
+.ux-filterbar::-webkit-scrollbar{display:none}
+.ux-filterbar__label{flex:0 0 auto;margin-right:.2rem;color:#7f8791;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.ux-filterbar button{flex:0 0 auto;min-height:2.45rem;padding:.58rem .82rem;border:1px solid rgba(255,255,255,.1);border-radius:.78rem;background:rgba(255,255,255,.025);color:#aeb4bc;font:inherit;font-size:.78rem;font-weight:760;cursor:pointer;transition:background .16s ease,border-color .16s ease,color .16s ease,transform .16s ease}
+.ux-filterbar button:hover{border-color:rgba(255,255,255,.2);color:#fff;transform:translateY(-1px)}
+.ux-filterbar button[aria-pressed="true"]{background:#c9ff4a;border-color:#c9ff4a;color:#090a0c}
+.ux-filterbar button:focus-visible{outline:2px solid #c9ff4a;outline-offset:3px}
+[data-ux-filter-item][hidden]{display:none!important}
+.ux-filter-empty{display:none;margin:.7rem 0 0;padding:1rem;border:1px dashed rgba(255,255,255,.12);border-radius:.9rem;color:#9098a2;font-size:.88rem}
+.ux-filter-empty.is-visible{display:block}
+@media(max-width:680px){.ux-filterbar{margin-inline:-.1rem;padding-inline:.1rem}.ux-filterbar__label{position:sticky;left:0;z-index:1;padding:.62rem .45rem .62rem 0;background:linear-gradient(90deg,#090a0c 72%,transparent)}.ux-filterbar button{min-height:2.35rem;padding:.54rem .72rem;font-size:.74rem}}

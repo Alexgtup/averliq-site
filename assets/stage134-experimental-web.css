@@ -1,0 +1,66 @@
+/* stage134-experimental-web */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:x134-out .34s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:x134-in .58s cubic-bezier(.16,1,.3,1) both}
+@keyframes x134-out{to{opacity:0;filter:blur(8px);transform:scale(.985)}}
+@keyframes x134-in{from{opacity:0;filter:blur(12px);transform:scale(1.012)}}
+
+body[data-wow="true"][data-x134="true"]{--x134-progress:0;--x134-glow:var(--wow-accent,#c9ff4a)}
+body[data-x134="true"] :is(.p128-hero,.p129-svc-hero,.p130-hero,.p132-cover){isolation:isolate;overflow:hidden}
+body[data-x134="true"] :is(.p128-hero,.p129-svc-hero,.p130-hero,.p132-cover)>*{position:relative;z-index:2}
+.x134-webgl{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.72;mix-blend-mode:screen;filter:saturate(1.14)}
+.x134-scan{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 0 48%,color-mix(in srgb,var(--x134-glow) 18%,transparent) 50%,transparent 52%);background-size:100% 220%;opacity:.18;animation:x134-scan 8s linear infinite}
+@keyframes x134-scan{to{background-position:0 -220%}}
+
+/* Native scroll timelines: the browser drives these on the compositor when supported. */
+@supports (animation-timeline:view()){
+  body[data-x134="true"] :is(.p128-feature,.p129-case-card,.p130-featured-card,.p132-cover-visual){animation:x134-surface linear both;animation-timeline:view();animation-range:entry 5% cover 45%}
+  body[data-x134="true"] :is(.p128-section-intro h2,.p129-section-head h2,.p130-editorial-statement h2,.p132-panel h2){animation:x134-type linear both;animation-timeline:view();animation-range:entry 0% cover 40%}
+  body[data-x134="true"] :is(.p128-feature__media img,.p129-case-media img,.p130-featured-media img,.p132-cover-visual img){animation:x134-image linear both;animation-timeline:view();animation-range:entry 0% exit 100%}
+  body[data-x134="true"] .p128-cap__list a{animation:x134-row linear both;animation-timeline:view();animation-range:entry 0% cover 24%}
+}
+@keyframes x134-surface{from{clip-path:inset(8% 8% round 52px);transform:scale(.94) rotate(.8deg);filter:saturate(.75)}to{clip-path:inset(0 round 0);transform:scale(1) rotate(0);filter:saturate(1)}}
+@keyframes x134-type{from{letter-spacing:-.085em;transform:translateY(32px);opacity:.2}to{letter-spacing:-.055em;transform:none;opacity:1}}
+@keyframes x134-image{0%{transform:scale(1.1) translateY(-2%)}50%{transform:scale(1.02) translateY(0)}100%{transform:scale(1.08) translateY(2%)}}
+@keyframes x134-row{from{opacity:.28;transform:translateX(34px)}to{opacity:1;transform:none}}
+
+/* Kinetic route titles without changing semantic HTML. */
+body[data-x134="true"] :is(.p128-hero h1,.p129-service h1,.p130-hub h1,.p132-cover h1){position:relative;text-wrap:balance}
+body[data-x134="true"] :is(.p128-hero h1,.p129-service h1,.p130-hub h1,.p132-cover h1)::after{content:"";display:block;width:clamp(52px,7vw,110px);height:3px;margin-top:.18em;background:linear-gradient(90deg,var(--wow-accent),var(--wow-accent-2));transform-origin:left;animation:x134-line 1.15s cubic-bezier(.16,1,.3,1) both}
+@keyframes x134-line{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+
+/* Project surfaces feel like physical digital objects rather than cards. */
+body[data-x134="true"] :is(.p128-feature,.p129-case-card,.p130-featured-card,.p132-cover-visual){transform-style:preserve-3d;backface-visibility:hidden}
+body[data-x134="true"] .x134-hoverlight{position:absolute;width:260px;height:260px;border-radius:50%;left:var(--x134-local-x,50%);top:var(--x134-local-y,50%);transform:translate(-50%,-50%);background:radial-gradient(circle,color-mix(in srgb,var(--wow-accent) 26%,white 8%),transparent 68%);filter:blur(18px);opacity:0;transition:opacity .28s;pointer-events:none;z-index:5;mix-blend-mode:screen}
+body[data-x134="true"] .x134-reactive:hover>.x134-hoverlight{opacity:.55}
+
+/* A restrained custom cursor only on precise pointers. */
+.x134-cursor{position:fixed;left:0;top:0;width:16px;height:16px;border:1px solid rgba(255,255,255,.8);border-radius:50%;z-index:2147483000;pointer-events:none;mix-blend-mode:difference;transform:translate(-50%,-50%);transition:width .22s,height .22s,background .22s,border-color .22s;will-change:left,top}
+.x134-cursor.is-link{width:52px;height:52px;background:#fff;border-color:#fff}
+
+/* Route transitions leave a visual signature instead of a generic fade. */
+body[data-x134="true"] .stage98-header{view-transition-name:x134-header}
+::view-transition-group(x134-header){animation-duration:.42s}
+
+/* Shared-element transitions: project preview morphs into the case cover. */
+body[data-wow-route="home"] a.p128-feature__media[href="/cases/fin-planner/"],
+body[data-wow-route="cases"] a.p130-tile[href="/cases/fin-planner/"] .p130-tile__media,
+body[data-wow-route="fin-planner"] .p132-cover-visual{view-transition-name:x134-fin}
+body[data-wow-route="home"] a.p128-feature__media[href="/cases/swift-calendar/"],
+body[data-wow-route="cases"] a.p130-tile[href="/cases/swift-calendar/"] .p130-tile__media,
+body[data-wow-route="swift-calendar"] .p132-cover-visual{view-transition-name:x134-swift}
+body[data-wow-route="home"] a.p128-feature__media[href="/cases/sheetpilot-ai/"],
+body[data-wow-route="cases"] a.p130-tile[href="/cases/sheetpilot-ai/"] .p130-tile__media,
+body[data-wow-route="sheetpilot-ai"] .p132-cover-visual{view-transition-name:x134-sheet}
+body[data-wow-route="home"] a.p128-feature__media[href="/cases/seo-control-center/"],
+body[data-wow-route="cases"] a.p130-tile[href="/cases/seo-control-center/"] .p130-tile__media,
+body[data-wow-route="seo-control-center"] .p132-cover-visual{view-transition-name:x134-seo}
+::view-transition-group(x134-fin),::view-transition-group(x134-swift),::view-transition-group(x134-sheet),::view-transition-group(x134-seo){animation-duration:.78s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(x134-fin),::view-transition-new(x134-fin),::view-transition-old(x134-swift),::view-transition-new(x134-swift),::view-transition-old(x134-sheet),::view-transition-new(x134-sheet),::view-transition-old(x134-seo),::view-transition-new(x134-seo){height:100%;object-fit:cover;overflow:clip;border-radius:inherit}
+
+@media(max-width:900px),(prefers-reduced-motion:reduce){
+  .x134-webgl,.x134-scan,.x134-cursor{display:none!important}
+  body[data-x134="true"] :is(.p128-feature,.p129-case-card,.p130-featured-card,.p132-cover-visual),body[data-x134="true"] :is(.p128-feature__media img,.p129-case-media img,.p130-featured-media img,.p132-cover-visual img),body[data-x134="true"] .p128-cap__list a{animation:none!important;transform:none!important;clip-path:none!important;filter:none!important}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.x134-scan{animation:none!important}}

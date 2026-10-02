@@ -1,0 +1,119 @@
+/* Stage264 — remove decorative backplates behind card groups.
+   The page artwork is the background; cards remain the only raised surfaces. */
+
+html body[data-stage264-clean-shells="true"] main#main-content :is(
+  .stage174-popular>.stage174-shell,
+  .stage173-map>.stage173-shell,
+  .stage173-case-links>.stage173-shell,
+  .p129-outcomes>.p129-shell,
+  .s175-depth>.s175-shell,
+  .secondary-demand>.secondary-demand__shell,
+  .x146-depth>.x146-depth__inner,
+  .stage172-task-map>.stage172-task-map__shell,
+  .stage174-faq>.stage174-shell,
+  .p129-related>.p129-shell,
+  .p128-proof>.p128-shell,
+  .p132-panel,
+  .s165-bridge>.s165-bridge__grid
+){
+  background:transparent!important;
+  background-image:none!important;
+  border-color:transparent!important;
+  border-width:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-radius:0!important;
+  overflow:visible!important;
+}
+
+/* Remove the straight accent rules that were attached to those large
+   backplates. They read as square corners after the surface is transparent. */
+html body[data-stage264-clean-shells="true"] main#main-content :is(
+  .stage174-popular>.stage174-shell,
+  .stage173-map>.stage173-shell,
+  .stage173-case-links>.stage173-shell,
+  .p129-outcomes>.p129-shell,
+  .s175-depth>.s175-shell,
+  .secondary-demand>.secondary-demand__shell,
+  .x146-depth>.x146-depth__inner,
+  .stage172-task-map>.stage172-task-map__shell,
+  .stage174-faq>.stage174-shell,
+  .p129-related>.p129-shell,
+  .p128-proof>.p128-shell,
+  .p132-panel,
+  .s165-bridge>.s165-bridge__grid
+)::before,
+html body[data-stage264-clean-shells="true"] main#main-content :is(
+  .stage174-popular>.stage174-shell,
+  .stage173-map>.stage173-shell,
+  .stage173-case-links>.stage173-shell,
+  .p129-outcomes>.p129-shell,
+  .s175-depth>.s175-shell,
+  .secondary-demand>.secondary-demand__shell,
+  .x146-depth>.x146-depth__inner,
+  .stage172-task-map>.stage172-task-map__shell,
+  .stage174-faq>.stage174-shell,
+  .p129-related>.p129-shell,
+  .p128-proof>.p128-shell,
+  .p132-panel,
+  .s165-bridge>.s165-bridge__grid
+)::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Fin Planner had one additional light result backplate inside a transparent
+   chapter. Remove only that wrapper; deliverable cards remain intact. */
+html body[data-stage264-clean-shells="true"][data-page="cases--fin-planner"]
+main#main-content.p132-case section#case-result.p132-panel>.container{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-radius:0!important;
+}
+
+/* The card layer stays raised and rounded. This explicitly protects it from
+   broad legacy section selectors. */
+html body[data-stage264-clean-shells="true"] main#main-content :is(
+  .stage174-popular__links>a,
+  .stage173-group,
+  .stage173-group nav>a,
+  .stage173-case-row>a,
+  .p129-outcome,
+  .p129-related-grid>a,
+  .secondary-demand__card,
+  .x146-depth__card,
+  .stage172-task-map__group nav>a,
+  .stage174-faq__grid>*,
+  .s175-card,
+  .s177-card,
+  .s205-proof__card,
+  .p233-case,
+  .p233-build-item,
+  .p130-row,
+  .p130-tile,
+  .dt-tool-card,
+  .dt-panel,
+  .growth-card,
+  article.card,
+  .card,
+  .proof-card,
+  .implemented-card,
+  .feature-card,
+  .metric,
+  .fact,
+  .link-card,
+  .side-card,
+  .stat-card,
+  .s51-card,
+  .s51-steps article
+){
+  background-clip:padding-box!important;
+}
+
+/* Contact/CTA surfaces are deliberately NOT neutralized: they are standalone
+   actions, not a backdrop behind a collection of cards. */

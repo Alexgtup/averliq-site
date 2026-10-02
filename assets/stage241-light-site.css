@@ -1,0 +1,875 @@
+/* Stage241 — carry the homepage light luxury system across the rest of the site.
+   The background scrolls with each page. Product screenshots/workspaces may stay dark. */
+
+body[data-ux-family]:not([data-page="home"]){
+  --s241-ink:#172027;
+  --s241-ink-2:#2e3b44;
+  --s241-muted:#56656f;
+  --s241-soft:#70808b;
+  --s241-line:rgba(41,57,69,.14);
+  --s241-line-strong:rgba(41,57,69,.22);
+  --s241-paper:rgba(255,255,255,.76);
+  --s241-paper-strong:rgba(255,255,255,.92);
+  --s241-shadow:0 26px 72px rgba(48,64,76,.10);
+  color-scheme:light;
+  background-color:#f2f6fb!important;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.06),rgba(247,250,253,.12) 55%,rgba(247,249,252,.08)),
+    url('/assets/home-light-luxury.webp')!important;
+  background-repeat:no-repeat,repeat-y!important;
+  background-position:center top,center top!important;
+  background-size:100% 100%,100% auto!important;
+  background-attachment:scroll,scroll!important;
+  color:var(--s241-ink)!important;
+}
+
+body[data-ux-family]:not([data-page="home"]) main{
+  background:transparent!important;
+  color:var(--s241-ink)!important;
+}
+
+/* Shared light header */
+body[data-ux-family]:not([data-page="home"]) header.stage98-header,
+body.dt-body[data-ux-family] .dt-header{
+  background:rgba(248,249,249,.91)!important;
+  border-bottom:1px solid rgba(41,57,69,.10)!important;
+  box-shadow:0 8px 28px rgba(45,59,70,.045)!important;
+  backdrop-filter:blur(22px) saturate(115%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(115%)!important;
+}
+body[data-ux-family]:not([data-page="home"]) .stage98-brand-copy strong,
+body[data-ux-family]:not([data-page="home"]) .stage98-nav>a:not(.stage98-cta),
+body.dt-body[data-ux-family] .dt-brand,
+body.dt-body[data-ux-family] .dt-navlinks a{
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+  opacity:1!important;
+}
+body[data-ux-family]:not([data-page="home"]) .stage98-brand-copy small{
+  color:#677781!important;
+  -webkit-text-fill-color:#677781!important;
+}
+body[data-ux-family]:not([data-page="home"]) .stage98-cta,
+body.dt-body[data-ux-family] .dt-navlinks a:last-child{
+  background:#c9ff4a!important;
+  border-color:#c9ff4a!important;
+  color:#11171b!important;
+  -webkit-text-fill-color:#11171b!important;
+  font-weight:800!important;
+}
+
+/* Shared footer and cookie */
+body[data-ux-family]:not([data-page="home"]) footer.footer,
+body[data-ux-family]:not([data-page="home"]) footer.stage108-footer{
+  background:rgba(246,247,245,.92)!important;
+  border-top:1px solid var(--s241-line)!important;
+  color:var(--s241-ink)!important;
+}
+body[data-ux-family]:not([data-page="home"]) footer :is(a,p,span,small){
+  color:#596872!important;
+}
+body[data-ux-family]:not([data-page="home"]) .growth-cookie{
+  background:rgba(255,255,255,.94)!important;
+  border-color:var(--s241-line)!important;
+  box-shadow:0 22px 60px rgba(45,59,70,.13)!important;
+  color:var(--s241-ink)!important;
+}
+body[data-ux-family]:not([data-page="home"]) .growth-cookie p{color:#5c6b75!important}
+
+/* ------------------------------------------------------------------ */
+/* HUB FAMILY: cases / services / guides / about */
+body[data-ux-family="hub"] main.p130-hub{
+  --p-bg:transparent;
+  --p-panel:rgba(255,255,255,.76);
+  --p-panel-2:rgba(248,250,250,.88);
+  --p-line:rgba(41,57,69,.14);
+  --p-muted:#596872;
+  --p-text:#172027;
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="hub"] .p130-hub :is(h1,h2,h3,strong){color:#172027!important}
+body[data-ux-family="hub"] .p130-kicker{color:#536978!important}
+body[data-ux-family="hub"] .p130-lead{color:#485862!important}
+body[data-ux-family="hub"] .p130-hero{
+  border-bottom-color:rgba(41,57,69,.12)!important;
+  background:transparent!important;
+}
+body[data-ux-family="hub"] .p130-hero::before{
+  border-color:rgba(76,126,164,.13)!important;
+  box-shadow:0 0 110px rgba(76,126,164,.06)!important;
+}
+body[data-ux-family="hub"]:not([data-page="about"]) .p130-hero-grid>:first-child{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.80),rgba(248,250,250,.62))!important;
+  box-shadow:var(--s241-shadow)!important;
+  backdrop-filter:blur(22px) saturate(105%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(105%)!important;
+}
+body[data-ux-family="hub"] .p130-hero-side{
+  color:#53616b!important;
+  border-left-color:var(--s241-line)!important;
+}
+body[data-ux-family="hub"] .p130-hero-side strong{color:#1b252b!important}
+
+body[data-ux-family="hub"] .p130-list{border-top:0!important}
+body[data-ux-family="hub"] .p130-row{
+  margin:0 0 10px!important;
+  padding:20px 22px!important;
+  border:1px solid var(--s241-line)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.68)!important;
+  box-shadow:0 16px 42px rgba(45,59,70,.055)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+}
+body[data-ux-family="hub"] .p130-row:hover{
+  padding-left:24px!important;
+  padding-right:20px!important;
+  background:rgba(255,255,255,.86)!important;
+  border-color:rgba(49,95,134,.24)!important;
+}
+body[data-ux-family="hub"] .p130-row>span:first-child{color:#667680!important}
+body[data-ux-family="hub"] .p130-row em{color:#586770!important}
+body[data-ux-family="hub"] .p130-row b{color:#315f86!important}
+
+body[data-ux-family="hub"] :is(.p130-featured-card,.p130-tile,.p130-proof-stack>div,.p130-proof-stack>a){
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.075)!important;
+}
+body[data-ux-family="hub"] .p130-featured-copy p,
+body[data-ux-family="hub"] .p130-tile__body span,
+body[data-ux-family="hub"] .p130-editorial-statement p,
+body[data-ux-family="hub"] .p130-proof-stack span{
+  color:#586770!important;
+}
+body[data-ux-family="hub"] .p130-text-tile{
+  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(230,239,246,.72))!important;
+}
+body[data-ux-family="hub"] .p130-footer-cta>div{
+  border:1px solid rgba(255,255,255,.75)!important;
+  background:rgba(255,255,255,.80)!important;
+  color:#172027!important;
+  box-shadow:var(--s241-shadow)!important;
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+}
+body[data-ux-family="hub"] .p130-footer-cta p{color:#52616b!important}
+body[data-ux-family="hub"] .p130-footer-cta .p129-btn{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Shared hub add-on sections */
+body[data-ux-family="hub"] :is(
+  .p131-bridge,.secondary-demand,.stage174-popular,.stage173-map,
+  .stage173-guide-strip,.stage173-endcap,.stage178-route-note
+){
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="hub"] :is(
+  .secondary-demand__card,.stage174-popular__links>a,.stage173-group,
+  .stage173-guide-strip a,.stage178-route-note>div
+){
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.70)!important;
+  box-shadow:0 18px 48px rgba(45,59,70,.065)!important;
+}
+body[data-ux-family="hub"] :is(
+  .secondary-demand,.stage174-popular,.stage173-map,.stage173-guide-strip,.stage178-route-note
+) :is(h2,h3,strong){color:#182129!important}
+body[data-ux-family="hub"] :is(
+  .secondary-demand,.stage174-popular,.stage173-map,.stage173-guide-strip,.stage178-route-note
+) :is(p,span,em){color:#586770!important}
+
+/* About: remove the old yellow world and use the homepage material language. */
+body[data-page="about"] main.p130-hub{
+  background:transparent!important;
+}
+body[data-page="about"] .p130-hero{
+  color:#172027!important;
+}
+body[data-page="about"] .p130-hero-grid>:first-child,
+body[data-page="about"] .p130-editorial-grid,
+body[data-page="about"] .p131-bridge>.p130-shell{
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:var(--s241-shadow)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+body[data-page="about"] .p130-hero-grid>:first-child{padding:clamp(24px,3vw,40px)!important}
+body[data-page="about"] .p130-editorial-grid{padding:clamp(24px,3vw,40px)!important}
+body[data-page="about"] .p130-person-name,
+body[data-page="about"] .p130-region-signal{color:#44525c!important;-webkit-text-fill-color:#44525c!important}
+body[data-page="about"] .p130-hero h1 span{color:#485c69!important;-webkit-text-fill-color:#485c69!important}
+
+/* ------------------------------------------------------------------ */
+/* SERVICE FAMILY */
+body[data-ux-family="service"] main.p129-service{
+  --p-bg:transparent;
+  --p-panel:rgba(255,255,255,.77);
+  --p-panel-2:rgba(248,250,250,.9);
+  --p-line:rgba(41,57,69,.14);
+  --p-muted:#586770;
+  --p-text:#172027;
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="service"] .p129-service :is(h1,h2,h3,strong){color:#172027!important}
+body[data-ux-family="service"] .p129-kicker{color:#536978!important}
+body[data-ux-family="service"] .p129-lead{color:#485862!important}
+body[data-ux-family="service"] .p129-svc-hero{background:transparent!important}
+body[data-ux-family="service"] .p129-svc-hero::before{
+  background:radial-gradient(circle at 82% 18%,rgba(76,126,164,.11),transparent 30%),radial-gradient(circle at 24% 2%,rgba(125,145,208,.06),transparent 28%)!important;
+}
+body[data-ux-family="service"] .p129-svc-copy{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:var(--s241-shadow)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+body[data-ux-family="service"] .p129-svc-board{
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 26px 72px rgba(45,59,70,.09)!important;
+}
+body[data-ux-family="service"] .p129-svc-board::after{
+  background:radial-gradient(circle,rgba(87,139,178,.14),transparent 65%)!important;
+}
+body[data-ux-family="service"] .p129-svc-no{color:rgba(49,95,134,.13)!important}
+body[data-ux-family="service"] .p129-svc-board li{
+  color:#41505a!important;
+  border-top-color:var(--s241-line)!important;
+}
+body[data-ux-family="service"] .p129-btn{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+body[data-ux-family="service"] .p129-textlink{
+  color:#26343d!important;
+  border-bottom-color:rgba(38,52,61,.28)!important;
+}
+
+body[data-ux-family="service"] :is(.p129-outcomes,.p129-case,.p129-related,.p129-contact){
+  background:transparent!important;
+  border-color:var(--s241-line)!important;
+}
+body[data-ux-family="service"] .p129-outcome-list{border-top:0!important}
+body[data-ux-family="service"] .p129-outcome{
+  margin:0 0 10px!important;
+  padding:20px 22px!important;
+  border:1px solid var(--s241-line)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.68)!important;
+}
+body[data-ux-family="service"] .p129-outcome>span{color:#667680!important}
+body[data-ux-family="service"] .p129-outcome p{color:#52616b!important}
+body[data-ux-family="service"] :is(.p129-case-card,.p129-no-case,.p129-related-grid a,.p129-contact-card){
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.75)!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.08)!important;
+}
+body[data-ux-family="service"] .p129-case-copy p,
+body[data-ux-family="service"] .p129-related-grid span,
+body[data-ux-family="service"] .p129-contact-card p{color:#53626c!important}
+body[data-ux-family="service"] .p129-contact-card .p129-btn{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+body[data-ux-family="service"] :is(
+  .p131-bridge,.x146-depth,.search-demand,.stage172-task-map,
+  .stage174-faq,.s205-proof,.s165-bridge
+){
+  color:#172027!important;
+}
+body[data-ux-family="service"] :is(
+  .search-demand__card,.stage172-task-map article,.stage174-faq article,
+  .s205-proof__card,.x146-depth__card
+){
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.70)!important;
+  box-shadow:0 18px 48px rgba(45,59,70,.06)!important;
+}
+body[data-ux-family="service"] :is(
+  .x146-depth,.search-demand,.stage172-task-map,.stage174-faq,.s205-proof,.s165-bridge
+) :is(h2,h3,strong){color:#182129!important}
+body[data-ux-family="service"] :is(
+  .x146-depth,.search-demand,.stage172-task-map,.stage174-faq,.s205-proof,.s165-bridge
+) :is(p,span){color:#56656f!important}
+
+/* ------------------------------------------------------------------ */
+/* CASE FAMILY */
+body[data-ux-family="case"] main.ux-case-main{
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="case"] .ux-case-main>.crumbs,
+body[data-ux-family="guide"] .ux-guide-main>.crumbs{
+  color:#61717b!important;
+}
+body[data-ux-family="case"] .ux-case-main>.crumbs a,
+body[data-ux-family="guide"] .ux-guide-main>.crumbs a{color:#53636d!important}
+
+body[data-ux-family="case"] .ux-case-main>.hero{
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="case"] .hero-grid>div:first-child{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:var(--s241-shadow)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+body[data-ux-family="case"] .hero-grid>div:first-child :is(h1,h2,h3,strong){color:#172027!important}
+body[data-ux-family="case"] .hero-grid>div:first-child :is(.lead,p,.eyebrow){color:#53626c!important}
+body[data-ux-family="case"] .hero-grid>div:first-child .btn.primary{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+body[data-ux-family="case"] .hero-grid>div:first-child .btn:not(.primary){
+  color:#26343d!important;
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.66)!important;
+}
+body[data-ux-family="case"] :is(.p217-manifest,.p220-story-map){
+  border-color:var(--s241-line)!important;
+  background:rgba(255,255,255,.68)!important;
+  color:#172027!important;
+}
+body[data-ux-family="case"] .ux-case-main>section.section>.container,
+body[data-ux-family="case"] .ux-case-main>section.source>.container,
+body[data-ux-family="case"] .x206-shell,
+body[data-ux-family="case"] .s64-conversion__inner{
+  padding:clamp(24px,3.4vw,46px)!important;
+  border:1px solid rgba(255,255,255,.76)!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.075)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+body[data-ux-family="case"] .ux-case-main>section{background:transparent!important}
+body[data-ux-family="case"] .ux-case-main>section :is(h2,h3,strong){color:#182129!important}
+body[data-ux-family="case"] .ux-case-main>section :is(p,li,span:not(.badge)){color:#55646e!important}
+body[data-ux-family="case"] .hero-visual,
+body[data-ux-family="case"] :is(.shot,.screen,.mockup,[class*="media"]){
+  color:#f4f7f8;
+}
+
+/* ------------------------------------------------------------------ */
+/* GUIDE FAMILY */
+body[data-ux-family="guide"] main.ux-guide-main{
+  background:transparent!important;
+  color:#172027!important;
+}
+body[data-ux-family="guide"] .ux-guide-main>.hero,
+body[data-ux-family="guide"] .ux-guide-main>.layout>.article,
+body[data-ux-family="guide"] .ux-guide-main>.layout>.toc,
+body[data-ux-family="guide"] .ux-guide-main>.cta-box{
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.075)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+body[data-ux-family="guide"] .ux-guide-main>.hero{padding:clamp(28px,4vw,52px)!important}
+body[data-ux-family="guide"] .ux-guide-main>.layout>.article,
+body[data-ux-family="guide"] .ux-guide-main>.layout>.toc{padding:clamp(22px,3vw,36px)!important}
+body[data-ux-family="guide"] .ux-guide-main>.cta-box{padding:clamp(24px,3.5vw,42px)!important}
+body[data-ux-family="guide"] .ux-guide-main :is(h1,h2,h3,strong){color:#172027!important}
+body[data-ux-family="guide"] .ux-guide-main :is(.lead,p,li,.meta){color:#52616b!important}
+body[data-ux-family="guide"] .ux-guide-main a{color:#27475f!important}
+body[data-ux-family="guide"] .ux-guide-main .btn.primary,
+body[data-ux-family="guide"] .ux-guide-main .actions a:first-child{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+body[data-ux-family="guide"] .ux-guide-main :is(pre,code){
+  border-color:rgba(255,255,255,.10);
+}
+
+/* ------------------------------------------------------------------ */
+/* TOOLS HUB + TOOL PAGES */
+body.dt-body[data-ux-family]{
+  --dt-bg:transparent;
+  --dt-panel:rgba(255,255,255,.76);
+  --dt-text:#172027;
+  --dt-muted:#596872;
+  --dt-line:rgba(41,57,69,.14);
+  background-color:#f2f6fb!important;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.06),rgba(247,250,253,.10)),
+    url('/assets/home-light-luxury.webp')!important;
+  background-repeat:no-repeat,repeat-y!important;
+  background-size:100% 100%,100% auto!important;
+  background-position:center top,center top!important;
+  color:#172027!important;
+}
+body.dt-body[data-ux-family] main{background:transparent!important}
+body.dt-body[data-ux-family] .dt-hero .dt-container{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:var(--s241-shadow,0 26px 72px rgba(48,64,76,.10))!important;
+  backdrop-filter:blur(20px)!important;
+  -webkit-backdrop-filter:blur(20px)!important;
+}
+body.dt-body[data-ux-family] .dt-hero h1,
+body.dt-body[data-ux-family] .dt-section h2{color:#172027!important}
+body.dt-body[data-ux-family] .dt-lead,
+body.dt-body[data-ux-family] .dt-copy{color:#55646e!important}
+body.dt-body[data-ux-family] .dt-privacy{
+  color:#44545e!important;
+  border-color:rgba(49,95,134,.18)!important;
+  background:rgba(255,255,255,.58)!important;
+}
+body.dt-body[data-ux-family="hub"] .dt-tool-card{
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 18px 52px rgba(45,59,70,.07)!important;
+}
+body.dt-body[data-ux-family="hub"] .dt-tool-card :is(h2,h3){color:#172027!important}
+body.dt-body[data-ux-family="hub"] .dt-tool-card p{color:#586770!important}
+
+/* Tool workspace stays a dark product surface; surrounding content becomes light. */
+body.dt-body[data-ux-family="tool"] .dt-workspace .dt-panel{
+  border-color:rgba(255,255,255,.11)!important;
+  background:linear-gradient(180deg,#111820,#0a0f15)!important;
+  color:#edf3f6!important;
+  box-shadow:0 24px 70px rgba(40,54,65,.12)!important;
+}
+body.dt-body[data-ux-family="tool"] .dt-workspace .dt-panel :is(label,.dt-label){color:#d5dde3!important}
+body.dt-body[data-ux-family="tool"] .dt-workspace :is(.dt-textarea,.dt-input,.dt-select,.dt-output){
+  background:#080d12!important;
+  color:#edf3f6!important;
+  border-color:rgba(255,255,255,.13)!important;
+}
+body.dt-body[data-ux-family="tool"] .dt-section .dt-container,
+body.dt-body[data-ux-family="tool"] .dt-contact__card,
+body.dt-body[data-ux-family="hub"] .dt-contact__card{
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.07)!important;
+}
+body.dt-body[data-ux-family="tool"] .dt-faq article,
+body.dt-body[data-ux-family="tool"] .dt-related a{
+  border-color:rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.82)!important;
+  color:#172027!important;
+}
+body.dt-body[data-ux-family="tool"] .dt-faq p,
+body.dt-body[data-ux-family="tool"] .dt-related span,
+body.dt-body[data-ux-family] .dt-contact__card p{color:#56656f!important}
+body.dt-body[data-ux-family] .dt-contact__card strong{color:#172027!important}
+body.dt-body[data-ux-family] .dt-contact__card a{
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Hover language shared with homepage: small movement, no neon. */
+@media(hover:hover) and (pointer:fine){
+  body[data-ux-family]:not([data-page="home"]) :is(
+    .p130-row,.p130-tile,.p129-outcome,.p129-related-grid a,
+    .x146-depth__card,.search-demand__card,.stage174-popular__links>a,
+    .stage173-group,.dt-tool-card,.dt-related a
+  ){
+    transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+  }
+  body[data-ux-family]:not([data-page="home"]) :is(
+    .p130-tile,.p129-related-grid a,.x146-depth__card,.search-demand__card,
+    .stage174-popular__links>a,.stage173-group,.dt-tool-card,.dt-related a
+  ):hover{
+    transform:translateY(-3px)!important;
+    border-color:rgba(49,95,134,.26)!important;
+    box-shadow:0 26px 68px rgba(45,59,70,.11)!important;
+  }
+}
+
+@media(max-width:900px){
+  body[data-ux-family]:not([data-page="home"]){
+    background-size:100% 100%,auto 1900px!important;
+  }
+  body[data-ux-family="hub"]:not([data-page="about"]) .p130-hero-grid>:first-child,
+  body[data-ux-family="service"] .p129-svc-copy,
+  body[data-ux-family="case"] .hero-grid>div:first-child{
+    border-radius:22px!important;
+  }
+}
+@media(max-width:600px){
+  body[data-ux-family]:not([data-page="home"]){
+    background-size:100% 100%,auto 1550px!important;
+  }
+  body[data-ux-family="hub"] .p130-row,
+  body[data-ux-family="service"] .p129-outcome{padding:16px!important}
+  body[data-ux-family="guide"] .ux-guide-main>.hero,
+  body[data-ux-family="guide"] .ux-guide-main>.layout>.article,
+  body[data-ux-family="guide"] .ux-guide-main>.layout>.toc,
+  body[data-ux-family="guide"] .ux-guide-main>.cta-box{
+    border-radius:20px!important;
+  }
+}
+
+
+/* Stage241 cascade lock v2 — outrank legacy exhibition/WOW/cinematic themes. */
+
+/* HUB HERO text and material */
+html body[data-ux-family="hub"]:not([data-page="home"]) main.p130-hub section.p130-hero .p130-hero-grid>:first-child{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"]:not([data-page="home"]) main.p130-hub section.p130-hero .p130-hero-grid>:first-child :is(h1,h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"]:not([data-page="home"]) main.p130-hub section.p130-hero .p130-hero-grid>:first-child :is(p,.p130-lead,.p130-kicker){
+  color:#4c5b65!important;
+  -webkit-text-fill-color:#4c5b65!important;
+}
+
+/* SERVICES HUB — turn dark decision cards into homepage-style glass cards. */
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-list .p130-row,
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-list .p130-row[data-stage224-primary],
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-list .p130-row[data-stage224-secondary="true"]{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  border-color:rgba(41,57,69,.14)!important;
+  background:
+    radial-gradient(circle at 86% 14%,rgba(99,145,181,.08),transparent 35%),
+    rgba(255,255,255,.74)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.075)!important;
+}
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-row::before{
+  color:rgba(49,95,134,.055)!important;
+}
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-row>span{
+  color:#677782!important;
+  -webkit-text-fill-color:#677782!important;
+}
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-row>strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-row>em{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+html body[data-ux-family="hub"][data-stage224-services="true"] main.p130-hub .p130-row>b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+  border-color:rgba(49,95,134,.20)!important;
+  background:rgba(255,255,255,.52)!important;
+}
+
+/* CASES HUB — featured full-bleed screenshots stay cinematic; archive cards become light. */
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub [data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.075)!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub [data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(247,249,250,.92))!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub [data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub [data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body>span{
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub [data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p214-case-meta{
+  color:#667680!important;
+  -webkit-text-fill-color:#667680!important;
+}
+
+/* SERVICE DETAIL — hero copy + system board must genuinely become light. */
+html body[data-ux-family="service"][data-wow="true"] main.p129-service section.p129-svc-hero .p129-svc-copy,
+html body[data-ux-family="service"] main.p129-service section.p129-svc-hero .p129-svc-copy{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 26px 72px rgba(48,64,76,.10)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+html body[data-ux-family="service"][data-wow="true"] main.p129-service .p129-svc-board,
+html body[data-ux-family="service"] main.p129-service .p129-svc-board{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  border:1px solid rgba(41,57,69,.14)!important;
+  background:
+    radial-gradient(circle at 82% 16%,rgba(92,141,178,.10),transparent 35%),
+    rgba(255,255,255,.74)!important;
+  box-shadow:0 26px 72px rgba(45,59,70,.09)!important;
+  transform:none!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-svc-board :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-svc-board li{
+  color:#45545e!important;
+  -webkit-text-fill-color:#45545e!important;
+  border-top-color:rgba(41,57,69,.13)!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-svc-no{
+  color:rgba(49,95,134,.13)!important;
+  -webkit-text-fill-color:rgba(49,95,134,.13)!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-contact-card{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  background:rgba(255,255,255,.78)!important;
+  transform:none!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-contact-card :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service .p129-contact-card p{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+
+/* ABOUT hero panel */
+html body[data-page="about"][data-ux-family="hub"] main.p130-hub section.p130-hero .p130-hero-grid>:first-child{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 26px 72px rgba(48,64,76,.10)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+  color:#172027!important;
+}
+
+/* CASE DETAIL final CTA — match homepage white glass / dark button. */
+html body[data-ux-family="case"] main.ux-case-main section.s64-conversion .s64-conversion__inner{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  background:rgba(255,255,255,.78)!important;
+  background-image:none!important;
+  box-shadow:0 24px 66px rgba(45,59,70,.08)!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.s64-conversion .s64-conversion__inner :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.s64-conversion .s64-conversion__inner p{
+  color:#53626c!important;
+  -webkit-text-fill-color:#53626c!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.s64-conversion .s64-conversion__inner .btn,
+html body[data-ux-family="case"] main.ux-case-main section.s64-conversion .s64-conversion__inner a[class*="btn"]{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* GUIDE DETAIL — remove dark inherited text from the now-light article/toc. */
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  background:rgba(255,255,255,.76)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.toc,
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>aside{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  background:rgba(255,255,255,.78)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.toc :is(strong,h2,h3),
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>aside :is(strong,h2,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.toc a,
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>aside a{
+  color:#485963!important;
+  -webkit-text-fill-color:#485963!important;
+  border-bottom-color:rgba(41,57,69,.12)!important;
+}
+
+/* TOOLS HUB — prevent browser default blue from leaking through cards. */
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main .dt-tool-card{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main .dt-tool-card :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main .dt-tool-card p{
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+}
+
+
+/* Stage241 cascade lock v3 — final verified stragglers. */
+
+/* Correct cases hub selector: data-stage130-hub sits on main itself. */
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.075)!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body{
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(247,249,250,.93))!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__body>span{
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+}
+html body[data-ux-family="hub"][data-stage214-cases="true"] main.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p214-case-meta{
+  color:#667680!important;
+  -webkit-text-fill-color:#667680!important;
+}
+
+/* Guide article copy must use normal color as well as WebKit text fill. */
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article p,
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article li{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>.layout>.article :is(h2,h3,h4,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+
+/* About: replace the old red/yellow art-direction accent with homepage slate. */
+html body[data-page="about"][data-ux-family="hub"] main.p130-hub section.p130-hero h1 span{
+  color:#485c69!important;
+  -webkit-text-fill-color:#485c69!important;
+}
+html body[data-page="about"][data-ux-family="hub"] main.p130-hub .p130-person-name,
+html body[data-page="about"][data-ux-family="hub"] main.p130-hub .p130-region-signal{
+  color:#4c5b65!important;
+  -webkit-text-fill-color:#4c5b65!important;
+}
+
+
+/* Stage241 contrast lock v4 — full sitemap QA fixes. */
+
+/* Header wrappers and theme switch also need a light-theme color, not only their children. */
+html body[data-ux-family]:not([data-page="home"]) header.stage98-header :is(.stage98-brand,.stage98-brand-copy){
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+  opacity:1!important;
+}
+html body[data-ux-family]:not([data-page="home"]) header.stage98-header .theme-toggle{
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.68)!important;
+  opacity:1!important;
+}
+
+/* Legacy coral hero emphasis is too pale on the new background.
+   Use the same slate accent as the homepage. */
+html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1 :is(span,em),
+html body[data-ux-family="service"] main.p129-service h1 :is(span,em){
+  color:#485c69!important;
+  -webkit-text-fill-color:#485c69!important;
+  opacity:1!important;
+}
+
+/* Task maps were still inheriting white link text from the old dark theme. */
+html body[data-ux-family="hub"] main.p130-hub .stage173-group nav a,
+html body[data-ux-family="service"] main.p129-service .stage172-task-map__group nav a{
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+  border-color:rgba(41,57,69,.10)!important;
+  background:rgba(255,255,255,.46)!important;
+  opacity:1!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .stage173-group nav a strong,
+html body[data-ux-family="service"] main.p129-service .stage172-task-map__group nav a strong{
+  color:#182129!important;
+  -webkit-text-fill-color:#182129!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .stage173-group nav a span,
+html body[data-ux-family="service"] main.p129-service .stage172-task-map__group nav a span{
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+}
+
+/* Editorial callouts in guides: old dark-theme gray on white was genuinely unreadable. */
+html body[data-ux-family="guide"] main.ux-guide-main .article .callout{
+  color:#3f4d56!important;
+  -webkit-text-fill-color:#3f4d56!important;
+  border-color:rgba(49,95,134,.16)!important;
+  background:rgba(234,241,246,.70)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .callout :is(b,strong){
+  color:#182129!important;
+  -webkit-text-fill-color:#182129!important;
+}
+
+/* English fallback routes are intentionally simple, but must still use the new readable palette. */
+html body[data-ux-family="page"] main.box{
+  color:#172027!important;
+}
+html body[data-ux-family="page"] main.box section{
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.075)!important;
+}
+html body[data-ux-family="page"] main.box :is(h1,h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="page"] main.box p{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+
+/* Old p132 case family: keep intentional dark panels, fix light/transparent panels only. */
+html body[data-page="cases--swift-calendar"][data-ux-family="case"] main.p132-case #gallery .section-head h2,
+html body[data-page="cases--swift-calendar"][data-ux-family="case"] main.p132-case #gallery .section-head h2 em{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-page="cases--swift-calendar"][data-ux-family="case"] main.p132-case #gallery .section-head p{
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+}
+
+/* Notes sitting on dark product previews stay light, but with enough contrast. */
+html body[data-page="cases--fin-planner"] .p217-flagship-note span{
+  color:#b9c4cc!important;
+  -webkit-text-fill-color:#b9c4cc!important;
+}

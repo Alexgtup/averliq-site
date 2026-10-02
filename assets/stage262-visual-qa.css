@@ -1,0 +1,191 @@
+/* Stage262 — page-by-page visual QA and card normalization.
+   This layer intentionally fixes geometry/readability bugs only; it does not restyle the site. */
+
+html body[data-stage262-qa="true"] main,
+html body[data-stage262-qa="true"] main *{min-width:0}
+
+/* Text inside useful cards must never be silently line-clamped. */
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card>p,
+html body[data-stage262-qa="true"][data-stage221-hub="tools"] .dt-tool-card>p,
+html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main :is(.dt-faq p,.dt-copy,.dt-note),
+html body[data-stage262-qa="true"] main .stage173-guide-nudge p{
+  display:block!important;
+  -webkit-box-orient:initial!important;
+  -webkit-line-clamp:unset!important;
+  line-clamp:unset!important;
+  max-height:none!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+/* DEMOS: one real product per card, readable copy, consistent action baseline. */
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-grid{
+  align-items:stretch!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card{
+  display:flex!important;
+  flex-direction:column!important;
+  height:auto!important;
+  padding:clamp(24px,2.5vw,34px)!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card[data-stage221-rank="01"],
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card[data-stage221-rank="02"]{
+  min-height:500px!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card[data-stage221-rank="03"],
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card[data-stage221-rank="04"]{
+  min-height:430px!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card>p{
+  margin:.7rem 0 0!important;
+  color:#566772!important;
+  font-size:13px!important;
+  line-height:1.58!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card .growth-actions{
+  margin-top:auto!important;
+  padding-top:22px!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card .p221-card-meta{
+  margin-bottom:clamp(26px,3vw,48px)!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-hero h1{
+  max-width:9.5ch!important;
+  font-size:clamp(68px,7vw,104px)!important;
+  line-height:.86!important;
+  letter-spacing:-.064em!important;
+}
+
+/* TOOLS HUB: descriptions are content, not decoration. */
+html body[data-stage262-qa="true"][data-stage221-hub="tools"] .dt-tool-card{
+  display:flex!important;
+  flex-direction:column!important;
+  height:auto!important;
+  min-height:280px!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="tools"] .dt-tool-card>p{
+  margin:.55rem 0 1rem!important;
+  color:#566772!important;
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+html body[data-stage262-qa="true"][data-stage221-hub="tools"] .p221-tool-flow{
+  margin-top:auto!important;
+}
+
+/* Individual tools: the previous 35/65 split made long headings look like a text column.
+   Give the explanation enough width while keeping the working surface dominant. */
+@media(min-width:981px){
+  html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main{
+    grid-template-columns:minmax(500px,.88fr) minmax(0,1.12fr)!important;
+  }
+  html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main>.dt-hero{
+    padding-left:clamp(28px,3vw,46px)!important;
+    padding-right:clamp(28px,3vw,46px)!important;
+  }
+  html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main>.dt-hero .dt-container{
+    padding:clamp(28px,2.7vw,38px)!important;
+  }
+  html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main>.dt-hero h1{
+    width:100%!important;
+    max-width:11ch!important;
+    font-size:clamp(54px,4.7vw,76px)!important;
+    line-height:.89!important;
+    letter-spacing:-.058em!important;
+    text-wrap:balance!important;
+  }
+}
+html body[data-stage262-qa="true"][data-ux-family="tool"] .dt-faq article{
+  height:auto!important;
+  min-height:0!important;
+}
+html body[data-stage262-qa="true"][data-ux-family="tool"] .dt-faq p{
+  margin-top:.55rem!important;
+  line-height:1.65!important;
+}
+
+/* SERVICES: keep decorative service codes inside their own cards.
+   They used to extend 5–9 px past the paint box and get visibly shaved at the edge. */
+html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row::before{
+  right:.05em!important;
+}
+html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row{
+  background-clip:padding-box!important;
+}
+html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row>strong,
+html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row>em{
+  overflow:visible!important;
+  text-overflow:clip!important;
+}
+
+/* Case cards: normalize inner padding/flow while keeping media clipping deliberate. */
+html body[data-stage262-qa="true"][data-ux-family="case"] main.p132-case .p132-panel :is(article.card,.card){
+  box-sizing:border-box!important;
+}
+html body[data-stage262-qa="true"][data-ux-family="case"] main.p132-case .p132-panel article.card>p{
+  max-width:none!important;
+}
+html body[data-stage262-qa="true"][data-ux-family="case"] main.p132-case :is(.shot,.p155-preview,.p132-cover-visual) img{
+  display:block!important;
+  max-width:100%!important;
+}
+
+/* CTA controls: consistent physical target without touching inline article links. */
+html body[data-stage262-qa="true"] :is(
+  .p128-btn,.p128-link,.p129-btn,.btn,.button,.dt-btn,.stage94-action-primary,.stage94-action-secondary,
+  .p132-primary,.p132-back,.growth-link,.stage98-cta
+){
+  box-sizing:border-box!important;
+}
+
+/* Long service headings must wrap at words, never split the card width. */
+html body[data-stage262-qa="true"] main :is(h1,h2,h3,strong){
+  overflow-wrap:normal;
+  word-break:normal;
+}
+
+/* Small-screen pass: remove accidental clamps and keep touch controls comfortable. */
+@media(max-width:700px){
+  html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-hero h1{
+    max-width:10ch!important;
+    font-size:clamp(45px,13vw,58px)!important;
+    line-height:.91!important;
+  }
+  html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card,
+  html body[data-stage262-qa="true"][data-stage221-hub="demos"] .growth-card[data-stage221-rank]{
+    min-height:0!important;
+    padding:22px!important;
+  }
+  html body[data-stage262-qa="true"][data-stage221-hub="tools"] .dt-tool-card,
+  html body[data-stage262-qa="true"][data-stage221-hub="tools"] .dt-tool-card[data-stage221-rank]{
+    min-height:0!important;
+    padding:22px!important;
+  }
+  html body[data-stage262-qa="true"][data-ux-family="tool"] main.ux-tool-main>.dt-hero h1{
+    max-width:12ch!important;
+    font-size:clamp(42px,12vw,56px)!important;
+    line-height:.93!important;
+  }
+  html body[data-stage262-qa="true"][data-ux-family="tool"] :is(.dt-btn,button.x135-magnetic){
+    min-height:44px!important;
+  }
+  html body[data-stage262-qa="true"][data-page="freelance-os"] :is(button.primary,button.ghost,button.danger-link){
+    min-height:44px!important;
+  }
+  html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row{
+    min-height:0!important;
+    padding:22px!important;
+  }
+  html body[data-stage262-qa="true"][data-page="services"] main.p130-hub .p130-row>strong{
+    max-width:15ch!important;
+  }
+}
+
+/* Keep reduced-motion behavior intact after the final QA layer. */
+@media(prefers-reduced-motion:reduce){
+  html body[data-stage262-qa="true"] *{
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+  }
+}

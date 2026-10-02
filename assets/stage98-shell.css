@@ -1,0 +1,278 @@
+/* Stage 98 shell - shared chrome, forms, section rhythm and conversion surfaces. */
+
+body[data-ux-family] :is(.header,.site-header,.intl-header){
+  background:rgba(9,11,14,.88)!important;
+  border-bottom:1px solid var(--ds-line)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(16px) saturate(125%);
+  -webkit-backdrop-filter:blur(16px) saturate(125%);
+}
+
+/* One actual header structure across every page family. */
+body[data-ux-family] .stage98-header{
+  position:sticky!important;
+  top:0;
+  z-index:120;
+  overflow:visible!important;
+}
+body[data-ux-family] .stage98-head{
+  min-height:4.55rem!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:1.5rem!important;
+}
+body[data-ux-family] .stage98-brand{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:.68rem!important;
+  color:var(--ds-text)!important;
+  text-decoration:none!important;
+  min-width:max-content;
+}
+body[data-ux-family] .stage98-brand-mark{
+  width:2.15rem;
+  height:2.15rem;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--ds-line);
+  border-radius:.72rem;
+  background:#11161c;
+}
+body[data-ux-family] .stage98-brand-mark svg{width:1.55rem;height:1.55rem;display:block}
+body[data-ux-family] .stage98-brand-copy{display:grid;gap:.08rem;line-height:1}
+body[data-ux-family] .stage98-brand-copy strong{font-size:.9rem;letter-spacing:-.02em}
+body[data-ux-family] .stage98-brand-copy small{font-size:.52rem;letter-spacing:.22em;color:#69727c;font-weight:700}
+body[data-ux-family] .stage98-nav{
+  justify-self:end!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:.18rem!important;
+}
+body[data-ux-family] .stage98-nav>a{
+  min-height:2.55rem;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:.55rem .68rem!important;
+  border-radius:.7rem!important;
+  color:#8f979f!important;
+  text-decoration:none!important;
+  font-size:.86rem;
+}
+body[data-ux-family] .stage98-nav>a:hover,
+body[data-ux-family] .stage98-nav>a[aria-current="page"]{color:var(--ds-text)!important;background:rgba(255,255,255,.04)!important}
+body[data-ux-family] .stage98-nav .stage98-lang{border:1px solid var(--ds-line)!important;margin-left:.28rem}
+body[data-ux-family] .stage98-nav .stage98-cta{
+  margin-left:.55rem;
+  padding-inline:.95rem!important;
+  border:1px solid var(--ds-line)!important;
+  color:#eef1ed!important;
+}
+body[data-ux-family] .stage98-nav .stage98-cta:hover{border-color:rgba(201,255,74,.32)!important;color:#eaffb7!important;background:rgba(201,255,74,.035)!important}
+body[data-ux-family] .stage98-mobile-menu{display:none;position:relative;justify-self:end}
+body[data-ux-family] .stage98-mobile-menu>summary{
+  list-style:none;
+  width:2.75rem;
+  height:2.75rem;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  border:1px solid var(--ds-line);
+  border-radius:.82rem;
+  background:#11151b;
+}
+body[data-ux-family] .stage98-mobile-menu>summary::-webkit-details-marker{display:none}
+body[data-ux-family] .stage98-menu-icon{width:1rem;height:.78rem;display:flex;flex-direction:column;justify-content:center;gap:.3rem}
+body[data-ux-family] .stage98-menu-icon i{display:block;width:100%;height:1px;background:#d9ddd9}
+body[data-ux-family] .stage98-mobile-menu[open] .stage98-menu-icon i:first-child{transform:translateY(.2rem) rotate(45deg)}
+body[data-ux-family] .stage98-mobile-menu[open] .stage98-menu-icon i:last-child{transform:translateY(-.2rem) rotate(-45deg)}
+body[data-ux-family] .stage98-mobile-menu>nav{
+  position:absolute;
+  top:calc(100% + .55rem);
+  right:0;
+  width:min(19rem,calc(100vw - 2rem));
+  padding:.6rem;
+  display:grid;
+  gap:.22rem;
+  border:1px solid var(--ds-line);
+  border-radius:1rem;
+  background:#0d1116;
+  box-shadow:0 24px 70px rgba(0,0,0,.42);
+}
+body[data-ux-family] .stage98-mobile-menu>nav>a{
+  min-height:2.85rem;
+  display:flex;
+  align-items:center;
+  padding:.68rem .78rem;
+  border-radius:.72rem;
+  color:#a9b0b7;
+  text-decoration:none!important;
+}
+body[data-ux-family] .stage98-mobile-menu>nav>a[aria-current="page"]{background:#141a21;color:var(--ds-text)}
+body[data-ux-family] .stage98-mobile-menu>nav .stage98-lang{border-top:1px solid var(--ds-line);border-radius:0;margin-top:.25rem}
+body[data-ux-family] .stage98-mobile-menu>nav .stage98-mobile-cta{margin-top:.2rem;background:var(--ds-accent);color:#090b08!important;font-weight:850;justify-content:center}
+
+/* Legacy floating mobile chrome is redundant once the shared header exists. */
+body[data-ux-family] :is(.mobile-site-drawer,.mobile-project-cta){display:none!important}
+
+/* Keep section intros aligned across page families. */
+body[data-ux-family] :is(.s44-section-head,.s48-head,.s50-head,.s51-head,.section-head,.case-library__head,.portfolio-showcase__head){max-width:76rem}
+body[data-ux-family] :is(.s44-section-head,.s48-head,.s50-head,.s51-head,.section-head) h2{max-width:19ch}
+body[data-ux-family] :is(.s44-section-head,.s48-head,.s50-head,.s51-head,.section-head)>p,
+body[data-ux-family] :is(.s44-section-head,.s48-head,.s50-head,.s51-head,.section-head)>div:last-child p{max-width:58ch;color:var(--ds-muted)!important}
+body[data-ux-family] :is(.eyebrow,.kicker,.s48-index,.s50-index,.s51-index,.portfolio-showcase__kicker,.case-library__kicker){color:var(--ds-muted-2)!important}
+
+/* One button language everywhere. */
+body[data-ux-family] :is(a.button,button.button,.s48-btn,.s50-btn,.s51-btn,.s64-conversion__actions a,.growth-link){
+  min-height:2.9rem!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding:.7rem .95rem!important;
+  border:1px solid var(--ds-line)!important;
+  border-radius:.82rem!important;
+  background:transparent!important;
+  color:#e9ece8!important;
+  text-decoration:none!important;
+  font-weight:800!important;
+  line-height:1.1!important;
+}
+body[data-ux-family] :is(a.button.primary,button.button.primary,.s48-btn--primary,.s50-btn--primary,.s51-btn--primary,.s64-conversion__actions a.primary,.growth-link.primary){
+  background:var(--ds-accent)!important;
+  border-color:var(--ds-accent)!important;
+  color:#090b08!important;
+}
+
+/* One form language. */
+body[data-ux-family] :is(input,textarea,select){
+  border:1px solid var(--ds-line)!important;
+  border-radius:.82rem!important;
+  background:#0b0e12!important;
+  color:var(--ds-text)!important;
+  box-shadow:none!important;
+}
+body[data-ux-family] :is(input,textarea,select)::placeholder{color:#69727c!important}
+body[data-ux-family] :is(input,textarea,select):focus{outline:none!important;border-color:rgba(201,255,74,.42)!important;box-shadow:0 0 0 3px rgba(201,255,74,.06)!important}
+body[data-ux-family] label{color:#a9afb6}
+
+/* Conversion surfaces should look intentional and consistent. */
+body[data-ux-family] :is(.cta-box,.contact-card,.s48-contact>div,.s50-cta,.s51-contact>div,.answer){
+  border:1px solid var(--ds-line)!important;
+  border-radius:var(--ds-radius-lg)!important;
+  background:var(--ds-surface)!important;
+  box-shadow:none!important;
+}
+body[data-ux-family] :is(.cta-box,.contact-card,.s50-cta,.answer){padding:clamp(1.35rem,3vw,2.2rem)!important}
+body[data-ux-family] :is(.cta-box,.contact-card,.s50-cta,.s51-contact,.s48-contact) p{max-width:58ch;color:var(--ds-muted)!important}
+
+/* Chips and tags are metadata, not decoration. */
+body[data-ux-family] :is(.tag,.tags span,.chip,.chips span,.meta span,.hero-tags span,.case-library-card__tags span){
+  border:1px solid var(--ds-line)!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#8f979f!important;
+  box-shadow:none!important;
+}
+
+/* Homepage cards should finish their thought instead of ending in ellipses. */
+body[data-page="home"] .s44-route p{
+  display:block!important;
+  overflow:visible!important;
+  -webkit-line-clamp:unset!important;
+  line-clamp:unset!important;
+  max-height:none!important;
+}
+
+/* Services: 3x2 product grid on desktop, no mystery blank space or clipped mobile carousel. */
+body[data-page="services"] .s44-services-hero{padding:clamp(4rem,7vw,6rem) 0 clamp(2.25rem,4vw,3.2rem)!important}
+body[data-page="services"] .s44-services-hero .container{max-width:58rem!important;margin-left:auto!important;margin-right:auto!important}
+body[data-page="services"] .s44-services-hero .s44-actions{display:flex!important;flex-wrap:wrap!important;gap:.65rem!important;margin-top:1.4rem!important}
+body[data-page="services"] #service-options{padding:1rem 0 clamp(3.5rem,6vw,5rem)!important}
+body[data-page="services"] .s44-service-map{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:.85rem!important;
+  overflow:visible!important;
+}
+body[data-page="services"] .s44-service-map__item,
+body[data-page="services"] .s44-service-map__item--lead,
+body[data-page="services"] .s44-service-map__item--repair{
+  grid-column:auto!important;
+  width:auto!important;
+  min-width:0!important;
+  min-height:16rem!important;
+  display:flex!important;
+  flex-direction:column!important;
+  padding:1.25rem 1.3rem!important;
+  border:1px solid var(--ds-line)!important;
+  border-radius:var(--ds-radius)!important;
+  background:var(--ds-surface)!important;
+  box-shadow:none!important;
+  text-decoration:none!important;
+}
+body[data-page="services"] .s44-service-map__item:hover{border-color:var(--ds-line-strong)!important;background:var(--ds-surface-2)!important;transform:translateY(-2px)}
+body[data-page="services"] .s44-service-map__item>span{color:var(--ds-muted-2)!important}
+body[data-page="services"] .s44-service-map__item h2{margin:2.1rem 0 .7rem!important;font-size:clamp(1.45rem,2vw,1.9rem)!important;line-height:1.08!important;max-width:16ch}
+body[data-page="services"] .s44-service-map__item p{display:block!important;overflow:visible!important;-webkit-line-clamp:unset!important;line-clamp:unset!important;max-height:none!important;margin:0!important;color:var(--ds-muted)!important;line-height:1.55!important}
+body[data-page="services"] .s44-service-map__item>div{margin-top:auto!important;padding-top:1.1rem!important;display:flex!important;justify-content:space-between!important;gap:.75rem!important;align-items:end!important}
+body[data-page="services"] .s44-service-map__item>div :is(b,i){font-size:.76rem!important;color:#8f979f!important;font-style:normal!important}
+
+/* Visible authorship metadata stays in schema/about, but should not interrupt a case before the hero. */
+body[data-ux-family="case"] .s75-author{display:none!important}
+
+/* Footer is quiet and clearly separated from the work. */
+body[data-ux-family] :is(.footer,.foot,.site-footer){
+  margin-top:clamp(3rem,7vw,6rem);
+  padding-top:clamp(2rem,4vw,3rem)!important;
+  padding-bottom:clamp(1.5rem,3vw,2.3rem)!important;
+  border-top:1px solid var(--ds-line)!important;
+  background:#080a0d!important;
+  color:#737c85!important;
+}
+body[data-ux-family] :is(.footer,.foot,.site-footer) a{color:#8f979f!important;text-decoration:none}
+body[data-ux-family] :is(.footer,.foot,.site-footer) a:hover{color:var(--ds-text)!important}
+body[data-ux-family] .growth-cookie-settings.stage95-footer-cookie{color:#747d86!important}
+
+/* Images/screens read as one portfolio system. */
+body[data-ux-family] :is(.visual,.case-study,.media-frame,.screen,.screenshot,.gallery img,.case-study__media img){
+  border:1px solid var(--ds-line)!important;
+  border-radius:var(--ds-radius)!important;
+  background:#0b0e12!important;
+  box-shadow:none!important;
+}
+
+/* Remove ornamental glow where it competes with actual work. */
+body[data-ux-family] :is(.portfolio-card,.case-library-card,.s44-route,.s48-fit-grid article,.s48-budget article,.s48-process article)::before,
+body[data-ux-family] :is(.portfolio-card,.case-library-card,.s44-route,.s48-fit-grid article,.s48-budget article,.s48-process article)::after{box-shadow:none}
+
+/* Explicit product requirement: four project cards at once on wide screens. */
+body[data-ux-family="home"] .portfolio-carousel__grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+
+@media(max-width:1120px){
+  body[data-ux-family="home"] .portfolio-carousel__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body[data-page="services"] .s44-service-map{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:900px){
+  body[data-ux-family] .stage98-nav{display:none!important}
+  body[data-ux-family] .stage98-mobile-menu{display:block!important}
+  body[data-ux-family] .stage98-head{grid-template-columns:minmax(0,1fr) auto!important;gap:1rem!important}
+}
+@media(max-width:760px){
+  body[data-ux-family] :is(.header,.site-header,.intl-header){backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  body[data-ux-family] .stage98-head{min-height:4rem!important}
+  body[data-ux-family] .stage98-brand-copy small{display:none!important}
+  body[data-ux-family] :is(.cta-box,.contact-card,.s50-cta,.answer){padding:1.15rem!important}
+  body[data-ux-family] :is(.footer,.foot,.site-footer){margin-top:3rem;padding-top:2rem!important}
+  body[data-page="services"] .s44-services-hero{padding:3.2rem 0 2rem!important}
+  body[data-page="services"] #service-options{padding:1rem 0 3.5rem!important}
+}
+@media(max-width:640px){
+  body[data-ux-family="home"] .portfolio-carousel__grid{grid-template-columns:1fr!important}
+  body[data-page="services"] .s44-service-map{grid-template-columns:1fr!important}
+  body[data-page="services"] .s44-service-map__item,
+  body[data-page="services"] .s44-service-map__item--lead,
+  body[data-page="services"] .s44-service-map__item--repair{min-height:auto!important;padding:1.15rem!important}
+  body[data-page="services"] .s44-service-map__item h2{margin:1.35rem 0 .55rem!important;font-size:1.55rem!important}
+  body[data-page="services"] .s44-service-map__item>div{padding-top:1rem!important}
+}

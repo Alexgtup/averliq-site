@@ -1,0 +1,141 @@
+/* Stage 97 - content-aware layout after pruning and typography normalization.
+   Whole sections get full working width; dense cards remain readable without tiny text. */
+
+/* Stage95 grouped complete sections side-by-side. That nested a 3/4-column card grid
+   inside half a page. Keep grouping semantics, but stack complete sections. */
+.stage95-home-model,
+.stage95-service-core,
+.stage95-service-meta{
+  width:min(calc(100% - 2rem),1280px)!important;
+  margin-inline:auto!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.stage95-home-model>*,
+.stage95-service-core>*,
+.stage95-service-meta>*{min-width:0!important}
+
+/* Flatten card-inside-card section chrome. Inner cards carry the visual hierarchy. */
+.stage95-home-model>.s44-section,
+.stage95-service-core>.s48-section,
+.stage95-service-meta>.s48-section{
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  overflow:visible!important;
+}
+.stage95-home-model>.s44-section+.s44-section,
+.stage95-service-core>.s48-section+.s48-section,
+.stage95-service-meta>.s48-section+.s48-section{
+  border-top:1px solid rgba(255,255,255,.085)!important;
+}
+.stage95-home-model>.s44-section>.container,
+.stage95-service-core>.s48-section>.container,
+.stage95-service-meta>.s48-section>.container{
+  width:100%!important;
+  max-width:none!important;
+  padding:clamp(2.6rem,5vw,4.5rem) 0!important;
+}
+
+.stage95-home-model{padding-block:clamp(1.5rem,3vw,2.6rem)!important}
+.stage95-service-core,.stage95-service-meta{padding-block:clamp(1.2rem,2.5vw,2.2rem)!important}
+.stage95-home-model .s44-section-head,
+.stage95-service-core .s48-head,
+.stage95-service-meta .s48-head{margin-bottom:clamp(1.35rem,2.5vw,2rem)!important}
+.stage95-home-model .s44-section-head h2{max-width:18ch!important}
+.stage95-service-core .s48-head h2,
+.stage95-service-meta .s48-head h2{max-width:22ch!important}
+
+/* Home work-model and budget now have enough room for their native grids. */
+.stage95-home-model .s44-value-grid,
+.stage95-home-model .s44-price-grid{gap:1rem!important}
+.stage95-home-model .s44-trust-card{
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:clamp(1.5rem,4vw,3rem)!important;
+  align-items:end!important;
+}
+.stage95-home-model .s44-trust-card>div:first-child{min-width:0!important;max-width:48rem!important}
+.stage95-home-model .s44-trust-card p{max-width:46rem!important}
+
+/* Do not let prices fall into a vertical stack of individual tokens. */
+body[data-ux-family] main .s44-price-grid strong{
+  font-size:clamp(2rem,2.5vw,2.55rem)!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  white-space:nowrap!important;
+}
+
+/* Dense card UI gets a deliberate supporting scale. Article prose remains 16px. */
+body[data-ux-family] main :is(
+  .s44-route,
+  .s44-value-grid article,
+  .s44-price-grid article,
+  .s44-special-grid a,
+  .s44-orientation__grid article,
+  .s48-fit-grid article,
+  .s48-process article,
+  .s48-budget article,
+  .growth-card,
+  .market-package,
+  .handoff-grid article,
+  .s51-products div,
+  .s51-proof div
+) p{
+  font-size:.94rem!important;
+  line-height:1.58!important;
+}
+body[data-ux-family] main :is(.s44-value-grid article,.s44-price-grid article)>span,
+body[data-ux-family] main .s44-special-grid span{
+  font-size:.75rem!important;
+  line-height:1.4!important;
+}
+body[data-ux-family] main .s44-price-grid a,
+body[data-ux-family] main .s44-route b,
+body[data-ux-family] main .s44-case__body b,
+body[data-ux-family] main .s44-case-stack b{
+  font-size:.82rem!important;
+  line-height:1.35!important;
+}
+
+/* Section explanations should read like editorial copy, not stretch across the shell. */
+body[data-ux-family] main :is(
+  .s44-section-head,
+  .s48-head,
+  .s50-head,
+  .s51-head,
+  .section-head,
+  .case-head,
+  .dt-head
+) p{max-width:62ch!important}
+
+/* All card/grid children are allowed to shrink without squeezing siblings off canvas. */
+body[data-ux-family] main :is(
+  .s44-route-grid,
+  .s44-value-grid,
+  .s44-price-grid,
+  .s48-fit-grid,
+  .s48-process,
+  .s48-budget,
+  .growth-grid,
+  .market-packages__grid,
+  .handoff-grid,
+  .s50-guide-grid,
+  .s50-case-list
+)>*{min-width:0!important}
+
+@media(max-width:960px){
+  .stage95-home-model .s44-trust-card{grid-template-columns:1fr!important;align-items:start!important}
+  .stage95-home-model .s44-trust-actions{justify-content:flex-start!important}
+}
+
+@media(max-width:680px){
+  .stage95-home-model,
+  .stage95-service-core,
+  .stage95-service-meta{width:calc(100% - 2rem)!important}
+  .stage95-home-model>.s44-section>.container,
+  .stage95-service-core>.s48-section>.container,
+  .stage95-service-meta>.s48-section>.container{padding:2.15rem 0!important}
+  body[data-ux-family] main .s44-price-grid strong{font-size:2rem!important}
+}

@@ -1,0 +1,166 @@
+/* Stage 98 - cohesive visual system. One calm product/engineering language across the site. */
+:root{
+  --ds-bg:#090b0e;
+  --ds-surface:#0f1318;
+  --ds-surface-2:#131820;
+  --ds-line:rgba(255,255,255,.09);
+  --ds-line-strong:rgba(255,255,255,.16);
+  --ds-text:#f3f5f2;
+  --ds-muted:#969da6;
+  --ds-muted-2:#757e88;
+  --ds-accent:#c9ff4a;
+  --ds-radius:1.15rem;
+  --ds-radius-lg:1.45rem;
+  --ds-shadow:0 18px 50px rgba(0,0,0,.18);
+  --ds-shell:min(calc(100% - 2.4rem),1280px);
+}
+
+html{background:var(--ds-bg)}
+body[data-ux-family]{background:var(--ds-bg);color:var(--ds-text)}
+body[data-ux-family] main{background:var(--ds-bg)}
+body[data-ux-family] main :is(p,li){color:var(--ds-muted)}
+body[data-ux-family] main a{text-underline-offset:3px}
+body[data-ux-family] .container,
+body[data-ux-family] .intl-container{width:var(--ds-shell)!important;max-width:1280px!important}
+
+/* One restrained surface language. */
+body[data-ux-family] :is(
+  .s44-route,.s44-value-grid article,.s44-price-grid article,.s44-trust-card,
+  .s48-fit-grid article,.s48-budget article,.s48-process article,.s48-proof div,
+  .s50-case-list a,.s50-guide-grid a,.s50-card,
+  .s51-card,.case-library-card,.portfolio-card,.dt-tool-card,
+  .growth-card,.s72-offer,.s77-card
+){
+  border-color:var(--ds-line)!important;
+  background:var(--ds-surface)!important;
+  border-radius:var(--ds-radius)!important;
+  box-shadow:none!important;
+}
+body[data-ux-family] :is(
+  .s44-route,.s50-case-list a,.s50-guide-grid a,.case-library-card,.portfolio-card,.dt-tool-card
+):hover{
+  border-color:var(--ds-line-strong)!important;
+  background:var(--ds-surface-2)!important;
+  transform:translateY(-2px);
+}
+
+/* Buttons are visually consistent everywhere. */
+body[data-ux-family] :is(.button,.btn,a.btn,.cta,a[class*="btn"],button[class*="btn"]){
+  border-radius:.82rem!important;
+  font-weight:800!important;
+  letter-spacing:-.01em;
+}
+body[data-ux-family] :is(.button.primary,.btn.primary,.cta.primary,a.btn.primary){
+  background:var(--ds-accent)!important;
+  color:#0a0d08!important;
+  border-color:var(--ds-accent)!important;
+}
+
+/* Homepage: calmer hero and six equal task entries rather than a collage. */
+body[data-ux-family="home"] .s44-hero{padding-top:clamp(4rem,7vw,6.4rem)!important;padding-bottom:clamp(4.2rem,7vw,6.6rem)!important}
+body[data-ux-family="home"] .s44-hero__grid{gap:clamp(2.5rem,5vw,5rem)!important}
+body[data-ux-family="home"] .s44-lead{max-width:58ch!important;color:var(--ds-muted)!important}
+body[data-ux-family="home"] .s44-proofline{gap:.7rem!important}
+body[data-ux-family="home"] .s44-proofline>a,
+body[data-ux-family="home"] .s44-proofline>div{background:transparent!important;border-top:1px solid var(--ds-line)!important;padding:1rem 0!important}
+body[data-ux-family="home"] .s44-route-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.8rem!important}
+body[data-ux-family="home"] .s44-route,
+body[data-ux-family="home"] .s44-route--wide,
+body[data-ux-family="home"] .s44-route--accent{grid-column:auto!important;min-height:15rem!important;padding:1.35rem!important;background:var(--ds-surface)!important}
+body[data-ux-family="home"] .s44-route h3{margin:auto 0 .65rem!important;font-size:clamp(1.35rem,2vw,1.8rem)!important;max-width:18ch!important}
+body[data-ux-family="home"] .s44-route p{max-width:34ch!important}
+
+/* Homepage projects: real work gets the visual priority; filter becomes a compact tool row. */
+body[data-ux-family="home"] .portfolio-showcase{background:transparent!important;border-block:1px solid var(--ds-line)!important;padding:clamp(4rem,6vw,6rem) 0!important}
+body[data-ux-family="home"] .portfolio-showcase__head{grid-template-columns:minmax(0,1fr) minmax(18rem,.55fr)!important;max-width:none!important;margin-bottom:1.5rem!important}
+body[data-ux-family="home"] .portfolio-showcase__head h2{max-width:14ch!important}
+body[data-ux-family="home"] .portfolio-showcase__intro{max-width:34rem!important;color:var(--ds-muted)!important}
+body[data-ux-family="home"] .portfolio-showcase__layout{display:grid!important;grid-template-columns:1fr!important;gap:.8rem!important}
+body[data-ux-family="home"] .project-radar{order:-1;display:flex!important;align-items:center;gap:.65rem!important;min-height:auto!important;padding:.65rem .75rem!important;border:1px solid var(--ds-line)!important;border-radius:1rem!important;background:transparent!important;overflow:visible!important}
+body[data-ux-family="home"] .project-radar::after,
+body[data-ux-family="home"] .project-radar__head,
+body[data-ux-family="home"] .project-radar__stats{display:none!important}
+body[data-ux-family="home"] .project-radar__filters{display:flex!important;flex-wrap:wrap!important;gap:.42rem!important;flex:1!important}
+body[data-ux-family="home"] .project-radar__filters button{width:auto!important;min-height:2.35rem!important;padding:.5rem .72rem!important;border:1px solid var(--ds-line)!important;border-radius:999px!important;background:transparent!important;color:#aab1b8!important}
+body[data-ux-family="home"] .project-radar__filters button[aria-pressed="true"]{background:var(--ds-accent)!important;border-color:var(--ds-accent)!important;color:#0a0d08!important}
+body[data-ux-family="home"] .project-radar__link{margin:0!important;min-height:2.35rem!important;white-space:nowrap!important;border-radius:999px!important;background:transparent!important}
+body[data-ux-family="home"] .portfolio-carousel{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
+body[data-ux-family="home"] .portfolio-carousel__top{min-height:3rem!important;padding:.25rem 0 .75rem!important;border-bottom:0!important}
+body[data-ux-family="home"] .portfolio-carousel__status strong{display:none!important}
+body[data-ux-family="home"] .portfolio-carousel__viewport{padding:0!important;min-height:0!important}
+body[data-ux-family="home"] .portfolio-carousel__grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.85rem!important}
+body[data-ux-family="home"] .portfolio-card{--card-accent:var(--ds-accent)!important;background:var(--ds-surface)!important;border-radius:1.25rem!important}
+body[data-ux-family="home"] .portfolio-card__media{aspect-ratio:16/10!important;background:#0b0e12!important}
+body[data-ux-family="home"] .portfolio-card--poster .portfolio-card__media{background:linear-gradient(145deg,#11161d,#0b0e12)!important}
+body[data-ux-family="home"] .portfolio-poster{background:transparent!important;border-color:var(--ds-line)!important}
+body[data-ux-family="home"] .portfolio-card__body{padding:1.05rem 1.08rem 1.1rem!important;gap:.55rem!important}
+body[data-ux-family="home"] .portfolio-card h3{font-size:1.22rem!important;line-height:1.15!important}
+body[data-ux-family="home"] .portfolio-card p{font-size:.94rem!important;line-height:1.55!important;-webkit-line-clamp:3!important}
+body[data-ux-family="home"] .portfolio-card__meta{font-size:.68rem!important;color:var(--ds-muted-2)!important}
+body[data-ux-family="home"] .portfolio-card__footer{font-size:.82rem!important;padding-top:.7rem!important}
+body[data-ux-family="home"] .portfolio-showcase__foot{margin-top:.85rem!important}
+body[data-ux-family="home"] .portfolio-showcase__foot>span{display:none!important}
+
+/* Approach and budget read as editorial 2x2 systems, not tiny dashboard tiles. */
+body[data-ux-family="home"] .s44-value-grid,
+body[data-ux-family="home"] .s44-price-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.8rem!important}
+body[data-ux-family="home"] .s44-value-grid article,
+body[data-ux-family="home"] .s44-price-grid article{min-height:14rem!important;padding:1.35rem 1.4rem!important}
+body[data-ux-family="home"] .s44-value-grid h3{margin-top:3rem!important;font-size:1.22rem!important}
+body[data-ux-family="home"] .s44-price-grid strong{font-size:clamp(2rem,3vw,2.7rem)!important}
+body[data-ux-family="home"] .s44-price-grid h3{font-size:1.18rem!important}
+body[data-ux-family="home"] .s44-trust-card{padding:clamp(1.5rem,3vw,2.2rem)!important;background:var(--ds-surface)!important}
+body[data-ux-family="home"] .s44-trust-card>div:first-child{max-width:48rem!important}
+body[data-ux-family="home"] .s44-trust-card p{max-width:62ch!important}
+
+/* Service families use the same section/card rhythm. */
+body[data-ux-family="service"] .stage95-service-core,
+body[data-ux-family="service"] .stage95-service-meta{width:var(--ds-shell)!important;gap:0!important;padding-block:clamp(3.5rem,5.5vw,5.5rem)!important}
+body[data-ux-family="service"] .stage95-service-core>.s48-section,
+body[data-ux-family="service"] .stage95-service-meta>.s48-section{border:0!important;border-top:1px solid var(--ds-line)!important;border-radius:0!important;background:transparent!important}
+body[data-ux-family="service"] .stage95-service-core>.s48-section>.container,
+body[data-ux-family="service"] .stage95-service-meta>.s48-section>.container{padding:clamp(2.1rem,4vw,3.2rem) 0!important}
+body[data-ux-family="service"] :is(.s48-fit-grid,.s48-budget,.s48-process){gap:.8rem!important}
+body[data-ux-family="service"] :is(.s48-fit-grid,.s48-budget,.s48-process) article{padding:1.25rem 1.3rem!important}
+body[data-ux-family="service"] :is(.s48-fit-grid,.s48-budget,.s48-process) p{max-width:42ch!important}
+body[data-ux-family="service"] .s48-head>div:last-child{max-width:52rem!important}
+
+/* Hubs/case library: neutral, product-like cards rather than competing themes. */
+body[data-ux-family="hub"] :is(.case-library,.s50-section,.dt-section){background:transparent!important}
+body[data-ux-family="hub"] .case-library__layout{grid-template-columns:15rem minmax(0,1fr)!important;gap:1.1rem!important}
+body[data-ux-family="hub"] .case-filter{border-color:var(--ds-line)!important;background:transparent!important;box-shadow:none!important}
+body[data-ux-family="hub"] .case-library__grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:.85rem!important}
+body[data-ux-family="hub"] .case-library-card{--card-accent:var(--ds-accent)!important;background:var(--ds-surface)!important}
+body[data-ux-family="hub"] .case-library-card__body{padding:1.05rem!important}
+body[data-ux-family="hub"] .case-library-card p{font-size:.94rem!important;line-height:1.55!important}
+
+/* Guides/cases stay editorial and readable. */
+body[data-ux-family="guide"] :is(.article,.guide-article){max-width:58rem}
+body[data-ux-family="guide"] :is(.article,.guide-article) :is(p,li){max-width:68ch!important}
+body[data-ux-family="case"] main :is(.section,.s51-section){border-color:var(--ds-line)!important}
+
+@media(max-width:1120px){
+  body[data-ux-family="home"] .portfolio-carousel__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body[data-ux-family="hub"] .case-library__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:900px){
+  :root{--ds-shell:min(calc(100% - 2rem),1280px)}
+  body[data-ux-family="home"] .s44-route-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body[data-ux-family="home"] .portfolio-showcase__head{grid-template-columns:1fr!important;gap:.8rem!important}
+  body[data-ux-family="home"] .project-radar{align-items:flex-start!important;flex-direction:column!important}
+  body[data-ux-family="home"] .project-radar__link{width:100%!important}
+  body[data-ux-family="hub"] .case-library__layout{grid-template-columns:1fr!important}
+  body[data-ux-family="hub"] .case-filter{position:static!important}
+}
+@media(max-width:680px){
+  :root{--ds-shell:min(calc(100% - 1.6rem),1280px)}
+  body[data-ux-family="home"] .s44-route-grid,
+  body[data-ux-family="home"] .s44-value-grid,
+  body[data-ux-family="home"] .s44-price-grid,
+  body[data-ux-family="home"] .portfolio-carousel__grid,
+  body[data-ux-family="hub"] .case-library__grid{grid-template-columns:1fr!important}
+  body[data-ux-family="home"] .s44-route{min-height:12rem!important}
+  body[data-ux-family="home"] .project-radar__filters{width:100%!important;overflow-x:auto!important;flex-wrap:nowrap!important;padding-bottom:.15rem!important}
+  body[data-ux-family="home"] .project-radar__filters button{flex:0 0 auto!important}
+  body[data-ux-family="home"] .portfolio-card__media{aspect-ratio:16/9!important}
+}

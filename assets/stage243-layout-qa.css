@@ -1,0 +1,263 @@
+/* Stage243 — final layout QA after all legacy art-direction layers.
+   Prevents oversized editorial headlines, clipped copy and normalizes consent UI. */
+
+/* ---------- Hero typography: hub pages ---------- */
+html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1{
+  max-width:11.8ch!important;
+  margin-top:clamp(18px,2vw,28px)!important;
+  font-size:clamp(56px,5.35vw,82px)!important;
+  line-height:.94!important;
+  letter-spacing:-.055em!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+  text-wrap:balance!important;
+}
+html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1>span{
+  display:block!important;
+  max-width:12.5ch!important;
+  margin-top:.08em!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:.78em!important;
+  font-style:italic!important;
+  line-height:.98!important;
+  letter-spacing:-.038em!important;
+  text-wrap:balance!important;
+}
+html body[data-ux-family="hub"] main.p130-hub section.p130-hero .p130-hero-grid>:first-child{
+  overflow:hidden!important;
+}
+html body[data-ux-family="hub"] main.p130-hub section.p130-hero .p130-lead{
+  max-width:62ch!important;
+  font-size:clamp(16px,1.2vw,19px)!important;
+  line-height:1.65!important;
+}
+
+/* ---------- Hero typography: service detail pages ---------- */
+html body[data-ux-family="service"] main.p129-service section.p129-svc-hero h1{
+  max-width:12.6ch!important;
+  font-size:clamp(52px,4.75vw,74px)!important;
+  line-height:.95!important;
+  letter-spacing:-.052em!important;
+  text-wrap:balance!important;
+}
+html body[data-ux-family="service"] main.p129-service section.p129-svc-hero h1>em{
+  display:block!important;
+  max-width:13.5ch!important;
+  margin-top:.10em!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:.76em!important;
+  font-style:italic!important;
+  line-height:1!important;
+  letter-spacing:-.035em!important;
+  text-wrap:balance!important;
+}
+html body[data-ux-family="service"] main.p129-service section.p129-svc-hero .p129-svc-copy{
+  overflow:hidden!important;
+}
+
+/* ---------- Case/guide page display headlines ---------- */
+html body[data-ux-family="case"] main :is(.hero,.p132-cover) h1,
+html body[data-ux-family="guide"] main.ux-guide-main>.hero h1{
+  max-width:13ch!important;
+  font-size:clamp(50px,4.8vw,76px)!important;
+  line-height:.96!important;
+  letter-spacing:-.052em!important;
+  text-wrap:balance!important;
+}
+html body[data-ux-family="case"] main :is(.hero,.p132-cover) h1 :is(span,em),
+html body[data-ux-family="guide"] main.ux-guide-main>.hero h1 :is(span,em){
+  line-height:1!important;
+}
+
+/* ---------- Defensive text layout ---------- */
+html body[data-ux-family] main :is(h1,h2,h3,h4,p,li,a,strong,em,span){
+  overflow-wrap:break-word;
+}
+html body[data-ux-family] main :is(.p130-row,.p130-tile,.p129-outcome,.p129-related-grid>a,.stage173-group nav a,.stage172-task-map__group nav a){
+  min-width:0!important;
+}
+html body[data-ux-family] main :is(.p130-row strong,.p130-row em,.p130-tile__body,.p129-outcome p,.stage173-group nav a,.stage172-task-map__group nav a){
+  min-width:0!important;
+}
+
+/* ---------- Modern centered cookie banner ---------- */
+html body .growth-cookie:not([hidden]),
+html body .cookie:not([hidden]){
+  position:fixed!important;
+  z-index:10000!important;
+  left:50%!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:max(18px,env(safe-area-inset-bottom))!important;
+  transform:translateX(-50%)!important;
+  width:min(920px,calc(100vw - 32px))!important;
+  max-width:920px!important;
+  max-height:min(420px,calc(100dvh - 36px))!important;
+  margin:0!important;
+  padding:18px 20px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:
+    "title actions"
+    "copy actions"!important;
+  column-gap:24px!important;
+  row-gap:5px!important;
+  align-items:center!important;
+  overflow:auto!important;
+  border:1px solid rgba(41,57,69,.14)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.96)!important;
+  color:#172027!important;
+  box-shadow:0 22px 70px rgba(35,49,60,.18)!important;
+  backdrop-filter:blur(22px) saturate(120%)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(120%)!important;
+  font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+}
+html body .growth-cookie:not([hidden])>strong,
+html body .cookie:not([hidden])>strong{
+  grid-area:title!important;
+  margin:0!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  font-size:14px!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+  letter-spacing:-.01em!important;
+}
+html body .growth-cookie:not([hidden])>p,
+html body .cookie:not([hidden])>p{
+  grid-area:copy!important;
+  max-width:66ch!important;
+  margin:0!important;
+  color:#5a6872!important;
+  -webkit-text-fill-color:#5a6872!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+}
+html body .growth-cookie:not([hidden])>p a,
+html body .cookie:not([hidden])>p a{
+  color:#405462!important;
+  -webkit-text-fill-color:#405462!important;
+  text-decoration:underline!important;
+  text-underline-offset:2px!important;
+}
+html body .growth-cookie:not([hidden]) .growth-actions,
+html body .cookie:not([hidden])>div{
+  grid-area:actions!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:9px!important;
+  margin:0!important;
+}
+html body .growth-cookie:not([hidden]) button,
+html body .cookie:not([hidden]) button{
+  min-width:112px!important;
+  min-height:42px!important;
+  padding:9px 15px!important;
+  border:1px solid rgba(41,57,69,.14)!important;
+  border-radius:11px!important;
+  background:#f1f3f4!important;
+  color:#34434d!important;
+  -webkit-text-fill-color:#34434d!important;
+  font-size:12px!important;
+  line-height:1!important;
+  font-weight:760!important;
+  box-shadow:none!important;
+}
+html body .growth-cookie:not([hidden]) button[data-analytics-choice="accepted"],
+html body .growth-cookie:not([hidden]) .primary,
+html body .cookie:not([hidden]) .yes,
+html body .cookie:not([hidden]) #allow{
+  border-color:#b8ef39!important;
+  background:#c9ff4a!important;
+  color:#101518!important;
+  -webkit-text-fill-color:#101518!important;
+}
+html body .growth-cookie:not([hidden]) button:hover,
+html body .cookie:not([hidden]) button:hover{
+  transform:translateY(-1px)!important;
+}
+html body .growth-cookie:not([hidden]) button[data-analytics-choice="accepted"]:hover,
+html body .growth-cookie:not([hidden]) .primary:hover,
+html body .cookie:not([hidden]) .yes:hover,
+html body .cookie:not([hidden]) #allow:hover{
+  background:#bff33f!important;
+}
+
+/* Cookie settings is a small centered pill when consent is already chosen. */
+html body .growth-cookie-settings:not([hidden]){
+  position:fixed!important;
+  z-index:9998!important;
+  left:50%!important;
+  right:auto!important;
+  bottom:max(14px,env(safe-area-inset-bottom))!important;
+  transform:translateX(-50%)!important;
+  min-height:38px!important;
+  padding:7px 13px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.88)!important;
+  color:#53626c!important;
+  box-shadow:0 12px 32px rgba(35,49,60,.10)!important;
+  backdrop-filter:blur(16px)!important;
+  -webkit-backdrop-filter:blur(16px)!important;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1{
+    max-width:12.5ch!important;
+    font-size:clamp(50px,8.2vw,72px)!important;
+  }
+  html body[data-ux-family="service"] main.p129-service section.p129-svc-hero h1{
+    max-width:13ch!important;
+    font-size:clamp(48px,7.6vw,68px)!important;
+  }
+}
+@media(max-width:700px){
+  html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1,
+  html body[data-ux-family="service"] main.p129-service section.p129-svc-hero h1,
+  html body[data-ux-family="case"] main :is(.hero,.p132-cover) h1,
+  html body[data-ux-family="guide"] main.ux-guide-main>.hero h1{
+    max-width:100%!important;
+    font-size:clamp(42px,12vw,58px)!important;
+    line-height:.97!important;
+    letter-spacing:-.048em!important;
+  }
+  html body[data-ux-family="hub"] main.p130-hub section.p130-hero h1>span,
+  html body[data-ux-family="service"] main.p129-service section.p129-svc-hero h1>em{
+    max-width:100%!important;
+    font-size:.77em!important;
+    line-height:1.03!important;
+  }
+  html body .growth-cookie:not([hidden]),
+  html body .cookie:not([hidden]){
+    bottom:max(10px,env(safe-area-inset-bottom))!important;
+    width:calc(100vw - 20px)!important;
+    padding:15px!important;
+    grid-template-columns:1fr!important;
+    grid-template-areas:"title" "copy" "actions"!important;
+    gap:8px!important;
+    border-radius:16px!important;
+  }
+  html body .growth-cookie:not([hidden]) .growth-actions,
+  html body .cookie:not([hidden])>div{
+    width:100%!important;
+    justify-content:stretch!important;
+    margin-top:3px!important;
+  }
+  html body .growth-cookie:not([hidden]) button,
+  html body .cookie:not([hidden]) button{
+    flex:1 1 0!important;
+    min-width:0!important;
+  }
+}
+
+
+/* Final micro-overflow guard found by full sitemap QA. */
+html body[data-page="services"] .p221-system__foot>span{
+  display:inline-block!important;
+  min-width:max-content!important;
+  white-space:nowrap!important;
+}

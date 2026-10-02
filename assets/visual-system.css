@@ -1,0 +1,341 @@
+/* Stage 82 — shared visual language for the portfolio.
+   Keeps page-specific storytelling, but makes repeated UI feel like one product. */
+
+:root{
+  --ui-bg:#08090b;
+  --ui-surface:#10141a;
+  --ui-surface-soft:#0d1116;
+  --ui-text:#f4f5f2;
+  --ui-muted:#969ea8;
+  --ui-muted-soft:#737d87;
+  --ui-line:rgba(255,255,255,.10);
+  --ui-line-strong:rgba(255,255,255,.18);
+  --ui-accent:#c9ff4a;
+  --ui-accent-2:#8195ff;
+  --ui-radius-sm:.78rem;
+  --ui-radius-md:1.05rem;
+  --ui-radius-lg:1.4rem;
+  --ui-shadow:0 22px 70px rgba(0,0,0,.18);
+  --ui-transition:180ms ease;
+}
+
+html{background:var(--ui-bg);}
+body{color:var(--text,var(--ui-text));}
+
+/* One repeated navigation chrome. */
+.header,.site-header,.intl-header{
+  border-bottom-color:var(--line,var(--ui-line)) !important;
+  box-shadow:0 1px 0 rgba(0,0,0,.18);
+}
+.header .head,.site-header .head,
+.header .header-inner,.site-header .header-inner{
+  min-height:4.8rem;
+}
+.header .nav a,.site-header .nav a{transition:color var(--ui-transition),opacity var(--ui-transition);}
+.header .nav a:not(.cta):hover,.site-header .nav a:not(.cta):hover{color:var(--text,var(--ui-text));}
+
+.crumbs,.breadcrumbs{
+  color:var(--muted2,var(--ui-muted-soft));
+  font-size:.72rem;
+}
+.crumbs a,.breadcrumbs a{transition:color var(--ui-transition);}
+.crumbs a:hover,.breadcrumbs a:hover{color:var(--text,var(--ui-text));}
+
+/* Typography hierarchy: retain page-specific scale, normalize rhythm and measure. */
+.hero h1,.hub h1{
+  margin-top:1rem;
+  text-wrap:balance;
+}
+.lead,.hub-lead{
+  color:var(--muted,var(--ui-muted));
+  max-width:48rem;
+}
+.eyebrow,.kicker{
+  color:var(--muted2,var(--ui-muted-soft));
+}
+.section-head h2,.section h2,.article h2,
+.contact-card h2,.cta-box h2{
+  text-wrap:balance;
+}
+
+/* Repeated cards share border, radius and interaction language. */
+.card,.service,.guide-card,.link-card,.mini,.trust-card,.case-proof-card,
+.case-point,.route-card,.authority-card,.market-proof-card,
+.s50-card,.s51-card,.s64-card,.s72-offer,.s77-card{
+  border-color:var(--line,var(--ui-line)) !important;
+  border-radius:var(--ui-radius-md);
+}
+.card,.service,.guide-card,.route-card,
+.s50-card,.s51-card,.s72-offer,.s77-card{
+  transition:transform var(--ui-transition),border-color var(--ui-transition),background var(--ui-transition),box-shadow var(--ui-transition) !important;
+}
+.card:hover,.service:hover,.guide-card:hover,.route-card:hover,
+.s50-card:hover,.s51-card:hover,.s72-offer:hover,.s77-card:hover{
+  border-color:var(--line2,var(--ui-line-strong)) !important;
+  transform:translateY(-2px);
+  box-shadow:var(--ui-shadow);
+}
+
+/* Pills and metadata no longer vary from page to page. */
+.tag,.tags span,.chip,.chips span,.meta span,.hero-tags span{
+  border-color:var(--line,var(--ui-line)) !important;
+  border-radius:999px !important;
+}
+
+/* One button language across service, guide, case and contact surfaces. */
+.btn,.nav .cta,.case-cta a,.case-link,
+a[class*="btn"],button[class*="btn"]{
+  min-height:2.8rem;
+  border-radius:var(--ui-radius-sm) !important;
+  transition:transform var(--ui-transition),border-color var(--ui-transition),background var(--ui-transition),color var(--ui-transition) !important;
+}
+.btn:hover,.case-cta a:hover,.case-link:hover,
+a[class*="btn"]:hover,button[class*="btn"]:hover{
+  transform:translateY(-1px);
+}
+.btn.primary,.nav .cta,.case-cta a{
+  background:var(--lime,var(--ui-accent));
+  border-color:var(--lime,var(--ui-accent));
+  color:#090a0b;
+}
+
+/* Major conversion surfaces share the same geometry. */
+.cta-box,.contact-card,.case-cta,.answer{
+  border-color:var(--line,var(--ui-line)) !important;
+  border-radius:var(--ui-radius-lg) !important;
+}
+
+/* Images/screenshots sit on the same visual plane. */
+.visual,.case-study,.gallery img,.case-study__media img,
+.media-frame,.screen,.screenshot{
+  border-color:var(--line,var(--ui-line)) !important;
+}
+
+/* Footer is intentionally quiet across every page family. */
+.footer,.foot,.site-footer{
+  border-top-color:var(--line,var(--ui-line)) !important;
+  color:#707984;
+}
+.footer a,.foot a,.site-footer a{transition:color var(--ui-transition);}
+.footer a:hover,.foot a,.site-footer a:hover{color:var(--text,var(--ui-text));}
+
+@media (max-width:760px){
+  :root{
+    --ui-mobile-section:3.35rem;
+    --ui-mobile-section-tight:2.75rem;
+    --ui-mobile-contact-top:3.8rem;
+    --ui-mobile-contact-bottom:2.6rem;
+  }
+
+  .header .head,.site-header .head,
+  .header .header-inner,.site-header .header-inner{
+    min-height:4.25rem !important;
+  }
+
+  .card,.service,.guide-card,.link-card,.mini,.trust-card,.case-proof-card,
+  .route-card,.authority-card,.market-proof-card,
+  .cta-box,.contact-card,.case-cta,.answer{
+    border-radius:1rem !important;
+  }
+
+  /* Large desktop hero typography was the main reason many legacy pages looked
+     technically responsive but visually broken at 390–440px. This selector also
+     catches stage48 service pages and older case-study templates. */
+  body:not([data-page="home"]) .hero h1,
+  body:not([data-page="home"]) .hub h1,
+  body:not([data-page="home"]) .service-hero-copy h1,
+  body:not([data-page="home"]) .s48-hero h1,
+  body:not([data-page="home"]) .case-study-copy h1{
+    font-size:clamp(2.35rem,10.5vw,3.65rem) !important;
+    line-height:.96 !important;
+    letter-spacing:-.045em !important;
+    max-width:14ch !important;
+  }
+
+  /* Stage48 still had a 3rem/4.5rem+ mobile hero after its columns collapsed.
+     Reduce only vertical chrome; content and conversion blocks remain intact. */
+  .s48-hero{
+    padding:2.25rem 0 3rem !important;
+  }
+  .case-study-hero{
+    padding-top:2rem !important;
+  }
+
+  /* Stage 88 - one mobile vertical rhythm across service, case and hub families.
+     Older generators use 4.5–7rem desktop spacing even after the layout becomes
+     one column. Keep every section and its copy, but remove empty-scroll feeling. */
+  body:not([data-page="home"]) main > .s48-section,
+  body:not([data-page="home"]) main > .s51-section,
+  body:not([data-page="home"]) main > .s50-section,
+  body:not([data-page="home"]) main > .s44-section{
+    padding-top:var(--ui-mobile-section) !important;
+    padding-bottom:var(--ui-mobile-section) !important;
+  }
+  body[data-page^="cases--"] main > section.section:not(.growth-section),
+  body[data-page^="cases--"] main > section.case-section{
+    padding-top:var(--ui-mobile-section) !important;
+    padding-bottom:var(--ui-mobile-section) !important;
+  }
+  body:not([data-page="home"]) main > .growth-section:not(.growth-faq){
+    padding-top:var(--ui-mobile-section-tight) !important;
+    padding-bottom:var(--ui-mobile-section-tight) !important;
+  }
+  body:not([data-page="home"]) main > .s48-contact,
+  body:not([data-page="home"]) main > .contact.s51-contact,
+  body[data-page^="cases--"] main > section.contact{
+    padding-top:var(--ui-mobile-contact-top) !important;
+    padding-bottom:var(--ui-mobile-contact-bottom) !important;
+  }
+  body:not([data-page="home"]) main > .s66-tool-link,
+  body:not([data-page="home"]) main > .s68-entry{
+    padding-top:1.4rem !important;
+    padding-bottom:1.4rem !important;
+  }
+
+  .hero h1,.hub h1,.section h2,.article h2,.cta-box h2,.contact-card h2,
+  .s48-hero h1,.case-study-copy h1{
+    text-wrap:balance;
+  }
+
+  .card:hover,.service:hover,.guide-card:hover,.route-card:hover,
+  .s50-card:hover,.s51-card:hover,.s72-offer:hover,.s77-card:hover{
+    transform:none;
+    box-shadow:none;
+  }
+
+  /* Guide-family reading mode. Desktop TOC/sidebar becomes a compact horizontal
+     chapter rail so the article starts in the first mobile viewport. */
+  body[data-page^="guides--"] .crumbs{
+    padding-top:1rem !important;
+    font-size:.65rem !important;
+  }
+  body[data-page^="guides--"] .hero{
+    padding:1rem 0 1.9rem !important;
+  }
+  body[data-page^="guides--"] .hero h1{
+    margin-top:.7rem !important;
+    font-size:clamp(2.2rem,9.8vw,3.25rem) !important;
+    line-height:.98 !important;
+    letter-spacing:-.042em !important;
+    max-width:15ch !important;
+  }
+  body[data-page^="guides--"] .lead{
+    margin-top:.9rem !important;
+    font-size:.94rem !important;
+    line-height:1.62 !important;
+  }
+  body[data-page^="guides--"] .meta{
+    margin-top:.85rem !important;
+    gap:.38rem !important;
+  }
+  body[data-page^="guides--"] .meta span{
+    padding:.34rem .5rem !important;
+    font-size:.61rem !important;
+  }
+  body[data-page^="guides--"] .layout{
+    gap:1rem !important;
+  }
+  body[data-page^="guides--"] .toc{
+    position:relative !important;
+    top:auto !important;
+    order:-1;
+    display:flex !important;
+    align-items:center;
+    gap:.4rem;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:.48rem !important;
+    border-radius:.85rem !important;
+    white-space:nowrap;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  body[data-page^="guides--"] .toc::-webkit-scrollbar{display:none;}
+  body[data-page^="guides--"] .toc strong{display:none !important;}
+  body[data-page^="guides--"] .toc a{
+    flex:0 0 auto;
+    display:inline-flex !important;
+    align-items:center;
+    min-height:2.2rem;
+    padding:.45rem .62rem !important;
+    border:1px solid var(--line,var(--ui-line)) !important;
+    border-radius:.65rem;
+    font-size:.67rem !important;
+    line-height:1.1;
+    white-space:nowrap;
+  }
+
+  /* Reading text needs a second, smaller gutter inside the shared page shell.
+     This keeps paragraphs and cards away from the physical screen edge without
+     making the compact TOC or hero artificially narrow. */
+  body[data-page^="guides--"] .article{
+    padding-inline:clamp(.45rem,2vw,.75rem) !important;
+  }
+  body[data-page^="guides--"] .article section{
+    padding:.5rem 0 1.9rem !important;
+  }
+  body[data-page^="guides--"] .article h2{
+    margin-bottom:.8rem !important;
+    font-size:clamp(1.7rem,7.8vw,2.25rem) !important;
+    line-height:1.03 !important;
+    letter-spacing:-.035em !important;
+  }
+  body[data-page^="guides--"] .article h3{
+    margin-top:1.3rem !important;
+  }
+  body[data-page^="guides--"] .article p,
+  body[data-page^="guides--"] .article li{
+    line-height:1.66 !important;
+  }
+  body[data-page^="guides--"] .answer,
+  body[data-page^="guides--"] .mini,
+  body[data-page^="guides--"] .link-card{
+    padding:1rem !important;
+  }
+
+  /* A full-width fixed sales CTA competes with long-form reading on guides. */
+  body[data-page^="guides--"] .mobile-project-cta{
+    display:none !important;
+  }
+
+  /* Cookie preferences must remain reachable without sitting over article text.
+     The current consent pass creates .growth-cookie-settings; .cookie-settings
+     is kept here only for older generated pages. */
+  .cookie-settings,
+  .growth-cookie-settings{
+    position:static !important;
+    inset:auto !important;
+    float:none !important;
+    transform:none !important;
+    z-index:auto !important;
+    width:max-content;
+    max-width:calc(100% - 2rem);
+    min-height:2.35rem !important;
+    margin:1rem max(var(--mobile-gutter,1rem),env(safe-area-inset-right)) 1.5rem auto !important;
+    padding:.52rem .68rem !important;
+    font-size:.69rem !important;
+  }
+}
+
+@media (max-width:420px){
+  :root{
+    --ui-mobile-section:3rem;
+    --ui-mobile-section-tight:2.45rem;
+    --ui-mobile-contact-top:3.4rem;
+  }
+
+  body[data-page^="guides--"] .hero h1{
+    font-size:clamp(2.05rem,9.6vw,2.75rem) !important;
+  }
+
+  body[data-page^="guides--"] .article{
+    padding-inline:.55rem !important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .card,.service,.guide-card,.route-card,.btn,.case-link,
+  a[class*="btn"],button[class*="btn"]{transition:none !important;}
+}

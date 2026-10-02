@@ -1,0 +1,231 @@
+/* Stage253 — premium light case gallery.
+   Featured case cards stop using the old dark full-bleed composition.
+   Real project screenshots remain untouched and readable. */
+
+:root{
+  --s253-ink:#172027;
+  --s253-muted:#60717b;
+  --s253-line:rgba(34,51,62,.10);
+  --s253-paper:rgba(255,255,255,.95);
+  --s253-paper-2:rgba(246,249,251,.92);
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+  gap:18px!important;
+  align-items:start!important;
+}
+
+/* Large four: image and copy become two deliberate layers instead of one overlay. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured]{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  height:auto!important;
+  border:1px solid rgba(255,255,255,.92)!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.98),rgba(243,248,251,.94))!important;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 24px 70px rgba(50,70,84,.10)!important;
+  isolation:isolate!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__media{
+  position:relative!important;
+  inset:auto!important;
+  width:100%!important;
+  height:clamp(300px,31vw,390px)!important;
+  min-height:clamp(300px,31vw,390px)!important;
+  flex:0 0 auto!important;
+  overflow:hidden!important;
+  background:#edf3f7!important;
+  border-bottom:1px solid rgba(34,51,62,.075)!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured="2"] .p130-tile__media,
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured="3"] .p130-tile__media{
+  height:clamp(300px,29vw,360px)!important;
+  min-height:clamp(300px,29vw,360px)!important;
+}
+
+/* Remove the old black cinematic gradient completely. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__media::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,0) 72%,rgba(236,244,249,.10) 100%)!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__media img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+  opacity:1!important;
+  filter:saturate(1) contrast(1.025)!important;
+  transform:none!important;
+}
+
+/* Copy panel: dark readable text on warm white glass. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body{
+  position:relative!important;
+  z-index:2!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  margin-top:0!important;
+  min-height:164px!important;
+  padding:25px 28px 28px!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.98),rgba(247,249,250,.96))!important;
+  color:var(--s253-ink)!important;
+  -webkit-text-fill-color:var(--s253-ink)!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body strong{
+  max-width:16ch!important;
+  margin:1px 0 0!important;
+  color:var(--s253-ink)!important;
+  -webkit-text-fill-color:var(--s253-ink)!important;
+  font-size:clamp(34px,3vw,48px)!important;
+  line-height:.96!important;
+  letter-spacing:-.05em!important;
+  text-wrap:balance!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body>span:not(.p214-case-meta){
+  max-width:52ch!important;
+  color:var(--s253-muted)!important;
+  -webkit-text-fill-color:var(--s253-muted)!important;
+  font-size:14px!important;
+  line-height:1.55!important;
+}
+
+/* Light metadata capsule instead of the remaining dark pill. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p214-case-meta{
+  display:inline-flex!important;
+  align-items:center!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:0 0 3px!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(74,105,122,.11)!important;
+  border-radius:999px!important;
+  background:
+    linear-gradient(180deg,rgba(239,246,250,.95),rgba(247,250,246,.92))!important;
+  backdrop-filter:blur(10px)!important;
+  color:#5c7280!important;
+  -webkit-text-fill-color:#5c7280!important;
+  font:750 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+
+/* Give the top four a small premium movement without sacrificing clarity. */
+@media(hover:hover) and (pointer:fine){
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured]:hover{
+    transform:translate3d(0,-5px,0)!important;
+    border-color:rgba(91,137,160,.18)!important;
+    box-shadow:
+      inset 0 1px 0 #fff,
+      0 32px 86px rgba(50,70,84,.135)!important;
+  }
+
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured]:hover .p130-tile__media img{
+    transform:scale(1.018)!important;
+  }
+}
+
+/* Archive cards: tighten visual rhythm to match the new featured row. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]){
+  border-color:rgba(34,51,62,.09)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.98),
+    0 16px 46px rgba(45,67,83,.06)!important;
+}
+
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile:not([data-stage214-featured]) .p130-tile__media{
+  border-bottom:1px solid rgba(34,51,62,.07)!important;
+}
+
+/* Mobile: featured cards become compact and legible rather than giant overlays. */
+@media(max-width:1000px){
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__media{
+    height:330px!important;
+    min-height:330px!important;
+  }
+}
+
+@media(max-width:700px){
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+    gap:14px!important;
+  }
+
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured]{
+    min-height:0!important;
+    border-radius:22px!important;
+  }
+
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__media{
+    height:250px!important;
+    min-height:250px!important;
+  }
+
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body{
+    min-height:0!important;
+    padding:21px 20px 23px!important;
+  }
+
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body strong{
+    font-size:clamp(30px,9vw,40px)!important;
+  }
+}
+
+
+/* Stage253 v2 — keep both cards in each editorial row perfectly aligned. */
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+  align-items:stretch!important;
+}
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured]{
+  align-self:stretch!important;
+}
+html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+main#main-content.p130-hub[data-stage130-hub="cases"] .p130-tile[data-stage214-featured] .p130-tile__body{
+  flex:1 1 auto!important;
+}
+@media(max-width:700px){
+  html body[data-stage253-cases="true"][data-page="cases"][data-stage214-cases="true"]
+  main#main-content.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+    align-items:start!important;
+  }
+}

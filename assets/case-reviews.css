@@ -1,0 +1,11 @@
+/* Client feedback blocks sourced from the public Freelance.ru profile. */
+.case-review-section{width:min(1200px,calc(100% - 80px));margin-inline:auto;padding:56px 0;border-top:1px solid rgba(255,255,255,.10)}
+.case-review-card{position:relative;overflow:hidden;padding:clamp(24px,4vw,44px);border:1px solid rgba(188,150,211,.24);border-radius:24px;background:linear-gradient(145deg,rgba(28,22,38,.92),rgba(14,13,22,.96));box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.case-review-card:before{content:"";position:absolute;inset:auto -10% -65% 35%;height:220px;background:radial-gradient(circle,rgba(146,95,255,.20),transparent 67%);pointer-events:none}
+.case-review-kicker{margin:0 0 18px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.13em;text-transform:uppercase;color:#bda9ce}
+.case-review-quote{position:relative;z-index:1;margin:0;max-width:900px;font-size:clamp(22px,3vw,38px);line-height:1.16;letter-spacing:-.025em;color:#f4eff8}
+.case-review-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:24px;color:#aa9db4;font-size:14px}
+.case-review-meta strong{color:#f4eff8;font-weight:700}
+.case-review-source{margin-left:auto;color:#c8b5d8;text-decoration:none;border-bottom:1px solid rgba(200,181,216,.32)}
+.case-review-source:hover{color:#fff;border-color:rgba(255,255,255,.65)}
+@media(max-width:760px){.case-review-section{width:min(100% - 28px,1200px);padding:34px 0}.case-review-card{padding:24px;border-radius:18px}.case-review-quote{font-size:23px}.case-review-source{width:100%;margin-left:0}}

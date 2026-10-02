@@ -1,0 +1,297 @@
+/* Stage 24-39 — shared page geometry, navigation chrome, vertical rhythm and commercial refresh reindex trigger.
+   One outer shell across homepage, services, cases, guides and EN pages.
+   Reading measure stays controlled by each page's inner article rules. */
+
+:root{
+  --site-shell:92rem;
+  --max:92rem !important;
+  --imax:92rem !important;
+  --page:clamp(1.15rem,4vw,4.5rem) !important;
+  --ipage:clamp(1.15rem,4vw,4.5rem) !important;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html,body{width:100%;max-width:100%;}
+body{overflow-x:clip;}
+main,section,article,aside,header,footer,nav{min-width:0;}
+img,video,canvas,iframe{max-width:100%;}
+img,video{height:auto;}
+
+body .container,
+body .intl-container{
+  width:min(100%,var(--site-shell)) !important;
+  max-width:var(--site-shell) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  min-width:0;
+}
+
+body .container.cta-box,
+body .container.case-cta,
+body section.container.cta-box,
+body section.container.case-cta{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Stable internal header rhythm. Homepage keeps its deliberate section-nav. */
+body:not([data-page="home"]) .header .head,
+body:not([data-page="home"]) .header .header-inner,
+body:not([data-page="home"]) .site-header .head,
+body:not([data-page="home"]) .site-header .header-inner{
+  min-height:4.8rem !important;
+}
+body:not([data-page="home"]) .crumbs{
+  padding-top:2rem !important;
+}
+body:not([data-page="home"]) .header .nav,
+body:not([data-page="home"]) .site-header .nav{
+  display:flex !important;
+  align-items:center !important;
+  gap:.95rem !important;
+}
+body:not([data-page="home"]) .header .nav>a:not(.cta),
+body:not([data-page="home"]) .site-header .nav>a:not(.cta){
+  font-size:.79rem !important;
+  line-height:1 !important;
+  text-decoration:none;
+}
+
+.header .container,
+.site-header .container,
+.footer .container,
+.site-footer .container,
+.foot .container,
+.intl-header .intl-container,
+.intl-footer .intl-container{
+  width:min(100%,var(--site-shell)) !important;
+  max-width:var(--site-shell) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Stage 26: normalize two generations of the Averliq lockup. */
+.header .brand,
+.site-header .brand{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:.72rem !important;
+  min-width:max-content;
+  text-decoration:none;
+  font-weight:850 !important;
+}
+.header .brand-mark,
+.header .brand-icon,
+.site-header .brand-mark,
+.site-header .brand-icon{
+  width:2.25rem !important;
+  height:2.25rem !important;
+  flex:0 0 2.25rem !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:.78rem !important;
+}
+.header .brand-mark svg,
+.header .brand-icon svg,
+.site-header .brand-mark svg,
+.site-header .brand-icon svg{
+  width:1.55rem !important;
+  height:1.55rem !important;
+  display:block;
+}
+.header .brand>strong,
+.header .brand-word,
+.site-header .brand>strong,
+.site-header .brand-word{
+  font-size:.9rem !important;
+  line-height:1 !important;
+  letter-spacing:-.025em !important;
+  color:var(--text,#f4f5f2);
+}
+
+/* Primary header action and language switch stay dimensionally stable. */
+.header .nav .cta,
+.header .cta,
+.site-header .nav .cta,
+.site-header .cta{
+  min-height:2.65rem !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:.65rem .9rem !important;
+  border-radius:.8rem !important;
+  font-size:.79rem !important;
+  line-height:1 !important;
+  font-weight:850 !important;
+  white-space:nowrap;
+}
+.header .language-switch,
+.site-header .language-switch{
+  min-width:2.35rem;
+  min-height:2.35rem;
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  padding:.45rem .62rem !important;
+  border:1px solid var(--line,rgba(255,255,255,.1));
+  border-radius:.72rem;
+  line-height:1;
+}
+
+/* Stage 33: one vertical rhythm for RU service/profile templates.
+   Hubs, guides and case details keep their own family rules below. */
+html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .hero{
+  padding:2.3rem 0 5.8rem !important;
+}
+html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .section{
+  padding:5.6rem 0 !important;
+}
+html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .section-head{
+  margin-bottom:2.1rem !important;
+}
+html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .contact{
+  padding:6.4rem 0 4rem !important;
+}
+html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .cta-box{
+  margin-top:3.5rem !important;
+  margin-bottom:5rem !important;
+}
+
+/* Case details share the same outer cadence, while the cases hub remains denser. */
+html[lang="ru"] body[data-page^="cases--"] .hero{
+  padding:2.3rem 0 5.8rem !important;
+}
+html[lang="ru"] body[data-page^="cases--"] .section{
+  padding:5.6rem 0 !important;
+}
+html[lang="ru"] body[data-page^="cases--"] .section-head{
+  margin-bottom:2.1rem !important;
+}
+html[lang="ru"] body[data-page^="cases--"] .contact{
+  padding:6.4rem 0 4rem !important;
+}
+
+/* Guides stay more compact because the reading column is the focus. */
+html[lang="ru"] body[data-page^="guides--"] .hero{
+  padding:2.1rem 0 4rem !important;
+}
+html[lang="ru"] body[data-page^="guides--"] .cta-box{
+  margin-top:3.5rem !important;
+  margin-bottom:5rem !important;
+}
+
+/* Stage 25 replaces accumulated RU footer variants with one compact shell. */
+footer.footer,
+footer.foot,
+footer.site-footer{
+  padding:0 !important;
+  border-top:1px solid var(--line,rgba(255,255,255,.10));
+}
+.stage25-footer-inner{
+  min-height:6rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.25rem;
+  color:#707984;
+  font-size:.72rem;
+}
+.stage25-footer-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:.95rem;
+}
+.stage25-footer-links a{
+  color:#707984;
+  font-size:.72rem;
+  text-decoration:none;
+}
+.stage25-footer-links a:hover{color:var(--text,#f4f5f2);}
+
+/* EN/homepage retain their markup, but receive the same vertical footprint. */
+footer.footer>.container,
+footer.foot>.container,
+footer.site-footer>.container,
+.footer .foot,
+.footer .footer-inner,
+.site-footer .foot,
+.site-footer .footer-inner{
+  min-height:6rem;
+  align-items:center;
+}
+
+/* Keep readable article text narrow even though the outer shell is shared. */
+body[data-page^="guides--"] .article p,
+body[data-page^="guides--"] .article ul,
+body[data-page^="guides--"] .article ol{
+  max-width:54rem;
+}
+body[data-page^="guides--"] .layout{
+  grid-template-columns:minmax(0,1fr) minmax(15rem,17rem);
+  gap:clamp(2rem,3vw,3.5rem);
+}
+
+@media(max-width:900px){
+  body[data-page^="guides--"] .layout{grid-template-columns:1fr;gap:1.25rem;}
+}
+
+@media(max-width:860px){
+  body:not([data-page="home"]) .header .nav>a:not(.cta):not(.language-switch),
+  body:not([data-page="home"]) .site-header .nav>a:not(.cta):not(.language-switch){
+    display:none !important;
+  }
+}
+
+@media(max-width:760px){
+  html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .hero,
+  html[lang="ru"] body[data-page^="cases--"] .hero{
+    padding:1.3rem 0 4rem !important;
+  }
+  html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .section,
+  html[lang="ru"] body[data-page^="cases--"] .section{
+    padding:4.3rem 0 !important;
+  }
+  html[lang="ru"] body:not([data-page="home"]):not([data-page="cases"]):not([data-page="guides"]):not([data-page^="cases--"]):not([data-page^="guides--"]) .contact,
+  html[lang="ru"] body[data-page^="cases--"] .contact{
+    padding:4.8rem 0 3.2rem !important;
+  }
+  html[lang="ru"] body[data-page^="guides--"] .hero{
+    padding:1.3rem 0 3.5rem !important;
+  }
+  .stage25-footer-inner,
+  footer.footer>.container,
+  footer.foot>.container,
+  footer.site-footer>.container{
+    min-height:0;
+    padding-block:1.5rem;
+    align-items:flex-start;
+  }
+  .stage25-footer-inner{flex-direction:column;}
+  .stage25-footer-links{justify-content:flex-start;}
+  .footer .foot,
+  .footer .footer-inner,
+  .site-footer .foot,
+  .site-footer .footer-inner{
+    min-height:0;
+    align-items:flex-start;
+  }
+}
+
+@media(max-width:560px){
+  .header .nav .cta,
+  .header .cta,
+  .site-header .nav .cta,
+  .site-header .cta{
+    min-height:2.55rem !important;
+    padding:.62rem .78rem !important;
+    font-size:.72rem !important;
+  }
+}
+
+@media(max-width:480px){
+  :root{--page:clamp(.9rem,4.5vw,1.15rem) !important;}
+  body .container,
+  body .intl-container{max-width:100% !important;}
+}

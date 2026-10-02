@@ -1,0 +1,231 @@
+/* stage122-mobile-recovery
+   Final mobile repair layer. It runs after all editorial art direction so older
+   mobile rules cannot be overridden by late desktop-oriented selectors. */
+
+@media (max-width: 900px) {
+  html, body { max-width:100%; overflow-x:clip; }
+  body[data-ux-family] .stage98-header { min-height:0!important; }
+  body[data-ux-family] .stage98-head {
+    min-height:4rem!important;
+    height:4rem!important;
+    grid-template-columns:minmax(0,1fr) 2.75rem!important;
+    grid-template-rows:4rem!important;
+    align-items:center!important;
+    gap:.75rem!important;
+  }
+  body[data-ux-family] .stage98-head > * { min-width:0!important; }
+  body[data-ux-family] .stage98-brand {
+    width:max-content!important;
+    max-width:100%!important;
+    min-width:0!important;
+    align-self:center!important;
+  }
+  body[data-ux-family] .stage98-nav { display:none!important; }
+
+  /* Stage 10 used to inject a second hamburger on non-home pages. Stage 98 has
+     replaced it, so the old control and drawer must never re-enter layout. */
+  body[data-ux-family] .mobile-site-toggle,
+  body[data-ux-family] .mobile-site-drawer { display:none!important; }
+
+  body[data-ux-family] .stage98-mobile-menu {
+    display:block!important;
+    position:relative!important;
+    justify-self:end!important;
+    width:2.75rem!important;
+    max-width:2.75rem!important;
+    min-width:2.75rem!important;
+    height:2.75rem!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu > summary {
+    width:2.75rem!important;
+    max-width:2.75rem!important;
+    min-width:2.75rem!important;
+    height:2.75rem!important;
+    min-height:2.75rem!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu:not([open]) > nav { display:none!important; }
+  body[data-ux-family] .stage98-mobile-menu[open] > nav {
+    display:grid!important;
+    position:absolute!important;
+    top:calc(100% + .55rem)!important;
+    right:0!important;
+    left:auto!important;
+    width:min(20rem,calc(100vw - 2rem))!important;
+    min-width:min(20rem,calc(100vw - 2rem))!important;
+    max-width:calc(100vw - 2rem)!important;
+    height:auto!important;
+    max-height:min(38rem,calc(100dvh - 5.5rem))!important;
+    padding:.6rem!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    box-sizing:border-box!important;
+    z-index:400!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu[open] > nav > * {
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu[open] > nav > a {
+    min-height:2.8rem!important;
+    padding:.68rem .78rem!important;
+    white-space:normal!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu[open] .theme-toggle--mobile {
+    min-height:2.8rem!important;
+    padding:.5rem .7rem!important;
+    justify-content:flex-start!important;
+    overflow:visible!important;
+    white-space:normal!important;
+  }
+  body[data-ux-family] .stage98-mobile-menu[open] .stage98-mobile-cta {
+    min-height:2.9rem!important;
+    justify-content:center!important;
+  }
+
+  /* Defensive single-column fallbacks for every generated hero family. */
+  body[data-ux-family] :is(.s44-hero__grid,.s48-hero__grid,.s50-hero__grid,.s51-hero-grid) {
+    grid-template-columns:minmax(0,1fr)!important;
+    min-width:0!important;
+  }
+  body[data-ux-family] :is(.s44-hero__copy,.s48-hero__copy,.s50-hero__copy,.s51-hero-copy),
+  body[data-ux-family] main :is(section,article,aside,div) { min-width:0; }
+
+  /* The reviews header was still using the desktop 1.12fr / 18rem split on a
+     440px viewport. That left the headline track only a few characters wide. */
+  body[data-page="home"] .s113-review-head {
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:1.15rem!important;
+    align-items:start!important;
+  }
+  body[data-page="home"] .s113-review-head > * {
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+  body[data-page="home"] .s113-review-head h2 {
+    max-width:13ch!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+    text-wrap:balance;
+  }
+  body[data-page="home"] .s113-review-head > p {
+    max-width:34rem!important;
+    margin:0!important;
+  }
+
+  /* Stage120 crawl links are useful, but a raw wrapped text rail looked broken
+     immediately above the footer on phones. Keep the links visible and usable. */
+  body[data-page="home"] .s120-priority {
+    width:min(calc(100% - 2rem),80rem)!important;
+    margin:0 auto 2.3rem!important;
+    padding:.75rem!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:.2rem .7rem!important;
+    border:1px solid rgba(255,255,255,.075)!important;
+    border-radius:.9rem!important;
+    background:rgba(255,255,255,.012)!important;
+  }
+  body[data-page="home"] .s120-priority a {
+    min-width:0!important;
+    min-height:2.4rem!important;
+    display:flex!important;
+    align-items:center!important;
+    padding:.45rem .25rem!important;
+    color:var(--ds-muted)!important;
+    font-size:.72rem!important;
+    line-height:1.3!important;
+    text-decoration:none!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* Media can never dictate a wider track than the phone. */
+  body[data-ux-family] main :is(img,picture,video,svg,canvas) { max-width:100%!important; }
+}
+
+@media (max-width: 600px) {
+  /* Hub display headlines use an inline editorial accent on desktop. On a phone
+     that inline switch produces awkward line collisions; make it a clean line. */
+  body[data-page="guides"] .s50-hero h1 em {
+    display:block!important;
+    margin-top:.08em!important;
+  }
+
+  /* The app-development title contains a long Russian word. The desktop
+     max-width was narrower than the available phone column, so the glyphs
+     overflowed even though the page itself stayed clipped. */
+  body[data-page="app-development"][data-ux-family="service"] .s48-hero h1 {
+    max-width:100%!important;
+  }
+
+  /* The legal hero inherited a higher-specificity desktop headline rule. The
+     long Russian word otherwise produces intrinsic width beyond a phone. */
+  body[data-page="privacy"][data-ux-family="legal"] .hero h1 {
+    max-width:100%!important;
+    font-size:clamp(1.7rem,8.2vw,2rem)!important;
+    line-height:1.04!important;
+    letter-spacing:-.035em!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+    hyphens:auto!important;
+  }
+
+  /* Two-column proof bars become cramped below 600px. */
+  body[data-ux-family="service"] .s114-proofbar,
+  body[data-ux-family="service"] .s48-facts,
+  body[data-page="home"] .s44-proofline {
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+
+  /* Case filters were forced to one full-width row per category by a later QA
+     layer, making the mobile library several screens taller. Restore a compact
+     swipeable chip rail while keeping search visible. */
+  body[data-page="cases"] .case-filter {
+    padding:.8rem!important;
+  }
+  body[data-page="cases"] .case-filter__list {
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    gap:.4rem!important;
+    padding:.05rem 0 .25rem!important;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  body[data-page="cases"] .case-filter__list::-webkit-scrollbar { display:none; }
+  body[data-page="cases"] .case-filter__list button {
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:5.4rem!important;
+    min-height:2.55rem!important;
+    padding:.58rem .72rem!important;
+    gap:.55rem!important;
+    scroll-snap-align:start;
+    white-space:nowrap!important;
+  }
+
+  /* Keep action rows usable instead of splitting text into tiny columns. */
+  body[data-ux-family] :is(.s44-actions,.s48-actions,.s50-actions,.s51-actions) {
+    grid-template-columns:1fr!important;
+    width:100%!important;
+  }
+  body[data-ux-family] :is(.s44-actions,.s48-actions,.s50-actions,.s51-actions) > * {
+    width:100%!important;
+    max-width:100%!important;
+  }
+}
+
+@media (max-width: 380px) {
+  body[data-ux-family] .stage98-brand-copy strong { font-size:.86rem!important; }
+  body[data-ux-family] .stage108-footer__nav,
+  body[data-ux-family] .stage108-footer__meta { grid-template-columns:1fr!important; }
+  body[data-page="home"] .s120-priority { grid-template-columns:minmax(0,1fr)!important; }
+}

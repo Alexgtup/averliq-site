@@ -1,0 +1,75 @@
+/* stage125-human-first-depth
+   Calm the presentation layer after the copy pass. Preserve depth, reduce spectacle. */
+
+body[data-page="home"] .s44-hero h1 {
+  max-width:10.5ch!important;
+  font-size:clamp(4.2rem,6.3vw,6.4rem)!important;
+  line-height:.91!important;
+}
+body[data-page="home"] .s44-hero__copy { max-width:42rem!important; }
+body[data-page="home"] .s44-hero__visual { align-self:center!important; }
+
+body[data-ux-family="service"] .s48-kicker {
+  font-family:inherit!important;
+  letter-spacing:.045em!important;
+  font-size:.72rem!important;
+}
+body[data-ux-family="service"] .s48-lead {
+  max-width:43rem!important;
+  line-height:1.65!important;
+}
+body[data-ux-family="service"] .s48-facts strong {
+  font-family:inherit!important;
+  letter-spacing:0!important;
+}
+body[data-ux-family="service"] .s48-system__top,
+body[data-ux-family="service"] .s48-node span {
+  font-family:inherit!important;
+  letter-spacing:.035em!important;
+}
+
+body[data-page="about"] .s50-profile-card > span,
+body[data-page="about"] .s50-profile-card b,
+body[data-ux-family="hub"] .s50-profile-card > span,
+body[data-ux-family="hub"] .s50-profile-card b {
+  font-family:inherit!important;
+  letter-spacing:.02em!important;
+}
+
+body[data-page="guides"] .s50-guide-grid > a > span { display:none!important; }
+body[data-page="guides"] .s50-guide-grid h3 { line-height:1.12!important; }
+body[data-page="guides"] .s50-guide-grid p { max-width:34ch!important; }
+
+@media(max-width:760px){
+  body[data-page="home"] .s44-hero h1 {
+    max-width:9.7ch!important;
+    font-size:clamp(2.85rem,12vw,3.35rem)!important;
+    line-height:.94!important;
+  }
+  body[data-page="home"] .s44-hero { padding-top:3rem!important; }
+  body[data-page="home"] .s44-lead { font-size:1rem!important; line-height:1.6!important; }
+
+  body[data-ux-family="service"] .s48-kicker { display:none!important; }
+  body[data-ux-family="service"] .s48-hero h1 {
+    font-size:clamp(2.25rem,9.7vw,2.8rem)!important;
+    line-height:.98!important;
+  }
+  body[data-ux-family="service"] .s48-lead {
+    font-size:1rem!important;
+    line-height:1.6!important;
+  }
+  body[data-ux-family="service"] .s48-actions { margin-top:1.35rem!important; }
+
+  body[data-page="about"] .s50-kicker,
+  body[data-page="guides"] .s50-kicker { display:none!important; }
+  body[data-page="about"] .s50-hero,
+  body[data-page="guides"] .s50-hero,
+  body[data-ux-family="hub"] .s50-hero { padding-top:2.8rem!important; }
+  body[data-page="about"] .s50-hero h1,
+  body[data-page="guides"] .s50-hero h1,
+  body[data-ux-family="hub"] .s50-hero h1 {
+    font-size:clamp(2.35rem,10vw,3rem)!important;
+    line-height:.98!important;
+  }
+  body[data-page="guides"] .s50-guide-grid > a { padding:1.2rem!important; }
+}

@@ -1,0 +1,220 @@
+/* Stage263 — unified corner system.
+   Final geometry layer: every card/surface uses one radius family instead of
+   inherited square shells mixed with rounded children. */
+
+html body[data-stage263-corners="true"]{
+  --s263-shell:30px;
+  --s263-card:22px;
+  --s263-row:16px;
+  --s263-control:13px;
+}
+
+/* Major inner section surfaces. These are the large white/glass "cards" that
+   were still square on home and service pages after stage259. */
+html body[data-stage263-corners="true"] main :is(
+  .p233-shell,
+  .p255-shell,
+  .stage174-popular>.stage174-shell,
+  .stage173-map>.stage173-shell,
+  .stage173-case-links>.stage173-shell,
+  .p128-proof>.p128-shell,
+  .p128-start>.p128-shell,
+  .p129-outcomes>.p129-shell,
+  .s175-depth>.s175-shell,
+  .secondary-demand>.secondary-demand__shell,
+  .x146-depth>.x146-depth__inner,
+  .stage172-task-map>.stage172-task-map__shell,
+  .stage174-faq>.stage174-shell,
+  .p129-related>.p129-shell,
+  .p129-contact>.p129-shell,
+  .p130-footer-cta,
+  .p130-featured-card,
+  .p132-panel,
+  .p132-end,
+  .s165-bridge>.s165-bridge__grid,
+  .dt-hero>.dt-container,
+  .dt-contact__card,
+  .cta-box,
+  .p221-lab-console,
+  .p130-editorial-grid,
+  .answer
+){
+  border-radius:var(--s263-shell)!important;
+  background-clip:padding-box!important;
+}
+
+/* Primary cards across every page family. */
+html body[data-stage263-corners="true"] main :is(
+  .p233-case,
+  .p233-build-item,
+  .p130-row,
+  .p130-tile,
+  .p129-outcome,
+  .p129-related-grid>a,
+  .secondary-demand__card,
+  .x146-depth__card,
+  .search-demand__card,
+  .stage174-popular__links>a,
+  .stage173-group,
+  .stage174-faq__grid>*,
+  .s175-card,
+  .s177-card,
+  .s205-proof__card,
+  .p223-guide,
+  .dt-tool-card,
+  .dt-panel,
+  .dt-faq article,
+  .dt-related a,
+  .growth-card,
+  .workflow article,
+  article.card,
+  .card,
+  .proof-card,
+  .implemented-card,
+  .feature-card,
+  .metric,
+  .fact,
+  .link-card,
+  .side-card,
+  .stat-card,
+  .contact-card,
+  .status-card,
+  .s51-card,
+  .s51-steps,
+  .s51-contact-card,
+  .p128-proof__numbers>div,
+  .s165-bridge__contact,
+  .service-row,
+  .stage178-route-note,
+  .stage173-guide-nudge
+){
+  border-radius:var(--s263-card)!important;
+  background-clip:padding-box!important;
+}
+
+/* Nested clickable rows should be visibly softer than the parent card. */
+html body[data-stage263-corners="true"] main :is(
+  .stage172-task-map__group nav>a,
+  .stage172-task-map__group>a,
+  .stage173-group nav>a,
+  .stage173-case-row>a,
+  .secondary-demand__grid>a,
+  .stage173-related__links>a,
+  .cluster>a,
+  .compare>article,
+  .step,
+  .signal>div,
+  .p221-lab-row
+){
+  border-radius:var(--s263-row)!important;
+  background-clip:padding-box!important;
+}
+
+/* Media frames must follow the parent geometry instead of leaving square
+   screenshots inside rounded cards. */
+html body[data-stage263-corners="true"] main :is(
+  .p233-case-media,
+  .p130-tile__media,
+  .p130-featured-media,
+  .p129-case-media,
+  .p132-cover-visual,
+  .p155-preview,
+  .p155-service-preview,
+  .shot,
+  .s51-visual,
+  .hero-visual,
+  .visual,
+  .demo
+){
+  border-radius:calc(var(--s263-card) - 2px)!important;
+  overflow:hidden!important;
+  background-clip:padding-box!important;
+}
+html body[data-stage263-corners="true"] main :is(
+  .p233-case-media,
+  .p130-tile__media,
+  .p130-featured-media,
+  .p129-case-media,
+  .p132-cover-visual,
+  .p155-preview,
+  .p155-service-preview,
+  .shot,
+  .s51-visual,
+  .hero-visual,
+  .visual,
+  .demo
+) img{
+  display:block!important;
+  max-width:100%!important;
+}
+
+/* Forms and buttons use the same small-radius language everywhere. */
+html body[data-stage263-corners="true"] :is(
+  .p128-btn,
+  .p128-link,
+  .p129-btn,
+  .btn,
+  .button,
+  .dt-btn,
+  .growth-link,
+  .stage94-action-primary,
+  .stage94-action-secondary,
+  .p132-primary,
+  .p132-back,
+  .stage98-cta,
+  button,
+  input,
+  textarea,
+  select
+){
+  border-radius:var(--s263-control)!important;
+}
+
+/* Pill controls keep their deliberate fully-rounded geometry. */
+html body[data-stage263-corners="true"] :is(
+  .dt-privacy,
+  .pill,
+  .badge,
+  .tag,
+  .facts span
+){
+  border-radius:999px!important;
+}
+
+/* Cookie panel is visually part of the UI and was noticeably sharper than
+   the surrounding cards in the live screenshot. */
+html body[data-stage263-corners="true"] :is(
+  .growth-cookie,
+  .growth-cookie-settings,
+  .cookie,
+  .cookie-banner,
+  .cookie-popup
+){
+  border-radius:20px!important;
+  background-clip:padding-box!important;
+  overflow:hidden!important;
+}
+
+@media(max-width:700px){
+  html body[data-stage263-corners="true"]{
+    --s263-shell:22px;
+    --s263-card:18px;
+    --s263-row:14px;
+    --s263-control:12px;
+  }
+
+  html body[data-stage263-corners="true"] main :is(
+    .stage174-popular>.stage174-shell,
+    .stage173-map>.stage173-shell,
+  .stage173-case-links>.stage173-shell,
+    .stage172-task-map>.stage172-task-map__shell,
+    .secondary-demand>.secondary-demand__shell,
+    .p129-contact>.p129-shell,
+    .p132-panel,
+    .p132-end,
+    .dt-hero>.dt-container,
+    .cta-box
+  ){
+    border-radius:var(--s263-shell)!important;
+  }
+}

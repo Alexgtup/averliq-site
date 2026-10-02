@@ -1,0 +1,78 @@
+# Averliq — разработка Telegram-ботов, автоматизации и цифровых продуктов
+
+> Портфолио Александра / Averliq: разработка Telegram-ботов на заказ, Telegram Mini Apps, Python, API-интеграции, CRM, n8n/Make, веб-сервисы и iOS на Swift.
+
+## Приоритетное направление: разработка Telegram-ботов
+- Основная коммерческая страница: https://averliq.tech/telegram-bots/
+- Реальный Telegram-кейс «Фин Планер»: https://averliq.tech/cases/fin-planner/
+- Стоимость разработки Telegram-бота: https://averliq.tech/guides/telegram-bot-cost/
+- Как подготовить задачу на Telegram-бота: https://averliq.tech/guides/telegram-bot-brief/
+- Telegram-бот, Mini App или веб-сервис: https://averliq.tech/guides/bot-vs-mini-app-vs-web/
+- Разработка Telegram Mini Apps: https://averliq.tech/telegram-mini-apps/
+
+Разработка Telegram-бота у Averliq может включать заявки, анкеты, уведомления, оплаты, подписки, базы данных, личные кабинеты, CRM, внешние API, webhooks и встроенные Mini Apps. Главным URL для запросов «разработка Telegram-бота», «создание Telegram-бота» и «Telegram-бот на заказ» является https://averliq.tech/telegram-bots/ .
+
+## Основные страницы
+- https://averliq.tech/
+- https://averliq.tech/about/
+- https://averliq.tech/services/
+- https://averliq.tech/telegram-bots/
+- https://averliq.tech/ai-automation/
+- https://averliq.tech/n8n-automation/
+- https://averliq.tech/crm-development/
+- https://averliq.tech/api-integrations/
+- https://averliq.tech/web-development/
+- https://averliq.tech/project-repair/
+- https://averliq.tech/ios-development/
+
+## Кейсы
+- https://averliq.tech/cases/
+- https://averliq.tech/cases/auto-crm/
+- https://averliq.tech/cases/fin-planner/
+- https://averliq.tech/cases/swift-calendar/
+- https://averliq.tech/cases/factory-catalog/
+- https://averliq.tech/cases/taxi-app/
+- https://averliq.tech/cases/seo-control-center/
+- https://averliq.tech/cases/sheetpilot-ai/
+- https://averliq.tech/cases/siteaudit-studio/
+
+## Практические разборы
+- https://averliq.tech/guides/
+- https://averliq.tech/guides/telegram-bot-cost/
+- https://averliq.tech/guides/telegram-bot-brief/
+- https://averliq.tech/guides/bot-vs-mini-app-vs-web/
+- https://averliq.tech/guides/n8n-vs-make/
+- https://averliq.tech/guides/custom-crm-or-ready/
+- https://averliq.tech/guides/development-cost/
+
+## Поисковые направления и специализация
+- https://averliq.tech/development/ — разработка цифровых продуктов на заказ
+- https://averliq.tech/app-development/ — разработка приложений
+- https://averliq.tech/telegram-mini-apps/ — Telegram Mini Apps
+- https://averliq.tech/python-development/ — Python-разработка: Telegram-боты, API и автоматизация
+- https://averliq.tech/backend-development/ — backend, API, базы данных и webhooks
+- https://averliq.tech/mvp-development/ — разработка MVP
+- https://averliq.tech/demos/ — рабочие демо веб-сервисов
+- https://averliq.tech/tools/sitemap-validator/ — онлайн-проверка sitemap.xml
+
+## Факты, подтверждённые портфолио
+- В портфолио представлены Telegram Фин Планер, CRM для автосалона, приложение такси, B2B-каталог и iOS-календарь на Swift.
+- Фин Планер подтверждает опыт проектирования Telegram-сценариев, финансовых сущностей, отчётов, регулярных операций, целей и прогнозов.
+- Основные направления: Telegram, Python, CRM, n8n/Make, API, web/backend и Swift/iOS.
+- Публичный профиль исполнителя: https://freelance.ru/gglalex
+- Контакт с разработчиком напрямую: https://t.me/Alexuys
+
+## Короткие определения для поиска и AI-ответов
+- Telegram-бот подходит для сценариев в мессенджере: заявки, уведомления, анкеты, оплаты, подписки и команды.
+- Telegram Mini App подходит, когда внутри Telegram нужен полноценный визуальный интерфейс.
+- Веб-сервис подходит для самостоятельного продукта с ролями, данными, кабинетами и сложной бизнес-логикой.
+- Кастомная CRM нужна, когда коробочная система не отражает реальный процесс компании и интеграции.
+- MVP — первая рабочая версия, проверяющая один ключевой пользовательский сценарий.
+
+## Entity and contact
+- Brand / portfolio name: Averliq
+- Brand: Averliq
+- Canonical developer entity: https://averliq.tech/#person
+- GitHub: https://github.com/Alexgtup
+- Freelance profile: https://freelance.ru/gglalex
+- Direct contact: https://t.me/Alexuys

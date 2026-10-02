@@ -1,0 +1,241 @@
+/* Stage254 — Living luxury motion layer.
+   Motion is subtle, light-theme first, progressive and accessibility-safe. */
+
+:root{
+  --s254-ease:cubic-bezier(.16,1,.3,1);
+  --s254-ink:#172027;
+  --s254-blue:rgba(109,186,226,.30);
+  --s254-lime:rgba(183,229,68,.25);
+  --s254-scroll:0;
+}
+
+/* Top progress: a hairline, not a dashboard widget. */
+html.s254-js::after{
+  content:"";
+  position:fixed;
+  z-index:99999;
+  top:0;
+  left:0;
+  width:calc(var(--s254-scroll,0) * 100%);
+  height:2px;
+  pointer-events:none;
+  background:linear-gradient(90deg,#9edb41 0%,#72c8e8 46%,#b8a7ff 100%);
+  box-shadow:0 0 18px rgba(114,200,232,.28);
+  transform-origin:left center;
+}
+
+/* Header gets a little more material once content moves underneath. */
+body[data-stage254-live="true"] :is(header,.stage98-header){
+  transition:
+    background-color .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease,
+    backdrop-filter .45s ease!important;
+}
+body[data-stage254-live="true"].s254-scrolled :is(header,.stage98-header){
+  background:rgba(250,252,253,.88)!important;
+  border-bottom-color:rgba(45,67,83,.085)!important;
+  box-shadow:0 14px 42px rgba(45,67,83,.055)!important;
+  backdrop-filter:blur(22px) saturate(1.12)!important;
+}
+
+/* Sections reveal from an already readable state — no blank content if runtime fails. */
+html.s254-js body[data-stage254-live="true"] [data-s254-reveal]{
+  opacity:.82;
+  filter:blur(1.6px);
+  transform:translate3d(0,16px,0);
+  transition:
+    opacity .85s var(--s254-ease),
+    transform .95s var(--s254-ease),
+    filter .9s var(--s254-ease);
+  transition-delay:var(--s254-delay,0ms);
+}
+html.s254-js body[data-stage254-live="true"] [data-s254-reveal].is-s254-in{
+  opacity:1;
+  filter:none;
+  transform:none;
+}
+
+/* Child stagger used only for card collections. */
+html.s254-js body[data-stage254-live="true"] [data-s254-stagger]>*{
+  transition:
+    opacity .72s var(--s254-ease),
+    transform .82s var(--s254-ease),
+    filter .76s var(--s254-ease);
+  transition-delay:calc(var(--s254-i,0) * 46ms);
+}
+html.s254-js body[data-stage254-live="true"] [data-s254-stagger]:not(.is-s254-in)>*{
+  opacity:.78;
+  filter:blur(1px);
+  transform:translate3d(0,12px,0);
+}
+html.s254-js body[data-stage254-live="true"] [data-s254-stagger].is-s254-in>*{
+  opacity:1;
+  filter:none;
+  transform:none;
+}
+
+/* Cursor-following light field; inserted by JS, so it never changes layout. */
+body[data-stage254-live="true"] .s254-live-surface{
+  isolation:isolate;
+}
+body[data-stage254-live="true"] .s254-live-surface.s254-positioned{
+  position:relative;
+}
+body[data-stage254-live="true"] .s254-light-field{
+  position:absolute;
+  z-index:7;
+  inset:0;
+  overflow:hidden;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .38s ease;
+  background:
+    radial-gradient(
+      280px circle at var(--s254-x,50%) var(--s254-y,50%),
+      rgba(255,255,255,.46) 0%,
+      rgba(184,225,246,.18) 28%,
+      rgba(189,233,59,.075) 46%,
+      transparent 72%
+    );
+  mix-blend-mode:soft-light;
+}
+body[data-stage254-live="true"] .s254-live-surface:hover>.s254-light-field{
+  opacity:1;
+}
+
+/* A very quiet edge response gives cards depth without black hover fills. */
+body[data-stage254-live="true"] .s254-live-surface{
+  transition:
+    border-color .35s ease,
+    box-shadow .45s var(--s254-ease),
+    transform .45s var(--s254-ease)!important;
+}
+@media(hover:hover) and (pointer:fine){
+  body[data-stage254-live="true"] .s254-live-surface:hover{
+    border-color:rgba(88,143,170,.18)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.98),
+      0 28px 74px rgba(52,72,86,.105)!important;
+  }
+}
+
+/* Magnetic CTA. Uses a nested translate so existing button transforms remain intact. */
+body[data-stage254-live="true"] .s254-magnetic{
+  will-change:transform;
+  transform:
+    translate3d(var(--s254-mx,0px),var(--s254-my,0px),0)
+    scale(var(--s254-ms,1))!important;
+  transition:
+    transform .42s var(--s254-ease),
+    box-shadow .35s ease!important;
+}
+body[data-stage254-live="true"] .s254-magnetic:hover{
+  --s254-ms:1.018;
+}
+
+/* CTA arrows look alive without looping animation. */
+body[data-stage254-live="true"] .s254-arrow{
+  display:inline-block;
+  transition:transform .38s var(--s254-ease);
+}
+body[data-stage254-live="true"] :is(a,button):hover .s254-arrow{
+  transform:translate3d(3px,-2px,0);
+}
+
+/* Accent dots breathe slowly. */
+body[data-stage254-live="true"] :is(
+  .p250-kicker::before,
+  .p130-kicker::before,
+  .p129-kicker::before,
+  .p223-kicker::before
+){
+  animation:s254-breathe 3.6s ease-in-out infinite;
+}
+@keyframes s254-breathe{
+  0%,100%{opacity:.55;filter:drop-shadow(0 0 0 rgba(174,222,60,0))}
+  50%{opacity:1;filter:drop-shadow(0 0 8px rgba(174,222,60,.36))}
+}
+
+/* Interactive workflow gets a subtle living pulse in the active route only. */
+body[data-stage254-live="true"] .p250-node.is-active{
+  animation:s254-node-pulse 4.6s ease-in-out infinite;
+}
+@keyframes s254-node-pulse{
+  0%,100%{box-shadow:inset 0 1px 0 #fff,0 18px 48px rgba(72,99,54,.075)}
+  50%{box-shadow:inset 0 1px 0 #fff,0 22px 58px rgba(94,133,48,.13)}
+}
+
+/* Gallery images get a tiny optical zoom on deliberate hover only. */
+@media(hover:hover) and (pointer:fine){
+  body[data-stage254-live="true"] :is(
+    .p130-tile:not([data-stage214-featured]),
+    .p233-case,
+    .p129-case-card
+  ) img{
+    transition:transform .85s var(--s254-ease),filter .6s ease!important;
+    will-change:transform;
+  }
+  body[data-stage254-live="true"] :is(
+    .p130-tile:not([data-stage214-featured]),
+    .p233-case,
+    .p129-case-card
+  ):hover img{
+    transform:scale(1.025)!important;
+    filter:saturate(1.02) contrast(1.02)!important;
+  }
+}
+
+/* Small footer / bridge elements fade in later than main content. */
+body[data-stage254-live="true"] footer[data-s254-reveal],
+body[data-stage254-live="true"] .footer[data-s254-reveal]{
+  --s254-delay:80ms;
+}
+
+/* Accessibility and mobile: motion becomes mostly state transitions. */
+@media(prefers-reduced-motion:reduce){
+  html.s254-js::after{transition:none!important}
+  html.s254-js body[data-stage254-live="true"] [data-s254-reveal],
+  html.s254-js body[data-stage254-live="true"] [data-s254-stagger]>*{
+    opacity:1!important;
+    filter:none!important;
+    transform:none!important;
+    transition:none!important;
+  }
+  body[data-stage254-live="true"] .s254-magnetic{
+    transform:none!important;
+    transition:none!important;
+  }
+  body[data-stage254-live="true"] .p250-node.is-active,
+  body[data-stage254-live="true"] :is(
+    .p250-kicker::before,
+    .p130-kicker::before,
+    .p129-kicker::before,
+    .p223-kicker::before
+  ){
+    animation:none!important;
+  }
+}
+@media(max-width:760px){
+  html.s254-js::after{height:1px}
+  html.s254-js body[data-stage254-live="true"] [data-s254-reveal],
+  html.s254-js body[data-stage254-live="true"] [data-s254-stagger]>*{
+    filter:none;
+    transform:translate3d(0,8px,0);
+  }
+  body[data-stage254-live="true"] .s254-light-field{display:none}
+  body[data-stage254-live="true"] .s254-magnetic{transform:none!important}
+}
+
+
+/* Workflow nodes already own their positioning. Never let generic live-surface
+   helpers convert the desktop canvas from absolute to document flow. */
+body[data-stage254-live="true"] .p250-node.s254-live-surface{
+  position:absolute!important;
+}
+@media(max-width:620px){
+  body[data-stage254-live="true"] .p250-node.s254-live-surface{
+    position:relative!important;
+  }
+}

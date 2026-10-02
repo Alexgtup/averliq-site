@@ -1,0 +1,104 @@
+/* Final UX pass: scan-first hierarchy, compact secondary content, mobile-first navigation. */
+.ux-quicknav{position:sticky;top:5rem;z-index:88;border-block:1px solid rgba(255,255,255,.08);background:rgba(8,9,11,.86);backdrop-filter:blur(18px) saturate(135%)}
+.ux-quicknav__inner{display:flex;align-items:center;gap:.5rem;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding-block:.62rem}
+.ux-quicknav__inner::-webkit-scrollbar{display:none}
+.ux-quicknav a{flex:0 0 auto;min-height:2.55rem;display:inline-flex;align-items:center;justify-content:center;padding:.62rem .88rem;border:1px solid rgba(255,255,255,.1);border-radius:.78rem;color:#aeb4bc;text-decoration:none;font-size:.79rem;font-weight:760;letter-spacing:-.01em;background:rgba(255,255,255,.025);transition:border-color .18s ease,background .18s ease,color .18s ease,transform .18s ease}
+.ux-quicknav a:hover{color:#f4f5f2;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.055);transform:translateY(-1px)}
+.ux-quicknav a.ux-quicknav__primary{margin-left:auto;background:#c9ff4a;color:#0a0b0d;border-color:#c9ff4a}
+.ux-quicknav a:focus-visible,.ux-brief-more summary:focus-visible{outline:2px solid #c9ff4a;outline-offset:3px}
+
+/* Home: make the page scannable before it becomes readable. */
+.ux-home-main .s44-section{padding-block:clamp(3.4rem,5.5vw,5.6rem)!important}
+.ux-home-main .s44-section-head{margin-bottom:clamp(1.7rem,3vw,2.5rem)!important}
+.ux-home-main .s44-section-head h2{max-width:14ch}
+.ux-home-main .s44-section-head p{max-width:42rem!important;color:#8f969f!important}
+.ux-home-main .s44-route-grid{gap:.8rem!important}
+.ux-home-main .s44-route{min-height:12.5rem!important;padding:1.25rem!important;border-radius:1.15rem!important;display:flex!important;flex-direction:column!important;transition:transform .18s ease,border-color .18s ease,background .18s ease!important}
+.ux-home-main .s44-route:hover{transform:translateY(-2px)}
+.ux-home-main .s44-route h3{margin-top:.85rem!important;font-size:clamp(1.12rem,1.7vw,1.42rem)!important;line-height:1.08!important}
+.ux-home-main .s44-route p,.ux-home-main .s44-case__body p,.ux-home-main .s44-value-grid p,.ux-home-main .s44-price-grid p,.ux-home-main .growth-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.ux-home-main .s44-route b{margin-top:auto!important;padding-top:.9rem}
+.ux-home-main .s44-case-grid{gap:1rem!important}
+.ux-home-main .s44-case{border-radius:1.3rem!important;overflow:hidden}
+.ux-home-main .s44-case__body{padding:1.15rem 1.2rem 1.3rem!important}
+.ux-home-main .s44-case__body h3{margin:.45rem 0 .5rem!important}
+.ux-home-main .s44-value-grid{gap:.75rem!important}
+.ux-home-main .s44-value-grid article{padding:1.1rem 1.15rem!important;min-height:auto!important}
+.ux-home-main .s44-value-grid article h3{margin:.7rem 0 .45rem!important;font-size:1.05rem!important}
+.ux-home-main .s44-trust-card{margin-top:1rem!important;padding:clamp(1.2rem,2.6vw,2rem)!important}
+.ux-home-main .s44-price-grid{gap:.75rem!important}
+.ux-home-main .s44-price-grid article{padding:1.1rem 1.15rem!important;min-height:auto!important}
+.ux-home-main .s44-price-grid strong{margin:.45rem 0 .5rem!important}
+.ux-home-main .s44-process{gap:.75rem!important}
+.ux-home-main .s44-process li{padding:1.1rem!important;border-radius:1rem!important}
+.ux-home-main .s44-process h3{margin:.1rem 0 .45rem!important;font-size:1.02rem!important}
+.ux-home-main .growth-section{padding-block:clamp(2.8rem,5vw,4.5rem)!important}
+.ux-home-main .growth-shell{padding:clamp(1.3rem,3vw,2rem)!important;border-radius:1.3rem!important}
+.ux-home-main .growth-shell h2{max-width:18ch;margin-bottom:.65rem!important}
+
+/* Brief: ask for the minimum first, expose details only when useful. */
+.ux-brief-more{grid-column:1/-1;border:1px solid rgba(255,255,255,.09);border-radius:1rem;background:rgba(255,255,255,.018);overflow:hidden}
+.ux-brief-more summary{cursor:pointer;list-style:none;min-height:3.1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem;color:#aeb4bc;font-size:.84rem;font-weight:750}
+.ux-brief-more summary::-webkit-details-marker{display:none}
+.ux-brief-more summary::after{content:'+';font-size:1.15rem;color:#c9ff4a;line-height:1}
+.ux-brief-more[open] summary::after{content:'−'}
+.ux-brief-more__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;padding:0 1rem 1rem}
+.ux-brief-more__grid label{min-width:0}
+
+/* Service pages: persistent orientation, less vertical repetition. */
+.ux-service-main [id]{scroll-margin-top:9rem}
+.ux-service-main .s48-section{padding-block:clamp(3.2rem,5.4vw,5.2rem)!important}
+.ux-service-main .s48-head{margin-bottom:clamp(1.5rem,2.6vw,2.2rem)!important}
+.ux-service-main .s48-fit-grid,.ux-service-main .s48-process,.ux-service-main .s48-budget{gap:.75rem!important}
+.ux-service-main .s48-fit-grid article,.ux-service-main .s48-process article,.ux-service-main .s48-budget article{padding:1.05rem 1.1rem!important;min-height:auto!important;border-radius:1rem!important}
+.ux-service-main .s48-fit-grid p,.ux-service-main .s48-process p,.ux-service-main .s48-budget p,.ux-service-main .growth-card p,.ux-service-main .s52-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.ux-service-main .s48-notfor{margin-top:1rem!important;padding:1rem 1.1rem!important;border-radius:.95rem!important}
+.ux-service-main .s48-proof .s48-case{border-radius:1.2rem!important}
+.ux-service-main .growth-section{padding-block:clamp(2.8rem,4.8vw,4.4rem)!important}
+.ux-service-main .growth-shell{padding:clamp(1.2rem,2.5vw,1.8rem)!important;border-radius:1.2rem!important}
+.ux-service-main .growth-grid{gap:.75rem!important}
+.ux-service-main .growth-card{padding:1rem 1.05rem!important;border-radius:1rem!important}
+.ux-service-main .s52{padding-block:clamp(2.8rem,4.8vw,4.2rem)!important}
+.ux-service-main .s52-card{padding:1rem 1.05rem!important;min-height:auto!important}
+.ux-service-main .s48-related{gap:.6rem!important;margin-top:1rem!important}
+.ux-service-main .s48-related a{padding:.8rem .9rem!important;border-radius:.8rem!important}
+.ux-service-main .s48-trust{padding:clamp(1.25rem,2.6vw,2rem)!important;border-radius:1.2rem!important}
+.ux-service-main .growth-faq details{margin-top:.55rem!important;border-radius:.85rem!important}
+.ux-service-main .growth-faq summary{min-height:3.1rem;display:flex;align-items:center;padding:.8rem .95rem!important}
+.ux-service-main .s48-contact{padding-top:clamp(2.4rem,4vw,4rem)!important}
+.ux-service-main .s48-contact__box{padding:clamp(1.35rem,3vw,2.2rem)!important;border-radius:1.3rem!important}
+
+@media (max-width:900px){
+  .ux-quicknav{top:4.25rem}
+  .ux-quicknav__inner{padding-inline:var(--page,1rem)}
+  .ux-quicknav a.ux-quicknav__primary{margin-left:0}
+  .ux-home-main .s44-section-head{gap:1rem!important}
+  .ux-brief-more__grid{grid-template-columns:1fr}
+  .ux-service-main [id]{scroll-margin-top:8rem}
+}
+
+@media (max-width:620px){
+  .ux-quicknav a{min-height:2.45rem;padding:.58rem .76rem;font-size:.75rem}
+  .ux-home-main .s44-section{padding-block:2.8rem!important}
+  .ux-home-main .s44-section-head{margin-bottom:1.35rem!important}
+  .ux-home-main .s44-section-head p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:.9rem!important}
+  .ux-home-main .s44-route{min-height:8.7rem!important;padding:1rem!important}
+  .ux-home-main .s44-route p{display:none}
+  .ux-home-main .s44-route h3{font-size:1.05rem!important;margin-top:.65rem!important}
+  .ux-home-main .s44-route b{font-size:.78rem!important;padding-top:.6rem}
+  .ux-home-main .s44-case__body p{-webkit-line-clamp:2}
+  .ux-home-main .s44-value-grid p{-webkit-line-clamp:2;font-size:.84rem!important}
+  .ux-home-main .s44-price-grid p{-webkit-line-clamp:1;font-size:.84rem!important}
+  .ux-home-main .s44-process p{display:none}
+  .ux-home-main .s44-process li{min-height:5.5rem!important}
+  .ux-home-main .growth-shell p{-webkit-line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+  .ux-brief-more summary{font-size:.8rem}
+  .ux-service-main .s48-section{padding-block:2.8rem!important}
+  .ux-service-main .s48-fit-grid p,.ux-service-main .s48-process p,.ux-service-main .s48-budget p{font-size:.84rem!important;-webkit-line-clamp:2}
+  .ux-service-main .s48-related{display:flex!important;overflow-x:auto;scrollbar-width:none;padding-bottom:.25rem}
+  .ux-service-main .s48-related::-webkit-scrollbar{display:none}
+  .ux-service-main .s48-related a{flex:0 0 13.5rem!important;min-width:13.5rem!important}
+  .ux-service-main .growth-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding-bottom:.25rem}
+  .ux-service-main .growth-grid::-webkit-scrollbar{display:none}
+  .ux-service-main .growth-card{flex:0 0 82%;scroll-snap-align:start}
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Averliq — кейсы и разборы</title>
+  <link href="https://averliq.tech/feed.xml" rel="self"/>
+  <link href="https://averliq.tech/"/>
+  <id>https://averliq.tech/</id>
+  <updated>2026-09-06T00:00:00Z</updated>
+  <author><name>Александр</name><uri>https://averliq.tech/about/</uri></author>
+  <entry>
+    <title>Разработка Telegram-ботов, CRM и автоматизации | Averliq</title>
+    <link href="https://averliq.tech/"/>
+    <id>https://averliq.tech/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Разработка Telegram-ботов, CRM, n8n/Make-автоматизации, веб-сервисов и API-интеграций. Реальные проекты, прямой контакт с разработчиком, запуск и доработка.</summary>
+  </entry>
+  <entry>
+    <title>Разработка Telegram-ботов на заказ — API, CRM, оплаты | Александр</title>
+    <link href="https://averliq.tech/telegram-bots/"/>
+    <id>https://averliq.tech/telegram-bots/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Разработка Telegram-ботов на заказ: заявки, личные кабинеты, оплаты, подписки, CRM, API, уведомления и Mini Apps. От сценария до запуска и поддержки.</summary>
+  </entry>
+  <entry>
+    <title>Автоматизация n8n и Make на заказ — CRM, Telegram, API | Александр</title>
+    <link href="https://averliq.tech/n8n-automation/"/>
+    <id>https://averliq.tech/n8n-automation/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Автоматизация процессов в n8n и Make: CRM, Telegram, формы, таблицы, API, webhooks, отчёты и уведомления. Проектирование workflow, тестирование и запуск.</summary>
+  </entry>
+  <entry>
+    <title>Разработка CRM на заказ — заявки, статусы, интеграции | Александр</title>
+    <link href="https://averliq.tech/crm-development/"/>
+    <id>https://averliq.tech/crm-development/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Разработка CRM на заказ под конкретный процесс: заявки, клиенты, статусы, роли, фильтры, аналитика и интеграции с сайтом, Telegram и API.</summary>
+  </entry>
+  <entry>
+    <title>Фин Планер — кейс Telegram-бота для бюджета и финансового анализа</title>
+    <link href="https://averliq.tech/cases/fin-planner/"/>
+    <id>https://averliq.tech/cases/fin-planner/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Кейс Telegram-бота Фин Планер: личный бюджет, доходы и расходы, регулярные платежи, баланс, отчёты, цели, прогноз и финансовый анализ в Telegram.</summary>
+  </entry>
+  <entry>
+    <title>iOS-календарь на Swift — кейс разработки приложения</title>
+    <link href="https://averliq.tech/cases/swift-calendar/"/>
+    <id>https://averliq.tech/cases/swift-calendar/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Кейс iOS-календаря на Swift: интерфейс задач и событий, пользовательский аккаунт, подписочная модель и визуальная упаковка реальных экранов приложения.</summary>
+  </entry>
+  <entry>
+    <title>CRM для автосалона: заявки и автоматизация — кейс</title>
+    <link href="https://averliq.tech/cases/auto-crm/"/>
+    <id>https://averliq.tech/cases/auto-crm/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Кейс разработки CRM для автосалона: единый учёт заявок, статусы работы менеджеров, вебхуки и автоматизация рабочего процесса.</summary>
+  </entry>
+  <entry>
+    <title>Сколько стоит Telegram-бот в 2026: из чего складывается цена | Александр</title>
+    <link href="https://averliq.tech/guides/telegram-bot-cost/"/>
+    <id>https://averliq.tech/guides/telegram-bot-cost/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>От чего зависит стоимость разработки Telegram-бота в 2026 году: сценарии, база данных, CRM, API, оплаты, Mini App и ошибки. Как подготовить задачу к точной оценке.</summary>
+  </entry>
+  <entry>
+    <title>n8n или Make: что выбрать для автоматизации в 2026 | Александр</title>
+    <link href="https://averliq.tech/guides/n8n-vs-make/"/>
+    <id>https://averliq.tech/guides/n8n-vs-make/</id>
+    <updated>2026-09-06T00:00:00Z</updated>
+    <summary>Практическое сравнение n8n и Make: self-hosted, интеграции, кастомная логика, обслуживание и сценарии. Когда лучше n8n, а когда Make.</summary>
+  </entry>
+
+  <entry><title>Сколько стоит разработка проекта</title><link href="https://averliq.tech/guides/development-cost/"/><id>https://averliq.tech/guides/development-cost/</id><updated>2026-09-06T00:00:00+08:00</updated><summary>Что влияет на оценку Telegram-бота, CRM, приложения, веб-сервиса, MVP и интеграции.</summary></entry>
+  <entry><title>Бот, Mini App или web: что выбрать</title><link href="https://averliq.tech/guides/bot-vs-mini-app-vs-web/"/><id>https://averliq.tech/guides/bot-vs-mini-app-vs-web/</id><updated>2026-09-06T00:00:00+08:00</updated><summary>Сравнение Telegram-бота, Mini App, веб-приложения и нативного mobile.</summary></entry>
+</feed>

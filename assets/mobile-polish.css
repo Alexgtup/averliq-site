@@ -1,0 +1,209 @@
+/* Stage 81 — mobile visual coherence across mixed page generations.
+   This layer is intentionally conservative: it normalizes geometry, wrapping,
+   action groups and wide content without redesigning individual templates. */
+
+:root{--mobile-gutter:clamp(1rem,4.5vw,1.25rem);}
+
+@media (max-width:760px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  html,body{width:100%;max-width:100%;overflow-x:clip;}
+  body{min-width:0;}
+
+  body .container,
+  body .intl-container{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    padding-left:max(var(--mobile-gutter),env(safe-area-inset-left)) !important;
+    padding-right:max(var(--mobile-gutter),env(safe-area-inset-right)) !important;
+  }
+
+  main,section,article,aside,header,footer,nav,
+  .head,.header-inner,.footer-inner,.foot,.section-head,
+  .hero,.hero-inner,.hero-copy,.hero-grid,.visual,.layout,
+  .grid,.cards,.work-grid,.route-grid,.service-grid,.services-grid,
+  .case-grid,.proof-grid,.trust-grid,.offer-grid,.decision-grid,
+  .result-grid,.process-grid,.contact-grid,.about-grid,
+  .case-study,.case-study__copy,.case-study__media,
+  .s50-grid,.s51-grid,.s64-grid,.s72-offers,.s77-grid{
+    min-width:0 !important;
+    max-width:100%;
+  }
+
+  .hero-grid,.section-head,.gallery,.case-study,.layout,
+  .split,.two-col,.about-grid,.contact-grid,.service-grid,.services-grid,
+  .case-grid,.proof-grid,.trust-grid,.offer-grid,.decision-grid,
+  .result-grid,.process-grid,.s50-grid,.s51-grid,.s64-grid,.s72-offers,.s77-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .grid>*,.cards>*,.work-grid>*,.route-grid>*,.service-grid>*,
+  .services-grid>*,.case-grid>*,.proof-grid>*,.trust-grid>*,
+  .offer-grid>*,.decision-grid>*,.result-grid>*,.process-grid>*,
+  .contact-grid>*,.about-grid>*{
+    min-width:0 !important;
+    max-width:100%;
+  }
+
+  h1,h2,h3,h4,
+  .hero h1,.section h2,.contact-card h2,
+  .case-study__copy h3{
+    max-width:100% !important;
+    overflow-wrap:break-word;
+    word-break:normal;
+    text-wrap:balance;
+  }
+
+  p,li,dd,dt,blockquote,.lead,.muted,.case-point,.tag,.chip{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  .actions,.hero-actions,.cta-actions,.contact-actions,
+  .case-study__actions,.case-footer,.project-actions,
+  .section-actions,.stage25-footer-links{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    flex-wrap:wrap !important;
+    gap:.55rem !important;
+  }
+
+  .btn,.cta,.case-link,.action,.button,
+  a[class*="btn"],button[class*="btn"]{
+    max-width:100%;
+    min-width:0;
+    white-space:normal !important;
+    text-align:center;
+    line-height:1.2;
+  }
+
+  .header .head,.site-header .head,
+  .header .header-inner,.site-header .header-inner,
+  .intl-header .intl-container{
+    gap:.65rem !important;
+  }
+
+  .header .brand,.site-header .brand,.brand{
+    min-width:0 !important;
+    max-width:100%;
+    flex:0 1 auto;
+  }
+
+  .header .brand>strong,.site-header .brand>strong,
+  .header .brand-word,.site-header .brand-word,
+  .brand-name{
+    min-width:0;
+    max-width:10rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .header .nav,.site-header .nav,.nav{
+    min-width:0;
+    max-width:100%;
+    margin-left:auto;
+    gap:.45rem !important;
+  }
+
+  .header .nav .cta,.site-header .nav .cta,
+  .header>.container .cta,.site-header>.container .cta{
+    max-width:10.5rem;
+    white-space:normal !important;
+  }
+
+  .crumbs,.breadcrumbs{
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .visual,.contact-card,.case-study,
+  .work-grid>article,.grid>article,.cards>article{
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  img,video,canvas,iframe,svg{
+    max-width:100% !important;
+  }
+
+  pre{
+    display:block;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  code,kbd,samp{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  table{
+    display:block;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  input,select,textarea,button{
+    max-width:100%;
+    min-width:0;
+  }
+
+  .cookie,.cookie-banner,[class*="cookie"]{
+    max-width:calc(100vw - 2 * var(--mobile-gutter));
+  }
+}
+
+@media (max-width:560px){
+  :root{--mobile-gutter:1rem;}
+
+  .header .head,.site-header .head,
+  .header .header-inner,.site-header .header-inner,
+  .intl-header .intl-container{
+    gap:.5rem !important;
+  }
+
+  .header .brand>strong,.site-header .brand>strong,
+  .header .brand-word,.site-header .brand-word,
+  .brand-name{max-width:7rem;}
+
+  .header .nav .cta,.site-header .nav .cta,
+  .header>.container .cta,.site-header>.container .cta{
+    max-width:8.8rem;
+    padding:.58rem .68rem !important;
+    font-size:.69rem !important;
+  }
+
+  .actions>.btn,.hero-actions>.btn,.cta-actions>.btn,
+  .contact-actions>.btn,.case-study__actions>.btn{
+    flex:1 1 12rem;
+  }
+
+  .visual,.contact-card,.case-study,
+  .work-grid>article,.grid>article,.cards>article{
+    border-radius:1.05rem !important;
+  }
+}
+
+@media (max-width:360px){
+  :root{--mobile-gutter:.9rem;}
+
+  .header .brand>strong,.site-header .brand>strong,
+  .header .brand-word,.site-header .brand-word,
+  .brand-name{max-width:5.25rem;}
+
+  .header .nav .cta,.site-header .nav .cta,
+  .header>.container .cta,.site-header>.container .cta{
+    max-width:7.8rem;
+    padding:.55rem .6rem !important;
+    font-size:.66rem !important;
+  }
+}

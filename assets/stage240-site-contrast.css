@@ -1,0 +1,104 @@
+/* Stage240 — site-wide contrast QA.
+   Loaded last on every route. Only fixes verified contrast failures. */
+
+/* Dark global shell: tiny brand descriptor was below AA. */
+body:not([data-stage239-light-luxury="true"]) header.stage98-header .stage98-brand-copy small{
+  color:#939faa!important;
+  -webkit-text-fill-color:#939faa!important;
+  opacity:1!important;
+}
+
+/* Service pages: conversion/trust strip is light, so legacy gray must not survive. */
+body[data-ux-family="service"] main .s177-conversion .s177-card p,
+body[data-ux-family="service"] main .s177-conversion .s177-card span{
+  color:#485149!important;
+  -webkit-text-fill-color:#485149!important;
+  opacity:1!important;
+}
+body[data-ux-family="service"] main .s177-conversion .s177-card strong,
+body[data-ux-family="service"] main .s177-conversion .s177-card blockquote{
+  color:#171914!important;
+  -webkit-text-fill-color:#171914!important;
+}
+body[data-ux-family="service"] main .s177-conversion .s177-cta b{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Telegram service system diagram: micro labels were slightly under AA. */
+body[data-stage215-service="telegram-bots"] .p215-system .p215-node small{
+  color:#8fa0ae!important;
+  -webkit-text-fill-color:#8fa0ae!important;
+  opacity:1!important;
+}
+
+/* About uses a warm yellow world; dark-theme utility text was leaking into it. */
+body[data-page="about"] main.p130-hub .p130-person-name,
+body[data-page="about"] main.p130-hub .p130-region-signal,
+body[data-page="about"] main.p130-hub .stage199-coverage{
+  color:#3f3a2d!important;
+  -webkit-text-fill-color:#3f3a2d!important;
+  opacity:1!important;
+}
+body[data-page="about"] main.p130-hub .p130-person-name span{
+  color:#5a513c!important;
+  -webkit-text-fill-color:#5a513c!important;
+}
+body[data-page="about"] main.p130-hub .p130-hero h1 span{
+  color:#8f2f2a!important;
+  -webkit-text-fill-color:#8f2f2a!important;
+  opacity:1!important;
+}
+
+/* Tool related cards are white; their 10px descriptions need a darker floor. */
+body[data-ux-family="tool"] .ux-tool-main .dt-related a span,
+body[data-ux-family="tool"] .dt-related a span{
+  color:#56616c!important;
+  -webkit-text-fill-color:#56616c!important;
+  opacity:1!important;
+  font-size:11px!important;
+}
+
+/* Keep hub discovery sections coherent with their own light gradient surface.
+   Explicit lock prevents later dark-world helpers from overriding them. */
+body[data-ux-family="hub"] main.p130-hub section.x146-depth{
+  color:#171914!important;
+}
+body[data-ux-family="hub"] main.p130-hub section.x146-depth :is(h2,h3){
+  color:#171914!important;
+  -webkit-text-fill-color:#171914!important;
+}
+body[data-ux-family="hub"] main.p130-hub section.x146-depth :is(.x146-depth__intro,.x146-depth__card p){
+  color:#4f554d!important;
+  -webkit-text-fill-color:#4f554d!important;
+}
+body[data-ux-family="hub"] main.p130-hub section.x146-depth .x146-depth__eyebrow{
+  color:#656d60!important;
+  -webkit-text-fill-color:#656d60!important;
+}
+
+@media(max-width:600px){
+  body:not([data-stage239-light-luxury="true"]) header.stage98-header .stage98-brand-copy small{
+    color:#9aa6b0!important;
+  }
+}
+
+
+/* Stage240 homepage QA follow-up */
+body[data-page="home"][data-stage239-light-luxury="true"] .p128-link span{
+  color:#3e4d57!important;
+  -webkit-text-fill-color:#3e4d57!important;
+  opacity:1!important;
+}
+body[data-page="home"][data-stage239-light-luxury="true"] .p128-proofbar>a{
+  color:#26343d!important;
+  -webkit-text-fill-color:#26343d!important;
+}
+body[data-page="home"][data-stage239-light-luxury="true"] .p128-proofbar>a strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+body[data-page="home"][data-stage239-light-luxury="true"] .p128-proofbar>a span{
+  color:#53626c!important;
+  -webkit-text-fill-color:#53626c!important;
+}

@@ -1,0 +1,110 @@
+/* stage137-motion-failsafe */
+/* Motion must never be allowed to hide production content. */
+body[data-x135="true"] .x135-enter{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+}
+
+/* First viewport must always remain visible. */
+body[data-x135="true"] :is(
+  .p128-hero,
+  .p129-svc-hero,
+  .p130-hero,
+  .p132-cover,
+  .hero,
+  .dt-hero,
+  .intl-hero,
+  .growth-hero,
+  .fos-hero
+){
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  visibility:visible!important;
+}
+
+/* Emergency stability mode for the homepage.
+   The homepage keeps the Stage128/133 visual design, but no element inside
+   the page may be driven by CSS animation/view timelines while this guard is
+   active. Motion will be reintroduced later in isolated decorative layers. */
+body[data-page="home"] .p128-home,
+body[data-page="home"] .p128-home *,
+body[data-page="home"] .p128-home *::before,
+body[data-page="home"] .p128-home *::after{
+  animation:none!important;
+  animation-timeline:auto!important;
+  animation-range:normal!important;
+}
+
+/* Stage133 reveal CSS used opacity:0 as its resting state. Its runtime is
+   intentionally disabled on the homepage, so reveal nodes must be visible by
+   construction instead of waiting for JavaScript. */
+body[data-page="home"] .wow-reveal,
+body[data-page="home"] .wow-reveal.is-visible{
+  opacity:1!important;
+  transform:none!important;
+  filter:none!important;
+  visibility:visible!important;
+}
+
+/* Remove runtime-only experimental surfaces from the homepage. */
+body[data-page="home"] :is(.x134-webgl,.x134-scan,.x134-cursor,.x135-scene,.x135-progress){
+  display:none!important;
+}
+
+/* Structural hero nodes are immutable. */
+body[data-page="home"] .p128-hero,
+body[data-page="home"] .p128-hero > .p128-shell,
+body[data-page="home"] .p128-hero__copy,
+body[data-page="home"] .p128-hero__visual,
+body[data-page="home"] .p128-proofbar{
+  animation:none!important;
+  animation-timeline:auto!important;
+  animation-range:normal!important;
+  translate:none!important;
+  scale:none!important;
+  rotate:none!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body[data-page="home"] .p128-hero,
+body[data-page="home"] .p128-hero > .p128-shell,
+body[data-page="home"] .p128-hero__copy,
+body[data-page="home"] .p128-proofbar{
+  transform:none!important;
+  filter:none!important;
+}
+body[data-page="home"] .p128-hero > .p128-shell{
+  position:relative!important;
+  inset:auto!important;
+}
+
+/* Keep project cards in their intended static composition. */
+body[data-page="home"] .p128-shot--one{transform:rotate(-8deg)!important}
+body[data-page="home"] .p128-shot--two{transform:rotate(7deg)!important}
+body[data-page="home"] .p128-shot--three{transform:rotate(-2deg)!important}
+
+/* Progressive reveal remains available everywhere except the homepage. */
+@supports (animation-timeline:view()){
+  body[data-x135="true"]:not([data-page="home"]) main > section:not(:first-of-type),
+  body[data-x135="true"]:not([data-page="home"]) main article > section{
+    animation:x137-view-reveal linear both;
+    animation-timeline:view();
+    animation-range:entry 0% entry 38%;
+  }
+  @keyframes x137-view-reveal{
+    from{opacity:.72;transform:translateY(22px) scale(.995);filter:blur(4px)}
+    to{opacity:1;transform:none;filter:none}
+  }
+}
+
+@media (prefers-reduced-motion:reduce),(max-width:760px){
+  body[data-x135="true"] main > section,
+  body[data-x135="true"] main article > section{
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+    filter:none!important;
+  }
+}

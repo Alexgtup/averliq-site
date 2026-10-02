@@ -1,0 +1,1214 @@
+/* Stage242 — final contrast + surface harmony QA.
+   Loaded after stage241. Light editorial surfaces use dark type;
+   intentionally dark product/preview surfaces keep light type. */
+
+/* ---------- shared shell ---------- */
+html body[data-ux-family]:not([data-page="home"]) header.stage98-header .stage98-brand-copy small{
+  color:#53636e!important;
+  -webkit-text-fill-color:#53636e!important;
+  opacity:1!important;
+}
+html body[data-ux-family] .p131-bridge{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner{
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 16px 44px rgba(45,59,70,.055)!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>span{
+  color:#596a75!important;
+  -webkit-text-fill-color:#596a75!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>a{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  background:rgba(255,255,255,.45)!important;
+  border-color:rgba(41,57,69,.10)!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>a:hover{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+  background:rgba(255,255,255,.88)!important;
+}
+
+html body[data-ux-family] .s165-bridge{
+  background:transparent!important;
+}
+html body[data-ux-family] .s165-bridge__inner{
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.07)!important;
+}
+html body[data-ux-family] .s165-bridge__eyebrow{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body[data-ux-family] .s165-bridge__copy{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family] .s165-bridge :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+
+html body[data-ux-family] details.ux-seo-more{
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.66)!important;
+}
+html body[data-ux-family] details.ux-seo-more>summary{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+  opacity:1!important;
+}
+html body[data-ux-family] .stage94-action-secondary{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  border-color:rgba(41,57,69,.17)!important;
+  background:rgba(255,255,255,.66)!important;
+}
+
+/* ---------- service family ---------- */
+html body[data-ux-family="service"] main.p129-service section.x146-depth{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.x146-depth .x146-depth__inner{
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.x146-depth .x146-depth__card{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 18px 50px rgba(45,59,70,.065)!important;
+}
+html body[data-ux-family="service"] main.p129-service section.x146-depth :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.x146-depth :is(p,li,span){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family="service"] main.p129-service section.x146-depth .x146-depth__eyebrow{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+
+html body[data-ux-family="service"] main.p129-service section.stage174-faq{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage174-faq :is(h2,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage174-faq details{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.74)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage174-faq summary{
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage174-faq details p{
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+html body[data-ux-family="service"] main.p129-service section.stage172-task-map,
+html body[data-ux-family="service"] main.p129-service section.search-demand{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage172-task-map :is(h2,h3,strong),
+html body[data-ux-family="service"] main.p129-service section.search-demand :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage172-task-map :is(p,span),
+html body[data-ux-family="service"] main.p129-service section.search-demand :is(p,span){
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body[data-ux-family="service"] main.p129-service section.stage172-task-map article,
+html body[data-ux-family="service"] main.p129-service section.search-demand article,
+html body[data-ux-family="service"] main.p129-service section.search-demand a{
+  border-color:rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.72)!important;
+}
+
+/* Dark service diagrams stay dark: restore readable light labels. */
+html body[data-ux-family="service"] .p215-system,
+html body[data-ux-family="service"] .p221-system{
+  color:#edf3f6!important;
+}
+html body[data-ux-family="service"] .p215-system :is(h2,h3,strong,b),
+html body[data-ux-family="service"] .p221-system :is(h2,h3,strong,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-ux-family="service"] .p215-system :is(p,span,small),
+html body[data-ux-family="service"] .p221-system :is(p,span,small){
+  color:#b7c2c9!important;
+  -webkit-text-fill-color:#b7c2c9!important;
+}
+html body[data-ux-family="service"] .p215-system .p215-node strong{
+  color:#f4f7f8!important;
+  -webkit-text-fill-color:#f4f7f8!important;
+}
+html body[data-ux-family="service"] .p215-system .p215-node small{
+  color:#aebbc4!important;
+  -webkit-text-fill-color:#aebbc4!important;
+}
+
+/* ---------- hub family ---------- */
+html body[data-ux-family="hub"] main.p130-hub .p130-kicker,
+html body[data-ux-family="hub"] main.p130-hub .p214-curator__eyebrow{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p214-curator p,
+html body[data-ux-family="hub"] main.p130-hub .p224-decision-intro{
+  color:#4e5e68!important;
+  -webkit-text-fill-color:#4e5e68!important;
+}
+
+/* Dark profile/console visuals remain dark and therefore need light type. */
+html body[data-page="about"] .p219-profile{
+  color:#edf3f6!important;
+}
+html body[data-page="about"] .p219-profile :is(h2,h3,strong,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-page="about"] .p219-profile :is(p,span,small){
+  color:#b8c3ca!important;
+  -webkit-text-fill-color:#b8c3ca!important;
+}
+html body[data-ux-family="hub"] .p221-lab-console{
+  color:#edf3f6!important;
+}
+html body[data-ux-family="hub"] .p221-lab-console :is(h2,h3,strong,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-ux-family="hub"] .p221-lab-console :is(p,span,small){
+  color:#b8c3ca!important;
+  -webkit-text-fill-color:#b8c3ca!important;
+}
+
+/* Demos/contact strips now sit on the light page. */
+html body[data-ux-family="hub"] .growth-section{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="hub"] .growth-section .growth-shell{
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.07)!important;
+}
+html body[data-ux-family="hub"] .growth-section :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] .growth-section :is(p,span.growth-label){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="hub"] .growth-section a.growth-link{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  border-color:rgba(41,57,69,.16)!important;
+}
+
+/* Tools hub filters */
+html body.dt-body[data-ux-family="hub"] .dt-kicker{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body.dt-body[data-ux-family="hub"] .ux-filterbar__label{
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body.dt-body[data-ux-family="hub"] .ux-filterbar button{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+  border-color:rgba(41,57,69,.14)!important;
+  background:rgba(255,255,255,.66)!important;
+}
+html body.dt-body[data-ux-family="hub"] .ux-filterbar button[aria-pressed="true"],
+html body.dt-body[data-ux-family="hub"] .ux-filterbar button.is-active{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:#172027!important;
+  border-color:#172027!important;
+}
+
+/* ---------- guide family ---------- */
+html body[data-ux-family="guide"] main.ux-guide-main>section.hero{
+  color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>section.hero h1{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>section.hero h1 em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>section.hero .lead{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>section.hero :is(.kicker,.meta,.meta span){
+  color:#5a6a75!important;
+  -webkit-text-fill-color:#5a6a75!important;
+}
+
+html body[data-ux-family="guide"] main.ux-guide-main .article .link-card,
+html body[data-ux-family="guide"] main.ux-guide-main .article .matrix .mini,
+html body[data-ux-family="guide"] main.ux-guide-main .article .faq details{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(250,252,253,.94)!important;
+  box-shadow:0 12px 34px rgba(45,59,70,.045)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .link-card :is(h3,strong),
+html body[data-ux-family="guide"] main.ux-guide-main .article .matrix .mini :is(h3,strong),
+html body[data-ux-family="guide"] main.ux-guide-main .article .faq summary{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .link-card :is(p,span),
+html body[data-ux-family="guide"] main.ux-guide-main .article .matrix .mini :is(p,span),
+html body[data-ux-family="guide"] main.ux-guide-main .article .faq p{
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .link-card small,
+html body[data-ux-family="guide"] main.ux-guide-main .article .matrix .mini small{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+/* Deliberate dark editorial callout. */
+html body[data-ux-family="guide"] main.ux-guide-main .article .answer{
+  background:#172027!important;
+  color:#f4f7f8!important;
+  -webkit-text-fill-color:#f4f7f8!important;
+  box-shadow:14px 14px 0 rgba(49,95,134,.18)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main .article .answer :is(b,strong){
+  color:#d7e9f4!important;
+  -webkit-text-fill-color:#d7e9f4!important;
+}
+
+/* ---------- case family ---------- */
+/* Legacy p132 cover: same glass-copy pattern as homepage hero. */
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy{
+  padding:clamp(24px,3.2vw,42px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 26px 72px rgba(48,64,76,.10)!important;
+  color:#172027!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy h1{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy h1 em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy .p132-eyebrow{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy .p132-back{
+  color:#334650!important;
+  -webkit-text-fill-color:#334650!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy :is(p,span:not(.p132-cover-tag)){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-panel.s51-section--surface{
+  background:rgba(255,255,255,.70)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-panel.s51-section--surface :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-panel.s51-section--surface :is(p,li,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* New flagship p217 case pages: copy panel is light, preview frame stays dark. */
+html body[data-ux-family="case"] main.ux-case-main .p217-hero-shell .hero-grid>div:first-child h1,
+html body[data-ux-family="case"] main.ux-case-main .p217-hero-shell .hero-grid>div:first-child h1 em{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-hero-shell .hero-grid>div:first-child :is(.lead,.eyebrow,.p217-real-badge){
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-frame{
+  color:#edf3f6!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-frame :is(strong,h3,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-frame :is(span,small,p){
+  color:#aebbc4!important;
+  -webkit-text-fill-color:#aebbc4!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .p217-frame .p217-coordinate-accent{
+  color:#c4d1d8!important;
+  -webkit-text-fill-color:#c4d1d8!important;
+}
+
+/* Generic case narrative copy that used old dark-theme muted colors. */
+html body[data-ux-family="case"] main :is(.section-copy,.copy,.real-note){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* ---------- product page (FreelanceOS) ---------- */
+html body[data-ux-family="product"] main.ux-product-main{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="product"] main.ux-product-main .fos-hero .container,
+html body[data-ux-family="product"] main.ux-product-main .fos-about,
+html body[data-ux-family="product"] main.ux-product-main .ux-product-contact{
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:26px!important;
+  background:rgba(255,255,255,.74)!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.075)!important;
+}
+html body[data-ux-family="product"] main.ux-product-main .fos-hero .container{
+  padding:clamp(24px,3.2vw,42px)!important;
+}
+html body[data-ux-family="product"] main.ux-product-main .fos-about{
+  padding:clamp(24px,3vw,40px)!important;
+}
+html body[data-ux-family="product"] main.ux-product-main :is(.fos-hero,.fos-about,.ux-product-contact) :is(h1,h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="product"] main.ux-product-main :is(.fos-hero,.fos-about,.ux-product-contact) :is(p,li,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="product"] main.ux-product-main .kicker{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body[data-ux-family="product"] main.ux-product-main button.ghost{
+  color:#334650!important;
+  -webkit-text-fill-color:#334650!important;
+  border-color:rgba(41,57,69,.16)!important;
+  background:rgba(255,255,255,.72)!important;
+}
+
+/* ---------- homepage minor contrast floor ---------- */
+html body[data-page="home"][data-stage239-light-luxury="true"] .stage98-brand-copy small{
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body[data-page="home"][data-stage239-light-luxury="true"] main.p128-home :is(.stage173-group nav span,.stage174-popular__links span){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-page="home"][data-stage239-light-luxury="true"] .growth-cookie .button:not(.primary){
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+  background:rgba(255,255,255,.78)!important;
+  border-color:rgba(41,57,69,.15)!important;
+}
+html body[data-page="home"][data-stage239-light-luxury="true"] footer a{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+
+/* tiny labels: do not let decorative text fade below readable contrast */
+html body[data-ux-family] :is(.p214-curator__eyebrow,.dt-kicker,.p132-eyebrow,.s165-bridge__eyebrow){
+  opacity:1!important;
+}
+
+@media(max-width:700px){
+  html body[data-ux-family="case"] main.p132-case .p132-cover .p132-cover-copy,
+  html body[data-ux-family="product"] main.ux-product-main .fos-hero .container{
+    border-radius:20px!important;
+  }
+}
+
+
+/* Stage242 pass 2 — remaining legacy components found by full 76-URL audit. */
+
+/* Service legacy depth blocks (s175) */
+html body[data-ux-family="service"] main.p129-service section.s175-depth{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.s175-depth .s175-shell{
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.s175-depth .s175-card{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.74)!important;
+  color:#172027!important;
+  box-shadow:0 18px 50px rgba(45,59,70,.06)!important;
+}
+html body[data-ux-family="service"] main.p129-service section.s175-depth :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service section.s175-depth :is(p,li,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* No-case / related copy on white cards */
+html body[data-ux-family="service"] main.p129-service .p129-no-case p,
+html body[data-ux-family="service"] main.p129-service .p129-case-copy p,
+html body[data-ux-family="service"] main.p129-service .p129-related-grid span{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+
+/* Links inside light x146 cards */
+html body[data-ux-family="service"] main.p129-service section.x146-depth .x146-depth__links a{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  border:1px solid rgba(41,57,69,.12)!important;
+  background:rgba(255,255,255,.74)!important;
+}
+html body[data-ux-family="service"] main.p129-service :is(
+  .x146-depth__links,.search-demand,.stage172-task-map,.p129-related-grid
+) a b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Hub dark systems stay dark, with light labels */
+html body[data-ux-family="hub"] .p221-system{
+  color:#edf3f6!important;
+}
+html body[data-ux-family="hub"] .p221-system :is(h2,h3,strong,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-ux-family="hub"] .p221-system :is(p,span,small){
+  color:#b7c2c9!important;
+  -webkit-text-fill-color:#b7c2c9!important;
+}
+html body[data-ux-family="hub"] :is(.stage174-popular__links,.stage173-group) a b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Demos: cards themselves join the light system, consoles remain dark. */
+html body[data-ux-family="hub"] .growth-grid .growth-card{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.76)!important;
+  background-image:none!important;
+  box-shadow:0 18px 50px rgba(45,59,70,.06)!important;
+}
+html body[data-ux-family="hub"] .growth-grid .growth-card :is(h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] .growth-grid .growth-card :is(p,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="hub"] .growth-grid .growth-card a.growth-link{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  border-color:rgba(41,57,69,.14)!important;
+}
+
+/* Case legacy contact card: light glass instead of dark island with dark copy. */
+html body[data-ux-family="case"] main.p132-case .s51-contact-card{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.76)!important;
+  background-image:none!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.07)!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-contact-card :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-contact-card p{
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-section .s51-head h2 em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+
+/* Case cover tags sit over imagery: give them an actual dark chip. */
+html body[data-ux-family="case"] main.p132-case .p132-cover-visual .p132-cover-tag{
+  display:inline-flex!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:999px!important;
+  background:rgba(8,13,18,.76)!important;
+  color:#f3f7f8!important;
+  -webkit-text-fill-color:#f3f7f8!important;
+  backdrop-filter:blur(10px)!important;
+}
+
+/* Flagship manifest/story map are light, so their old neon/gray labels must turn dark. */
+html body[data-ux-family="case"] main :is(.p217-manifest,.p220-story-map){
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main .p217-manifest :is(strong,b,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main .p217-manifest :is(span,small,p){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="case"] main .p220-story-map-wrap{
+  background:transparent!important;
+}
+html body[data-ux-family="case"] main .p220-story-map{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.72)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main .p220-story-map a{
+  color:#4c5c66!important;
+  -webkit-text-fill-color:#4c5c66!important;
+}
+html body[data-ux-family="case"] main .p220-story-map a b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Guide sticky jumps and expandable editorial notes */
+html body[data-ux-family="guide"] main.ux-guide-main nav.ux-guide-jumps{
+  background:rgba(248,249,249,.90)!important;
+  border-color:rgba(41,57,69,.12)!important;
+  color:#172027!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main nav.ux-guide-jumps a{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+  background:rgba(255,255,255,.62)!important;
+  border-color:rgba(41,57,69,.10)!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main details.ux-guide-more{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.72)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main details.ux-guide-more summary{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main details.ux-guide-more :is(p,li,em){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* Cost-map is intentionally a dark data visual. */
+html body[data-ux-family="guide"] .p219-costmap{
+  color:#edf3f6!important;
+}
+html body[data-ux-family="guide"] .p219-costmap :is(h2,h3,strong,b){
+  color:#f2f6f7!important;
+  -webkit-text-fill-color:#f2f6f7!important;
+}
+html body[data-ux-family="guide"] .p219-costmap :is(p,span,small){
+  color:#b7c2c9!important;
+  -webkit-text-fill-color:#b7c2c9!important;
+}
+
+/* Tool SEO details must be a light continuation of the page, not an old dark block. */
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more{
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more>summary{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more .s77-section{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more :is(p,li,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main details.ux-seo-more a{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main .dt-hero .dt-kicker{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main .dt-hero .dt-lead{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main .dt-contact__card p{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+
+/* FreelanceOS editorial copy */
+html body[data-ux-family="product"] main.ux-product-main .fos-about :is(p,li),
+html body[data-ux-family="product"] main.ux-product-main details.ux-seo-more :is(p,li){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family="product"] main.ux-product-main details.ux-seo-more>summary{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+}
+
+/* Homepage remaining tiny utility contrast */
+html body[data-page="home"][data-stage239-light-luxury="true"] .growth-cookie .button{
+  opacity:1!important;
+}
+html body[data-page="home"][data-stage239-light-luxury="true"] .growth-cookie .button:not(.primary){
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+}
+
+
+/* Stage242 pass 3 — last readable-text cleanup from the second 76-URL audit. */
+
+/* Service guide nudges / related navigation */
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge{
+  border:1px solid rgba(41,57,69,.12)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.70)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge :is(span,small){
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+html body[data-ux-family="service"] main.p129-service .stage173-guide-nudge :is(a,b,strong){
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+}
+html body[data-ux-family="service"] main.p129-service nav.s101-more.s107-related a{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+  border:1px solid rgba(41,57,69,.12)!important;
+  background:rgba(255,255,255,.72)!important;
+}
+html body[data-ux-family="service"] main.p129-service :is(
+  .p129-case,.p129-related,.s175-depth,.x146-depth,.stage173-guide-nudge
+) small{
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+
+/* Legacy case narrative accents on light panels */
+html body[data-ux-family="case"] main.p132-case .p132-panel em,
+html body[data-ux-family="case"] main.ux-case-main section:not(.hero) em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+html body[data-ux-family="case"] main.p132-case .p132-panel :is(span,b){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-contact-card p{
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-contact-card .s51-kicker{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+html body[data-ux-family="case"] main.p132-case .s51-contact-card .s51-btn{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Proof cards are white in the light system; remove neon text inherited from dark theme. */
+html body[data-ux-family="case"] main .proof-card{
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main .proof-card :is(h3,strong,b){
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+}
+html body[data-ux-family="case"] main .proof-card :is(p,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* Source / verify sections on flagship cases */
+html body[data-ux-family="case"] main.ux-case-main section.source{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source>.container{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source :is(p,span){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source .btn,
+html body[data-ux-family="case"] main.ux-case-main section.source a[class*="btn"]{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Flagship REAL PROJECT badge on the light copy panel */
+html body[data-ux-family="case"] main .p217-real-badge{
+  display:inline-flex!important;
+  width:max-content!important;
+  padding:7px 10px!important;
+  border:1px solid rgba(49,95,134,.14)!important;
+  border-radius:999px!important;
+  background:rgba(49,95,134,.08)!important;
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Guide hub decision cards + index panel */
+html body[data-ux-family="hub"] main.p130-hub .p223-decision-group{
+  background:rgba(255,255,255,.50)!important;
+  border-color:rgba(41,57,69,.12)!important;
+}
+html body[data-ux-family="hub"] main.p130-hub a.p223-guide{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.78)!important;
+  box-shadow:0 16px 44px rgba(45,59,70,.055)!important;
+}
+html body[data-ux-family="hub"] main.p130-hub a.p223-guide :is(strong,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] main.p130-hub a.p223-guide :is(span,p,small,b){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p223-index{
+  color:#172027!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.72)!important;
+  background-image:none!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p223-index :is(strong,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p223-index :is(span,small,b,a){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* Guide CTA/meta copy */
+html body[data-ux-family="guide"] main.ux-guide-main .cta-box :is(p,span,em){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main>section:not(.hero) > p,
+html body[data-ux-family="guide"] main.ux-guide-main>section:not(.hero) .container>p{
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+
+/* Product page SEO + editorial copy floor */
+html body[data-ux-family="product"] main.ux-product-main :is(.fos-about,details.ux-seo-more) :is(p,li){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Tools hub / contact copy */
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main :is(.dt-hero,.dt-section,.dt-contact) p{
+  color:#4b5d67!important;
+  -webkit-text-fill-color:#4b5d67!important;
+}
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main .dt-contact__card p{
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+
+/* Home form secondary action */
+html body[data-page="home"][data-stage239-light-luxury="true"] .s44-brief__footer .button:not(.primary){
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+  border:1px solid rgba(41,57,69,.15)!important;
+  background:rgba(255,255,255,.78)!important;
+}
+
+
+/* Stage242 pass 4 — targeted final components verified in live Chrome. */
+
+/* Homepage microcopy */
+html body[data-page="home"][data-stage239-light-luxury="true"] main.p128-home .p226-mantra span{
+  color:#465862!important;
+  -webkit-text-fill-color:#465862!important;
+  opacity:1!important;
+}
+
+/* Case workflow/narrative cards that still carried dark-theme muted text. */
+html body[data-ux-family="case"] main.p132-case .workflow article{
+  border-color:rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.74)!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .workflow article :is(h3,strong,b){
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+}
+html body[data-ux-family="case"] main.p132-case .workflow article :is(p,span,em){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Generic proof articles on light case panels. */
+html body[data-ux-family="case"] main.p132-case .proof article{
+  border-color:rgba(41,57,69,.13)!important;
+  background:#fff!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case .proof article :is(strong,b,h3){
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+}
+html body[data-ux-family="case"] main.p132-case .proof article :is(p,span,em){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Flagship source cards: old black card conflicted with the new light container. */
+html body[data-ux-family="case"] main.ux-case-main section.source .source-card{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.82)!important;
+  background-image:none!important;
+  color:#172027!important;
+  box-shadow:0 16px 44px rgba(45,59,70,.055)!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source .source-card :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source .source-card :is(p,span,em){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+html body[data-ux-family="case"] main.ux-case-main section.source .source-card :is(.btn,a[class*="btn"]){
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Light case hero eyebrow/year accents. */
+html body[data-ux-family="case"] main.ux-case-main .hero-grid>div:first-child .eyebrow :is(b,strong,span),
+html body[data-ux-family="case"] main.p132-case .p132-cover-copy .eyebrow :is(b,strong,span){
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Old p132 contact wrapper had a black inner container behind the new light card. */
+html body[data-ux-family="case"] main.p132-case section.contact>.container{
+  background:transparent!important;
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case section.contact .s51-contact-card{
+  background:rgba(255,255,255,.82)!important;
+}
+html body[data-ux-family="case"] main.p132-case section.contact .s51-contact-card p{
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+
+/* Case breadcrumbs and quiet metadata. */
+html body[data-ux-family="case"] main :is(.crumbs,.p132-crumbs) a{
+  color:#465862!important;
+  -webkit-text-fill-color:#465862!important;
+}
+html body[data-ux-family="case"] main :is(.crumbs,.p132-crumbs) span{
+  color:#586a75!important;
+  -webkit-text-fill-color:#586a75!important;
+}
+
+/* Guide editorial section-head copy/accents. */
+html body[data-ux-family="guide"] main.ux-guide-main section.section .section-head p{
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main section.section .section-head h2 em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+html body[data-ux-family="guide"] main.ux-guide-main section.section :is(.copy,.section-copy){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Direct-work proof cards join the light card language. */
+html body[data-ux-family="hub"] main.p130-hub section.s205-proof .s205-proof__card{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+  box-shadow:0 18px 50px rgba(45,59,70,.06)!important;
+}
+html body[data-ux-family="hub"] main.p130-hub section.s205-proof .s205-proof__card :is(h3,strong,b){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] main.p130-hub section.s205-proof .s205-proof__card :is(p,span,small){
+  color:#4f5f69!important;
+  -webkit-text-fill-color:#4f5f69!important;
+}
+
+/* Demo card status badges cannot stay neon lime on white. */
+html body[data-ux-family="hub"] .growth-grid .growth-card .p221-card-meta b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+html body[data-ux-family="hub"] .growth-grid .growth-card .growth-label{
+  color:#536978!important;
+  -webkit-text-fill-color:#536978!important;
+}
+
+/* Slightly darker tool contact copy to clear AA on the warm glass card. */
+html body.dt-body[data-ux-family="tool"] main.ux-tool-main .dt-contact__card p{
+  color:#384a54!important;
+  -webkit-text-fill-color:#384a54!important;
+}
+
+
+/* Stage242 pass 5 — final verified light-surface components. */
+
+/* Case related-service cards */
+html body[data-ux-family="case"] main .x206-case-services .x206-shell{
+  color:#172027!important;
+}
+html body[data-ux-family="case"] main .x206-case-services .x206-case-services__grid>a{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+  box-shadow:0 14px 38px rgba(45,59,70,.05)!important;
+}
+html body[data-ux-family="case"] main .x206-case-services .x206-case-services__grid>a :is(strong,h3){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main .x206-case-services .x206-case-services__grid>a :is(span,p){
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+html body[data-ux-family="case"] main .x206-case-services .x206-case-services__grid>a b{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+
+/* Metrics and factual cards are information surfaces, so keep them light. */
+html body[data-ux-family="case"] main article.metric,
+html body[data-ux-family="case"] main article.fact{
+  border:1px solid rgba(41,57,69,.13)!important;
+  background:rgba(255,255,255,.78)!important;
+  background-image:none!important;
+  color:#172027!important;
+  box-shadow:0 14px 38px rgba(45,59,70,.05)!important;
+}
+html body[data-ux-family="case"] main article.metric :is(strong,b,h3),
+html body[data-ux-family="case"] main article.fact :is(strong,b,h3){
+  color:#263740!important;
+  -webkit-text-fill-color:#263740!important;
+}
+html body[data-ux-family="case"] main article.metric :is(p,span,em),
+html body[data-ux-family="case"] main article.fact :is(p,span,em){
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Case next-step bridge: same glass material as the rest of the site. */
+html body[data-ux-family="case"] main .s165-bridge .s165-bridge__grid{
+  padding:clamp(20px,2.6vw,34px)!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+  box-shadow:0 18px 50px rgba(45,59,70,.06)!important;
+}
+html body[data-ux-family="case"] main .s165-bridge .s165-bridge__links a{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+}
+html body[data-ux-family="case"] main .s165-bridge .s165-bridge__contact a{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:42px!important;
+  padding:0 14px!important;
+  border-radius:11px!important;
+  background:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Flagship light-copy metadata */
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .p217-real-badge{
+  color:#27475f!important;
+  -webkit-text-fill-color:#27475f!important;
+}
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .lead{
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .tag{
+  color:#465862!important;
+  -webkit-text-fill-color:#465862!important;
+}
+
+/* Guide quiet metadata */
+html body[data-ux-family="guide"] main.ux-guide-main section.section .section-head>span,
+html body[data-ux-family="guide"] main.ux-guide-main section.section .section-head>small{
+  color:#52626c!important;
+  -webkit-text-fill-color:#52626c!important;
+}
+
+/* Light hub editorial copy */
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main>section:not(.p221-lab-console) p,
+html body[data-ux-family="hub"] main.ux-utility-main>section:not(.p221-lab-console) p{
+  color:#455761!important;
+  -webkit-text-fill-color:#455761!important;
+}
+
+/* Service small labels outside intentionally dark diagrams. */
+html body[data-ux-family="service"] main.p129-service :is(.p129-case,.p129-related,.s205-proof,.s175-depth,.x146-depth) small{
+  color:#53636d!important;
+  -webkit-text-fill-color:#53636d!important;
+}
+
+/* Homepage public-proof accents */
+html body[data-page="home"][data-stage239-light-luxury="true"] .p128-proof__statement h2 span{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+html body[data-page="home"][data-stage239-light-luxury="true"] .p128-proof__author span{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+
+
+/* Stage242 pass 6 — normalize remaining old case CTAs and microcopy. */
+
+/* All legacy case-contact variants become light glass surfaces. */
+html body[data-ux-family="case"] main.p132-case section#case-contact :is(.contact-card,.status-card,.cta-box){
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.82)!important;
+  background-image:none!important;
+  color:#172027!important;
+  box-shadow:0 20px 58px rgba(45,59,70,.07)!important;
+}
+html body[data-ux-family="case"] main.p132-case section#case-contact :is(.contact-card,.status-card,.cta-box) :is(h2,h3,strong,b){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"] main.p132-case section#case-contact :is(.contact-card,.status-card,.cta-box) :is(p,span,em,.copy){
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+html body[data-ux-family="case"] main.p132-case section#case-contact :is(.contact-card,.status-card,.cta-box) a{
+  color:#2f404b!important;
+  -webkit-text-fill-color:#2f404b!important;
+}
+html body[data-ux-family="case"] main.p132-case section#case-contact :is(.contact-card,.status-card,.cta-box) :is(.btn,a.btn,[class*="button"]){
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Dark gallery remains intentionally dark: keep its editorial accent light. */
+html body[data-ux-family="case"] main.p132-case section#gallery .section-head :is(h2,h3,em,strong){
+  color:#f3f6f4!important;
+  -webkit-text-fill-color:#f3f6f4!important;
+}
+html body[data-ux-family="case"] main.p132-case section#gallery .section-head :is(p,span){
+  color:#b8c2c8!important;
+  -webkit-text-fill-color:#b8c2c8!important;
+}
+
+/* Make flagship badge a definite high-contrast pill. */
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .p217-real-badge{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .lead{
+  color:#384a54!important;
+  -webkit-text-fill-color:#384a54!important;
+}
+html body[data-ux-family="case"] main .p217-hero-shell .hero-grid>div:first-child .tag{
+  color:#34454f!important;
+  -webkit-text-fill-color:#34454f!important;
+}
+html body[data-ux-family="case"] main.ux-case-main .hero-grid>div:first-child .eyebrow :is(b,strong){
+  color:#27475f!important;
+  -webkit-text-fill-color:#27475f!important;
+}
+
+/* Demos/tools intro copy on light hero surfaces. */
+html body[data-ux-family="hub"] main.ux-utility-main .growth-hero .growth-label,
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main .dt-hero .dt-kicker{
+  color:#315f86!important;
+  -webkit-text-fill-color:#315f86!important;
+}
+html body[data-ux-family="hub"] main.ux-utility-main .growth-hero p,
+html body.dt-body[data-ux-family="hub"] main.ux-hub-main .dt-hero p{
+  color:#40515b!important;
+  -webkit-text-fill-color:#40515b!important;
+}
+
+/* Homepage/footer tiny copy floor. */
+html body[data-page="home"][data-stage239-light-luxury="true"] footer :is(small,span,p){
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}

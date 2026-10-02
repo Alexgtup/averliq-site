@@ -1,0 +1,70 @@
+/* Stage 95 - prune and unify. Fewer visual bands, calmer hierarchy, real work first. */
+:root{--stage95-line:rgba(255,255,255,.085);--stage95-surface:rgba(255,255,255,.022);--stage95-surface-2:rgba(255,255,255,.038);--stage95-muted:#969da6;--stage95-lime:#c9ff4a}
+
+/* Full sections must never be squeezed into another multi-column layout. */
+.stage95-home-model,.stage95-service-core,.stage95-service-meta{width:min(calc(100% - 2rem),1280px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr)!important;gap:0}
+.stage95-home-model{padding-block:clamp(1.8rem,3vw,3rem)}
+.stage95-home-model>* ,.stage95-service-core>* ,.stage95-service-meta>*{min-width:0}
+.stage95-home-model>.s44-section{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;overflow:visible!important}
+.stage95-home-model>.s44-section+.s44-section{border-top:1px solid var(--stage95-line)!important}
+.stage95-home-model>.s44-section>.container{width:100%!important;max-width:none!important;padding:clamp(2.6rem,5vw,4.5rem) 0!important}
+.stage95-home-model .s44-section-head{margin-bottom:1.5rem!important}
+.stage95-home-model .s44-section-head h2{max-width:18ch!important}
+.stage95-home-model .s44-section-head p{max-width:58rem!important}
+.stage95-home-model .s44-value-grid,.stage95-home-model .s44-price-grid{gap:1rem!important}
+.stage95-home-model .s44-trust-card{grid-template-columns:minmax(0,1fr) auto!important;gap:clamp(1.5rem,4vw,3rem)!important;align-items:end!important}
+.stage95-home-model .s44-trust-card>div:first-child{min-width:0;max-width:48rem}
+.stage95-home-model .s44-trust-card p{max-width:46rem!important}
+
+.portfolio-showcase__head{align-items:end!important}
+.portfolio-showcase__intro{max-width:34rem!important}
+.portfolio-showcase__foot>span:empty{display:none}
+.project-radar__label small,.case-filter__top>span{text-transform:none!important;letter-spacing:0!important}
+.project-radar__filters button b,.case-filter__list button b{opacity:.55}
+.case-library__layout{margin-top:0!important}
+.case-library__toolbar{min-height:auto!important;padding:.25rem 0 1rem!important;border:0!important;background:none!important}
+.case-library__toolbar span:empty{display:none}
+
+/* Same rule for service pages: fit/result and budget/process are complete sections, not cards. */
+.stage95-service-core,.stage95-service-meta{padding-block:clamp(1.4rem,2.5vw,2.5rem)}
+.stage95-service-core>.s48-section,.stage95-service-meta>.s48-section{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;overflow:visible!important}
+.stage95-service-core>.s48-section+.s48-section,.stage95-service-meta>.s48-section+.s48-section{border-top:1px solid var(--stage95-line)!important}
+.stage95-service-core>.s48-section>.container,.stage95-service-meta>.s48-section>.container{width:100%!important;max-width:none!important;padding:clamp(2.5rem,4.6vw,4.2rem) 0!important}
+.stage95-service-core .s48-head,.stage95-service-meta .s48-head{margin-bottom:1.4rem!important}
+.stage95-service-core .s48-head h2,.stage95-service-meta .s48-head h2{max-width:22ch!important}
+.stage95-service-core .s48-index,.stage95-service-meta .s48-index{opacity:.55}
+.stage95-proof-strip{padding-block:clamp(2.8rem,4vw,3.8rem)!important}
+.stage95-proof-strip .growth-shell{padding:1.15rem 1.25rem!important}
+.stage95-review-strip{padding-block:clamp(2.4rem,4vw,3.4rem)!important}
+.stage95-review-strip .s48-head{margin-bottom:1rem!important}
+.stage95-review-strip .s48-head h2{font-size:clamp(1.35rem,2.4vw,1.9rem)!important}
+body[data-ux-family="service"] .s48-contact{padding-top:clamp(3rem,5vw,4.5rem)!important}
+
+body[data-ux-family="case"] main>.section,
+body[data-ux-family="case"] main>.s51-section{padding-block:clamp(3rem,5vw,4.8rem)!important}
+body[data-ux-family="case"] .growth-section{display:none!important}
+
+body[data-ux-family="hub"] main>.s50-section,
+body[data-ux-family="hub"] main>.s44-section,
+body[data-ux-family="hub"] main>.dt-section{padding-block:clamp(3rem,5vw,4.5rem)!important}
+body[data-ux-family="hub"] .s50-hero,
+body[data-ux-family="hub"] .s44-services-hero,
+body[data-ux-family="hub"] .dt-hero{padding-bottom:clamp(2.8rem,5vw,4.5rem)!important}
+
+.growth-cookie-settings.stage95-footer-cookie{position:static!important;inset:auto!important;transform:none!important;float:none!important;margin:0!important;padding:.25rem 0!important;border:0!important;background:none!important;color:#858c95!important;font-size:.75rem!important;text-decoration:underline;text-underline-offset:3px}
+
+:is(.s44-route,.s48-fit-grid article,.s48-budget article,.s48-process article,.s50-case-list a,.s50-guide-grid a,.dt-tool-card,.case-library-card,.portfolio-card){box-shadow:none!important}
+:is(.s44-route,.s48-fit-grid article,.s48-budget article,.s48-process article,.s50-case-list a,.s50-guide-grid a,.dt-tool-card){border-color:var(--stage95-line)!important}
+
+@media(max-width:960px){
+  .stage95-home-model .s44-trust-card{grid-template-columns:1fr!important;align-items:start!important}
+  .stage95-home-model .s44-trust-actions{justify-content:flex-start!important}
+}
+@media(max-width:900px){
+  .stage95-home-model{padding-block:2rem}
+}
+@media(max-width:680px){
+  .stage95-home-model,.stage95-service-core,.stage95-service-meta{width:calc(100% - 2rem);gap:0}
+  .stage95-home-model>.s44-section>.container,.stage95-service-core>.s48-section>.container,.stage95-service-meta>.s48-section>.container{padding:2.2rem 0!important}
+  .portfolio-showcase__intro{font-size:.9rem!important}
+}

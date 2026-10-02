@@ -1,0 +1,172 @@
+/* Stage 96 - one readable typography scale across every page family. */
+:root{
+  --type-body:1rem;
+  --type-ui:.875rem;
+  --type-small:.76rem;
+  --type-lead:clamp(1.05rem,1.25vw,1.18rem);
+  --type-h3:clamp(1.12rem,1.45vw,1.28rem);
+  --type-h2:clamp(1.8rem,2.45vw,2.3rem);
+}
+
+body[data-ux-family] main h1{
+  font-size:clamp(3.15rem,4.4vw,4.2rem)!important;
+  line-height:.98!important;
+  letter-spacing:-.042em!important;
+  max-width:18ch!important;
+  text-wrap:balance;
+}
+body[data-ux-family="home"] main h1{
+  font-size:clamp(3.8rem,5.3vw,5rem)!important;
+  max-width:15ch!important;
+}
+body[data-ux-family="hub"] main h1{
+  font-size:clamp(3.25rem,4.4vw,4.25rem)!important;
+}
+body[data-ux-family="case"] main h1,
+body[data-ux-family="guide"] main h1{
+  font-size:clamp(3.1rem,4.15vw,4rem)!important;
+}
+body[data-ux-family="tool"] main h1,
+body[data-ux-family="product"] main h1{
+  font-size:clamp(3rem,4vw,3.85rem)!important;
+}
+
+body[data-ux-family] main h2{
+  font-size:var(--type-h2)!important;
+  line-height:1.08!important;
+  letter-spacing:-.028em!important;
+  text-wrap:balance;
+}
+body[data-ux-family] main h3{
+  font-size:var(--type-h3)!important;
+  line-height:1.2!important;
+  letter-spacing:-.014em!important;
+}
+
+body[data-ux-family] main p{
+  font-size:var(--type-body)!important;
+  line-height:1.68!important;
+}
+body[data-ux-family] main :is(.lead,.hub-lead,.intl-lead,.dt-lead,.s48-lead,.s50-lead,.s44-lead,.case-lead){
+  font-size:var(--type-lead)!important;
+  line-height:1.62!important;
+  max-width:62ch;
+}
+body[data-ux-family] main :is(.eyebrow,.kicker,.s48-index,.s51-index,.s50-index,.case-label,.project-kicker,.dt-kicker),
+body[data-ux-family] main .meta,
+body[data-ux-family] main .meta span,
+body[data-ux-family] main small{
+  font-size:var(--type-small)!important;
+  line-height:1.4!important;
+}
+
+body[data-ux-family] header nav a,
+body[data-ux-family] .header .nav a,
+body[data-ux-family] .site-header .nav a,
+body[data-ux-family] .intl-nav a{
+  font-size:var(--type-ui)!important;
+  line-height:1.3!important;
+}
+body[data-ux-family] :is(.btn,a.btn,.cta,a[class*="btn"],button[class*="btn"],.case-link,.action){
+  font-size:var(--type-ui)!important;
+  line-height:1.25!important;
+}
+body[data-ux-family] :is(.crumbs,.breadcrumbs){
+  font-size:.78rem!important;
+  line-height:1.4!important;
+}
+
+/* Cards need hierarchy, but should not compete with section headings. */
+body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) h2{
+  font-size:clamp(1.25rem,1.65vw,1.5rem)!important;
+  line-height:1.15!important;
+}
+body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) h3{
+  font-size:clamp(1.05rem,1.35vw,1.2rem)!important;
+}
+body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) p{
+  font-size:.94rem!important;
+  line-height:1.58!important;
+}
+
+/* Dense legacy grids are card UI, not article prose. Keep them readable without
+   forcing the full 16px article scale into every small supporting sentence. */
+body[data-ux-family] main :is(
+  .s44-route,
+  .s44-value-grid article,
+  .s44-price-grid article,
+  .s44-special-grid a,
+  .s44-orientation__grid article,
+  .s48-fit-grid article,
+  .s48-process article,
+  .s48-budget article,
+  .growth-card,
+  .market-package,
+  .handoff-grid article
+) p{
+  font-size:.94rem!important;
+  line-height:1.58!important;
+}
+body[data-ux-family] main :is(.s44-value-grid article,.s44-price-grid article)>span{
+  font-size:.75rem!important;
+  line-height:1.35!important;
+}
+body[data-ux-family] main .s44-price-grid strong{
+  font-size:clamp(2rem,2.5vw,2.55rem)!important;
+  line-height:1.02!important;
+  letter-spacing:-.045em!important;
+  white-space:nowrap;
+}
+body[data-ux-family] main .s44-price-grid a,
+body[data-ux-family] main .s44-route b,
+body[data-ux-family] main .s44-case__body b,
+body[data-ux-family] main .s44-case-stack b{
+  font-size:.82rem!important;
+  line-height:1.35!important;
+}
+
+@media (max-width:760px){
+  :root{
+    --type-body:1rem;
+    --type-ui:.875rem;
+    --type-small:.75rem;
+    --type-lead:1.02rem;
+    --type-h3:1.12rem;
+    --type-h2:clamp(1.6rem,6.8vw,1.9rem);
+  }
+  body[data-ux-family] main h1,
+  body[data-ux-family="home"] main h1,
+  body[data-ux-family="hub"] main h1,
+  body[data-ux-family="case"] main h1,
+  body[data-ux-family="guide"] main h1,
+  body[data-ux-family="tool"] main h1,
+  body[data-ux-family="product"] main h1{
+    font-size:clamp(2.3rem,9.8vw,2.75rem)!important;
+    line-height:1!important;
+    letter-spacing:-.038em!important;
+    max-width:18ch!important;
+  }
+  body[data-ux-family="home"] main h1{
+    font-size:clamp(2.55rem,10.8vw,3rem)!important;
+    max-width:15ch!important;
+  }
+  body[data-ux-family] main h2{
+    line-height:1.12!important;
+    letter-spacing:-.024em!important;
+  }
+  body[data-ux-family] main h3{line-height:1.25!important}
+  body[data-ux-family] main p{line-height:1.64!important}
+  body[data-ux-family] main :is(.lead,.hub-lead,.intl-lead,.dt-lead,.s48-lead,.s50-lead,.s44-lead,.case-lead){line-height:1.58!important}
+  body[data-ux-family] :is(.btn,a.btn,.cta,a[class*="btn"],button[class*="btn"],.case-link,.action){
+    font-size:.875rem!important;
+    min-height:2.75rem;
+  }
+  body[data-ux-family] header nav a,
+  body[data-ux-family] .header .nav a,
+  body[data-ux-family] .site-header .nav a,
+  body[data-ux-family] .intl-nav a{font-size:.84rem!important}
+  body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) h2{font-size:1.3rem!important}
+  body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) h3{font-size:1.08rem!important}
+  body[data-ux-family] main :is(.card,.service,.guide-card,.case-library-card,.portfolio-card,.dt-tool-card,.s50-card,.s51-card,.s72-offer,.s77-card) p{font-size:.94rem!important}
+  body[data-ux-family] main .s44-price-grid strong{font-size:2rem!important}
+}

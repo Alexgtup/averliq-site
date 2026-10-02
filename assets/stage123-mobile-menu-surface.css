@@ -1,0 +1,187 @@
+/* stage123-mobile-menu-surface
+   Keep the Stage98 mobile menu attached to the visible mobile header while the
+   header hides on downward scroll and returns on upward scroll. */
+
+@media (max-width: 900px) {
+  body[data-ux-family] .stage98-header {
+    position:sticky!important;
+    top:0!important;
+    transform:translateY(0)!important;
+    transition:transform .2s ease!important;
+    overflow:visible!important;
+  }
+
+  body.stage98-mobile-header-hidden:not(.stage98-menu-open)[data-ux-family] .stage98-header {
+    transform:translateY(calc(-100% - 2px))!important;
+    pointer-events:none!important;
+  }
+
+  /* Do not turn body into a new vertical scroll container when the menu opens.
+     Doing that makes position:sticky resolve against body and the header jumps
+     back to its document position. Keep the page's original viewport scroller. */
+  body.stage98-menu-open {
+    overflow-x:clip!important;
+    overflow-y:visible!important;
+  }
+
+  body.stage98-menu-open::before {
+    display:none!important;
+    content:none!important;
+    background:transparent!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+
+  body.stage98-menu-open[data-ux-family] .stage98-header {
+    transform:translateY(0)!important;
+    pointer-events:auto!important;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+
+  body[data-ux-family] .stage98-mobile-menu[open] > nav {
+    display:grid!important;
+    position:absolute!important;
+    top:calc(100% + .55rem)!important;
+    right:0!important;
+    bottom:auto!important;
+    left:auto!important;
+    width:min(320px, calc(100vw - 24px))!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:auto!important;
+    max-height:calc(100dvh - 5.5rem)!important;
+    padding:.6rem!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    box-sizing:border-box!important;
+    isolation:isolate!important;
+    z-index:1000!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    filter:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    background:#0d1116!important;
+    border:1px solid rgba(255,255,255,.11)!important;
+    border-radius:1rem!important;
+    box-shadow:0 22px 54px rgba(0,0,0,.5)!important;
+  }
+
+  body[data-ux-family] .stage98-mobile-menu[open] > nav > a,
+  body[data-ux-family] .stage98-mobile-menu[open] > nav .theme-toggle--mobile {
+    opacity:1!important;
+    filter:none!important;
+    color:#d6dbe0!important;
+  }
+
+  body[data-ux-family] .stage98-mobile-menu[open] > nav > a[aria-current="page"] {
+    background:#151b22!important;
+    color:#f2f5f1!important;
+  }
+
+  body[data-ux-family] .stage98-mobile-menu[open] > nav .stage98-mobile-cta {
+    background:var(--ds-accent,#c9ff4a)!important;
+    color:#090b08!important;
+  }
+}
+
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu[open] > nav {
+  background:#fff!important;
+  border-color:rgba(18,20,24,.12)!important;
+  box-shadow:0 22px 54px rgba(25,30,35,.16)!important;
+}
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu[open] > nav > a,
+html[data-theme="light"] body[data-ux-family] .stage98-mobile-menu[open] > nav .theme-toggle--mobile {
+  color:#31373d!important;
+}
+
+/* The full footer duplicates primary navigation on every screen. Keep only a
+   quiet legal end line sitewide. */
+body[data-ux-family] .stage108-footer__brand,
+body[data-ux-family] .stage108-footer__nav {
+  display:none!important;
+}
+
+body[data-ux-family] .stage108-footer__inner {
+  display:block!important;
+  padding-block:1rem 1.15rem!important;
+}
+
+body[data-ux-family] .stage108-footer__meta {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:.65rem!important;
+  padding-top:0!important;
+  border-top:0!important;
+}
+
+body[data-ux-family] .stage108-footer__meta > span {
+  min-height:0!important;
+  margin:0!important;
+  font-size:.68rem!important;
+}
+
+body[data-ux-family] .stage108-footer__meta > a:not([href="/privacy/"]) {
+  display:none!important;
+}
+
+body[data-ux-family] .stage108-footer__meta > a[href="/privacy/"] {
+  min-height:0!important;
+  display:inline!important;
+  font-size:.68rem!important;
+}
+
+/* Home selected work: keep the lime/coral character of the hero, but diffuse it
+   into a quieter editorial surface so the project cards remain the focal point. */
+body[data-page="home"] .p128-work {
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(ellipse 58% 38% at 48% 19%,rgba(184,218,79,.28) 0%,rgba(184,218,79,.15) 34%,transparent 70%),
+    radial-gradient(ellipse 42% 32% at 88% 31%,rgba(205,116,88,.18) 0%,rgba(205,116,88,.08) 44%,transparent 76%),
+    radial-gradient(ellipse 46% 34% at 12% 72%,rgba(205,116,88,.13) 0%,rgba(205,116,88,.05) 42%,transparent 76%),
+    radial-gradient(ellipse 52% 44% at 63% 83%,rgba(176,211,77,.13) 0%,transparent 72%),
+    linear-gradient(135deg,#efeee8 0%,#e9ebe2 46%,#eeebe4 100%)!important;
+}
+
+body[data-page="home"] .p128-work::before {
+  content:"";
+  position:absolute;
+  inset:-8% -6%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 78% 20%,transparent 0 13.7%,rgba(100,104,91,.105) 13.85% 14%,transparent 14.15%),
+    radial-gradient(circle at 78% 20%,transparent 0 24.7%,rgba(255,255,255,.3) 24.85% 25%,transparent 25.15%),
+    radial-gradient(circle at 22% 70%,transparent 0 17.7%,rgba(111,116,102,.08) 17.85% 18%,transparent 18.15%);
+  opacity:.9;
+}
+
+body[data-page="home"] .p128-work::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),transparent 18%,rgba(33,38,29,.025) 100%);
+}
+
+body[data-page="home"] .p128-work > .p128-shell {
+  position:relative;
+  z-index:1;
+}
+
+@media (max-width: 700px) {
+  body[data-page="home"] .p128-work {
+    background:
+      radial-gradient(ellipse 78% 22% at 50% 11%,rgba(184,218,79,.22),transparent 72%),
+      radial-gradient(ellipse 70% 26% at 93% 45%,rgba(205,116,88,.12),transparent 74%),
+      radial-gradient(ellipse 75% 25% at 8% 76%,rgba(176,211,77,.10),transparent 76%),
+      linear-gradient(145deg,#efeee8 0%,#e9ebe2 52%,#eeebe4 100%)!important;
+  }
+  body[data-page="home"] .p128-work::before {opacity:.55;}
+}

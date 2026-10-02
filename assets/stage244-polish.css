@@ -1,0 +1,402 @@
+/* Stage244 — polish pass from live screenshot QA.
+   Fixes system-card word breaks, weak stat cards, related-link bars and legacy case islands. */
+
+/* --------------------------------------------------------------- */
+/* Related links: no giant empty glass bar, only intentional chips. */
+html body[data-ux-family] .p131-bridge{
+  padding-block:clamp(22px,3.2vw,42px)!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner{
+  width:min(1180px,calc(100% - 48px))!important;
+  min-height:0!important;
+  margin-inline:auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  gap:8px!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>span{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:38px!important;
+  padding:0 12px!important;
+  margin:0 2px 0 0!important;
+  border:1px solid rgba(41,57,69,.12)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.72)!important;
+  color:#50616c!important;
+  -webkit-text-fill-color:#50616c!important;
+  font-size:10px!important;
+  line-height:1!important;
+  letter-spacing:.12em!important;
+  box-shadow:0 8px 24px rgba(45,59,70,.045)!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>a{
+  min-height:38px!important;
+  padding:0 13px!important;
+  border-color:rgba(41,57,69,.12)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 8px 24px rgba(45,59,70,.04)!important;
+  color:#31424d!important;
+  -webkit-text-fill-color:#31424d!important;
+}
+html body[data-ux-family] .p131-bridge .p131-bridge__inner>a:hover{
+  border-color:rgba(49,95,134,.22)!important;
+  background:rgba(255,255,255,.94)!important;
+  transform:translateY(-1px)!important;
+}
+
+/* --------------------------------------------------------------- */
+/* About: profile system becomes a readable 2 x 2 control map. */
+html body[data-page="about"] aside.p219-profile{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+    #0b0f13!important;
+  border-color:rgba(255,255,255,.11)!important;
+  box-shadow:0 28px 76px rgba(35,49,60,.15)!important;
+}
+html body[data-page="about"] .p219-profile__axis{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+html body[data-page="about"] .p219-profile__node{
+  min-height:86px!important;
+  padding:14px 13px!important;
+}
+html body[data-page="about"] .p219-profile__node strong{
+  font-size:14px!important;
+  line-height:1.12!important;
+  letter-spacing:-.025em!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+html body[data-page="about"] .p219-profile__node span{
+  font-size:9.5px!important;
+  line-height:1.28!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-page="about"] .p219-profile__proof strong{
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+
+/* --------------------------------------------------------------- */
+/* Services: make the capability map actually readable. */
+html body[data-page="services"] aside.p221-system{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+    #0b0f13!important;
+  border-color:rgba(255,255,255,.11)!important;
+  box-shadow:0 28px 76px rgba(35,49,60,.15)!important;
+}
+html body[data-page="services"] .p221-system__map{
+  gap:10px!important;
+  padding:22px 18px 20px!important;
+}
+html body[data-page="services"] .p221-system__node{
+  grid-template-columns:26px minmax(0,1fr)!important;
+  gap:8px!important;
+  min-height:74px!important;
+  padding:11px 10px!important;
+}
+html body[data-page="services"] .p221-system__node>b{
+  width:26px!important;
+  height:26px!important;
+}
+html body[data-page="services"] .p221-system__node>div{
+  min-width:0!important;
+}
+html body[data-page="services"] .p221-system__node strong{
+  font-size:10.5px!important;
+  line-height:1.12!important;
+  letter-spacing:-.025em!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  hyphens:none!important;
+}
+html body[data-page="services"] .p221-system__node span{
+  font-size:8.5px!important;
+  line-height:1.25!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+html body[data-page="services"] .p221-system__node>i{
+  position:absolute!important;
+  top:12px!important;
+  right:9px!important;
+  font-size:8px!important;
+}
+html body[data-page="services"] .p221-system__core strong{
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+}
+
+/* Popular tasks: turn the loose table into a coherent card grid. */
+html body[data-page="services"] section.stage174-popular{
+  padding-block:clamp(64px,7vw,96px)!important;
+}
+html body[data-page="services"] .stage174-head{
+  align-items:end!important;
+  margin-bottom:24px!important;
+}
+html body[data-page="services"] .stage174-popular__links{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+html body[data-page="services"] .stage174-popular__links>a{
+  min-height:86px!important;
+  padding:18px 18px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.75)!important;
+  box-shadow:0 16px 42px rgba(45,59,70,.055)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+}
+html body[data-page="services"] .stage174-popular__links>a strong{
+  color:#182129!important;
+  -webkit-text-fill-color:#182129!important;
+  font-size:15px!important;
+  line-height:1.22!important;
+}
+html body[data-page="services"] .stage174-popular__links>a span{
+  color:#60707b!important;
+  -webkit-text-fill-color:#60707b!important;
+  font-size:10.5px!important;
+}
+
+/* --------------------------------------------------------------- */
+/* Hub metric sidebars are information cards, not dark product consoles. */
+html body[data-ux-family="hub"] main.p130-hub .p130-hero-side:not(.p219-profile):not(.p221-system):not(.p221-lab-console){
+  padding:24px!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.76)!important;
+  color:#172027!important;
+  box-shadow:0 22px 62px rgba(45,59,70,.09)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p130-hero-side:not(.p219-profile):not(.p221-system):not(.p221-lab-console) strong{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="hub"] main.p130-hub .p130-hero-side:not(.p219-profile):not(.p221-system):not(.p221-lab-console) :is(p,span,small){
+  color:#56656f!important;
+  -webkit-text-fill-color:#56656f!important;
+  opacity:1!important;
+}
+
+/* --------------------------------------------------------------- */
+/* Legacy case pages: remove leftover beige/white islands and use one glass language. */
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links){
+  width:min(1240px,calc(100% - 64px))!important;
+  margin:clamp(26px,3vw,48px) auto!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+  overflow:visible!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links)>.container,
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links)>.s51-container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:clamp(34px,4vw,58px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.76)!important;
+  box-shadow:0 24px 68px rgba(45,59,70,.085)!important;
+  backdrop-filter:blur(18px) saturate(105%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(105%)!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) .section-head,
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) .s51-head{
+  grid-template-columns:minmax(120px,.18fr) minmax(0,1fr)!important;
+  gap:28px!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2{
+  max-width:13ch!important;
+  font-size:clamp(50px,5vw,76px)!important;
+  line-height:.94!important;
+  letter-spacing:-.055em!important;
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2 em{
+  color:#465c6a!important;
+  -webkit-text-fill-color:#465c6a!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) :is(h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) :is(p,li){
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+
+/* Four-step CRM/taxi/factory rows get proper gaps and breathing room. */
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .s51-steps{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .s51-steps article{
+  min-width:0!important;
+  min-height:190px!important;
+  padding:22px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.88)!important;
+  box-shadow:0 14px 36px rgba(45,59,70,.05)!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .s51-steps article+article{
+  border-left-color:rgba(41,57,69,.13)!important;
+}
+
+/* Three-column story blocks (Swift Calendar etc.) get the same card rhythm. */
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .story{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .story>article{
+  min-width:0!important;
+  padding:22px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.88)!important;
+  box-shadow:0 14px 36px rgba(45,59,70,.05)!important;
+}
+
+/* SheetPilot had a light section with white typography from the old dark theme. */
+html body[data-wow-route="sheetpilot-ai"] main.p132-case #gallery .section-head h2,
+html body[data-wow-route="sheetpilot-ai"] main.p132-case #gallery .section-head h2 em{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-wow-route="sheetpilot-ai"] main.p132-case #gallery .section-head p,
+html body[data-wow-route="sheetpilot-ai"] main.p132-case>section.p132-panel:not(.stage173-case-links) p{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+
+/* Contact sections join the same light/glass system. */
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-end{
+  width:min(1240px,calc(100% - 64px))!important;
+  margin:clamp(30px,4vw,54px) auto!important;
+  padding:clamp(34px,4vw,58px)!important;
+  border:1px solid rgba(255,255,255,.78)!important;
+  border-radius:28px!important;
+  background:rgba(255,255,255,.80)!important;
+  color:#172027!important;
+  box-shadow:0 24px 68px rgba(45,59,70,.085)!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-end :is(h2,h3,strong){
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-end p{
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}
+html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-end a{
+  background:#172027!important;
+  border-color:#172027!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* Cookie settings button: small floating pill after consent instead of a naked footer link. */
+html body .growth-cookie-settings.stage95-footer-cookie:not([hidden]){
+  position:fixed!important;
+  z-index:9998!important;
+  left:50%!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:max(12px,env(safe-area-inset-bottom))!important;
+  transform:translateX(-50%)!important;
+  float:none!important;
+  width:auto!important;
+  max-width:none!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:7px 12px!important;
+  border:1px solid rgba(41,57,69,.13)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.90)!important;
+  color:#5a6973!important;
+  -webkit-text-fill-color:#5a6973!important;
+  box-shadow:0 10px 28px rgba(35,49,60,.10)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+  font-size:10px!important;
+  line-height:1!important;
+}
+
+/* --------------------------------------------------------------- */
+@media(max-width:1100px){
+  html body[data-page="services"] .stage174-popular__links{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .s51-steps{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:760px){
+  html body[data-ux-family] .p131-bridge .p131-bridge__inner{
+    width:calc(100% - 30px)!important;
+  }
+  html body[data-ux-family] .p131-bridge .p131-bridge__inner>span{
+    width:auto!important;
+  }
+  html body[data-page="services"] .stage174-popular__links{
+    grid-template-columns:1fr!important;
+  }
+  html body[data-page="about"] .p219-profile__axis{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links),
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-end{
+    width:calc(100% - 24px)!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links)>.container,
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links)>.s51-container{
+    padding:26px 20px!important;
+    border-radius:22px!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) .section-head,
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) .s51-head{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case>section.p132-panel:not(.p132-end):not(.stage173-case-links) h2{
+    max-width:100%!important;
+    font-size:clamp(40px,11vw,56px)!important;
+  }
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .s51-steps,
+  html body[data-ux-family="case"]:not([data-stage217-flagship]) main.p132-case .story{
+    grid-template-columns:1fr!important;
+  }
+}
+
+
+/* Stage244 cascade lock — SheetPilot gallery was overridden by an older #gallery rule. */
+html body[data-ux-family="case"][data-wow-route="sheetpilot-ai"] main.p132-case section#gallery.p132-panel .section-head h2,
+html body[data-ux-family="case"][data-wow-route="sheetpilot-ai"] main.p132-case section#gallery.p132-panel .section-head h2 em{
+  color:#172027!important;
+  -webkit-text-fill-color:#172027!important;
+}
+html body[data-ux-family="case"][data-wow-route="sheetpilot-ai"] main.p132-case section#gallery.p132-panel .section-head :is(p,span){
+  color:#52616b!important;
+  -webkit-text-fill-color:#52616b!important;
+}

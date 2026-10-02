@@ -1,0 +1,859 @@
+/* stage285 — single visual system for all inner RU/EN pages.
+   Runs after every historical stage and intentionally deactivates the old light-era
+   presentation without touching content, SEO, routes or real project media. */
+
+html[data-stage285="true"] body#averliq-n8n{
+  --s285-bg:#0b0913;
+  --s285-bg2:#100b18;
+  --s285-panel:#17101f;
+  --s285-panel2:#1d1426;
+  --s285-panel3:#24172e;
+  --s285-text:#f6f0ff;
+  --s285-copy:#c3b6cc;
+  --s285-muted:#9586a2;
+  --s285-line:rgba(255,255,255,.11);
+  --s285-line2:rgba(199,154,240,.25);
+  --s285-purple:#c79af0;
+  --s285-orange:#ff855f;
+  --s285-orange2:#ff653f;
+  color:var(--s285-text)!important;
+  background:
+    radial-gradient(900px 620px at 77% 8%,rgba(117,64,151,.16),transparent 63%),
+    radial-gradient(760px 520px at 12% 28%,rgba(75,39,107,.12),transparent 67%),
+    var(--s285-bg)!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+
+/* ---- document / page canvas ---- */
+html[data-stage285="true"],
+html[data-stage285="true"] body#averliq-n8n,
+html[data-stage285="true"] body#averliq-n8n main{
+  color-scheme:dark!important;
+  background-color:var(--s285-bg)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main{
+  overflow:clip!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section{
+  position:relative!important;
+  min-height:0!important;
+  border-color:rgba(255,255,255,.07)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section:not(:first-child):not(.stage277-rail){
+  border-top:1px solid rgba(255,255,255,.065)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section:nth-of-type(even):not(.stage277-rail){
+  background-color:rgba(18,12,25,.45)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section:nth-of-type(odd):not(:first-child):not(.stage277-rail){
+  background-color:rgba(11,9,19,.78)!important;
+}
+
+/* A consistent content width — fixes narrow islands inside a 1600–1900px canvas. */
+html[data-stage285="true"] body#averliq-n8n :is(
+  .p130-shell,.stage173-shell,.stage174-shell,.stage178-shell,
+  .stage277-shell,.stage280-shell,.intl-container,.intl-inner,
+  .x146-depth__inner,.secondary-demand__inner,.growth-shell
+){
+  width:min(1240px,calc(100% - 48px))!important;
+  max-width:1240px!important;
+  margin-inline:auto!important;
+}
+
+/* ---- header: belongs to the document, never floats over content ---- */
+html[data-stage285="true"] body#averliq-n8n :is(header#header.stage98-header,header.bc-head,.intl-header){
+  position:relative!important;
+  inset:auto!important;
+  top:auto!important;
+  z-index:30!important;
+  width:min(1440px,calc(100% - 32px))!important;
+  margin:10px auto 0!important;
+  color:var(--s285-text)!important;
+  background:rgba(22,15,31,.94)!important;
+  border:1px solid rgba(255,255,255,.13)!important;
+  border-radius:12px!important;
+  box-shadow:0 12px 42px rgba(0,0,0,.24)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+  transform:none!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.stage98-brand,.bc-brand,.stage98-nav a,.bc-nav a){
+  color:#eee5f5!important;
+  -webkit-text-fill-color:#eee5f5!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.stage98-cta,.bc-live,.stage98-mobile-cta){
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  background:linear-gradient(110deg,var(--s285-orange),var(--s285-orange2))!important;
+  border-color:transparent!important;
+  box-shadow:0 8px 24px rgba(255,101,63,.16)!important;
+}
+
+/* Old English breadcrumb/utility strips must not reintroduce ivory. */
+html[data-stage285="true"] body#averliq-n8n :is(
+  .intl-breadcrumb,.intl-breadcrumbs,.breadcrumbs,.breadcrumb,.intl-crumbs,
+  .intl-shell,.intl-page,.intl-main
+){
+  color:var(--s285-copy)!important;
+  background:var(--s285-bg)!important;
+  border-color:var(--s285-line)!important;
+}
+
+/* ---- section rhythm ---- */
+html[data-stage285="true"] body#averliq-n8n[data-stage284-kind="hub"] main>section:not(.stage277-rail),
+html[data-stage285="true"] body#averliq-n8n[data-stage284-kind="service"] main>section:not(.stage277-rail){
+  padding-block:clamp(52px,5vw,82px)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section:first-child{
+  padding-top:clamp(62px,6vw,96px)!important;
+}
+html[data-stage285="true"] body#averliq-n8n .stage277-rail{
+  background:
+    radial-gradient(720px 260px at 20% 50%,rgba(199,154,240,.10),transparent 62%),
+    #1c1025!important;
+  border-block:1px solid rgba(199,154,240,.18)!important;
+}
+
+/* ---- typography: remove microscopic labels and mixed ink colors ---- */
+html[data-stage285="true"] body#averliq-n8n main :is(h1,h2,h3,h4,strong,b){
+  color:var(--s285-text)!important;
+  -webkit-text-fill-color:var(--s285-text)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main :is(p,li){
+  color:var(--s285-copy)!important;
+  -webkit-text-fill-color:var(--s285-copy)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main p{
+  font-size:clamp(15px,1.03vw,17px)!important;
+  line-height:1.62!important;
+}
+html[data-stage285="true"] body#averliq-n8n main :is(small,.eyebrow,[class*="eyebrow"]){
+  color:#bca8ca!important;
+  -webkit-text-fill-color:#bca8ca!important;
+  font-size:max(11px,.72rem)!important;
+  line-height:1.35!important;
+}
+html[data-stage285="true"] body#averliq-n8n main h2{
+  letter-spacing:-.045em!important;
+  text-wrap:balance!important;
+}
+html[data-stage285="true"] body#averliq-n8n main h3{
+  letter-spacing:-.03em!important;
+}
+
+/* ---- core cards: one material system ---- */
+html[data-stage285="true"] body#averliq-n8n main :is(
+  .p130-hero-side,.p223-index,.p219-profile,.p219-profile__core,.p219-profile__proof,
+  .p130-tile,.p130-proof-stack>*,.p130-editorial-grid>*,
+  .p129-outcome,.p129-no-case,.secondary-demand__card,.x146-depth__card,
+  .stage173-group,.stage174-popular__links>a,.stage173-guide-grid>a,
+  .intl-card,.intl-panel,.intl-answer,.intl-cta-box,.intl-related,
+  .intl-links>a,.en-project-card,.en-project-copy,.feature-grid>.feature,
+  .dt-panel,.dt-tool-card,.card,.fact,.metric
+){
+  color:var(--s285-text)!important;
+  background:
+    radial-gradient(circle at 96% 0%,rgba(199,154,240,.055),transparent 11rem),
+    var(--s285-panel)!important;
+  border:1px solid var(--s285-line)!important;
+  box-shadow:none!important;
+}
+html[data-stage285="true"] body#averliq-n8n main :is(
+  .p130-hero-side,.p223-index,.p219-profile,.p219-profile__core,.p219-profile__proof,
+  .p130-tile,.p130-proof-stack>*,.p130-editorial-grid>*,
+  .p129-outcome,.p129-no-case,.secondary-demand__card,.x146-depth__card,
+  .stage173-group,.stage174-popular__links>a,.stage173-guide-grid>a,
+  .intl-card,.intl-panel,.intl-answer,.intl-cta-box,.intl-related,
+  .intl-links>a,.en-project-card,.en-project-copy,.feature-grid>.feature,
+  .dt-panel,.dt-tool-card,.card,.fact,.metric
+) :is(h2,h3,h4,strong,b){
+  color:var(--s285-text)!important;
+  -webkit-text-fill-color:var(--s285-text)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main :is(
+  .p130-hero-side,.p223-index,.p219-profile,.p219-profile__core,.p219-profile__proof,
+  .p130-tile,.p130-proof-stack>*,.p130-editorial-grid>*,
+  .p129-outcome,.p129-no-case,.secondary-demand__card,.x146-depth__card,
+  .stage173-group,.stage174-popular__links>a,.stage173-guide-grid>a,
+  .intl-card,.intl-panel,.intl-answer,.intl-cta-box,.intl-related,
+  .intl-links>a,.en-project-card,.en-project-copy,.feature-grid>.feature,
+  .dt-panel,.dt-tool-card,.card,.fact,.metric
+) :is(p,span,small,li){
+  color:var(--s285-copy)!important;
+  -webkit-text-fill-color:var(--s285-copy)!important;
+}
+
+/* ---- RU hub families ---- */
+html[data-stage285="true"] body#averliq-n8n :is(.p130-list-section,.p130-editorial,.stage174-popular,.stage173-map){
+  background-color:transparent!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-row{
+  min-height:0!important;
+  padding:22px 24px!important;
+  background:var(--s285-panel)!important;
+  border:1px solid var(--s285-line)!important;
+  border-radius:10px!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.stage173-group nav>a,.stage172-task-map__group a){
+  min-height:48px!important;
+  color:#eee5f5!important;
+  -webkit-text-fill-color:#eee5f5!important;
+  background:var(--s285-panel2)!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:8px!important;
+}
+
+/* ---- real media: keep the screenshot real, only fix its frame ---- */
+html[data-stage285="true"] body#averliq-n8n main :is(
+  .p130-tile__media,.p130-featured-media,.p233-case-media,.p129-case-media,
+  .en-project-media,.intl-media,.visual,.shot,.gallery,.stage280-media
+){
+  background:#100a17!important;
+  border-color:rgba(255,255,255,.09)!important;
+  overflow:hidden!important;
+}
+html[data-stage285="true"] body#averliq-n8n main :is(
+  .p130-tile__media,.p130-featured-media,.p233-case-media,.p129-case-media,
+  .en-project-media,.intl-media,.visual,.shot,.gallery,.stage280-media
+) img{
+  display:block!important;
+  max-width:100%!important;
+}
+
+/* Featured work was visibly broken by several historical grid rules.
+   Re-establish one deterministic composition. */
+html[data-stage285="true"] body#averliq-n8n .p130-featured-card{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr)!important;
+  min-height:520px!important;
+  overflow:hidden!important;
+  color:var(--s285-text)!important;
+  background:var(--s285-panel)!important;
+  border:1px solid var(--s285-line)!important;
+  border-radius:14px!important;
+  box-shadow:0 26px 74px rgba(0,0,0,.24)!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-featured-media{
+  grid-column:1!important;
+  grid-row:1!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:520px!important;
+  border-radius:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-featured-media img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-featured-copy{
+  grid-column:2!important;
+  grid-row:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  align-items:flex-start!important;
+  padding:clamp(30px,3.4vw,54px)!important;
+  color:var(--s285-text)!important;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(199,154,240,.08),transparent 16rem),
+    var(--s285-panel2)!important;
+}
+
+/* ---- about / trust: no giant frosted-white island ---- */
+html[data-stage285="true"] body#averliq-n8n :is(.p130-editorial,.p130-editorial-grid,.p130-proof-stack){
+  background:transparent!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-proof-stack{
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-proof-stack>*{
+  border-radius:12px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-editorial-statement{
+  padding:clamp(26px,3vw,42px)!important;
+  background:var(--s285-panel)!important;
+  border:1px solid var(--s285-line)!important;
+  border-radius:14px!important;
+}
+
+/* ---- English: remove the old grey/ivory page underneath the dark hero ---- */
+html[data-stage285="true"] body#averliq-n8n :is(.intl-shell,.intl-page){
+  background:var(--s285-bg)!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-container.intl-section,
+html[data-stage285="true"] body#averliq-n8n section.intl-container{
+  color:var(--s285-text)!important;
+  background:
+    radial-gradient(circle at 92% 0%,rgba(111,67,139,.08),transparent 18rem),
+    var(--s285-bg2)!important;
+  border-color:rgba(255,255,255,.07)!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-links{
+  gap:12px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-links>a{
+  min-height:112px!important;
+  padding:20px!important;
+  border-radius:10px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-links>a span{
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+
+/* ---- CTA/endcap ---- */
+html[data-stage285="true"] body#averliq-n8n :is(.p130-footer-cta,.stage173-endcap,.intl-cta,.intl-endcap){
+  color:var(--s285-text)!important;
+  background:
+    radial-gradient(circle at 86% 18%,rgba(199,154,240,.10),transparent 18rem),
+    var(--s285-bg2)!important;
+  border-color:rgba(199,154,240,.20)!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.p130-footer-cta,.stage173-endcap,.intl-cta,.intl-endcap) :is(.p130-shell,.stage173-endcap__inner,.intl-container,.intl-inner){
+  color:var(--s285-text)!important;
+  background:var(--s285-panel)!important;
+  border:1px solid var(--s285-line)!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.p130-footer-cta,.stage173-endcap,.intl-cta,.intl-endcap) a{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+}
+
+/* ---- interaction: n8n-like restrained motion, not AI-glow ---- */
+@media(hover:hover) and (pointer:fine){
+  html[data-stage285="true"] body#averliq-n8n main :is(
+    .p130-tile,.p129-outcome,.secondary-demand__card,.x146-depth__card,
+    .stage174-popular__links>a,.stage173-guide-grid>a,.intl-links>a,.en-project-card
+  ){
+    transition:transform .2s ease,border-color .2s ease,background-color .2s ease!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n main :is(
+    .p130-tile,.p129-outcome,.secondary-demand__card,.x146-depth__card,
+    .stage174-popular__links>a,.stage173-guide-grid>a,.intl-links>a,.en-project-card
+  ):hover{
+    transform:translateY(-3px)!important;
+    border-color:rgba(255,133,95,.38)!important;
+    background-color:var(--s285-panel3)!important;
+  }
+}
+
+/* ---- mobile ---- */
+@media(max-width:820px){
+  html[data-stage285="true"] body#averliq-n8n :is(
+    .p130-shell,.stage173-shell,.stage174-shell,.stage178-shell,
+    .stage277-shell,.stage280-shell,.intl-container,.intl-inner,
+    .x146-depth__inner,.secondary-demand__inner,.growth-shell
+  ){
+    width:min(100% - 24px,1240px)!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n :is(header#header.stage98-header,header.bc-head,.intl-header){
+    width:calc(100% - 20px)!important;
+    margin-top:6px!important;
+    border-radius:10px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n main>section:not(.stage277-rail){
+    padding-block:46px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p130-featured-card{
+    grid-template-columns:1fr!important;
+    min-height:0!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p130-featured-media{
+    grid-column:1!important;
+    grid-row:1!important;
+    min-height:260px!important;
+    height:260px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p130-featured-copy{
+    grid-column:1!important;
+    grid-row:2!important;
+    padding:24px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .intl-links>a{
+    min-height:0!important;
+  }
+}
+
+
+/* stage285.3 — composition + density rebuild
+   This is the actual layout pass: one width, one rhythm, no narrow EN islands,
+   no giant catalog gaps, no unrelated section geometries. */
+
+html[data-stage285="true"] body#averliq-n8n{
+  --s285-layout:1280px;
+  --s285-layout-wide:1360px;
+  --s285-section:54px;
+}
+
+/* One horizontal system across all inner pages. */
+html[data-stage285="true"] body#averliq-n8n :is(
+  .p130-shell,.stage173-shell,.stage174-shell,.stage178-shell,
+  .x146-depth__inner,.p275-wrap,.secondary-demand__shell,
+  .p131-bridge__inner,.stage173-endcap__inner,.intl-container,
+  .stage277-rail__inner
+){
+  width:min(var(--s285-layout),calc(100% - 48px))!important;
+  max-width:var(--s285-layout)!important;
+  margin-inline:auto!important;
+}
+html[data-stage285="true"] body#averliq-n8n .secondary-demand__shell{
+  width:min(var(--s285-layout-wide),calc(100% - 48px))!important;
+  max-width:var(--s285-layout-wide)!important;
+}
+
+/* Stop every historical stage from giving every section 80–150px of air. */
+html[data-stage285="true"] body#averliq-n8n main>section:not(.stage277-rail){
+  padding-block:var(--s285-section)!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>section:first-child{
+  padding-top:64px!important;
+  padding-bottom:64px!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.p131-bridge,.stage173-endcap,.stage178-route-note){
+  padding-block:30px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-footer-cta{
+  padding-block:44px!important;
+}
+
+/* The visual band is a visual accent, not another full screen. */
+html[data-stage285="true"] body#averliq-n8n .stage280-visual{
+  padding-block:38px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .stage280-wrap{
+  width:min(var(--s285-layout),calc(100% - 48px))!important;
+  max-width:var(--s285-layout)!important;
+  min-height:0!important;
+  height:auto!important;
+  margin-inline:auto!important;
+}
+
+/* ---------------- RU services ---------------- */
+html[data-stage285="true"] body#averliq-n8n .p275-wrap{
+  width:min(var(--s285-layout),calc(100% - 48px))!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p275-grid{
+  grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;
+  gap:clamp(36px,4vw,64px)!important;
+  align-items:center!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list-section{
+  padding-block:52px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-featured{
+  padding-block:48px!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.x146-depth,.secondary-demand--hub,.stage174-popular,.stage173-map){
+  padding-block:48px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .x146-depth__grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .secondary-demand__grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .stage174-popular__links{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .stage174-popular__links>a{
+  min-height:76px!important;
+}
+
+/* ---------------- RU guides ---------------- */
+/* Five giant 1240px rows were the main reason the guides page felt empty. */
+html[data-stage285="true"] body#averliq-n8n .p223-decision-groups{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p223-decision-group{
+  min-height:0!important;
+  padding:24px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p223-decision-group:nth-child(5){
+  grid-column:1 / -1!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p223-decision-cards{
+  gap:10px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .stage173-guide-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+
+/* ---------------- RU cases ---------------- */
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile{
+  grid-column:auto!important;
+  min-height:0!important;
+  border-radius:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(-n+3){
+  grid-column:span 1!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-tile__media{
+  height:clamp(240px,22vw,330px)!important;
+  min-height:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-tile__body{
+  min-height:0!important;
+  padding:22px!important;
+}
+
+/* ---------------- English geometry ---------------- */
+/* Old EN layout squeezed actual content to ~652px inside a 1240px shell. */
+html[data-stage285="true"] body#averliq-n8n .intl-shell{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n main>.intl-container{
+  width:min(var(--s285-layout),calc(100% - 48px))!important;
+  max-width:var(--s285-layout)!important;
+  margin-inline:auto!important;
+  padding-inline:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr)!important;
+  gap:clamp(34px,4vw,62px)!important;
+  align-items:center!important;
+  padding:56px!important;
+  min-height:0!important;
+  border-radius:18px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero>.x135-scene{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  pointer-events:none!important;
+  opacity:.55!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero>.stage277-canvas-art{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  pointer-events:none!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero>div:not(.stage277-canvas-art):not(.x135-scene){
+  width:auto!important;
+  max-width:760px!important;
+  margin:0!important;
+  grid-column:1!important;
+  position:relative!important;
+  z-index:2!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero-side{
+  width:auto!important;
+  max-width:none!important;
+  margin:0!important;
+  grid-column:2!important;
+  align-self:stretch!important;
+  position:relative!important;
+  z-index:2!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-hero h1{
+  max-width:12ch!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-section{
+  padding-block:50px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-section-head{
+  width:100%!important;
+  max-width:840px!important;
+  margin:0 0 28px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-answer{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:28px 32px!important;
+}
+html[data-stage285="true"] body#averliq-n8n :is(.intl-links,.intl-grid,.en-project-grid){
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-links{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-links>a{
+  min-height:124px!important;
+  padding:22px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .intl-cta-box{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:32px!important;
+  min-height:0!important;
+}
+
+/* EN case archive: two real project cards per row instead of a 652px single stack. */
+html[data-stage285="true"] body#averliq-n8n .en-project-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-card{
+  min-height:0!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-media{
+  min-height:240px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-copy{
+  min-height:0!important;
+  padding:22px!important;
+}
+
+/* Rail/footer should close the page, not become another oversized scene. */
+html[data-stage285="true"] body#averliq-n8n .stage277-rail__inner{
+  min-height:210px!important;
+  height:auto!important;
+}
+
+/* Responsive */
+@media(max-width:1000px){
+  html[data-stage285="true"] body#averliq-n8n{
+    --s285-section:44px;
+  }
+  html[data-stage285="true"] body#averliq-n8n .secondary-demand__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p223-decision-groups{
+    grid-template-columns:1fr!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p223-decision-group:nth-child(5){
+    grid-column:auto!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .intl-hero{
+    grid-template-columns:1fr!important;
+    padding:44px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .intl-hero>div:not(.stage277-canvas-art):not(.x135-scene),
+  html[data-stage285="true"] body#averliq-n8n .intl-hero-side{
+    grid-column:1!important;
+  }
+}
+@media(max-width:720px){
+  html[data-stage285="true"] body#averliq-n8n{
+    --s285-section:34px;
+  }
+  html[data-stage285="true"] body#averliq-n8n main>section:not(.stage277-rail){
+    padding-block:34px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n :is(
+    .p130-shell,.stage173-shell,.stage174-shell,.stage178-shell,
+    .x146-depth__inner,.p275-wrap,.secondary-demand__shell,
+    .p131-bridge__inner,.stage173-endcap__inner,.intl-container,
+    .stage277-rail__inner
+  ){
+    width:calc(100% - 24px)!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n :is(
+    .secondary-demand__grid,.stage174-popular__links,.stage173-guide-grid,
+    main.p130-hub[data-stage130-hub="cases"] .p130-mosaic,
+    .intl-links,.intl-grid,.en-project-grid
+  ){
+    grid-template-columns:1fr!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p275-grid{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .intl-hero{
+    width:calc(100% - 24px)!important;
+    padding:30px 22px!important;
+    gap:26px!important;
+    border-radius:14px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .stage280-visual{
+    padding-block:24px!important;
+  }
+}
+
+
+/* stage285.4 — dense catalog rebuild
+   Fix the three pages that still behaved like long legacy archives. */
+
+/* Services directory: 13 entries were still flowing through a broken implicit
+   7-column grid. Make it an intentional two-column directory. */
+html[data-stage285="true"] body#averliq-n8n .p130-list-section .p129-section-head{
+  grid-template-columns:minmax(220px,.55fr) minmax(0,1.45fr)!important;
+  gap:32px!important;
+  min-height:0!important;
+  height:auto!important;
+  margin-bottom:28px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+  width:100%!important;
+  height:auto!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list>.p130-row{
+  grid-column:auto!important;
+  width:auto!important;
+  min-width:0!important;
+  min-height:118px!important;
+  height:auto!important;
+  padding:20px 22px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list>.p224-specialist-label{
+  grid-column:1 / -1!important;
+  width:auto!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:12px 4px 4px!important;
+  background:transparent!important;
+  border:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list>.p130-row :is(h3,strong){
+  font-size:clamp(20px,1.45vw,26px)!important;
+  line-height:1.05!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p130-list>.p130-row :is(p,span){
+  line-height:1.45!important;
+}
+
+/* RU Cases: two editorial hero cards, then a compact three-column archive. */
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile{
+  grid-column:span 2!important;
+  width:auto!important;
+  height:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(-n+2){
+  grid-column:span 3!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(-n+2) .p130-tile__media{
+  height:320px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(n+3) .p130-tile__media{
+  height:220px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-tile__body{
+  padding:18px 19px 20px!important;
+  gap:7px!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(n+3) .p130-tile__body strong{
+  font-size:clamp(20px,1.45vw,26px)!important;
+  line-height:1.04!important;
+}
+html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(n+3) .p130-tile__body span{
+  font-size:14px!important;
+  line-height:1.45!important;
+}
+
+/* EN Cases: same editorial hierarchy as RU. */
+html[data-stage285="true"] body#averliq-n8n .en-project-grid{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card{
+  grid-column:span 2!important;
+  width:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  height:auto!important;
+  align-self:stretch!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card:nth-child(-n+2){
+  grid-column:span 3!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card .en-project-media{
+  height:220px!important;
+  min-height:220px!important;
+  max-height:220px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card:nth-child(-n+2) .en-project-media{
+  height:310px!important;
+  min-height:310px!important;
+  max-height:310px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card .en-project-media img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card .en-project-copy{
+  min-height:170px!important;
+  padding:18px 19px 20px!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card .en-project-copy h3{
+  font-size:clamp(20px,1.5vw,27px)!important;
+  line-height:1.04!important;
+}
+html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card .en-project-copy p{
+  font-size:14px!important;
+  line-height:1.5!important;
+}
+
+/* Make the directory intro blocks informational, not half-screen sections. */
+html[data-stage285="true"] body#averliq-n8n :is(.p214-curator,.p129-section-head){
+  min-height:0!important;
+}
+html[data-stage285="true"] body#averliq-n8n .p214-curator{
+  padding-block:26px!important;
+  margin-bottom:26px!important;
+}
+
+@media(max-width:1000px){
+  html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic,
+  html[data-stage285="true"] body#averliq-n8n .en-project-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile,
+  html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile:nth-child(-n+2),
+  html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card,
+  html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card:nth-child(-n+2){
+    grid-column:auto!important;
+  }
+}
+@media(max-width:720px){
+  html[data-stage285="true"] body#averliq-n8n .p130-list,
+  html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic,
+  html[data-stage285="true"] body#averliq-n8n .en-project-grid{
+    grid-template-columns:1fr!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p130-list-section .p129-section-head{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n .p130-list>.p224-specialist-label{
+    grid-column:auto!important;
+  }
+  html[data-stage285="true"] body#averliq-n8n main.p130-hub[data-stage130-hub="cases"] .p130-mosaic>.p130-tile,
+  html[data-stage285="true"] body#averliq-n8n .en-project-grid>.en-project-card{
+    grid-column:auto!important;
+  }
+}
